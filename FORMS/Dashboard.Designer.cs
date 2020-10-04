@@ -44,8 +44,12 @@
             this.pnlUserContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlLogo = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblCurrentTask = new Guna.UI.WinForms.GunaLabel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
+            this.pnlContainer.SuspendLayout();
             this.pnlUserContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -86,6 +90,7 @@
             this.btnDash.TabIndex = 0;
             this.btnDash.Text = "DASHBOARD";
             this.btnDash.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDash.Click += new System.EventHandler(this.btnDash_Click);
             // 
             // btnEmployees
             // 
@@ -107,6 +112,7 @@
             this.btnEmployees.TabIndex = 0;
             this.btnEmployees.Text = "EMPLOYEES";
             this.btnEmployees.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnEmployees.Click += new System.EventHandler(this.btnEmployees_Click);
             // 
             // btnDeductions
             // 
@@ -128,6 +134,7 @@
             this.btnDeductions.TabIndex = 0;
             this.btnDeductions.Text = "DEDUCTIONS";
             this.btnDeductions.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDeductions.Click += new System.EventHandler(this.btnDeductions_Click);
             // 
             // btnReports
             // 
@@ -149,6 +156,7 @@
             this.btnReports.TabIndex = 0;
             this.btnReports.Text = "REPORTS";
             this.btnReports.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnPayroll
             // 
@@ -170,18 +178,19 @@
             this.btnPayroll.TabIndex = 0;
             this.btnPayroll.Text = "PAYROLL";
             this.btnPayroll.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPayroll.Click += new System.EventHandler(this.btnPayroll_Click);
             // 
             // pnlContainer
             // 
             this.pnlContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlContainer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlContainer.BackgroundImage")));
             this.pnlContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlContainer.Location = new System.Drawing.Point(197, 79);
+            this.pnlContainer.Controls.Add(this.guna2PictureBox1);
+            this.pnlContainer.Location = new System.Drawing.Point(197, 65);
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.ShadowDecoration.Parent = this.pnlContainer;
-            this.pnlContainer.Size = new System.Drawing.Size(1096, 709);
+            this.pnlContainer.Size = new System.Drawing.Size(1096, 726);
             this.pnlContainer.TabIndex = 1;
             // 
             // guna2ControlBox1
@@ -292,17 +301,43 @@
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.guna2Panel2.BorderRadius = 20;
+            this.guna2Panel2.BorderThickness = 1;
             this.guna2Panel2.Location = new System.Drawing.Point(6, 162);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
             this.guna2Panel2.Size = new System.Drawing.Size(170, 7);
             this.guna2Panel2.TabIndex = 2;
             // 
+            // lblCurrentTask
+            // 
+            this.lblCurrentTask.AutoSize = true;
+            this.lblCurrentTask.Font = new System.Drawing.Font("Nunito ExtraBold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentTask.Location = new System.Drawing.Point(197, 12);
+            this.lblCurrentTask.Name = "lblCurrentTask";
+            this.lblCurrentTask.Size = new System.Drawing.Size(181, 34);
+            this.lblCurrentTask.TabIndex = 6;
+            this.lblCurrentTask.Text = "DASHBOARD";
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.Location = new System.Drawing.Point(83, 73);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(939, 580);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 0;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 800);
+            this.Controls.Add(this.lblCurrentTask);
             this.Controls.Add(this.pnlUserContainer);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.guna2ControlBox3);
@@ -316,9 +351,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.guna2Panel1.ResumeLayout(false);
+            this.pnlContainer.ResumeLayout(false);
             this.pnlUserContainer.ResumeLayout(false);
             this.pnlUserContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -339,5 +377,7 @@
         private Guna.UI2.WinForms.Guna2Panel pnlUserContainer;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel pnlLogo;
+        private Guna.UI.WinForms.GunaLabel lblCurrentTask;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }
