@@ -13,9 +13,26 @@ namespace BiometricPayroll.FORMS
 {
     public partial class Dashboard : Form
     {
+        public string displayName;
+        public string myID;
+        public string myEmail;
+
         public Dashboard()
         {
             InitializeComponent();
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            makeDashRound.BorderRadius = 30;
+            if(displayName != "")
+            {
+                lblUserNameDisplay.Text = displayName;
+            }
+            else
+            {
+                lblUserNameDisplay.Text = "Username";
+            }
         }
 
         private Guna.UI2.WinForms.Guna2Button currBtn = null;
@@ -24,6 +41,7 @@ namespace BiometricPayroll.FORMS
 
         private void pressedBtn(Guna.UI2.WinForms.Guna2Button cBtn)
         {
+            Dashboard dash = new Dashboard();
             if (currBtn != null)
             {
                 currBtn.FillColor = Color.Transparent;
@@ -32,6 +50,7 @@ namespace BiometricPayroll.FORMS
 
             currBtn = cBtn;
             lblCurrentTask.Text = cBtn.Text;
+            dash.Text = "Biometric Payroll - " + cBtn.Text;
             cBtn.FillColor = Color.White;
             cBtn.ForeColor = Color.FromArgb(253, 104, 84);
             cBtn.Font = new Font("Nunito", 12, FontStyle.Bold);
@@ -57,6 +76,9 @@ namespace BiometricPayroll.FORMS
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            displayName = "";
+            myID = "";
+            myEmail = "";
             this.Hide();
 
             frmLogin login = new frmLogin();
@@ -89,12 +111,31 @@ namespace BiometricPayroll.FORMS
 
         private void btnDash_Click(object sender, EventArgs e)
         {
+            Dashboard dash = new Dashboard();
             this.pressedBtn(btnDash);
 
             if (child != null)
             {
                 child.Close();
             }
+
+            dash.Text = "Biometric Payroll";
+        }
+
+        private void gunaMaximizeBtn_Click(object sender, EventArgs e)
+        {            
+            if(makeDashRound.BorderRadius == 0)
+            {
+                makeDashRound.BorderRadius = 30;
+            }else if (makeDashRound.BorderRadius == 30)
+            {
+                makeDashRound.BorderRadius = 0;
+            }
+        }
+
+        private void gunaMinimizeBtn_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
