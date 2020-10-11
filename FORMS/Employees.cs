@@ -70,12 +70,16 @@ namespace BiometricPayroll.FORMS
         {
             this.openChildForm(new AddEmployee());
             this.pressedBtn(btnAddEmp);
+            searchPanel.Visible = false;
+            txtBxSearch.Visible = false;
         }
 
         private void showAllEmployees_Click(object sender, EventArgs e)
         {
             this.openChildForm(new DisplayEmployees());
             this.pressedBtn(showAllEmployees);
+
+            
         }
 
        

@@ -50,7 +50,7 @@ namespace BiometricPayroll.FORMS
 
             currBtn = cBtn;
             lblCurrentTask.Text = cBtn.Text;
-            dash.Text = "Biometric Payroll - " + cBtn.Text;
+            this.Text = "Biometric Payroll - " + cBtn.Text;
             cBtn.FillColor = Color.White;
             cBtn.ForeColor = Color.FromArgb(253, 104, 84);
             cBtn.Font = new Font("Nunito", 12, FontStyle.Bold);
@@ -136,6 +136,11 @@ namespace BiometricPayroll.FORMS
         private void gunaMinimizeBtn_Click(object sender, EventArgs e)
         {
            
+        }
+
+        public void setCurrTask(string name)
+        {
+            this.lblCurrentTask.Text = name;
         }
     }
 }

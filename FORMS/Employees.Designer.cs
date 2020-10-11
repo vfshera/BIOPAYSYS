@@ -29,17 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employees));
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddEmp = new Guna.UI2.WinForms.Guna2Button();
             this.empContainerPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.showAllEmployees = new Guna.UI2.WinForms.Guna2Button();
             this.searchPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtBxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.searchElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.searchPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -81,14 +78,14 @@
             this.empContainerPanel.BorderRadius = 2;
             this.empContainerPanel.FillColor = System.Drawing.Color.White;
             this.empContainerPanel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.empContainerPanel.Location = new System.Drawing.Point(6, 57);
-            this.empContainerPanel.MinimumSize = new System.Drawing.Size(1083, 664);
+            this.empContainerPanel.Location = new System.Drawing.Point(12, 57);
+            this.empContainerPanel.MinimumSize = new System.Drawing.Size(1075, 664);
             this.empContainerPanel.Name = "empContainerPanel";
             this.empContainerPanel.ShadowDecoration.Depth = 2;
             this.empContainerPanel.ShadowDecoration.Enabled = true;
             this.empContainerPanel.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.empContainerPanel.ShadowDecoration.Parent = this.empContainerPanel;
-            this.empContainerPanel.Size = new System.Drawing.Size(1083, 664);
+            this.empContainerPanel.Size = new System.Drawing.Size(1075, 664);
             this.empContainerPanel.TabIndex = 3;
             // 
             // showAllEmployees
@@ -118,56 +115,44 @@
             this.searchPanel.BackColor = System.Drawing.Color.White;
             this.searchPanel.BorderRadius = 15;
             this.searchPanel.BorderThickness = 1;
-            this.searchPanel.Controls.Add(this.guna2PictureBox1);
-            this.searchPanel.Controls.Add(this.guna2TextBox1);
-            this.searchPanel.Location = new System.Drawing.Point(28, 6);
+            this.searchPanel.Controls.Add(this.txtBxSearch);
+            this.searchPanel.Location = new System.Drawing.Point(14, 6);
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.ShadowDecoration.Parent = this.searchPanel;
             this.searchPanel.Size = new System.Drawing.Size(437, 43);
             this.searchPanel.TabIndex = 0;
             // 
+            // txtBxSearch
+            // 
+            this.txtBxSearch.BackColor = System.Drawing.Color.Transparent;
+            this.txtBxSearch.BorderColor = System.Drawing.Color.Transparent;
+            this.txtBxSearch.BorderThickness = 0;
+            this.txtBxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBxSearch.DefaultText = "";
+            this.txtBxSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBxSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBxSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBxSearch.DisabledState.Parent = this.txtBxSearch;
+            this.txtBxSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBxSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBxSearch.FocusedState.Parent = this.txtBxSearch;
+            this.txtBxSearch.ForeColor = System.Drawing.Color.DimGray;
+            this.txtBxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBxSearch.HoverState.Parent = this.txtBxSearch;
+            this.txtBxSearch.Location = new System.Drawing.Point(25, 4);
+            this.txtBxSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBxSearch.Name = "txtBxSearch";
+            this.txtBxSearch.PasswordChar = '\0';
+            this.txtBxSearch.PlaceholderText = "";
+            this.txtBxSearch.SelectedText = "";
+            this.txtBxSearch.ShadowDecoration.Parent = this.txtBxSearch;
+            this.txtBxSearch.Size = new System.Drawing.Size(342, 33);
+            this.txtBxSearch.TabIndex = 0;
+            // 
             // searchElipse
             // 
             this.searchElipse.BorderRadius = 40;
             this.searchElipse.TargetControl = this.searchPanel;
-            // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox1.BorderThickness = 0;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.FocusedState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.HoverState.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Location = new System.Drawing.Point(25, 4);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
-            this.guna2TextBox1.Size = new System.Drawing.Size(342, 33);
-            this.guna2TextBox1.TabIndex = 0;
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.Location = new System.Drawing.Point(381, 8);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(30, 27);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 1;
-            this.guna2PictureBox1.TabStop = false;
             // 
             // Employees
             // 
@@ -188,7 +173,6 @@
             this.Text = "Employees";
             this.Load += new System.EventHandler(this.Employees_Load);
             this.searchPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,7 +186,6 @@
         private Guna.UI2.WinForms.Guna2Button showAllEmployees;
         private Guna.UI2.WinForms.Guna2Panel searchPanel;
         private Guna.UI2.WinForms.Guna2Elipse searchElipse;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtBxSearch;
     }
 }
