@@ -38,7 +38,6 @@
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.txtSurname = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
-            this.txtDateOfBirth = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.txtAddress = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
@@ -46,9 +45,7 @@
             this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
-            this.guna2TextBox8 = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
-            this.txtMaritalStatus = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel10 = new Guna.UI.WinForms.GunaLabel();
             this.txtEmmergencyNo = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel11 = new Guna.UI.WinForms.GunaLabel();
@@ -56,26 +53,35 @@
             this.gunaLabel12 = new Guna.UI.WinForms.GunaLabel();
             this.txtWorkID = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel13 = new Guna.UI.WinForms.GunaLabel();
-            this.txtWorkStatus = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel14 = new Guna.UI.WinForms.GunaLabel();
-            this.txtDateHired = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel15 = new Guna.UI.WinForms.GunaLabel();
             this.txtNationalID = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel16 = new Guna.UI.WinForms.GunaLabel();
             this.fingerPrintBox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.txtFingerprintStatus = new Guna.UI.WinForms.GunaLabel();
             this.fieldsPanel = new Guna.UI.WinForms.GunaElipsePanel();
+            this.pickerDOB = new Guna.UI.WinForms.GunaDateTimePicker();
+            this.pickerDateHired = new Guna.UI.WinForms.GunaDateTimePicker();
+            this.btnEmpDetailCancel = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnSaveEmployee = new Guna.UI.WinForms.GunaAdvenceButton();
             this.printPanel = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaAdvenceButton1 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnEnroll = new Guna.UI.WinForms.GunaAdvenceButton();
             this.printPanelElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.empFieldsElipse = new Guna.UI.WinForms.GunaElipse(this.components);
-            this.btnSaveEmployee = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.btnEnroll = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.gunaAdvenceButton1 = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.genderDropDown = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.maritalStatusDropDown = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.workStatusDropDown = new Guna.UI2.WinForms.Guna2ComboBox();
             addEmployeeElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.fingerPrintBox)).BeginInit();
             this.fieldsPanel.SuspendLayout();
             this.printPanel.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // addEmployeeElipse
+            // 
+            addEmployeeElipse.BorderRadius = 0;
+            addEmployeeElipse.TargetControl = this;
             // 
             // gunaLabel1
             // 
@@ -90,9 +96,8 @@
             // txtFirstName
             // 
             this.txtFirstName.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtFirstName.BorderColor = System.Drawing.Color.White;
+            this.txtFirstName.BorderColor = System.Drawing.SystemColors.Control;
             this.txtFirstName.BorderRadius = 7;
-            this.txtFirstName.BorderThickness = 0;
             this.txtFirstName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtFirstName.DefaultText = "";
             this.txtFirstName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -103,11 +108,12 @@
             this.txtFirstName.FillColor = System.Drawing.SystemColors.Control;
             this.txtFirstName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFirstName.FocusedState.Parent = this.txtFirstName;
+            this.txtFirstName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstName.ForeColor = System.Drawing.Color.Black;
             this.txtFirstName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFirstName.HoverState.Parent = this.txtFirstName;
             this.txtFirstName.Location = new System.Drawing.Point(45, 55);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtFirstName.MaxLength = 18;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.PasswordChar = '\0';
             this.txtFirstName.PlaceholderText = "";
@@ -115,6 +121,7 @@
             this.txtFirstName.ShadowDecoration.Parent = this.txtFirstName;
             this.txtFirstName.Size = new System.Drawing.Size(310, 66);
             this.txtFirstName.TabIndex = 1;
+            this.txtFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateTextOnKeyPress);
             // 
             // gunaLabel2
             // 
@@ -129,9 +136,8 @@
             // txtSecondName
             // 
             this.txtSecondName.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtSecondName.BorderColor = System.Drawing.Color.White;
+            this.txtSecondName.BorderColor = System.Drawing.SystemColors.Control;
             this.txtSecondName.BorderRadius = 7;
-            this.txtSecondName.BorderThickness = 0;
             this.txtSecondName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSecondName.DefaultText = "";
             this.txtSecondName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -142,6 +148,8 @@
             this.txtSecondName.FillColor = System.Drawing.SystemColors.Control;
             this.txtSecondName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSecondName.FocusedState.Parent = this.txtSecondName;
+            this.txtSecondName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSecondName.ForeColor = System.Drawing.Color.Black;
             this.txtSecondName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSecondName.HoverState.Parent = this.txtSecondName;
             this.txtSecondName.Location = new System.Drawing.Point(422, 55);
@@ -153,6 +161,7 @@
             this.txtSecondName.ShadowDecoration.Parent = this.txtSecondName;
             this.txtSecondName.Size = new System.Drawing.Size(310, 66);
             this.txtSecondName.TabIndex = 1;
+            this.txtSecondName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateTextOnKeyPress);
             // 
             // gunaLabel3
             // 
@@ -167,9 +176,8 @@
             // txtSurname
             // 
             this.txtSurname.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtSurname.BorderColor = System.Drawing.Color.White;
+            this.txtSurname.BorderColor = System.Drawing.SystemColors.Control;
             this.txtSurname.BorderRadius = 7;
-            this.txtSurname.BorderThickness = 0;
             this.txtSurname.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSurname.DefaultText = "";
             this.txtSurname.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -180,6 +188,8 @@
             this.txtSurname.FillColor = System.Drawing.SystemColors.Control;
             this.txtSurname.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSurname.FocusedState.Parent = this.txtSurname;
+            this.txtSurname.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSurname.ForeColor = System.Drawing.Color.Black;
             this.txtSurname.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSurname.HoverState.Parent = this.txtSurname;
             this.txtSurname.Location = new System.Drawing.Point(808, 55);
@@ -191,6 +201,7 @@
             this.txtSurname.ShadowDecoration.Parent = this.txtSurname;
             this.txtSurname.Size = new System.Drawing.Size(310, 66);
             this.txtSurname.TabIndex = 1;
+            this.txtSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateTextOnKeyPress);
             // 
             // gunaLabel4
             // 
@@ -201,34 +212,6 @@
             this.gunaLabel4.Size = new System.Drawing.Size(137, 28);
             this.gunaLabel4.TabIndex = 0;
             this.gunaLabel4.Text = "Date of Birth";
-            // 
-            // txtDateOfBirth
-            // 
-            this.txtDateOfBirth.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtDateOfBirth.BorderColor = System.Drawing.Color.White;
-            this.txtDateOfBirth.BorderRadius = 7;
-            this.txtDateOfBirth.BorderThickness = 0;
-            this.txtDateOfBirth.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDateOfBirth.DefaultText = "";
-            this.txtDateOfBirth.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtDateOfBirth.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtDateOfBirth.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDateOfBirth.DisabledState.Parent = this.txtDateOfBirth;
-            this.txtDateOfBirth.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDateOfBirth.FillColor = System.Drawing.SystemColors.Control;
-            this.txtDateOfBirth.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDateOfBirth.FocusedState.Parent = this.txtDateOfBirth;
-            this.txtDateOfBirth.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDateOfBirth.HoverState.Parent = this.txtDateOfBirth;
-            this.txtDateOfBirth.Location = new System.Drawing.Point(422, 324);
-            this.txtDateOfBirth.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtDateOfBirth.Name = "txtDateOfBirth";
-            this.txtDateOfBirth.PasswordChar = '\0';
-            this.txtDateOfBirth.PlaceholderText = "";
-            this.txtDateOfBirth.SelectedText = "";
-            this.txtDateOfBirth.ShadowDecoration.Parent = this.txtDateOfBirth;
-            this.txtDateOfBirth.Size = new System.Drawing.Size(310, 66);
-            this.txtDateOfBirth.TabIndex = 1;
             // 
             // gunaLabel5
             // 
@@ -242,9 +225,8 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.BorderColor = System.Drawing.Color.White;
+            this.txtAddress.BorderColor = System.Drawing.SystemColors.Control;
             this.txtAddress.BorderRadius = 7;
-            this.txtAddress.BorderThickness = 0;
             this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAddress.DefaultText = "";
             this.txtAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -255,6 +237,8 @@
             this.txtAddress.FillColor = System.Drawing.SystemColors.Control;
             this.txtAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAddress.FocusedState.Parent = this.txtAddress;
+            this.txtAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.ForeColor = System.Drawing.Color.Black;
             this.txtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAddress.HoverState.Parent = this.txtAddress;
             this.txtAddress.Location = new System.Drawing.Point(43, 185);
@@ -279,9 +263,8 @@
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.BorderColor = System.Drawing.Color.White;
+            this.txtPhoneNumber.BorderColor = System.Drawing.SystemColors.Control;
             this.txtPhoneNumber.BorderRadius = 7;
-            this.txtPhoneNumber.BorderThickness = 0;
             this.txtPhoneNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPhoneNumber.DefaultText = "";
             this.txtPhoneNumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -292,6 +275,8 @@
             this.txtPhoneNumber.FillColor = System.Drawing.SystemColors.Control;
             this.txtPhoneNumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPhoneNumber.FocusedState.Parent = this.txtPhoneNumber;
+            this.txtPhoneNumber.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhoneNumber.ForeColor = System.Drawing.Color.Black;
             this.txtPhoneNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPhoneNumber.HoverState.Parent = this.txtPhoneNumber;
             this.txtPhoneNumber.Location = new System.Drawing.Point(422, 185);
@@ -303,6 +288,7 @@
             this.txtPhoneNumber.ShadowDecoration.Parent = this.txtPhoneNumber;
             this.txtPhoneNumber.Size = new System.Drawing.Size(310, 66);
             this.txtPhoneNumber.TabIndex = 1;
+            this.txtPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateNumberOnKeyPress);
             // 
             // gunaLabel7
             // 
@@ -316,9 +302,8 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.BorderColor = System.Drawing.Color.White;
+            this.txtEmail.BorderColor = System.Drawing.SystemColors.Control;
             this.txtEmail.BorderRadius = 7;
-            this.txtEmail.BorderThickness = 0;
             this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmail.DefaultText = "";
             this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -329,6 +314,8 @@
             this.txtEmail.FillColor = System.Drawing.SystemColors.Control;
             this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail.FocusedState.Parent = this.txtEmail;
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.ForeColor = System.Drawing.Color.Black;
             this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail.HoverState.Parent = this.txtEmail;
             this.txtEmail.Location = new System.Drawing.Point(805, 185);
@@ -340,43 +327,17 @@
             this.txtEmail.ShadowDecoration.Parent = this.txtEmail;
             this.txtEmail.Size = new System.Drawing.Size(310, 66);
             this.txtEmail.TabIndex = 1;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // gunaLabel8
             // 
             this.gunaLabel8.AutoSize = true;
             this.gunaLabel8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.gunaLabel8.Location = new System.Drawing.Point(806, 292);
+            this.gunaLabel8.Location = new System.Drawing.Point(806, 293);
             this.gunaLabel8.Name = "gunaLabel8";
             this.gunaLabel8.Size = new System.Drawing.Size(80, 28);
             this.gunaLabel8.TabIndex = 0;
             this.gunaLabel8.Text = "Gender";
-            // 
-            // guna2TextBox8
-            // 
-            this.guna2TextBox8.BorderColor = System.Drawing.Color.White;
-            this.guna2TextBox8.BorderRadius = 7;
-            this.guna2TextBox8.BorderThickness = 0;
-            this.guna2TextBox8.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox8.DefaultText = "";
-            this.guna2TextBox8.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox8.DisabledState.Parent = this.guna2TextBox8;
-            this.guna2TextBox8.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox8.FillColor = System.Drawing.SystemColors.Control;
-            this.guna2TextBox8.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox8.FocusedState.Parent = this.guna2TextBox8;
-            this.guna2TextBox8.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox8.HoverState.Parent = this.guna2TextBox8;
-            this.guna2TextBox8.Location = new System.Drawing.Point(807, 321);
-            this.guna2TextBox8.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.guna2TextBox8.Name = "guna2TextBox8";
-            this.guna2TextBox8.PasswordChar = '\0';
-            this.guna2TextBox8.PlaceholderText = "";
-            this.guna2TextBox8.SelectedText = "";
-            this.guna2TextBox8.ShadowDecoration.Parent = this.guna2TextBox8;
-            this.guna2TextBox8.Size = new System.Drawing.Size(310, 66);
-            this.guna2TextBox8.TabIndex = 1;
             // 
             // gunaLabel9
             // 
@@ -387,33 +348,6 @@
             this.gunaLabel9.Size = new System.Drawing.Size(146, 28);
             this.gunaLabel9.TabIndex = 0;
             this.gunaLabel9.Text = "Marital Status";
-            // 
-            // txtMaritalStatus
-            // 
-            this.txtMaritalStatus.BorderColor = System.Drawing.Color.White;
-            this.txtMaritalStatus.BorderRadius = 7;
-            this.txtMaritalStatus.BorderThickness = 0;
-            this.txtMaritalStatus.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMaritalStatus.DefaultText = "";
-            this.txtMaritalStatus.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtMaritalStatus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtMaritalStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMaritalStatus.DisabledState.Parent = this.txtMaritalStatus;
-            this.txtMaritalStatus.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMaritalStatus.FillColor = System.Drawing.SystemColors.Control;
-            this.txtMaritalStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaritalStatus.FocusedState.Parent = this.txtMaritalStatus;
-            this.txtMaritalStatus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaritalStatus.HoverState.Parent = this.txtMaritalStatus;
-            this.txtMaritalStatus.Location = new System.Drawing.Point(43, 321);
-            this.txtMaritalStatus.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtMaritalStatus.Name = "txtMaritalStatus";
-            this.txtMaritalStatus.PasswordChar = '\0';
-            this.txtMaritalStatus.PlaceholderText = "";
-            this.txtMaritalStatus.SelectedText = "";
-            this.txtMaritalStatus.ShadowDecoration.Parent = this.txtMaritalStatus;
-            this.txtMaritalStatus.Size = new System.Drawing.Size(310, 66);
-            this.txtMaritalStatus.TabIndex = 1;
             // 
             // gunaLabel10
             // 
@@ -427,9 +361,8 @@
             // 
             // txtEmmergencyNo
             // 
-            this.txtEmmergencyNo.BorderColor = System.Drawing.Color.White;
+            this.txtEmmergencyNo.BorderColor = System.Drawing.SystemColors.Control;
             this.txtEmmergencyNo.BorderRadius = 7;
-            this.txtEmmergencyNo.BorderThickness = 0;
             this.txtEmmergencyNo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmmergencyNo.DefaultText = "";
             this.txtEmmergencyNo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -440,6 +373,8 @@
             this.txtEmmergencyNo.FillColor = System.Drawing.SystemColors.Control;
             this.txtEmmergencyNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmmergencyNo.FocusedState.Parent = this.txtEmmergencyNo;
+            this.txtEmmergencyNo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmmergencyNo.ForeColor = System.Drawing.Color.Black;
             this.txtEmmergencyNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmmergencyNo.HoverState.Parent = this.txtEmmergencyNo;
             this.txtEmmergencyNo.Location = new System.Drawing.Point(43, 626);
@@ -451,6 +386,7 @@
             this.txtEmmergencyNo.ShadowDecoration.Parent = this.txtEmmergencyNo;
             this.txtEmmergencyNo.Size = new System.Drawing.Size(310, 66);
             this.txtEmmergencyNo.TabIndex = 1;
+            this.txtEmmergencyNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateNumberOnKeyPress);
             // 
             // gunaLabel11
             // 
@@ -464,9 +400,8 @@
             // 
             // txtJobPosition
             // 
-            this.txtJobPosition.BorderColor = System.Drawing.Color.White;
+            this.txtJobPosition.BorderColor = System.Drawing.SystemColors.Control;
             this.txtJobPosition.BorderRadius = 7;
-            this.txtJobPosition.BorderThickness = 0;
             this.txtJobPosition.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtJobPosition.DefaultText = "";
             this.txtJobPosition.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -477,6 +412,8 @@
             this.txtJobPosition.FillColor = System.Drawing.SystemColors.Control;
             this.txtJobPosition.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtJobPosition.FocusedState.Parent = this.txtJobPosition;
+            this.txtJobPosition.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJobPosition.ForeColor = System.Drawing.Color.Black;
             this.txtJobPosition.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtJobPosition.HoverState.Parent = this.txtJobPosition;
             this.txtJobPosition.Location = new System.Drawing.Point(422, 626);
@@ -488,6 +425,7 @@
             this.txtJobPosition.ShadowDecoration.Parent = this.txtJobPosition;
             this.txtJobPosition.Size = new System.Drawing.Size(310, 66);
             this.txtJobPosition.TabIndex = 1;
+            this.txtJobPosition.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateTextOnKeyPress);
             // 
             // gunaLabel12
             // 
@@ -501,9 +439,8 @@
             // 
             // txtWorkID
             // 
-            this.txtWorkID.BorderColor = System.Drawing.Color.White;
+            this.txtWorkID.BorderColor = System.Drawing.SystemColors.Control;
             this.txtWorkID.BorderRadius = 7;
-            this.txtWorkID.BorderThickness = 0;
             this.txtWorkID.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtWorkID.DefaultText = "";
             this.txtWorkID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -514,6 +451,8 @@
             this.txtWorkID.FillColor = System.Drawing.SystemColors.Control;
             this.txtWorkID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtWorkID.FocusedState.Parent = this.txtWorkID;
+            this.txtWorkID.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWorkID.ForeColor = System.Drawing.Color.Black;
             this.txtWorkID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtWorkID.HoverState.Parent = this.txtWorkID;
             this.txtWorkID.Location = new System.Drawing.Point(805, 626);
@@ -536,33 +475,6 @@
             this.gunaLabel13.TabIndex = 0;
             this.gunaLabel13.Text = "Work Status";
             // 
-            // txtWorkStatus
-            // 
-            this.txtWorkStatus.BorderColor = System.Drawing.Color.White;
-            this.txtWorkStatus.BorderRadius = 7;
-            this.txtWorkStatus.BorderThickness = 0;
-            this.txtWorkStatus.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtWorkStatus.DefaultText = "";
-            this.txtWorkStatus.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtWorkStatus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtWorkStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtWorkStatus.DisabledState.Parent = this.txtWorkStatus;
-            this.txtWorkStatus.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtWorkStatus.FillColor = System.Drawing.SystemColors.Control;
-            this.txtWorkStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtWorkStatus.FocusedState.Parent = this.txtWorkStatus;
-            this.txtWorkStatus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtWorkStatus.HoverState.Parent = this.txtWorkStatus;
-            this.txtWorkStatus.Location = new System.Drawing.Point(43, 469);
-            this.txtWorkStatus.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtWorkStatus.Name = "txtWorkStatus";
-            this.txtWorkStatus.PasswordChar = '\0';
-            this.txtWorkStatus.PlaceholderText = "";
-            this.txtWorkStatus.SelectedText = "";
-            this.txtWorkStatus.ShadowDecoration.Parent = this.txtWorkStatus;
-            this.txtWorkStatus.Size = new System.Drawing.Size(310, 66);
-            this.txtWorkStatus.TabIndex = 1;
-            // 
             // gunaLabel14
             // 
             this.gunaLabel14.AutoSize = true;
@@ -572,33 +484,6 @@
             this.gunaLabel14.Size = new System.Drawing.Size(115, 28);
             this.gunaLabel14.TabIndex = 0;
             this.gunaLabel14.Text = "Date Hired";
-            // 
-            // txtDateHired
-            // 
-            this.txtDateHired.BorderColor = System.Drawing.Color.White;
-            this.txtDateHired.BorderRadius = 7;
-            this.txtDateHired.BorderThickness = 0;
-            this.txtDateHired.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDateHired.DefaultText = "";
-            this.txtDateHired.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtDateHired.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtDateHired.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDateHired.DisabledState.Parent = this.txtDateHired;
-            this.txtDateHired.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDateHired.FillColor = System.Drawing.SystemColors.Control;
-            this.txtDateHired.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDateHired.FocusedState.Parent = this.txtDateHired;
-            this.txtDateHired.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDateHired.HoverState.Parent = this.txtDateHired;
-            this.txtDateHired.Location = new System.Drawing.Point(422, 469);
-            this.txtDateHired.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtDateHired.Name = "txtDateHired";
-            this.txtDateHired.PasswordChar = '\0';
-            this.txtDateHired.PlaceholderText = "";
-            this.txtDateHired.SelectedText = "";
-            this.txtDateHired.ShadowDecoration.Parent = this.txtDateHired;
-            this.txtDateHired.Size = new System.Drawing.Size(310, 66);
-            this.txtDateHired.TabIndex = 1;
             // 
             // gunaLabel15
             // 
@@ -612,9 +497,8 @@
             // 
             // txtNationalID
             // 
-            this.txtNationalID.BorderColor = System.Drawing.Color.White;
+            this.txtNationalID.BorderColor = System.Drawing.SystemColors.Control;
             this.txtNationalID.BorderRadius = 7;
-            this.txtNationalID.BorderThickness = 0;
             this.txtNationalID.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNationalID.DefaultText = "";
             this.txtNationalID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -625,6 +509,8 @@
             this.txtNationalID.FillColor = System.Drawing.SystemColors.Control;
             this.txtNationalID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNationalID.FocusedState.Parent = this.txtNationalID;
+            this.txtNationalID.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNationalID.ForeColor = System.Drawing.Color.Black;
             this.txtNationalID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNationalID.HoverState.Parent = this.txtNationalID;
             this.txtNationalID.Location = new System.Drawing.Point(805, 469);
@@ -636,11 +522,7 @@
             this.txtNationalID.ShadowDecoration.Parent = this.txtNationalID;
             this.txtNationalID.Size = new System.Drawing.Size(310, 66);
             this.txtNationalID.TabIndex = 1;
-            // 
-            // addEmployeeElipse
-            // 
-            addEmployeeElipse.BorderRadius = 0;
-            addEmployeeElipse.TargetControl = this;
+            this.txtNationalID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateNumberOnKeyPress);
             // 
             // gunaLabel16
             // 
@@ -683,10 +565,14 @@
             // 
             this.fieldsPanel.BackColor = System.Drawing.Color.White;
             this.fieldsPanel.BaseColor = System.Drawing.Color.White;
+            this.fieldsPanel.Controls.Add(this.workStatusDropDown);
+            this.fieldsPanel.Controls.Add(this.maritalStatusDropDown);
+            this.fieldsPanel.Controls.Add(this.genderDropDown);
+            this.fieldsPanel.Controls.Add(this.pickerDOB);
+            this.fieldsPanel.Controls.Add(this.pickerDateHired);
+            this.fieldsPanel.Controls.Add(this.btnEmpDetailCancel);
             this.fieldsPanel.Controls.Add(this.btnSaveEmployee);
             this.fieldsPanel.Controls.Add(this.txtWorkID);
-            this.fieldsPanel.Controls.Add(this.guna2TextBox8);
-            this.fieldsPanel.Controls.Add(this.txtDateOfBirth);
             this.fieldsPanel.Controls.Add(this.gunaLabel12);
             this.fieldsPanel.Controls.Add(this.gunaLabel8);
             this.fieldsPanel.Controls.Add(this.gunaLabel4);
@@ -698,7 +584,6 @@
             this.fieldsPanel.Controls.Add(this.gunaLabel11);
             this.fieldsPanel.Controls.Add(this.gunaLabel7);
             this.fieldsPanel.Controls.Add(this.gunaLabel3);
-            this.fieldsPanel.Controls.Add(this.txtDateHired);
             this.fieldsPanel.Controls.Add(this.txtEmmergencyNo);
             this.fieldsPanel.Controls.Add(this.txtPhoneNumber);
             this.fieldsPanel.Controls.Add(this.txtSecondName);
@@ -706,9 +591,7 @@
             this.fieldsPanel.Controls.Add(this.gunaLabel10);
             this.fieldsPanel.Controls.Add(this.gunaLabel6);
             this.fieldsPanel.Controls.Add(this.gunaLabel2);
-            this.fieldsPanel.Controls.Add(this.txtWorkStatus);
             this.fieldsPanel.Controls.Add(this.gunaLabel13);
-            this.fieldsPanel.Controls.Add(this.txtMaritalStatus);
             this.fieldsPanel.Controls.Add(this.gunaLabel9);
             this.fieldsPanel.Controls.Add(this.txtAddress);
             this.fieldsPanel.Controls.Add(this.gunaLabel5);
@@ -719,30 +602,91 @@
             this.fieldsPanel.Size = new System.Drawing.Size(1174, 821);
             this.fieldsPanel.TabIndex = 4;
             // 
-            // printPanel
+            // pickerDOB
             // 
-            this.printPanel.BackColor = System.Drawing.Color.Transparent;
-            this.printPanel.BaseColor = System.Drawing.Color.White;
-            this.printPanel.Controls.Add(this.gunaAdvenceButton1);
-            this.printPanel.Controls.Add(this.btnEnroll);
-            this.printPanel.Controls.Add(this.fingerPrintBox);
-            this.printPanel.Controls.Add(this.gunaLabel16);
-            this.printPanel.Controls.Add(this.txtFingerprintStatus);
-            this.printPanel.Location = new System.Drawing.Point(1240, -1);
-            this.printPanel.Name = "printPanel";
-            this.printPanel.Radius = 15;
-            this.printPanel.Size = new System.Drawing.Size(477, 821);
-            this.printPanel.TabIndex = 5;
+            this.pickerDOB.BackColor = System.Drawing.Color.Transparent;
+            this.pickerDOB.BaseColor = System.Drawing.Color.White;
+            this.pickerDOB.BorderColor = System.Drawing.Color.Silver;
+            this.pickerDOB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pickerDOB.CustomFormat = null;
+            this.pickerDOB.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.pickerDOB.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.pickerDOB.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.pickerDOB.ForeColor = System.Drawing.Color.Black;
+            this.pickerDOB.Location = new System.Drawing.Point(422, 326);
+            this.pickerDOB.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.pickerDOB.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.pickerDOB.Name = "pickerDOB";
+            this.pickerDOB.OnHoverBaseColor = System.Drawing.Color.White;
+            this.pickerDOB.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.pickerDOB.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.pickerDOB.OnPressedColor = System.Drawing.Color.Black;
+            this.pickerDOB.Radius = 5;
+            this.pickerDOB.Size = new System.Drawing.Size(306, 63);
+            this.pickerDOB.TabIndex = 3;
+            this.pickerDOB.Text = "Monday, October 12, 2020";
+            this.pickerDOB.Value = new System.DateTime(2020, 10, 12, 3, 18, 22, 932);
             // 
-            // printPanelElipse
+            // pickerDateHired
             // 
-            this.printPanelElipse.BorderRadius = 15;
-            this.printPanelElipse.TargetControl = this.printPanel;
+            this.pickerDateHired.BackColor = System.Drawing.Color.Transparent;
+            this.pickerDateHired.BaseColor = System.Drawing.Color.White;
+            this.pickerDateHired.BorderColor = System.Drawing.Color.Silver;
+            this.pickerDateHired.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pickerDateHired.CustomFormat = null;
+            this.pickerDateHired.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.pickerDateHired.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.pickerDateHired.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.pickerDateHired.ForeColor = System.Drawing.Color.Black;
+            this.pickerDateHired.Location = new System.Drawing.Point(421, 472);
+            this.pickerDateHired.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.pickerDateHired.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.pickerDateHired.Name = "pickerDateHired";
+            this.pickerDateHired.OnHoverBaseColor = System.Drawing.Color.White;
+            this.pickerDateHired.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.pickerDateHired.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.pickerDateHired.OnPressedColor = System.Drawing.Color.Black;
+            this.pickerDateHired.Radius = 5;
+            this.pickerDateHired.Size = new System.Drawing.Size(306, 63);
+            this.pickerDateHired.TabIndex = 3;
+            this.pickerDateHired.Text = "Monday, October 12, 2020";
+            this.pickerDateHired.Value = new System.DateTime(2020, 10, 12, 3, 18, 22, 932);
             // 
-            // empFieldsElipse
+            // btnEmpDetailCancel
             // 
-            this.empFieldsElipse.Radius = 15;
-            this.empFieldsElipse.TargetControl = this.fieldsPanel;
+            this.btnEmpDetailCancel.AnimationHoverSpeed = 0.07F;
+            this.btnEmpDetailCancel.AnimationSpeed = 0.03F;
+            this.btnEmpDetailCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnEmpDetailCancel.BaseColor = System.Drawing.Color.Red;
+            this.btnEmpDetailCancel.BorderColor = System.Drawing.Color.Red;
+            this.btnEmpDetailCancel.BorderSize = 2;
+            this.btnEmpDetailCancel.CheckedBaseColor = System.Drawing.Color.Transparent;
+            this.btnEmpDetailCancel.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnEmpDetailCancel.CheckedForeColor = System.Drawing.Color.White;
+            this.btnEmpDetailCancel.CheckedImage = null;
+            this.btnEmpDetailCancel.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnEmpDetailCancel.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnEmpDetailCancel.FocusedColor = System.Drawing.Color.Empty;
+            this.btnEmpDetailCancel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.btnEmpDetailCancel.ForeColor = System.Drawing.Color.White;
+            this.btnEmpDetailCancel.Image = null;
+            this.btnEmpDetailCancel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnEmpDetailCancel.ImageSize = new System.Drawing.Size(37, 37);
+            this.btnEmpDetailCancel.LineColor = System.Drawing.Color.Red;
+            this.btnEmpDetailCancel.Location = new System.Drawing.Point(805, 740);
+            this.btnEmpDetailCancel.Name = "btnEmpDetailCancel";
+            this.btnEmpDetailCancel.OnHoverBaseColor = System.Drawing.Color.Red;
+            this.btnEmpDetailCancel.OnHoverBorderColor = System.Drawing.Color.Red;
+            this.btnEmpDetailCancel.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnEmpDetailCancel.OnHoverImage = null;
+            this.btnEmpDetailCancel.OnHoverLineColor = System.Drawing.Color.Red;
+            this.btnEmpDetailCancel.OnPressedColor = System.Drawing.Color.Black;
+            this.btnEmpDetailCancel.Radius = 7;
+            this.btnEmpDetailCancel.Size = new System.Drawing.Size(149, 57);
+            this.btnEmpDetailCancel.TabIndex = 2;
+            this.btnEmpDetailCancel.Text = "CANCEL";
+            this.btnEmpDetailCancel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnEmpDetailCancel.Click += new System.EventHandler(this.btnEmpDetailCancel_Click);
             // 
             // btnSaveEmployee
             // 
@@ -761,9 +705,9 @@
             this.btnSaveEmployee.FocusedColor = System.Drawing.Color.Empty;
             this.btnSaveEmployee.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.btnSaveEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnSaveEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveEmployee.Image")));
+            this.btnSaveEmployee.Image = null;
             this.btnSaveEmployee.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnSaveEmployee.ImageSize = new System.Drawing.Size(37, 37);
+            this.btnSaveEmployee.ImageSize = new System.Drawing.Size(30, 30);
             this.btnSaveEmployee.LineColor = System.Drawing.Color.Green;
             this.btnSaveEmployee.Location = new System.Drawing.Point(960, 740);
             this.btnSaveEmployee.Name = "btnSaveEmployee";
@@ -778,46 +722,29 @@
             this.btnSaveEmployee.TabIndex = 2;
             this.btnSaveEmployee.Text = "SAVE";
             this.btnSaveEmployee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnSaveEmployee.Click += new System.EventHandler(this.btnSaveEmployee_Click);
             // 
-            // btnEnroll
+            // printPanel
             // 
-            this.btnEnroll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEnroll.AnimationHoverSpeed = 0.07F;
-            this.btnEnroll.AnimationSpeed = 0.03F;
-            this.btnEnroll.BaseColor = System.Drawing.Color.Green;
-            this.btnEnroll.BorderColor = System.Drawing.Color.Black;
-            this.btnEnroll.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.btnEnroll.CheckedBorderColor = System.Drawing.Color.Black;
-            this.btnEnroll.CheckedForeColor = System.Drawing.Color.White;
-            this.btnEnroll.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnEnroll.CheckedImage")));
-            this.btnEnroll.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.btnEnroll.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnEnroll.FocusedColor = System.Drawing.Color.Empty;
-            this.btnEnroll.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.btnEnroll.ForeColor = System.Drawing.Color.White;
-            this.btnEnroll.Image = null;
-            this.btnEnroll.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnEnroll.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnEnroll.LineColor = System.Drawing.Color.Green;
-            this.btnEnroll.Location = new System.Drawing.Point(272, 732);
-            this.btnEnroll.Name = "btnEnroll";
-            this.btnEnroll.OnHoverBaseColor = System.Drawing.Color.Green;
-            this.btnEnroll.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btnEnroll.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnEnroll.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btnEnroll.OnHoverImage")));
-            this.btnEnroll.OnHoverLineColor = System.Drawing.Color.Green;
-            this.btnEnroll.OnPressedColor = System.Drawing.Color.Black;
-            this.btnEnroll.Radius = 8;
-            this.btnEnroll.Size = new System.Drawing.Size(189, 72);
-            this.btnEnroll.TabIndex = 4;
-            this.btnEnroll.Text = "ENROLL";
-            this.btnEnroll.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.printPanel.BackColor = System.Drawing.Color.Transparent;
+            this.printPanel.BaseColor = System.Drawing.Color.White;
+            this.printPanel.Controls.Add(this.gunaAdvenceButton1);
+            this.printPanel.Controls.Add(this.btnEnroll);
+            this.printPanel.Controls.Add(this.fingerPrintBox);
+            this.printPanel.Controls.Add(this.gunaLabel16);
+            this.printPanel.Controls.Add(this.txtFingerprintStatus);
+            this.printPanel.Location = new System.Drawing.Point(1240, -1);
+            this.printPanel.Name = "printPanel";
+            this.printPanel.Radius = 15;
+            this.printPanel.Size = new System.Drawing.Size(477, 821);
+            this.printPanel.TabIndex = 5;
             // 
             // gunaAdvenceButton1
             // 
             this.gunaAdvenceButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaAdvenceButton1.AnimationHoverSpeed = 0.07F;
             this.gunaAdvenceButton1.AnimationSpeed = 0.03F;
+            this.gunaAdvenceButton1.BackColor = System.Drawing.Color.Transparent;
             this.gunaAdvenceButton1.BaseColor = System.Drawing.Color.Teal;
             this.gunaAdvenceButton1.BorderColor = System.Drawing.Color.Black;
             this.gunaAdvenceButton1.CheckedBaseColor = System.Drawing.Color.Gray;
@@ -847,6 +774,130 @@
             this.gunaAdvenceButton1.Text = "RETRY";
             this.gunaAdvenceButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // btnEnroll
+            // 
+            this.btnEnroll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEnroll.AnimationHoverSpeed = 0.07F;
+            this.btnEnroll.AnimationSpeed = 0.03F;
+            this.btnEnroll.BackColor = System.Drawing.Color.Transparent;
+            this.btnEnroll.BaseColor = System.Drawing.Color.Green;
+            this.btnEnroll.BorderColor = System.Drawing.Color.Black;
+            this.btnEnroll.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btnEnroll.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnEnroll.CheckedForeColor = System.Drawing.Color.White;
+            this.btnEnroll.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnEnroll.CheckedImage")));
+            this.btnEnroll.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnEnroll.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnEnroll.FocusedColor = System.Drawing.Color.Empty;
+            this.btnEnroll.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.btnEnroll.ForeColor = System.Drawing.Color.White;
+            this.btnEnroll.Image = null;
+            this.btnEnroll.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnEnroll.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnEnroll.LineColor = System.Drawing.Color.Green;
+            this.btnEnroll.Location = new System.Drawing.Point(272, 732);
+            this.btnEnroll.Name = "btnEnroll";
+            this.btnEnroll.OnHoverBaseColor = System.Drawing.Color.Green;
+            this.btnEnroll.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btnEnroll.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnEnroll.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btnEnroll.OnHoverImage")));
+            this.btnEnroll.OnHoverLineColor = System.Drawing.Color.Green;
+            this.btnEnroll.OnPressedColor = System.Drawing.Color.Black;
+            this.btnEnroll.Radius = 8;
+            this.btnEnroll.Size = new System.Drawing.Size(189, 72);
+            this.btnEnroll.TabIndex = 4;
+            this.btnEnroll.Text = "ENROLL";
+            this.btnEnroll.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // printPanelElipse
+            // 
+            this.printPanelElipse.BorderRadius = 15;
+            this.printPanelElipse.TargetControl = this.printPanel;
+            // 
+            // empFieldsElipse
+            // 
+            this.empFieldsElipse.Radius = 15;
+            this.empFieldsElipse.TargetControl = this.fieldsPanel;
+            // 
+            // genderDropDown
+            // 
+            this.genderDropDown.BackColor = System.Drawing.Color.Transparent;
+            this.genderDropDown.BorderRadius = 5;
+            this.genderDropDown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.genderDropDown.DropDownHeight = 64;
+            this.genderDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genderDropDown.FocusedColor = System.Drawing.Color.Empty;
+            this.genderDropDown.FocusedState.Parent = this.genderDropDown;
+            this.genderDropDown.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.genderDropDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.genderDropDown.FormattingEnabled = true;
+            this.genderDropDown.HoverState.Parent = this.genderDropDown;
+            this.genderDropDown.IntegralHeight = false;
+            this.genderDropDown.ItemHeight = 30;
+            this.genderDropDown.Items.AddRange(new object[] {
+            "MALE",
+            "FEMALE"});
+            this.genderDropDown.ItemsAppearance.Parent = this.genderDropDown;
+            this.genderDropDown.Location = new System.Drawing.Point(809, 347);
+            this.genderDropDown.Name = "genderDropDown";
+            this.genderDropDown.ShadowDecoration.Parent = this.genderDropDown;
+            this.genderDropDown.Size = new System.Drawing.Size(307, 36);
+            this.genderDropDown.TabIndex = 4;
+            this.genderDropDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // maritalStatusDropDown
+            // 
+            this.maritalStatusDropDown.BackColor = System.Drawing.Color.Transparent;
+            this.maritalStatusDropDown.BorderRadius = 5;
+            this.maritalStatusDropDown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.maritalStatusDropDown.DropDownHeight = 64;
+            this.maritalStatusDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.maritalStatusDropDown.FocusedColor = System.Drawing.Color.Empty;
+            this.maritalStatusDropDown.FocusedState.Parent = this.maritalStatusDropDown;
+            this.maritalStatusDropDown.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.maritalStatusDropDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.maritalStatusDropDown.FormattingEnabled = true;
+            this.maritalStatusDropDown.HoverState.Parent = this.maritalStatusDropDown;
+            this.maritalStatusDropDown.IntegralHeight = false;
+            this.maritalStatusDropDown.ItemHeight = 30;
+            this.maritalStatusDropDown.Items.AddRange(new object[] {
+            "MARRIED",
+            "SINGLE"});
+            this.maritalStatusDropDown.ItemsAppearance.Parent = this.maritalStatusDropDown;
+            this.maritalStatusDropDown.Location = new System.Drawing.Point(43, 350);
+            this.maritalStatusDropDown.Name = "maritalStatusDropDown";
+            this.maritalStatusDropDown.ShadowDecoration.Parent = this.maritalStatusDropDown;
+            this.maritalStatusDropDown.Size = new System.Drawing.Size(307, 36);
+            this.maritalStatusDropDown.TabIndex = 4;
+            this.maritalStatusDropDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // workStatusDropDown
+            // 
+            this.workStatusDropDown.BackColor = System.Drawing.Color.Transparent;
+            this.workStatusDropDown.BorderRadius = 5;
+            this.workStatusDropDown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.workStatusDropDown.DropDownHeight = 96;
+            this.workStatusDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.workStatusDropDown.FocusedColor = System.Drawing.Color.Empty;
+            this.workStatusDropDown.FocusedState.Parent = this.workStatusDropDown;
+            this.workStatusDropDown.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.workStatusDropDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.workStatusDropDown.FormattingEnabled = true;
+            this.workStatusDropDown.HoverState.Parent = this.workStatusDropDown;
+            this.workStatusDropDown.IntegralHeight = false;
+            this.workStatusDropDown.ItemHeight = 30;
+            this.workStatusDropDown.Items.AddRange(new object[] {
+            "ACTIVE",
+            "TERMINATED",
+            "RETIRED"});
+            this.workStatusDropDown.ItemsAppearance.Parent = this.workStatusDropDown;
+            this.workStatusDropDown.Location = new System.Drawing.Point(43, 497);
+            this.workStatusDropDown.Name = "workStatusDropDown";
+            this.workStatusDropDown.ShadowDecoration.Parent = this.workStatusDropDown;
+            this.workStatusDropDown.Size = new System.Drawing.Size(307, 36);
+            this.workStatusDropDown.TabIndex = 4;
+            this.workStatusDropDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // AddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -861,6 +912,7 @@
             this.Name = "AddEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddEmployee";
+            this.Load += new System.EventHandler(this.AddEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fingerPrintBox)).EndInit();
             this.fieldsPanel.ResumeLayout(false);
             this.fieldsPanel.PerformLayout();
@@ -879,7 +931,6 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI2.WinForms.Guna2TextBox txtSurname;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
-        private Guna.UI2.WinForms.Guna2TextBox txtDateOfBirth;
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private Guna.UI2.WinForms.Guna2TextBox txtAddress;
         private Guna.UI.WinForms.GunaLabel gunaLabel6;
@@ -887,9 +938,7 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel7;
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
         private Guna.UI.WinForms.GunaLabel gunaLabel8;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox8;
         private Guna.UI.WinForms.GunaLabel gunaLabel9;
-        private Guna.UI2.WinForms.Guna2TextBox txtMaritalStatus;
         private Guna.UI.WinForms.GunaLabel gunaLabel10;
         private Guna.UI2.WinForms.Guna2TextBox txtEmmergencyNo;
         private Guna.UI.WinForms.GunaLabel gunaLabel11;
@@ -897,9 +946,7 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel12;
         private Guna.UI2.WinForms.Guna2TextBox txtWorkID;
         private Guna.UI.WinForms.GunaLabel gunaLabel13;
-        private Guna.UI2.WinForms.Guna2TextBox txtWorkStatus;
         private Guna.UI.WinForms.GunaLabel gunaLabel14;
-        private Guna.UI2.WinForms.Guna2TextBox txtDateHired;
         private Guna.UI.WinForms.GunaLabel gunaLabel15;
         private Guna.UI2.WinForms.Guna2TextBox txtNationalID;
         private Guna.UI2.WinForms.Guna2PictureBox fingerPrintBox;
@@ -912,5 +959,11 @@
         private Guna.UI.WinForms.GunaAdvenceButton btnSaveEmployee;
         private Guna.UI.WinForms.GunaAdvenceButton btnEnroll;
         private Guna.UI.WinForms.GunaAdvenceButton gunaAdvenceButton1;
+        private Guna.UI.WinForms.GunaAdvenceButton btnEmpDetailCancel;
+        private Guna.UI.WinForms.GunaDateTimePicker pickerDOB;
+        private Guna.UI.WinForms.GunaDateTimePicker pickerDateHired;
+        private Guna.UI2.WinForms.Guna2ComboBox workStatusDropDown;
+        private Guna.UI2.WinForms.Guna2ComboBox maritalStatusDropDown;
+        private Guna.UI2.WinForms.Guna2ComboBox genderDropDown;
     }
 }

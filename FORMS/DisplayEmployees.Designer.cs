@@ -28,40 +28,97 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.empTableGrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.empTableGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // gunaLabel1
+            // empTableGrid
             // 
-            this.gunaLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Trebuchet MS", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.Location = new System.Drawing.Point(353, 264);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(413, 61);
-            this.gunaLabel1.TabIndex = 0;
-            this.gunaLabel1.Text = "EMPLOYEES TABLE";
+            this.empTableGrid.AllowUserToAddRows = false;
+            this.empTableGrid.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
+            this.empTableGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.empTableGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.empTableGrid.BackgroundColor = System.Drawing.Color.White;
+            this.empTableGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.empTableGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.empTableGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.empTableGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.empTableGrid.ColumnHeadersHeight = 40;
+            this.empTableGrid.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.empTableGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.empTableGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.empTableGrid.EnableHeadersVisualStyles = false;
+            this.empTableGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
+            this.empTableGrid.Location = new System.Drawing.Point(0, 0);
+            this.empTableGrid.Name = "empTableGrid";
+            this.empTableGrid.ReadOnly = true;
+            this.empTableGrid.RowHeadersVisible = false;
+            this.empTableGrid.RowHeadersWidth = 51;
+            this.empTableGrid.RowTemplate.Height = 24;
+            this.empTableGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.empTableGrid.Size = new System.Drawing.Size(1083, 664);
+            this.empTableGrid.TabIndex = 0;
+            this.empTableGrid.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Blue;
+            this.empTableGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
+            this.empTableGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.empTableGrid.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.empTableGrid.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.empTableGrid.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.empTableGrid.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.empTableGrid.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
+            this.empTableGrid.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
+            this.empTableGrid.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.empTableGrid.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.empTableGrid.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.empTableGrid.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.empTableGrid.ThemeStyle.HeaderStyle.Height = 40;
+            this.empTableGrid.ThemeStyle.ReadOnly = true;
+            this.empTableGrid.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
+            this.empTableGrid.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.empTableGrid.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.empTableGrid.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.empTableGrid.ThemeStyle.RowsStyle.Height = 24;
+            this.empTableGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
+            this.empTableGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.empTableGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.empTableGrid_CellClick);
             // 
             // DisplayEmployees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 617);
-            this.Controls.Add(this.gunaLabel1);
+            this.ClientSize = new System.Drawing.Size(1083, 664);
+            this.Controls.Add(this.empTableGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(1083, 664);
             this.Name = "DisplayEmployees";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DisplayEmployees";
+            this.Load += new System.EventHandler(this.DisplayEmployees_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.empTableGrid)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        private Guna.UI2.WinForms.Guna2DataGridView empTableGrid;
     }
 }

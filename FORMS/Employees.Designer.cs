@@ -36,6 +36,7 @@
             this.searchPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.txtBxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.searchElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.btnEditRow = new Guna.UI2.WinForms.Guna2Button();
             this.searchPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -154,6 +155,28 @@
             this.searchElipse.BorderRadius = 40;
             this.searchElipse.TargetControl = this.searchPanel;
             // 
+            // btnEditRow
+            // 
+            this.btnEditRow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditRow.BorderColor = System.Drawing.Color.Transparent;
+            this.btnEditRow.BorderRadius = 2;
+            this.btnEditRow.CheckedState.Parent = this.btnEditRow;
+            this.btnEditRow.CustomImages.Parent = this.btnEditRow;
+            this.btnEditRow.FillColor = System.Drawing.Color.White;
+            this.btnEditRow.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnEditRow.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.btnEditRow.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnEditRow.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.btnEditRow.HoverState.Parent = this.btnEditRow;
+            this.btnEditRow.Location = new System.Drawing.Point(746, 6);
+            this.btnEditRow.Name = "btnEditRow";
+            this.btnEditRow.ShadowDecoration.Parent = this.btnEditRow;
+            this.btnEditRow.Size = new System.Drawing.Size(89, 40);
+            this.btnEditRow.TabIndex = 2;
+            this.btnEditRow.Text = "EDIT";
+            this.btnEditRow.Click += new System.EventHandler(this.btnEditRow_Click);
+            // 
             // Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -162,6 +185,7 @@
             this.ClientSize = new System.Drawing.Size(1096, 726);
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.empContainerPanel);
+            this.Controls.Add(this.btnEditRow);
             this.Controls.Add(this.showAllEmployees);
             this.Controls.Add(this.btnAddEmp);
             this.Controls.Add(this.label1);
@@ -187,5 +211,6 @@
         private Guna.UI2.WinForms.Guna2Panel searchPanel;
         private Guna.UI2.WinForms.Guna2Elipse searchElipse;
         private Guna.UI2.WinForms.Guna2TextBox txtBxSearch;
+        private Guna.UI2.WinForms.Guna2Button btnEditRow;
     }
 }

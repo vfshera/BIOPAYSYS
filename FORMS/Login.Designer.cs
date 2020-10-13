@@ -74,11 +74,12 @@
             this.txtBxUsername.MaxLength = 32;
             this.txtBxUsername.Multiline = true;
             this.txtBxUsername.Name = "txtBxUsername";
-            this.txtBxUsername.Size = new System.Drawing.Size(500, 35);
+            this.txtBxUsername.Size = new System.Drawing.Size(500, 37);
             this.txtBxUsername.TabIndex = 1;
             this.txtBxUsername.Text = "email";
             this.txtBxUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBxUsername.Enter += new System.EventHandler(this.txtBxUsername_Enter);
+            this.txtBxUsername.Leave += new System.EventHandler(this.txtBxUsername_Leave);
             // 
             // txtBxPassword
             // 
@@ -159,6 +160,7 @@
             this.loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.loader.TabIndex = 6;
             this.loader.TabStop = false;
+            this.loader.Visible = false;
             // 
             // lblLoginText
             // 

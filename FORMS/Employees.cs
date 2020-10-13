@@ -17,6 +17,8 @@ namespace BiometricPayroll.FORMS
             InitializeComponent();
         }
 
+       
+        
         private void Employees_Load(object sender, EventArgs e)
         {
             this.openChildForm(new DisplayEmployees());
@@ -25,6 +27,8 @@ namespace BiometricPayroll.FORMS
         private Form child = null;
         private Guna.UI2.WinForms.Guna2Button currBtn = null;
 
+        public string selectedUserID;
+        public string selectedUserWorkID;
         private void openChildForm(Form cForm)
         {
             if (child != null)
@@ -80,7 +84,26 @@ namespace BiometricPayroll.FORMS
             this.pressedBtn(showAllEmployees);
 
             
+        }  
+
+        public void setSelectedUser(string id, string workid)
+        {
+            selectedUserID = id;
+            selectedUserWorkID = workid;
         }
+        private void btnEditRow_Click(object sender, EventArgs e)
+        {
+            if (selectedUserID != null)
+            {
+                MessageBox.Show(selectedUserID + " " + selectedUserWorkID);
+            }
+            else
+            {
+                MessageBox.Show("EMPTY STRINGS");
+            }
+            
+        }
+
 
        
     }

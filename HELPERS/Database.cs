@@ -99,6 +99,55 @@ namespace BiometricPayroll.HELPERS
             }
         }
 
+
+        public bool AddEmployee(string work_id, string first_name, string sec_name, string surname, string position, string address, string email, string phonenumber, string marital_status, string gender, string date_of_birth, string emmergency_tel, string date_hired, string work_status)
+        {
+            string fields = "work_id, first_name,sec_name, surname, position, address, email, phonenumber, marital_status, gender, date_of_birth, emmergency_tel, date_hired, work_status, created_at, updated_at";
+            string vals = "@work_id,@first_name,@sec_name,@surname,@position, @address, @email, @phonenumber, @marital_status, @gender, @date_of_birth, @emmergency_tel, @date_hired, @work_status, @created_at, @updated_at";
+            string sql = $"INSERT INTO employees ({fields}) VALUES({vals})";
+
+            bool added = false;
+            try
+            {
+                string currTime = DateTime.Now.ToString("yyyy'-'MM'-'dd HH':'mm':'ss");
+                con.Open();
+                cmd = new MySqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@work_id", work_id);
+                cmd.Parameters.AddWithValue("@first_name", first_name);  
+                cmd.Parameters.AddWithValue("@sec_name", sec_name);
+                cmd.Parameters.AddWithValue("@surname", surname);  
+                cmd.Parameters.AddWithValue("@position", position);
+                cmd.Parameters.AddWithValue("@address", address);   
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@phonenumber", phonenumber);  
+                cmd.Parameters.AddWithValue("@marital_status", marital_status);
+                cmd.Parameters.AddWithValue("@gender", gender);  
+                cmd.Parameters.AddWithValue("@date_of_birth", date_of_birth);
+                cmd.Parameters.AddWithValue("@emmergency_tel", emmergency_tel);   
+                cmd.Parameters.AddWithValue("@date_hired", date_hired);
+                cmd.Parameters.AddWithValue("@work_status", work_status);  
+                cmd.Parameters.AddWithValue("@created_at", currTime);
+                cmd.Parameters.AddWithValue("@updated_at", currTime);
+                result = cmd.ExecuteNonQuery();
+
+               added =  result > 0;
+            
+            
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return added;
+        }
         public void Execute_CUD(string sql, string msg_false, string msg_true)
         {
             try
@@ -148,8 +197,9 @@ namespace BiometricPayroll.HELPERS
                 con.Close();
             }
         }
-        public void Load_DTG(string sql, Guna2DataGridView dtg)
+        public void LoadDTG(Guna2DataGridView dg)
         {
+            string sql = "SELECT id AS ID,work_id AS 'WORK ID', CONCAT_WS(' ' , first_name , surname) AS NAME,position AS JOB,phonenumber AS CONTACT,email AS EMAIL,gender AS GENDER,work_status AS 'WORK STATUS' FROM employees ORDER BY id ASC";
             try
             {
                 con.Open();
@@ -157,12 +207,11 @@ namespace BiometricPayroll.HELPERS
                 da = new MySqlDataAdapter();
                 dt = new DataTable();
 
-
                 cmd.Connection = con;
                 cmd.CommandText = sql;
                 da.SelectCommand = cmd;
                 da.Fill(dt);
-                dtg.DataSource = dt;
+                dg.DataSource = dt;
 
 
             }

@@ -28,8 +28,9 @@ namespace BiometricPayroll
         public bool validateForm()
         {
             bool valid = false;
+            Utilities util = new Utilities();
 
-            if(txtBxUsername.Text != null && txtBxUsername.Text.ToLower() != "email" && txtBxPassword.Text != null && txtBxPassword.Text.ToLower() != "password")
+            if (util.ValidateEmail(txtBxUsername.Text.ToLower()) && txtBxPassword.Text != null && txtBxPassword.Text.ToLower() != "password")
             {
                 valid = true;
             }
@@ -128,6 +129,23 @@ namespace BiometricPayroll
             txtBxUsername.ForeColor = SystemColors.WindowText;
         }
 
-     
+        private void txtBxUsername_Leave(object sender, EventArgs e)
+        {
+            Utilities myUtil = new Utilities();
+
+            if (myUtil.ValidateEmail(txtBxUsername.Text.ToLower()))
+            {
+                usernameLine.BackColor = Color.Green;
+                usernameLine.FillColor = Color.Green;
+                txtBxUsername.ForeColor = Color.Green;
+              
+            }
+            else
+            {
+                usernameLine.BackColor = Color.Red;
+                usernameLine.FillColor = Color.Red;
+                txtBxUsername.ForeColor = Color.Red;
+            }
+        }
     }
 }
