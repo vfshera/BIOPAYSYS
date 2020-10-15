@@ -41,5 +41,10 @@ namespace BiometricPayroll.HELPERS
 
            return Regex.IsMatch(mail, pattern);
         }
+
+        public bool IsAboveMinChar(int mySize, int reqSize)
+        {            
+            return mySize > reqSize;
+        }
     }
 }

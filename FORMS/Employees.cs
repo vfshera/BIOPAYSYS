@@ -12,9 +12,12 @@ namespace BiometricPayroll.FORMS
 {
     public partial class Employees : Form
     {
+        public static Employees emp;
         public Employees()
         {
             InitializeComponent();
+
+            emp = this;
         }
 
        
@@ -83,25 +86,19 @@ namespace BiometricPayroll.FORMS
             this.openChildForm(new DisplayEmployees());
             this.pressedBtn(showAllEmployees);
 
-            
         }  
 
         public void setSelectedUser(string id, string workid)
         {
-            selectedUserID = id;
-            selectedUserWorkID = workid;
+            selectedUserID = id;           
+            selectedUserWorkID = workid;           
         }
         private void btnEditRow_Click(object sender, EventArgs e)
         {
-            if (selectedUserID != null)
-            {
-                MessageBox.Show(selectedUserID + " " + selectedUserWorkID);
-            }
-            else
-            {
-                MessageBox.Show("EMPTY STRINGS");
-            }
-            
+            EditEmployee edit = new EditEmployee();
+            edit.empID = selectedUserID;
+            edit.empWorkID = selectedUserWorkID;
+            edit.Show();           
         }
 
 

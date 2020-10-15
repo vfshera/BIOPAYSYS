@@ -18,6 +18,7 @@ namespace BiometricPayroll.FORMS
             InitializeComponent();
         }
 
+        private bool emailOk = false;
         private void AddEmployee_Load(object sender, EventArgs e)
         {
             
@@ -48,10 +49,10 @@ namespace BiometricPayroll.FORMS
         {
             bool valid = false;
             if(
-                txtAddress.Text != ""  &&  txtEmail.Text != "" &&  txtEmmergencyNo.Text != "" &&
-                txtFirstName.Text != "" && txtJobPosition.Text != "" && txtNationalID.Text != "" &&
-                txtPhoneNumber.Text != "" && txtSecondName.Text != ""  && txtSurname.Text != ""  &&
-                txtWorkID.Text != ""  && genderDropDown.SelectedItem != null &&
+                txtAddress.Text.Length > 4  &&  emailOk &&  txtEmmergencyNo.Text.Length > 9 &&
+                txtFirstName.Text != "" && txtJobPosition.Text != "" && txtNationalID.Text.Length > 6 &&
+                txtPhoneNumber.Text.Length >= 2 && txtSecondName.Text.Length >= 2 && txtSurname.Text.Length >= 2 &&
+                txtWorkID.Text.Length > 3 && genderDropDown.SelectedItem != null &&
                 maritalStatusDropDown.SelectedItem != null  && workStatusDropDown.SelectedItem != null
                 )
             {
@@ -79,6 +80,7 @@ namespace BiometricPayroll.FORMS
                              txtAddress.Text.ToUpper(),
                              txtEmail.Text.ToUpper(),
                              txtPhoneNumber.Text.ToUpper(),
+                             txtNationalID.Text.ToUpper(),
                              maritalStatusDropDown.SelectedItem.ToString().ToUpper(),
                              genderDropDown.SelectedItem.ToString().ToUpper(),
                              pickerDOB.Value.ToString("yyyy'-'MM'-'dd"),
@@ -129,11 +131,13 @@ namespace BiometricPayroll.FORMS
             {
                 txtEmail.BorderThickness = 1;
                 txtEmail.BorderColor = SystemColors.Control;
+                emailOk = true;
             }
             else
             {
                 txtEmail.BorderThickness = 2;
                 txtEmail.BorderColor = Color.Red;
+                emailOk = false;
             }
         }
 

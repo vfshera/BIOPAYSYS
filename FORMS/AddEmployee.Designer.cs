@@ -60,6 +60,9 @@
             this.fingerPrintBox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.txtFingerprintStatus = new Guna.UI.WinForms.GunaLabel();
             this.fieldsPanel = new Guna.UI.WinForms.GunaElipsePanel();
+            this.workStatusDropDown = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.maritalStatusDropDown = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.genderDropDown = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pickerDOB = new Guna.UI.WinForms.GunaDateTimePicker();
             this.pickerDateHired = new Guna.UI.WinForms.GunaDateTimePicker();
             this.btnEmpDetailCancel = new Guna.UI.WinForms.GunaAdvenceButton();
@@ -69,9 +72,6 @@
             this.btnEnroll = new Guna.UI.WinForms.GunaAdvenceButton();
             this.printPanelElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.empFieldsElipse = new Guna.UI.WinForms.GunaElipse(this.components);
-            this.genderDropDown = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.maritalStatusDropDown = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.workStatusDropDown = new Guna.UI2.WinForms.Guna2ComboBox();
             addEmployeeElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.fingerPrintBox)).BeginInit();
             this.fieldsPanel.SuspendLayout();
@@ -116,7 +116,7 @@
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.PasswordChar = '\0';
-            this.txtFirstName.PlaceholderText = "";
+            this.txtFirstName.PlaceholderText = "FRANKLIN";
             this.txtFirstName.SelectedText = "";
             this.txtFirstName.ShadowDecoration.Parent = this.txtFirstName;
             this.txtFirstName.Size = new System.Drawing.Size(310, 66);
@@ -156,7 +156,7 @@
             this.txtSecondName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtSecondName.Name = "txtSecondName";
             this.txtSecondName.PasswordChar = '\0';
-            this.txtSecondName.PlaceholderText = "";
+            this.txtSecondName.PlaceholderText = "SHERA";
             this.txtSecondName.SelectedText = "";
             this.txtSecondName.ShadowDecoration.Parent = this.txtSecondName;
             this.txtSecondName.Size = new System.Drawing.Size(310, 66);
@@ -196,7 +196,7 @@
             this.txtSurname.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.PasswordChar = '\0';
-            this.txtSurname.PlaceholderText = "";
+            this.txtSurname.PlaceholderText = "VIDONYI";
             this.txtSurname.SelectedText = "";
             this.txtSurname.ShadowDecoration.Parent = this.txtSurname;
             this.txtSurname.Size = new System.Drawing.Size(310, 66);
@@ -245,7 +245,7 @@
             this.txtAddress.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.PasswordChar = '\0';
-            this.txtAddress.PlaceholderText = "";
+            this.txtAddress.PlaceholderText = "101 NCHIRU";
             this.txtAddress.SelectedText = "";
             this.txtAddress.ShadowDecoration.Parent = this.txtAddress;
             this.txtAddress.Size = new System.Drawing.Size(310, 66);
@@ -283,7 +283,7 @@
             this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.PasswordChar = '\0';
-            this.txtPhoneNumber.PlaceholderText = "";
+            this.txtPhoneNumber.PlaceholderText = "0712345678";
             this.txtPhoneNumber.SelectedText = "";
             this.txtPhoneNumber.ShadowDecoration.Parent = this.txtPhoneNumber;
             this.txtPhoneNumber.Size = new System.Drawing.Size(310, 66);
@@ -322,7 +322,7 @@
             this.txtEmail.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
-            this.txtEmail.PlaceholderText = "";
+            this.txtEmail.PlaceholderText = "familyfriend@gmail.com";
             this.txtEmail.SelectedText = "";
             this.txtEmail.ShadowDecoration.Parent = this.txtEmail;
             this.txtEmail.Size = new System.Drawing.Size(310, 66);
@@ -381,7 +381,7 @@
             this.txtEmmergencyNo.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtEmmergencyNo.Name = "txtEmmergencyNo";
             this.txtEmmergencyNo.PasswordChar = '\0';
-            this.txtEmmergencyNo.PlaceholderText = "";
+            this.txtEmmergencyNo.PlaceholderText = "0712345678";
             this.txtEmmergencyNo.SelectedText = "";
             this.txtEmmergencyNo.ShadowDecoration.Parent = this.txtEmmergencyNo;
             this.txtEmmergencyNo.Size = new System.Drawing.Size(310, 66);
@@ -420,7 +420,7 @@
             this.txtJobPosition.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtJobPosition.Name = "txtJobPosition";
             this.txtJobPosition.PasswordChar = '\0';
-            this.txtJobPosition.PlaceholderText = "";
+            this.txtJobPosition.PlaceholderText = "CEO";
             this.txtJobPosition.SelectedText = "";
             this.txtJobPosition.ShadowDecoration.Parent = this.txtJobPosition;
             this.txtJobPosition.Size = new System.Drawing.Size(310, 66);
@@ -459,7 +459,7 @@
             this.txtWorkID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtWorkID.Name = "txtWorkID";
             this.txtWorkID.PasswordChar = '\0';
-            this.txtWorkID.PlaceholderText = "";
+            this.txtWorkID.PlaceholderText = "VFS28";
             this.txtWorkID.SelectedText = "";
             this.txtWorkID.ShadowDecoration.Parent = this.txtWorkID;
             this.txtWorkID.Size = new System.Drawing.Size(310, 66);
@@ -517,7 +517,7 @@
             this.txtNationalID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtNationalID.Name = "txtNationalID";
             this.txtNationalID.PasswordChar = '\0';
-            this.txtNationalID.PlaceholderText = "";
+            this.txtNationalID.PlaceholderText = "34215678";
             this.txtNationalID.SelectedText = "";
             this.txtNationalID.ShadowDecoration.Parent = this.txtNationalID;
             this.txtNationalID.Size = new System.Drawing.Size(310, 66);
@@ -601,6 +601,85 @@
             this.fieldsPanel.Name = "fieldsPanel";
             this.fieldsPanel.Size = new System.Drawing.Size(1174, 821);
             this.fieldsPanel.TabIndex = 4;
+            // 
+            // workStatusDropDown
+            // 
+            this.workStatusDropDown.BackColor = System.Drawing.Color.Transparent;
+            this.workStatusDropDown.BorderRadius = 5;
+            this.workStatusDropDown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.workStatusDropDown.DropDownHeight = 96;
+            this.workStatusDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.workStatusDropDown.FocusedColor = System.Drawing.Color.Empty;
+            this.workStatusDropDown.FocusedState.Parent = this.workStatusDropDown;
+            this.workStatusDropDown.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.workStatusDropDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.workStatusDropDown.FormattingEnabled = true;
+            this.workStatusDropDown.HoverState.Parent = this.workStatusDropDown;
+            this.workStatusDropDown.IntegralHeight = false;
+            this.workStatusDropDown.ItemHeight = 30;
+            this.workStatusDropDown.Items.AddRange(new object[] {
+            "ACTIVE",
+            "TERMINATED",
+            "RETIRED"});
+            this.workStatusDropDown.ItemsAppearance.Parent = this.workStatusDropDown;
+            this.workStatusDropDown.Location = new System.Drawing.Point(43, 497);
+            this.workStatusDropDown.Name = "workStatusDropDown";
+            this.workStatusDropDown.ShadowDecoration.Parent = this.workStatusDropDown;
+            this.workStatusDropDown.Size = new System.Drawing.Size(307, 36);
+            this.workStatusDropDown.TabIndex = 4;
+            this.workStatusDropDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // maritalStatusDropDown
+            // 
+            this.maritalStatusDropDown.BackColor = System.Drawing.Color.Transparent;
+            this.maritalStatusDropDown.BorderRadius = 5;
+            this.maritalStatusDropDown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.maritalStatusDropDown.DropDownHeight = 64;
+            this.maritalStatusDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.maritalStatusDropDown.FocusedColor = System.Drawing.Color.Empty;
+            this.maritalStatusDropDown.FocusedState.Parent = this.maritalStatusDropDown;
+            this.maritalStatusDropDown.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.maritalStatusDropDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.maritalStatusDropDown.FormattingEnabled = true;
+            this.maritalStatusDropDown.HoverState.Parent = this.maritalStatusDropDown;
+            this.maritalStatusDropDown.IntegralHeight = false;
+            this.maritalStatusDropDown.ItemHeight = 30;
+            this.maritalStatusDropDown.Items.AddRange(new object[] {
+            "MARRIED",
+            "SINGLE"});
+            this.maritalStatusDropDown.ItemsAppearance.Parent = this.maritalStatusDropDown;
+            this.maritalStatusDropDown.Location = new System.Drawing.Point(43, 350);
+            this.maritalStatusDropDown.Name = "maritalStatusDropDown";
+            this.maritalStatusDropDown.ShadowDecoration.Parent = this.maritalStatusDropDown;
+            this.maritalStatusDropDown.Size = new System.Drawing.Size(307, 36);
+            this.maritalStatusDropDown.TabIndex = 4;
+            this.maritalStatusDropDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // genderDropDown
+            // 
+            this.genderDropDown.BackColor = System.Drawing.Color.Transparent;
+            this.genderDropDown.BorderRadius = 5;
+            this.genderDropDown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.genderDropDown.DropDownHeight = 64;
+            this.genderDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genderDropDown.FocusedColor = System.Drawing.Color.Empty;
+            this.genderDropDown.FocusedState.Parent = this.genderDropDown;
+            this.genderDropDown.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.genderDropDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.genderDropDown.FormattingEnabled = true;
+            this.genderDropDown.HoverState.Parent = this.genderDropDown;
+            this.genderDropDown.IntegralHeight = false;
+            this.genderDropDown.ItemHeight = 30;
+            this.genderDropDown.Items.AddRange(new object[] {
+            "MALE",
+            "FEMALE"});
+            this.genderDropDown.ItemsAppearance.Parent = this.genderDropDown;
+            this.genderDropDown.Location = new System.Drawing.Point(809, 347);
+            this.genderDropDown.Name = "genderDropDown";
+            this.genderDropDown.ShadowDecoration.Parent = this.genderDropDown;
+            this.genderDropDown.Size = new System.Drawing.Size(307, 36);
+            this.genderDropDown.TabIndex = 4;
+            this.genderDropDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pickerDOB
             // 
@@ -818,85 +897,6 @@
             // 
             this.empFieldsElipse.Radius = 15;
             this.empFieldsElipse.TargetControl = this.fieldsPanel;
-            // 
-            // genderDropDown
-            // 
-            this.genderDropDown.BackColor = System.Drawing.Color.Transparent;
-            this.genderDropDown.BorderRadius = 5;
-            this.genderDropDown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.genderDropDown.DropDownHeight = 64;
-            this.genderDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.genderDropDown.FocusedColor = System.Drawing.Color.Empty;
-            this.genderDropDown.FocusedState.Parent = this.genderDropDown;
-            this.genderDropDown.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.genderDropDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.genderDropDown.FormattingEnabled = true;
-            this.genderDropDown.HoverState.Parent = this.genderDropDown;
-            this.genderDropDown.IntegralHeight = false;
-            this.genderDropDown.ItemHeight = 30;
-            this.genderDropDown.Items.AddRange(new object[] {
-            "MALE",
-            "FEMALE"});
-            this.genderDropDown.ItemsAppearance.Parent = this.genderDropDown;
-            this.genderDropDown.Location = new System.Drawing.Point(809, 347);
-            this.genderDropDown.Name = "genderDropDown";
-            this.genderDropDown.ShadowDecoration.Parent = this.genderDropDown;
-            this.genderDropDown.Size = new System.Drawing.Size(307, 36);
-            this.genderDropDown.TabIndex = 4;
-            this.genderDropDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // maritalStatusDropDown
-            // 
-            this.maritalStatusDropDown.BackColor = System.Drawing.Color.Transparent;
-            this.maritalStatusDropDown.BorderRadius = 5;
-            this.maritalStatusDropDown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.maritalStatusDropDown.DropDownHeight = 64;
-            this.maritalStatusDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.maritalStatusDropDown.FocusedColor = System.Drawing.Color.Empty;
-            this.maritalStatusDropDown.FocusedState.Parent = this.maritalStatusDropDown;
-            this.maritalStatusDropDown.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.maritalStatusDropDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.maritalStatusDropDown.FormattingEnabled = true;
-            this.maritalStatusDropDown.HoverState.Parent = this.maritalStatusDropDown;
-            this.maritalStatusDropDown.IntegralHeight = false;
-            this.maritalStatusDropDown.ItemHeight = 30;
-            this.maritalStatusDropDown.Items.AddRange(new object[] {
-            "MARRIED",
-            "SINGLE"});
-            this.maritalStatusDropDown.ItemsAppearance.Parent = this.maritalStatusDropDown;
-            this.maritalStatusDropDown.Location = new System.Drawing.Point(43, 350);
-            this.maritalStatusDropDown.Name = "maritalStatusDropDown";
-            this.maritalStatusDropDown.ShadowDecoration.Parent = this.maritalStatusDropDown;
-            this.maritalStatusDropDown.Size = new System.Drawing.Size(307, 36);
-            this.maritalStatusDropDown.TabIndex = 4;
-            this.maritalStatusDropDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // workStatusDropDown
-            // 
-            this.workStatusDropDown.BackColor = System.Drawing.Color.Transparent;
-            this.workStatusDropDown.BorderRadius = 5;
-            this.workStatusDropDown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.workStatusDropDown.DropDownHeight = 96;
-            this.workStatusDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.workStatusDropDown.FocusedColor = System.Drawing.Color.Empty;
-            this.workStatusDropDown.FocusedState.Parent = this.workStatusDropDown;
-            this.workStatusDropDown.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.workStatusDropDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.workStatusDropDown.FormattingEnabled = true;
-            this.workStatusDropDown.HoverState.Parent = this.workStatusDropDown;
-            this.workStatusDropDown.IntegralHeight = false;
-            this.workStatusDropDown.ItemHeight = 30;
-            this.workStatusDropDown.Items.AddRange(new object[] {
-            "ACTIVE",
-            "TERMINATED",
-            "RETIRED"});
-            this.workStatusDropDown.ItemsAppearance.Parent = this.workStatusDropDown;
-            this.workStatusDropDown.Location = new System.Drawing.Point(43, 497);
-            this.workStatusDropDown.Name = "workStatusDropDown";
-            this.workStatusDropDown.ShadowDecoration.Parent = this.workStatusDropDown;
-            this.workStatusDropDown.Size = new System.Drawing.Size(307, 36);
-            this.workStatusDropDown.TabIndex = 4;
-            this.workStatusDropDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // AddEmployee
             // 

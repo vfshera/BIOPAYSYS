@@ -13,19 +13,27 @@ namespace BiometricPayroll.FORMS
 {
     public partial class DisplayEmployees : Form
     {
+        public static DisplayEmployees disp;
         public DisplayEmployees()
         {
             InitializeComponent();
+            disp = this;
         }
 
+       
+        public string SelectedRowID;
+        public string SelectedRowWorkID;
         private void DisplayEmployees_Load(object sender, EventArgs e)
+        {
+            loadEmployees();
+        }
+
+        public void loadEmployees()
         {
             Database db = new Database();
 
             db.LoadDTG(empTableGrid);
-        }
-
-    
+        }               
      
         private void empTableGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -33,15 +41,11 @@ namespace BiometricPayroll.FORMS
             {
                 empTableGrid.CurrentRow.Selected = true;
 
-                string id = empTableGrid.Rows[e.RowIndex].Cells["ID"].FormattedValue.ToString();
-                string workid = empTableGrid.Rows[e.RowIndex].Cells["WORK ID"].FormattedValue.ToString();
+                SelectedRowID = empTableGrid.Rows[e.RowIndex].Cells["ID"].FormattedValue.ToString();
+                SelectedRowWorkID = empTableGrid.Rows[e.RowIndex].Cells["WORK ID"].FormattedValue.ToString();
 
-                using (Employees emp = new Employees())
-                {
-                   emp.setSelectedUser(id, workid);
-                }
-             
-                
+                //USING PARENT INSTANCE emp TO ACCESS FUNCTION
+                Employees.emp.setSelectedUser(SelectedRowID,SelectedRowWorkID);
             }
         }
     }
