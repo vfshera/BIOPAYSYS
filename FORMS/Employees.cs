@@ -77,7 +77,6 @@ namespace BiometricPayroll.FORMS
         {
             this.openChildForm(new AddEmployee());
             this.pressedBtn(btnAddEmp);
-            searchPanel.Visible = false;
             txtBxSearch.Visible = false;
         }
 
@@ -85,6 +84,7 @@ namespace BiometricPayroll.FORMS
         {
             this.openChildForm(new DisplayEmployees());
             this.pressedBtn(showAllEmployees);
+            txtBxSearch.Visible = true;
 
         }  
 
@@ -95,13 +95,24 @@ namespace BiometricPayroll.FORMS
         }
         private void btnEditRow_Click(object sender, EventArgs e)
         {
-            EditEmployee edit = new EditEmployee();
-            edit.empID = selectedUserID;
-            edit.empWorkID = selectedUserWorkID;
-            edit.Show();           
+            if (selectedUserID != null && selectedUserWorkID != null)
+            {
+                EditEmployee edit = new EditEmployee();
+                edit.empID = selectedUserID;
+                edit.empWorkID = selectedUserWorkID;
+                edit.Show();
+            }
+            else
+            {
+
+                Alert.Popup("Please Select A Field To Edit!", Alert.AlertType.warning);
+            }        
         }
 
-
-       
+        private void txtBxSearch_TextChanged(object sender, EventArgs e)
+        {
+            DisplayEmployees.disp.searchQuery = txtBxSearch.Text.ToUpper();
+            DisplayEmployees.disp.loadEmployees();
+        }
     }
 }

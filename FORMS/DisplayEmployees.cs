@@ -23,6 +23,7 @@ namespace BiometricPayroll.FORMS
        
         public string SelectedRowID;
         public string SelectedRowWorkID;
+        public string searchQuery = "";
         private void DisplayEmployees_Load(object sender, EventArgs e)
         {
             loadEmployees();
@@ -32,20 +33,32 @@ namespace BiometricPayroll.FORMS
         {
             Database db = new Database();
 
-            db.LoadDTG(empTableGrid);
+            db.LoadDTG(empTableGrid,searchQuery);
         }               
      
         private void empTableGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (empTableGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
-                empTableGrid.CurrentRow.Selected = true;
 
-                SelectedRowID = empTableGrid.Rows[e.RowIndex].Cells["ID"].FormattedValue.ToString();
-                SelectedRowWorkID = empTableGrid.Rows[e.RowIndex].Cells["WORK ID"].FormattedValue.ToString();
+                if (empTableGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    empTableGrid.CurrentRow.Selected = true;
 
-                //USING PARENT INSTANCE emp TO ACCESS FUNCTION
-                Employees.emp.setSelectedUser(SelectedRowID,SelectedRowWorkID);
+                    SelectedRowID = empTableGrid.Rows[e.RowIndex].Cells["ID"].FormattedValue.ToString();
+                    SelectedRowWorkID = empTableGrid.Rows[e.RowIndex].Cells["WORK ID"].FormattedValue.ToString();
+
+                    //USING PARENT INSTANCE emp TO ACCESS FUNCTION
+                    Employees.emp.setSelectedUser(SelectedRowID, SelectedRowWorkID);
+                }
+            }
+            catch(System.ArgumentOutOfRangeException OutOfRange)
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }

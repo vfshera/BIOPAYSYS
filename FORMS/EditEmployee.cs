@@ -29,7 +29,18 @@ namespace BiometricPayroll.FORMS
             Database db = new Database();
             employeeData = db.singleRow(sql);
 
-            InitFormData();
+            
+
+            if(employeeData?.Length == null)
+            {
+
+                Alert.Popup("Select A Field First!", Alert.AlertType.warning);
+            }
+            else
+            {
+                InitFormData();
+
+            }
            
         }
 
@@ -140,18 +151,19 @@ namespace BiometricPayroll.FORMS
 
                 if (added)
                 {
+                    Alert.Popup("Employee Updated!", Alert.AlertType.success);
                     DisplayEmployees.disp.loadEmployees();
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Unable To Update Employee");
+                    Alert.Popup("Unable To Update!", Alert.AlertType.error);
                     this.Close();
                 }
             }
             else
             {
-                MessageBox.Show("Fill The Form Correctly!");
+                Alert.Popup("Check The Form!", Alert.AlertType.warning);
             }
         }
 

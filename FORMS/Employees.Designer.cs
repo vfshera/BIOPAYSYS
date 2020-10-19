@@ -33,11 +33,9 @@
             this.btnAddEmp = new Guna.UI2.WinForms.Guna2Button();
             this.empContainerPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.showAllEmployees = new Guna.UI2.WinForms.Guna2Button();
-            this.searchPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtBxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.searchElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.btnEditRow = new Guna.UI2.WinForms.Guna2Button();
-            this.searchPanel.SuspendLayout();
+            this.txtBxSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -111,49 +109,9 @@
             this.showAllEmployees.Text = "ALL";
             this.showAllEmployees.Click += new System.EventHandler(this.showAllEmployees_Click);
             // 
-            // searchPanel
-            // 
-            this.searchPanel.BackColor = System.Drawing.Color.White;
-            this.searchPanel.BorderRadius = 15;
-            this.searchPanel.BorderThickness = 1;
-            this.searchPanel.Controls.Add(this.txtBxSearch);
-            this.searchPanel.Location = new System.Drawing.Point(14, 6);
-            this.searchPanel.Name = "searchPanel";
-            this.searchPanel.ShadowDecoration.Parent = this.searchPanel;
-            this.searchPanel.Size = new System.Drawing.Size(437, 43);
-            this.searchPanel.TabIndex = 0;
-            // 
-            // txtBxSearch
-            // 
-            this.txtBxSearch.BackColor = System.Drawing.Color.Transparent;
-            this.txtBxSearch.BorderColor = System.Drawing.Color.Transparent;
-            this.txtBxSearch.BorderThickness = 0;
-            this.txtBxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBxSearch.DefaultText = "";
-            this.txtBxSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBxSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBxSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBxSearch.DisabledState.Parent = this.txtBxSearch;
-            this.txtBxSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBxSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBxSearch.FocusedState.Parent = this.txtBxSearch;
-            this.txtBxSearch.ForeColor = System.Drawing.Color.DimGray;
-            this.txtBxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBxSearch.HoverState.Parent = this.txtBxSearch;
-            this.txtBxSearch.Location = new System.Drawing.Point(25, 4);
-            this.txtBxSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtBxSearch.Name = "txtBxSearch";
-            this.txtBxSearch.PasswordChar = '\0';
-            this.txtBxSearch.PlaceholderText = "";
-            this.txtBxSearch.SelectedText = "";
-            this.txtBxSearch.ShadowDecoration.Parent = this.txtBxSearch;
-            this.txtBxSearch.Size = new System.Drawing.Size(342, 33);
-            this.txtBxSearch.TabIndex = 0;
-            // 
             // searchElipse
             // 
             this.searchElipse.BorderRadius = 40;
-            this.searchElipse.TargetControl = this.searchPanel;
             // 
             // btnEditRow
             // 
@@ -177,13 +135,41 @@
             this.btnEditRow.Text = "EDIT";
             this.btnEditRow.Click += new System.EventHandler(this.btnEditRow_Click);
             // 
+            // txtBxSearch
+            // 
+            this.txtBxSearch.BorderRadius = 15;
+            this.txtBxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBxSearch.DefaultText = "";
+            this.txtBxSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtBxSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtBxSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBxSearch.DisabledState.Parent = this.txtBxSearch;
+            this.txtBxSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtBxSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBxSearch.FocusedState.Parent = this.txtBxSearch;
+            this.txtBxSearch.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtBxSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtBxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtBxSearch.HoverState.Parent = this.txtBxSearch;
+            this.txtBxSearch.Location = new System.Drawing.Point(13, 5);
+            this.txtBxSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtBxSearch.Name = "txtBxSearch";
+            this.txtBxSearch.Padding = new System.Windows.Forms.Padding(17, 0, 11, 0);
+            this.txtBxSearch.PasswordChar = '\0';
+            this.txtBxSearch.PlaceholderText = "Search . . . .";
+            this.txtBxSearch.SelectedText = "";
+            this.txtBxSearch.ShadowDecoration.Parent = this.txtBxSearch;
+            this.txtBxSearch.Size = new System.Drawing.Size(415, 43);
+            this.txtBxSearch.TabIndex = 4;
+            this.txtBxSearch.TextChanged += new System.EventHandler(this.txtBxSearch_TextChanged);
+            // 
             // Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1096, 726);
-            this.Controls.Add(this.searchPanel);
+            this.Controls.Add(this.txtBxSearch);
             this.Controls.Add(this.empContainerPanel);
             this.Controls.Add(this.btnEditRow);
             this.Controls.Add(this.showAllEmployees);
@@ -196,7 +182,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Employees";
             this.Load += new System.EventHandler(this.Employees_Load);
-            this.searchPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,9 +193,8 @@
         private Guna.UI2.WinForms.Guna2Button btnAddEmp;
         private Guna.UI2.WinForms.Guna2Panel empContainerPanel;
         private Guna.UI2.WinForms.Guna2Button showAllEmployees;
-        private Guna.UI2.WinForms.Guna2Panel searchPanel;
         private Guna.UI2.WinForms.Guna2Elipse searchElipse;
-        private Guna.UI2.WinForms.Guna2TextBox txtBxSearch;
         private Guna.UI2.WinForms.Guna2Button btnEditRow;
+        private Guna.UI2.WinForms.Guna2TextBox txtBxSearch;
     }
 }

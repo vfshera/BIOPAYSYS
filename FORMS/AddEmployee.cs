@@ -92,17 +92,17 @@ namespace BiometricPayroll.FORMS
 
                 if (added)
                 {
-                    MessageBox.Show("Employee Added");
+                    Alert.Popup("Employee Added!", Alert.AlertType.success);
                     this.ClearFields();
                 }
                 else
                 {
-                    MessageBox.Show("Unable To Add Employee");
+                    Alert.Popup("Unable To Add Employee!", Alert.AlertType.error);
                 }
             }
             else
             {
-                MessageBox.Show("Fill The Form Correctly!");
+                Alert.Popup("Check The Form!", Alert.AlertType.warning);
             }
           
               

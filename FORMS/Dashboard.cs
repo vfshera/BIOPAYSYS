@@ -112,6 +112,8 @@ namespace BiometricPayroll.FORMS
         private void btnDash_Click(object sender, EventArgs e)
         {
             Dashboard dash = new Dashboard();
+
+
             this.pressedBtn(btnDash);
 
             if (child != null)

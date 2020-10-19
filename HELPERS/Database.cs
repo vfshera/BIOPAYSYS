@@ -81,11 +81,11 @@ namespace BiometricPayroll.HELPERS
 
                 if (result > 0)
                 {
-                    MessageBox.Show("Successfully Registered");
+                    Alert.Popup("User Registered!", Alert.AlertType.success);
                 }
                 else
                 {
-                    MessageBox.Show("Failed To Register");
+                    Alert.Popup("Failed To Register User!", Alert.AlertType.error);
                 }
 
             }
@@ -244,9 +244,25 @@ namespace BiometricPayroll.HELPERS
                 con.Close();
             }
         }
-        public void LoadDTG(Guna2DataGridView dg)
+
+
+        string loadsql;
+        public void LoadDTG(Guna2DataGridView dg,string searchQuery)
         {
-            string sql = "SELECT id AS ID,work_id AS 'WORK ID', CONCAT_WS(' ' , first_name , surname) AS NAME,position AS JOB,phonenumber AS CONTACT,email AS EMAIL,gender AS GENDER,work_status AS 'WORK STATUS' FROM employees ORDER BY id ASC";
+            
+
+            if (searchQuery.Length == 0) {
+
+                loadsql = "SELECT id AS ID,work_id AS 'WORK ID', CONCAT_WS(' ' , first_name , surname) AS NAME,position AS JOB,phonenumber AS CONTACT,email AS EMAIL,gender AS GENDER,work_status AS 'WORK STATUS' FROM employees ORDER BY id ASC";
+            
+            }else if(searchQuery.Length > 0) {
+
+                loadsql = $"SELECT id AS ID,work_id AS 'WORK ID', CONCAT_WS(' ' , first_name , surname) AS NAME,position AS JOB,phonenumber AS CONTACT,email AS EMAIL,gender AS GENDER,work_status AS 'WORK STATUS' FROM employees WHERE first_name LIKE '{searchQuery}%' OR  surname LIKE '{searchQuery}%' ORDER BY id ASC";
+            
+            }
+
+
+
             try
             {
                 con.Open();
@@ -255,7 +271,7 @@ namespace BiometricPayroll.HELPERS
                 dt = new DataTable();
 
                 cmd.Connection = con;
-                cmd.CommandText = sql;
+                cmd.CommandText = loadsql;
                 da.SelectCommand = cmd;
                 da.Fill(dt);
                 dg.DataSource = dt;
@@ -344,9 +360,13 @@ namespace BiometricPayroll.HELPERS
                 dr.Close();
 
             }
+            catch (System.IndexOutOfRangeException indexOutOfRange)
+            {
+
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("DB - SINGLEROW() ERR"+ ex.Message);
+                MessageBox.Show(ex.Message);
             }
             finally
             {
