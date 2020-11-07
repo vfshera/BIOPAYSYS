@@ -72,6 +72,7 @@
             this.btnEnroll = new Guna.UI.WinForms.GunaAdvenceButton();
             this.printPanelElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.empFieldsElipse = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.deviceState = new Guna.UI.WinForms.GunaLabel();
             addEmployeeElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.fingerPrintBox)).BeginInit();
             this.fieldsPanel.SuspendLayout();
@@ -807,6 +808,7 @@
             // 
             this.printPanel.BackColor = System.Drawing.Color.Transparent;
             this.printPanel.BaseColor = System.Drawing.Color.White;
+            this.printPanel.Controls.Add(this.deviceState);
             this.printPanel.Controls.Add(this.gunaAdvenceButton1);
             this.printPanel.Controls.Add(this.btnEnroll);
             this.printPanel.Controls.Add(this.fingerPrintBox);
@@ -900,6 +902,18 @@
             this.empFieldsElipse.Radius = 15;
             this.empFieldsElipse.TargetControl = this.fieldsPanel;
             // 
+            // deviceState
+            // 
+            this.deviceState.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.deviceState.AutoSize = true;
+            this.deviceState.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.deviceState.Location = new System.Drawing.Point(206, 598);
+            this.deviceState.Name = "deviceState";
+            this.deviceState.Size = new System.Drawing.Size(0, 28);
+            this.deviceState.TabIndex = 5;
+            this.deviceState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -967,5 +981,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox workStatusDropDown;
         private Guna.UI2.WinForms.Guna2ComboBox maritalStatusDropDown;
         private Guna.UI2.WinForms.Guna2ComboBox genderDropDown;
+        private Guna.UI.WinForms.GunaLabel deviceState;
     }
 }

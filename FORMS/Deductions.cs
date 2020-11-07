@@ -1,12 +1,5 @@
 ﻿using BiometricPayroll.HELPERS;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BiometricPayroll.FORMS
@@ -28,7 +21,7 @@ namespace BiometricPayroll.FORMS
         {
             Database db = new Database();
             string Search = $"SELECT id AS ID,title AS TITLE, amount AS AMOUNT, method AS METHOD FROM taxes WHERE title LIKE '{searchQuery}%' ORDER BY id ASC";
-          
+
 
             if (searchQuery.Length == 0)
             {
@@ -44,7 +37,7 @@ namespace BiometricPayroll.FORMS
         private bool validateDeductions()
         {
             bool valid = false;
-            if (txtBxTitle.Text.Length > 2 
+            if (txtBxTitle.Text.Length > 2
                 && deductionMethodDropDown.SelectedItem != null
                 && txtBxAmount.Text.Length > 0)
             {
@@ -53,7 +46,7 @@ namespace BiometricPayroll.FORMS
 
             else
             {
-                 valid = false;
+                valid = false;
             }
 
             return valid;
@@ -62,10 +55,10 @@ namespace BiometricPayroll.FORMS
         {
             if (this.validateDeductions())
             {
-                string dedVals =$" '{txtBxTitle.Text.ToUpper()}' , '{deductionMethodDropDown.SelectedItem.ToString().ToUpper()}' , {txtBxAmount.Text}";
+                string dedVals = $" '{txtBxTitle.Text.ToUpper()}' , '{deductionMethodDropDown.SelectedItem.ToString().ToUpper()}' , {txtBxAmount.Text}";
                 string deductionQuery = $"INSERT INTO taxes (title,method,amount) VALUES({dedVals})";
 
-                
+
                 Database db = new Database();
 
                 int res = db.runQuery(deductionQuery);
@@ -105,7 +98,7 @@ namespace BiometricPayroll.FORMS
 
         private void resetImgBtn_Click(object sender, EventArgs e)
         {
-            this.ClearForm();            
+            this.ClearForm();
         }
 
         private void ClearForm()

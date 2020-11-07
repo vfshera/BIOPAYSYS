@@ -150,7 +150,8 @@ namespace BiometricPayroll.FORMS
         {
             FingerprintScanner scanner = new FingerprintScanner();
 
-            scanner.scanIt();
+            deviceState.Text = "";
+            scanner.scanIt(deviceState);
         }
     }
 }
