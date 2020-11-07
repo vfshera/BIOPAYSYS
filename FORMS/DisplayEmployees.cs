@@ -32,8 +32,19 @@ namespace BiometricPayroll.FORMS
         public void loadEmployees()
         {
             Database db = new Database();
+            string Search = $"SELECT id AS ID,work_id AS 'WORK ID', CONCAT_WS(' ' , first_name , surname) AS NAME,position AS JOB,phonenumber AS CONTACT,email AS EMAIL,gender AS GENDER,work_status AS 'WORK STATUS' FROM employees WHERE first_name LIKE '{searchQuery}%' OR  surname LIKE '{searchQuery}%' ORDER BY id ASC";
+           
 
-            db.LoadDTG(empTableGrid,searchQuery);
+            if (searchQuery.Length == 0)
+            {
+                db.LoadDTG(empTableGrid, Constants.EMPLOYEES_QUERY);
+            }
+            else if (searchQuery.Length > 0)
+            {
+                db.LoadDTG(empTableGrid, Search);
+            }
+
+          
         }               
      
         private void empTableGrid_CellClick(object sender, DataGridViewCellEventArgs e)

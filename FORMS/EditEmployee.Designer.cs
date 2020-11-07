@@ -66,6 +66,7 @@
             this.txtFirstName = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel16 = new Guna.UI.WinForms.GunaLabel();
             this.closeEditModal = new Guna.UI.WinForms.GunaControlBox();
+            this.enrollRegisterdEmployee = new Guna.UI.WinForms.GunaAdvenceButton();
             this.SuspendLayout();
             // 
             // editFormEliose
@@ -315,7 +316,6 @@
             this.txtWorkID.HoverState.Parent = this.txtWorkID;
             this.txtWorkID.Location = new System.Drawing.Point(788, 709);
             this.txtWorkID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtWorkID.MaxLength = 32;
             this.txtWorkID.Name = "txtWorkID";
             this.txtWorkID.PasswordChar = '\0';
             this.txtWorkID.PlaceholderText = "VFS28";
@@ -375,7 +375,6 @@
             this.txtNationalID.HoverState.Parent = this.txtNationalID;
             this.txtNationalID.Location = new System.Drawing.Point(788, 550);
             this.txtNationalID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtNationalID.MaxLength = 32;
             this.txtNationalID.Name = "txtNationalID";
             this.txtNationalID.PasswordChar = '\0';
             this.txtNationalID.PlaceholderText = "34215678";
@@ -405,7 +404,6 @@
             this.txtJobPosition.HoverState.Parent = this.txtJobPosition;
             this.txtJobPosition.Location = new System.Drawing.Point(405, 709);
             this.txtJobPosition.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtJobPosition.MaxLength = 32;
             this.txtJobPosition.Name = "txtJobPosition";
             this.txtJobPosition.PasswordChar = '\0';
             this.txtJobPosition.PlaceholderText = "CEO";
@@ -435,7 +433,6 @@
             this.txtEmail.HoverState.Parent = this.txtEmail;
             this.txtEmail.Location = new System.Drawing.Point(788, 266);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtEmail.MaxLength = 32;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.PlaceholderText = "familyfriend@mail.com";
@@ -467,7 +464,6 @@
             this.txtSurname.HoverState.Parent = this.txtSurname;
             this.txtSurname.Location = new System.Drawing.Point(791, 136);
             this.txtSurname.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtSurname.MaxLength = 32;
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.PasswordChar = '\0';
             this.txtSurname.PlaceholderText = "VIDONYI";
@@ -537,7 +533,6 @@
             this.txtEmmergencyNo.HoverState.Parent = this.txtEmmergencyNo;
             this.txtEmmergencyNo.Location = new System.Drawing.Point(26, 709);
             this.txtEmmergencyNo.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtEmmergencyNo.MaxLength = 32;
             this.txtEmmergencyNo.Name = "txtEmmergencyNo";
             this.txtEmmergencyNo.PasswordChar = '\0';
             this.txtEmmergencyNo.PlaceholderText = "0712345678";
@@ -567,7 +562,6 @@
             this.txtPhoneNumber.HoverState.Parent = this.txtPhoneNumber;
             this.txtPhoneNumber.Location = new System.Drawing.Point(405, 266);
             this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtPhoneNumber.MaxLength = 32;
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.PasswordChar = '\0';
             this.txtPhoneNumber.PlaceholderText = "0712345678";
@@ -598,7 +592,6 @@
             this.txtSecondName.HoverState.Parent = this.txtSecondName;
             this.txtSecondName.Location = new System.Drawing.Point(405, 136);
             this.txtSecondName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtSecondName.MaxLength = 32;
             this.txtSecondName.Name = "txtSecondName";
             this.txtSecondName.PasswordChar = '\0';
             this.txtSecondName.PlaceholderText = "SHERA";
@@ -688,7 +681,6 @@
             this.txtAddress.HoverState.Parent = this.txtAddress;
             this.txtAddress.Location = new System.Drawing.Point(26, 266);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtAddress.MaxLength = 32;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.PasswordChar = '\0';
             this.txtAddress.PlaceholderText = "101 NCHIRU";
@@ -728,7 +720,6 @@
             this.txtFirstName.HoverState.Parent = this.txtFirstName;
             this.txtFirstName.Location = new System.Drawing.Point(28, 136);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtFirstName.MaxLength = 32;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.PasswordChar = '\0';
             this.txtFirstName.PlaceholderText = "FRANKLIN";
@@ -765,12 +756,46 @@
             this.closeEditModal.Size = new System.Drawing.Size(45, 29);
             this.closeEditModal.TabIndex = 37;
             // 
+            // enrollRegisterdEmployee
+            // 
+            this.enrollRegisterdEmployee.AnimationHoverSpeed = 0.07F;
+            this.enrollRegisterdEmployee.AnimationSpeed = 0.03F;
+            this.enrollRegisterdEmployee.BaseColor = System.Drawing.Color.White;
+            this.enrollRegisterdEmployee.BorderColor = System.Drawing.Color.Transparent;
+            this.enrollRegisterdEmployee.CheckedBaseColor = System.Drawing.Color.Transparent;
+            this.enrollRegisterdEmployee.CheckedBorderColor = System.Drawing.Color.Transparent;
+            this.enrollRegisterdEmployee.CheckedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.enrollRegisterdEmployee.CheckedImage = ((System.Drawing.Image)(resources.GetObject("enrollRegisterdEmployee.CheckedImage")));
+            this.enrollRegisterdEmployee.CheckedLineColor = System.Drawing.Color.Transparent;
+            this.enrollRegisterdEmployee.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.enrollRegisterdEmployee.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.enrollRegisterdEmployee.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.enrollRegisterdEmployee.ForeColor = System.Drawing.Color.Lime;
+            this.enrollRegisterdEmployee.Image = ((System.Drawing.Image)(resources.GetObject("enrollRegisterdEmployee.Image")));
+            this.enrollRegisterdEmployee.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.enrollRegisterdEmployee.ImageSize = new System.Drawing.Size(50, 50);
+            this.enrollRegisterdEmployee.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.enrollRegisterdEmployee.Location = new System.Drawing.Point(20, 780);
+            this.enrollRegisterdEmployee.Name = "enrollRegisterdEmployee";
+            this.enrollRegisterdEmployee.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.enrollRegisterdEmployee.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.enrollRegisterdEmployee.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.enrollRegisterdEmployee.OnHoverImage = null;
+            this.enrollRegisterdEmployee.OnHoverLineColor = System.Drawing.Color.Transparent;
+            this.enrollRegisterdEmployee.OnPressedColor = System.Drawing.Color.Transparent;
+            this.enrollRegisterdEmployee.Size = new System.Drawing.Size(149, 56);
+            this.enrollRegisterdEmployee.TabIndex = 38;
+            this.enrollRegisterdEmployee.Text = "ENROLL";
+            this.enrollRegisterdEmployee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.enrollRegisterdEmployee.Click += new System.EventHandler(this.enrollRegisterdEmployee_Click);
+            // 
             // EditEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1126, 858);
+            this.Controls.Add(this.enrollRegisterdEmployee);
             this.Controls.Add(this.closeEditModal);
             this.Controls.Add(this.workStatusDropDown);
             this.Controls.Add(this.maritalStatusDropDown);
@@ -854,5 +879,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtFirstName;
         private Guna.UI.WinForms.GunaLabel gunaLabel16;
         private Guna.UI.WinForms.GunaControlBox closeEditModal;
+        private Guna.UI.WinForms.GunaAdvenceButton enrollRegisterdEmployee;
     }
 }

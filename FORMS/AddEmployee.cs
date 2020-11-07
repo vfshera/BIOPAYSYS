@@ -141,6 +141,16 @@ namespace BiometricPayroll.FORMS
             }
         }
 
-       
+        private void btnEnroll_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRetry_Click(object sender, EventArgs e)
+        {
+            FingerprintScanner scanner = new FingerprintScanner();
+
+            scanner.scanIt();
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace BiometricPayroll.HELPERS
     class Database
     {
 
-        private MySqlConnection con = new MySqlConnection("server=localhost;user id=root;database=biopaysys;sslMode=none");
+        private MySqlConnection con = new MySqlConnection(Constants.CONNECTION);
         private MySqlCommand cmd;
         private MySqlDataAdapter da;
         public DataTable dt;
@@ -195,39 +195,14 @@ namespace BiometricPayroll.HELPERS
 
             return updated;
         }
-        public void Execute_CUD(string sql, string msg_false, string msg_true)
+    
+        public int runQuery(string sql)
         {
+            int result = 0;
+
             try
             {
-                con.Open();
-                cmd = new MySqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = sql;
-                result = cmd.ExecuteNonQuery();
-
-                if (result > 0)
-                {
-                    MessageBox.Show(msg_true);
-                }
-                else
-                {
-                    MessageBox.Show(msg_false);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
-        public void Execute_Query(string sql)
-        {
-            try
-            {
+                MessageBox.Show(sql);
                 con.Open();
                 cmd = new MySqlCommand();
                 cmd.Connection = con;
@@ -237,32 +212,21 @@ namespace BiometricPayroll.HELPERS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Alert.Popup(ex.Message, Alert.AlertType.error);
             }
             finally
             {
                 con.Close();
             }
+
+            return result;
         }
 
 
-        string loadsql;
-        public void LoadDTG(Guna2DataGridView dg,string searchQuery)
+        
+        public void LoadDTG(Guna2DataGridView dg,string myQuery)
         {
-            
-
-            if (searchQuery.Length == 0) {
-
-                loadsql = "SELECT id AS ID,work_id AS 'WORK ID', CONCAT_WS(' ' , first_name , surname) AS NAME,position AS JOB,phonenumber AS CONTACT,email AS EMAIL,gender AS GENDER,work_status AS 'WORK STATUS' FROM employees ORDER BY id ASC";
-            
-            }else if(searchQuery.Length > 0) {
-
-                loadsql = $"SELECT id AS ID,work_id AS 'WORK ID', CONCAT_WS(' ' , first_name , surname) AS NAME,position AS JOB,phonenumber AS CONTACT,email AS EMAIL,gender AS GENDER,work_status AS 'WORK STATUS' FROM employees WHERE first_name LIKE '{searchQuery}%' OR  surname LIKE '{searchQuery}%' ORDER BY id ASC";
-            
-            }
-
-
-
+          
             try
             {
                 con.Open();
@@ -271,7 +235,7 @@ namespace BiometricPayroll.HELPERS
                 dt = new DataTable();
 
                 cmd.Connection = con;
-                cmd.CommandText = loadsql;
+                cmd.CommandText = myQuery;
                 da.SelectCommand = cmd;
                 da.Fill(dt);
                 dg.DataSource = dt;
@@ -289,37 +253,8 @@ namespace BiometricPayroll.HELPERS
             }
 
         }
-        public void fiil_CBO(string sql, ComboBox cbo)
-        {
-            try
-            {
-                con.Open();
-                cmd = new MySqlCommand();
-                da = new MySqlDataAdapter();
-                dt = new DataTable();
-
-
-                cmd.Connection = con;
-                cmd.CommandText = sql;
-                da.SelectCommand = cmd;
-                da.Fill(dt);
-                cbo.DataSource = dt;
-                cbo.ValueMember = "ID";
-                cbo.DisplayMember = "Name";
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                con.Close();
-                da.Dispose();
-            }
-
-        }
+       
+        
         public string[] singleRow(string sql)
         {
             string[] emp = new string[17];

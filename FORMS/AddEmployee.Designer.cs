@@ -852,6 +852,7 @@
             this.gunaAdvenceButton1.TabIndex = 4;
             this.gunaAdvenceButton1.Text = "RETRY";
             this.gunaAdvenceButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaAdvenceButton1.Click += new System.EventHandler(this.btnRetry_Click);
             // 
             // btnEnroll
             // 
@@ -887,6 +888,7 @@
             this.btnEnroll.TabIndex = 4;
             this.btnEnroll.Text = "ENROLL";
             this.btnEnroll.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnEnroll.Click += new System.EventHandler(this.btnEnroll_Click);
             // 
             // printPanelElipse
             // 

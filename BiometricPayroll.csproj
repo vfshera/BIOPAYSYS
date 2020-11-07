@@ -61,6 +61,12 @@
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
+    <Reference Include="SecuBSPMx.NET">
+      <HintPath>D:\SOFTWARE\SECUGEN DOTNET\SecuBSPMx.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="SecuGen.FDxSDKPro.Windows">
+      <HintPath>..\..\..\Downloads\Compressed\FDx SDK Pro for Windows v4.03_J1.12\FDx SDK Pro for Windows v4.03_J1.12\FDx SDK Pro for Windows 4.03\DotNET\Bin\x64\SecuGen.FDxSDKPro.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
@@ -160,7 +166,9 @@
     <Compile Include="FORMS\Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
+    <Compile Include="HELPERS\Constants.cs" />
     <Compile Include="HELPERS\Database.cs" />
+    <Compile Include="HELPERS\FingerprintScanner.cs" />
     <Compile Include="HELPERS\Utilities.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
