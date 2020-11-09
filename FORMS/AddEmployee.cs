@@ -1,4 +1,5 @@
 ﻿using BiometricPayroll.HELPERS;
+using SecuGen.FDxSDKPro.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,16 +14,31 @@ namespace BiometricPayroll.FORMS
 {
     public partial class AddEmployee : Form
     {
+        private SGFingerPrintManager m_FPM;
+
+
+
+        private Int32 m_ImageWidth;
+        private Int32 m_ImageHeight;
+        private string deviceDPI;
+
+        private int delayFp = 10;
+
+        private string DevicID;
+        private bool isLedOn = false;
         public AddEmployee()
         {
             InitializeComponent();
+            m_FPM = new SGFingerPrintManager();
         }
 
         private bool emailOk = false;
         private void AddEmployee_Load(object sender, EventArgs e)
         {
-            
+
+            startScanner(deviceState, lblDeviceInfo);
         }
+
 
         private void ClearFields()
         {
@@ -48,12 +64,12 @@ namespace BiometricPayroll.FORMS
         private bool ValidateForm()
         {
             bool valid = false;
-            if(
-                txtAddress.Text.Length > 4  &&  emailOk &&  txtEmmergencyNo.Text.Length > 9 &&
+            if (
+                txtAddress.Text.Length > 4 && emailOk && txtEmmergencyNo.Text.Length > 9 &&
                 txtFirstName.Text != "" && txtJobPosition.Text != "" && txtNationalID.Text.Length > 6 &&
                 txtPhoneNumber.Text.Length >= 2 && txtSecondName.Text.Length >= 2 && txtSurname.Text.Length >= 2 &&
                 txtWorkID.Text.Length > 3 && genderDropDown.SelectedItem != null &&
-                maritalStatusDropDown.SelectedItem != null  && workStatusDropDown.SelectedItem != null
+                maritalStatusDropDown.SelectedItem != null && workStatusDropDown.SelectedItem != null
                 )
             {
                 valid = true;
@@ -68,7 +84,7 @@ namespace BiometricPayroll.FORMS
 
         private void btnSaveEmployee_Click(object sender, EventArgs e)
         {
-          if(this.ValidateForm())
+            if (this.ValidateForm())
             {
                 Database emp = new Database();
                 bool added = emp.AddEmployee(
@@ -104,8 +120,8 @@ namespace BiometricPayroll.FORMS
             {
                 Alert.Popup("Check The Form!", Alert.AlertType.warning);
             }
-          
-              
+
+
         }
 
 
@@ -127,7 +143,7 @@ namespace BiometricPayroll.FORMS
         {
             Utilities myUtil = new Utilities();
 
-            if(myUtil.ValidateEmail(txtEmail.Text.ToLower()))
+            if (myUtil.ValidateEmail(txtEmail.Text.ToLower()))
             {
                 txtEmail.BorderThickness = 1;
                 txtEmail.BorderColor = SystemColors.Control;
@@ -148,10 +164,130 @@ namespace BiometricPayroll.FORMS
 
         private void btnRetry_Click(object sender, EventArgs e)
         {
-            FingerprintScanner scanner = new FingerprintScanner();
+            capture();
 
-            deviceState.Text = "";
-            scanner.scanIt(deviceState);
+            fingerPrintLapse.Enabled = true;
+            fingerPrintLapse.Start();
         }
+
+
+
+        private void fingerPrintLapse_Tick(object sender, EventArgs e)
+        {
+           if(delayFp != 0)
+            {
+                delayFp--;
+                lblwaitingTime.Text = delayFp.ToString() + "s";
+            }
+            else
+            {
+                lblwaitingTime.Text =  "Retry!";
+                fingerPrintLapse.Stop();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        /* B I O M E T R I C S     */
+
+        public void startScanner(Guna.UI.WinForms.GunaLabel stateLabel, Guna.UI.WinForms.GunaLabel lblDeviceInfo)
+        {
+            SGFPMDeviceName device_name = SGFPMDeviceName.DEV_FDU03;
+
+          
+            Int32 port_addr = (int)SGFPMPortAddr.USB_AUTO_DETECT;
+
+            int dErr = m_FPM.Init(device_name);
+
+            int iError = m_FPM.OpenDevice(port_addr);
+
+
+
+            if (iError == (Int32)SGFPMError.ERROR_NONE)
+            {
+                isLedOn = true;
+                stateLabel.Text = " Initialization Success";
+                scanerInfo();
+                m_FPM.SetLedOn(true);
+
+                lblDeviceInfo.Text = "Device W : " + m_ImageWidth + ", H : " + m_ImageHeight + ", DPI :" + deviceDPI;
+            }
+            else
+            {
+                stateLabel.Text = "OpenDevice() Error : " + iError;
+
+            }
+        }
+
+        public void toggleScannerLed(bool isChecked)
+        {
+
+            isLedOn = isChecked;
+            m_FPM.SetLedOn(isLedOn);
+        }
+
+        public void capture()
+        {
+          
+            Int32 iError;
+            Int32 timeout = 10000;
+            Int32 quality = 60;
+            Byte[] fp_image = new Byte[m_ImageWidth * m_ImageHeight];
+         
+
+            iError = m_FPM.GetImageEx(fp_image, timeout, this.fingerPrintBox.Handle.ToInt32(), quality);
+
+            if (iError == 0)
+            {
+                Alert.Popup("FingerPrint Captured", Alert.AlertType.success);
+               
+            }
+            else
+            {
+                MessageBox.Show("GetLiveImageEx() " + iError);
+            }
+
+           
+
+        }
+
+
+        public void scanerInfo()
+        {
+            SGFPMDeviceInfoParam pInfo = new SGFPMDeviceInfoParam();
+            Int32 iError = m_FPM.GetDeviceInfo(pInfo);
+
+            if (iError == (Int32)SGFPMError.ERROR_NONE)
+            {    
+                m_ImageWidth = pInfo.ImageWidth;
+                m_ImageHeight = pInfo.ImageHeight;
+                DevicID = Convert.ToString(pInfo.DeviceID);
+                deviceDPI = Convert.ToString(pInfo.ImageDPI);
+
+            }
+            else
+            {
+                MessageBox.Show("Can't Get Device H & W");
+            }
+        }
+
+        private void CloseDevice()
+        {
+            m_FPM.CloseDevice();
+        }
+
+
+
+        /*BIOMETRIC*/
+
     }
 }

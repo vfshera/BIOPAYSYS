@@ -68,11 +68,14 @@
             this.btnEmpDetailCancel = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnSaveEmployee = new Guna.UI.WinForms.GunaAdvenceButton();
             this.printPanel = new Guna.UI.WinForms.GunaElipsePanel();
+            this.deviceState = new Guna.UI.WinForms.GunaLabel();
             this.gunaAdvenceButton1 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnEnroll = new Guna.UI.WinForms.GunaAdvenceButton();
             this.printPanelElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.empFieldsElipse = new Guna.UI.WinForms.GunaElipse(this.components);
-            this.deviceState = new Guna.UI.WinForms.GunaLabel();
+            this.lblDeviceInfo = new Guna.UI.WinForms.GunaLabel();
+            this.lblwaitingTime = new Guna.UI.WinForms.GunaLabel();
+            this.fingerPrintLapse = new System.Windows.Forms.Timer(this.components);
             addEmployeeElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.fingerPrintBox)).BeginInit();
             this.fieldsPanel.SuspendLayout();
@@ -542,10 +545,10 @@
             // 
             this.fingerPrintBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.fingerPrintBox.Image = ((System.Drawing.Image)(resources.GetObject("fingerPrintBox.Image")));
-            this.fingerPrintBox.Location = new System.Drawing.Point(137, 149);
+            this.fingerPrintBox.Location = new System.Drawing.Point(47, 130);
             this.fingerPrintBox.Name = "fingerPrintBox";
             this.fingerPrintBox.ShadowDecoration.Parent = this.fingerPrintBox;
-            this.fingerPrintBox.Size = new System.Drawing.Size(205, 141);
+            this.fingerPrintBox.Size = new System.Drawing.Size(392, 327);
             this.fingerPrintBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.fingerPrintBox.TabIndex = 3;
             this.fingerPrintBox.TabStop = false;
@@ -556,7 +559,7 @@
             this.txtFingerprintStatus.AutoSize = true;
             this.txtFingerprintStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.txtFingerprintStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(165)))), ((int)(((byte)(33)))));
-            this.txtFingerprintStatus.Location = new System.Drawing.Point(168, 379);
+            this.txtFingerprintStatus.Location = new System.Drawing.Point(168, 478);
             this.txtFingerprintStatus.Name = "txtFingerprintStatus";
             this.txtFingerprintStatus.Size = new System.Drawing.Size(132, 28);
             this.txtFingerprintStatus.TabIndex = 0;
@@ -808,6 +811,8 @@
             // 
             this.printPanel.BackColor = System.Drawing.Color.Transparent;
             this.printPanel.BaseColor = System.Drawing.Color.White;
+            this.printPanel.Controls.Add(this.lblwaitingTime);
+            this.printPanel.Controls.Add(this.lblDeviceInfo);
             this.printPanel.Controls.Add(this.deviceState);
             this.printPanel.Controls.Add(this.gunaAdvenceButton1);
             this.printPanel.Controls.Add(this.btnEnroll);
@@ -819,6 +824,18 @@
             this.printPanel.Radius = 15;
             this.printPanel.Size = new System.Drawing.Size(477, 821);
             this.printPanel.TabIndex = 5;
+            // 
+            // deviceState
+            // 
+            this.deviceState.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.deviceState.AutoSize = true;
+            this.deviceState.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.deviceState.Location = new System.Drawing.Point(133, 610);
+            this.deviceState.Name = "deviceState";
+            this.deviceState.Size = new System.Drawing.Size(138, 28);
+            this.deviceState.TabIndex = 5;
+            this.deviceState.Text = "STATUS TEXT";
+            this.deviceState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gunaAdvenceButton1
             // 
@@ -902,17 +919,33 @@
             this.empFieldsElipse.Radius = 15;
             this.empFieldsElipse.TargetControl = this.fieldsPanel;
             // 
-            // deviceState
+            // lblDeviceInfo
             // 
-            this.deviceState.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.deviceState.AutoSize = true;
-            this.deviceState.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.deviceState.Location = new System.Drawing.Point(206, 598);
-            this.deviceState.Name = "deviceState";
-            this.deviceState.Size = new System.Drawing.Size(0, 28);
-            this.deviceState.TabIndex = 5;
-            this.deviceState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDeviceInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDeviceInfo.AutoSize = true;
+            this.lblDeviceInfo.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeviceInfo.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblDeviceInfo.Location = new System.Drawing.Point(74, 681);
+            this.lblDeviceInfo.Name = "lblDeviceInfo";
+            this.lblDeviceInfo.Size = new System.Drawing.Size(146, 28);
+            this.lblDeviceInfo.TabIndex = 5;
+            this.lblDeviceInfo.Text = "DEVICE H : W:";
+            this.lblDeviceInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblwaitingTime
+            // 
+            this.lblwaitingTime.AutoSize = true;
+            this.lblwaitingTime.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblwaitingTime.Location = new System.Drawing.Point(215, 104);
+            this.lblwaitingTime.Name = "lblwaitingTime";
+            this.lblwaitingTime.Size = new System.Drawing.Size(31, 20);
+            this.lblwaitingTime.TabIndex = 6;
+            this.lblwaitingTime.Text = "10s";
+            // 
+            // fingerPrintLapse
+            // 
+            this.fingerPrintLapse.Interval = 1000;
+            this.fingerPrintLapse.Tick += new System.EventHandler(this.fingerPrintLapse_Tick);
             // 
             // AddEmployee
             // 
@@ -982,5 +1015,8 @@
         private Guna.UI2.WinForms.Guna2ComboBox maritalStatusDropDown;
         private Guna.UI2.WinForms.Guna2ComboBox genderDropDown;
         private Guna.UI.WinForms.GunaLabel deviceState;
+        private Guna.UI.WinForms.GunaLabel lblDeviceInfo;
+        private Guna.UI.WinForms.GunaLabel lblwaitingTime;
+        private System.Windows.Forms.Timer fingerPrintLapse;
     }
 }
