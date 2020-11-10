@@ -140,6 +140,12 @@
     <Compile Include="FORMS\EditEmployee.Designer.cs">
       <DependentUpon>EditEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORMS\EmployeeFPConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\EmployeeFPConfirm.Designer.cs">
+      <DependentUpon>EmployeeFPConfirm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMS\Employees.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\EditEmployee.resx">
       <DependentUpon>EditEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\EmployeeFPConfirm.resx">
+      <DependentUpon>EmployeeFPConfirm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\Employees.resx">
       <DependentUpon>Employees.cs</DependentUpon>

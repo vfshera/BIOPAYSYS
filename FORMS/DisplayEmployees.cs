@@ -23,6 +23,7 @@ namespace BiometricPayroll.FORMS
        
         public string SelectedRowID;
         public string SelectedRowWorkID;
+        public string SelectedUserSurname;
         public string searchQuery = "";
         private void DisplayEmployees_Load(object sender, EventArgs e)
         {
@@ -57,10 +58,11 @@ namespace BiometricPayroll.FORMS
                     empTableGrid.CurrentRow.Selected = true;
 
                     SelectedRowID = empTableGrid.Rows[e.RowIndex].Cells["ID"].FormattedValue.ToString();
+                    SelectedUserSurname = empTableGrid.Rows[e.RowIndex].Cells["NAME"].FormattedValue.ToString();
                     SelectedRowWorkID = empTableGrid.Rows[e.RowIndex].Cells["WORK ID"].FormattedValue.ToString();
 
                     //USING PARENT INSTANCE emp TO ACCESS FUNCTION
-                    Employees.emp.setSelectedUser(SelectedRowID, SelectedRowWorkID);
+                    Employees.emp.setSelectedUser(SelectedRowID, SelectedRowWorkID,SelectedUserSurname);
                 }
             }
             catch(System.ArgumentOutOfRangeException OutOfRange)
