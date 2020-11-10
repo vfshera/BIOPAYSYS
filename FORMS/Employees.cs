@@ -124,5 +124,10 @@ namespace BiometricPayroll.FORMS
             DisplayEmployees.disp.searchQuery = txtBxSearch.Text.ToUpper();
             DisplayEmployees.disp.loadEmployees();
         }
+
+        private void empContainerPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

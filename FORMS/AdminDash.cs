@@ -15,6 +15,7 @@ namespace BiometricPayroll.FORMS
         public string displayName;
         public string myID;
         public string myEmail;
+        public string role;
         public AdminDash()
         {
             InitializeComponent();
@@ -37,6 +38,33 @@ namespace BiometricPayroll.FORMS
         private Guna.UI2.WinForms.Guna2Button currBtn = null;
 
         private Form child = null;
+
+        private void btnDash_Click(object sender, EventArgs e)
+        {
+            Dashboard dash = new Dashboard();
+
+
+            this.pressedBtn(btnDash);
+
+            if (child != null)
+            {
+                child.Close();
+            }
+
+            dash.Text = "Biometric Payroll";
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            displayName = "";
+            myID = "";
+            myEmail = "";
+            role = "";
+            this.Hide();
+
+            frmLogin login = new frmLogin();
+            login.Show();
+        }
 
         private void pressedBtn(Guna.UI2.WinForms.Guna2Button cBtn)
         {
@@ -73,16 +101,7 @@ namespace BiometricPayroll.FORMS
             child.Show();
         }
 
-        private void btnLogOut_Click(object sender, EventArgs e)
-        {
-            displayName = "";
-            myID = "";
-            myEmail = "";
-            this.Hide();
-
-            frmLogin login = new frmLogin();
-            login.Show();
-        }
+      
 
        
         private void btnUsers_Click(object sender, EventArgs e)
@@ -105,22 +124,14 @@ namespace BiometricPayroll.FORMS
             this.openChildForm(new MyProfile());
         }
 
-        private void btnDash_Click(object sender, EventArgs e)
-        {
-            Dashboard dash = new Dashboard();
-
-
-            this.pressedBtn(btnDash);
-
-            if (child != null)
-            {
-                child.Close();
-            }
-
-            dash.Text = "Biometric Payroll";
-        }
+  
 
         private void gunaMaximizeBtn_Click(object sender, EventArgs e)
+        {
+            toggleBorderRadius();
+        }
+
+        public void toggleBorderRadius()
         {
             if (makeDashRound.BorderRadius == 0)
             {
@@ -134,7 +145,7 @@ namespace BiometricPayroll.FORMS
 
         private void gunaMinimizeBtn_Click(object sender, EventArgs e)
         {
-
+            toggleBorderRadius();
         }
 
         public void setCurrTask(string name)

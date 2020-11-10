@@ -125,19 +125,24 @@ namespace BiometricPayroll.FORMS
         }
 
         private void gunaMaximizeBtn_Click(object sender, EventArgs e)
-        {            
-            if(makeDashRound.BorderRadius == 0)
+        {
+            toggleBorderRadius();
+        }
+
+        public void toggleBorderRadius()
+        {
+            if (makeDashRound.BorderRadius == 0)
             {
                 makeDashRound.BorderRadius = 30;
-            }else if (makeDashRound.BorderRadius == 30)
+            }
+            else if (makeDashRound.BorderRadius == 30)
             {
                 makeDashRound.BorderRadius = 0;
             }
         }
-
         private void gunaMinimizeBtn_Click(object sender, EventArgs e)
         {
-           
+            toggleBorderRadius();
         }
 
         public void setCurrTask(string name)

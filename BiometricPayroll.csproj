@@ -152,6 +152,12 @@
     <Compile Include="FORMS\EditEmployee.Designer.cs">
       <DependentUpon>EditEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORMS\EditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\EditUser.Designer.cs">
+      <DependentUpon>EditUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMS\EmployeeFPConfirm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\EditEmployee.resx">
       <DependentUpon>EditEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\EditUser.resx">
+      <DependentUpon>EditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\EmployeeFPConfirm.resx">
       <DependentUpon>EmployeeFPConfirm.cs</DependentUpon>

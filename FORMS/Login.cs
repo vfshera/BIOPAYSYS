@@ -81,6 +81,7 @@ namespace BiometricPayroll
                         adm.displayName = loggedUser[1];
                         adm.myEmail = loggedUser[2];
                         adm.myID = loggedUser[0];
+                        adm.role = loggedUser[3];
                         this.Hide();
                         adm.Show();
                     }

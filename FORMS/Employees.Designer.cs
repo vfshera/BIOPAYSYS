@@ -86,6 +86,7 @@
             this.empContainerPanel.ShadowDecoration.Parent = this.empContainerPanel;
             this.empContainerPanel.Size = new System.Drawing.Size(1075, 664);
             this.empContainerPanel.TabIndex = 3;
+            this.empContainerPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.empContainerPanel_Paint);
             // 
             // showAllEmployees
             // 

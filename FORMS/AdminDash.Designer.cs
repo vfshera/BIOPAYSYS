@@ -47,6 +47,7 @@
             this.lblCurrentTask = new Guna.UI.WinForms.GunaLabel();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.makeDashRound = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.logoutBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Panel1.SuspendLayout();
             this.pnlContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -185,6 +186,7 @@
             this.btnDash.TabIndex = 0;
             this.btnDash.Text = "DASHBOARD";
             this.btnDash.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDash.Click += new System.EventHandler(this.btnDash_Click);
             // 
             // lblUserNameDisplay
             // 
@@ -233,6 +235,7 @@
             this.gunaMinimizeBtn.ShadowDecoration.Parent = this.gunaMinimizeBtn;
             this.gunaMinimizeBtn.Size = new System.Drawing.Size(45, 30);
             this.gunaMinimizeBtn.TabIndex = 5;
+            this.gunaMinimizeBtn.Click += new System.EventHandler(this.gunaMinimizeBtn_Click);
             // 
             // gunaMaximizeBtn
             // 
@@ -252,6 +255,7 @@
             this.gunaMaximizeBtn.ShadowDecoration.Parent = this.gunaMaximizeBtn;
             this.gunaMaximizeBtn.Size = new System.Drawing.Size(45, 30);
             this.gunaMaximizeBtn.TabIndex = 6;
+            this.gunaMaximizeBtn.Click += new System.EventHandler(this.gunaMaximizeBtn_Click);
             // 
             // guna2ControlBox1
             // 
@@ -322,12 +326,30 @@
             this.makeDashRound.BorderRadius = 30;
             this.makeDashRound.TargetControl = this;
             // 
+            // logoutBtn
+            // 
+            this.logoutBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.logoutBtn.CheckedState.Parent = this.logoutBtn;
+            this.logoutBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton1.HoverState.Image")));
+            this.logoutBtn.HoverState.ImageSize = new System.Drawing.Size(26, 26);
+            this.logoutBtn.HoverState.Parent = this.logoutBtn;
+            this.logoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("logoutBtn.Image")));
+            this.logoutBtn.ImageSize = new System.Drawing.Size(25, 25);
+            this.logoutBtn.Location = new System.Drawing.Point(1017, 9);
+            this.logoutBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.logoutBtn.Name = "logoutBtn";
+            this.logoutBtn.PressedState.Parent = this.logoutBtn;
+            this.logoutBtn.Size = new System.Drawing.Size(46, 34);
+            this.logoutBtn.TabIndex = 5;
+            this.logoutBtn.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
             // AdminDash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(65)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1282, 753);
+            this.Controls.Add(this.logoutBtn);
             this.Controls.Add(this.lblCurrentTask);
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.lblUserNameDisplay);
@@ -368,5 +390,6 @@
         private Guna.UI.WinForms.GunaLabel lblCurrentTask;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Elipse makeDashRound;
+        private Guna.UI2.WinForms.Guna2ImageButton logoutBtn;
     }
 }
