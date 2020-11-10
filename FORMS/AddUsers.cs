@@ -16,5 +16,10 @@ namespace BiometricPayroll.FORMS
         {
             InitializeComponent();
         }
+
+        /*
+              db.Register(txtBxUsername.Text , utils.HashPassword(txtBxPassword.Text));
+
+              */
     }
 }

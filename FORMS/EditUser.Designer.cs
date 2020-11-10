@@ -44,7 +44,7 @@
             this.txtFingerprintStatus = new Guna.UI.WinForms.GunaLabel();
             this.roleDropDown = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnEmpDetailCancel = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.btnSaveEmployee = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnUpdateUser = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel15 = new Guna.UI.WinForms.GunaLabel();
@@ -53,6 +53,7 @@
             this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.closeBtn = new Guna.UI.WinForms.GunaControlBox();
             this.printPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fingerPrintBox)).BeginInit();
             this.SuspendLayout();
@@ -93,13 +94,13 @@
             this.printQualityProgress.FillColor = System.Drawing.Color.White;
             this.printQualityProgress.ForeColor = System.Drawing.Color.White;
             this.printQualityProgress.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.printQualityProgress.Location = new System.Drawing.Point(91, 265);
+            this.printQualityProgress.Location = new System.Drawing.Point(91, 272);
             this.printQualityProgress.Name = "printQualityProgress";
             this.printQualityProgress.ProgressColor = System.Drawing.Color.DodgerBlue;
             this.printQualityProgress.ProgressColor2 = System.Drawing.Color.DodgerBlue;
             this.printQualityProgress.ShadowDecoration.Parent = this.printQualityProgress;
             this.printQualityProgress.ShowPercentage = true;
-            this.printQualityProgress.Size = new System.Drawing.Size(260, 18);
+            this.printQualityProgress.Size = new System.Drawing.Size(260, 11);
             this.printQualityProgress.TabIndex = 7;
             this.printQualityProgress.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
@@ -107,11 +108,11 @@
             // 
             this.enteredFPrint.AutoSize = true;
             this.enteredFPrint.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.enteredFPrint.Location = new System.Drawing.Point(152, 87);
+            this.enteredFPrint.Location = new System.Drawing.Point(167, 83);
             this.enteredFPrint.Name = "enteredFPrint";
-            this.enteredFPrint.Size = new System.Drawing.Size(150, 20);
+            this.enteredFPrint.Size = new System.Drawing.Size(123, 20);
             this.enteredFPrint.TabIndex = 6;
-            this.enteredFPrint.Text = "Enter First Fingerprint";
+            this.enteredFPrint.Text = "Enter  Fingerprint";
             // 
             // lblDeviceInfo
             // 
@@ -119,11 +120,11 @@
             this.lblDeviceInfo.AutoSize = true;
             this.lblDeviceInfo.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeviceInfo.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblDeviceInfo.Location = new System.Drawing.Point(64, 431);
+            this.lblDeviceInfo.Location = new System.Drawing.Point(42, 431);
             this.lblDeviceInfo.Name = "lblDeviceInfo";
-            this.lblDeviceInfo.Size = new System.Drawing.Size(146, 28);
+            this.lblDeviceInfo.Size = new System.Drawing.Size(337, 28);
             this.lblDeviceInfo.TabIndex = 5;
-            this.lblDeviceInfo.Text = "DEVICE H : W:";
+            this.lblDeviceInfo.Text = "DEVICE H : 000 , W: 000 , DPI : 000";
             this.lblDeviceInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // deviceState
@@ -131,11 +132,11 @@
             this.deviceState.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.deviceState.AutoSize = true;
             this.deviceState.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.deviceState.Location = new System.Drawing.Point(143, 374);
+            this.deviceState.Location = new System.Drawing.Point(115, 374);
             this.deviceState.Name = "deviceState";
-            this.deviceState.Size = new System.Drawing.Size(138, 28);
+            this.deviceState.Size = new System.Drawing.Size(210, 28);
             this.deviceState.TabIndex = 5;
-            this.deviceState.Text = "STATUS TEXT";
+            this.deviceState.Text = "Initialization Success";
             this.deviceState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnCapturePrint
@@ -172,6 +173,7 @@
             this.btnCapturePrint.TabIndex = 4;
             this.btnCapturePrint.Text = "CAPTURE";
             this.btnCapturePrint.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnCapturePrint.Click += new System.EventHandler(this.btnCapturePrint_Click);
             // 
             // gunaAdvenceButton1
             // 
@@ -242,6 +244,7 @@
             this.btnEnroll.TabIndex = 4;
             this.btnEnroll.Text = "ENROLL";
             this.btnEnroll.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnEnroll.Click += new System.EventHandler(this.btnEnroll_Click);
             // 
             // fingerPrintBox
             // 
@@ -251,7 +254,7 @@
             this.fingerPrintBox.Name = "fingerPrintBox";
             this.fingerPrintBox.Padding = new System.Windows.Forms.Padding(20);
             this.fingerPrintBox.ShadowDecoration.Parent = this.fingerPrintBox;
-            this.fingerPrintBox.Size = new System.Drawing.Size(235, 149);
+            this.fingerPrintBox.Size = new System.Drawing.Size(235, 156);
             this.fingerPrintBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.fingerPrintBox.TabIndex = 3;
             this.fingerPrintBox.TabStop = false;
@@ -338,46 +341,48 @@
             this.btnEmpDetailCancel.OnHoverLineColor = System.Drawing.Color.Red;
             this.btnEmpDetailCancel.OnPressedColor = System.Drawing.Color.Black;
             this.btnEmpDetailCancel.Radius = 7;
-            this.btnEmpDetailCancel.Size = new System.Drawing.Size(149, 57);
+            this.btnEmpDetailCancel.Size = new System.Drawing.Size(149, 73);
             this.btnEmpDetailCancel.TabIndex = 40;
             this.btnEmpDetailCancel.Text = "CANCEL";
             this.btnEmpDetailCancel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnEmpDetailCancel.Click += new System.EventHandler(this.btnEmpDetailCancel_Click);
             // 
-            // btnSaveEmployee
+            // btnUpdateUser
             // 
-            this.btnSaveEmployee.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSaveEmployee.AnimationHoverSpeed = 0.07F;
-            this.btnSaveEmployee.AnimationSpeed = 0.03F;
-            this.btnSaveEmployee.BackColor = System.Drawing.Color.Transparent;
-            this.btnSaveEmployee.BaseColor = System.Drawing.Color.Green;
-            this.btnSaveEmployee.BorderColor = System.Drawing.Color.Green;
-            this.btnSaveEmployee.BorderSize = 2;
-            this.btnSaveEmployee.CheckedBaseColor = System.Drawing.Color.Transparent;
-            this.btnSaveEmployee.CheckedBorderColor = System.Drawing.Color.Black;
-            this.btnSaveEmployee.CheckedForeColor = System.Drawing.Color.White;
-            this.btnSaveEmployee.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnSaveEmployee.CheckedImage")));
-            this.btnSaveEmployee.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.btnSaveEmployee.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnSaveEmployee.FocusedColor = System.Drawing.Color.Empty;
-            this.btnSaveEmployee.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.btnSaveEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnSaveEmployee.Image = null;
-            this.btnSaveEmployee.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnSaveEmployee.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSaveEmployee.LineColor = System.Drawing.Color.Green;
-            this.btnSaveEmployee.Location = new System.Drawing.Point(294, 531);
-            this.btnSaveEmployee.Name = "btnSaveEmployee";
-            this.btnSaveEmployee.OnHoverBaseColor = System.Drawing.Color.White;
-            this.btnSaveEmployee.OnHoverBorderColor = System.Drawing.Color.Green;
-            this.btnSaveEmployee.OnHoverForeColor = System.Drawing.Color.Green;
-            this.btnSaveEmployee.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btnSaveEmployee.OnHoverImage")));
-            this.btnSaveEmployee.OnHoverLineColor = System.Drawing.Color.Green;
-            this.btnSaveEmployee.OnPressedColor = System.Drawing.Color.Black;
-            this.btnSaveEmployee.Radius = 7;
-            this.btnSaveEmployee.Size = new System.Drawing.Size(155, 57);
-            this.btnSaveEmployee.TabIndex = 39;
-            this.btnSaveEmployee.Text = "SAVE";
-            this.btnSaveEmployee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnUpdateUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnUpdateUser.AnimationHoverSpeed = 0.07F;
+            this.btnUpdateUser.AnimationSpeed = 0.03F;
+            this.btnUpdateUser.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpdateUser.BaseColor = System.Drawing.Color.Green;
+            this.btnUpdateUser.BorderColor = System.Drawing.Color.Green;
+            this.btnUpdateUser.BorderSize = 2;
+            this.btnUpdateUser.CheckedBaseColor = System.Drawing.Color.Transparent;
+            this.btnUpdateUser.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnUpdateUser.CheckedForeColor = System.Drawing.Color.White;
+            this.btnUpdateUser.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnUpdateUser.CheckedImage")));
+            this.btnUpdateUser.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnUpdateUser.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnUpdateUser.FocusedColor = System.Drawing.Color.Empty;
+            this.btnUpdateUser.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.btnUpdateUser.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateUser.Image = null;
+            this.btnUpdateUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnUpdateUser.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnUpdateUser.LineColor = System.Drawing.Color.Green;
+            this.btnUpdateUser.Location = new System.Drawing.Point(261, 531);
+            this.btnUpdateUser.Name = "btnUpdateUser";
+            this.btnUpdateUser.OnHoverBaseColor = System.Drawing.Color.White;
+            this.btnUpdateUser.OnHoverBorderColor = System.Drawing.Color.Green;
+            this.btnUpdateUser.OnHoverForeColor = System.Drawing.Color.Green;
+            this.btnUpdateUser.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btnUpdateUser.OnHoverImage")));
+            this.btnUpdateUser.OnHoverLineColor = System.Drawing.Color.Green;
+            this.btnUpdateUser.OnPressedColor = System.Drawing.Color.Black;
+            this.btnUpdateUser.Radius = 7;
+            this.btnUpdateUser.Size = new System.Drawing.Size(188, 74);
+            this.btnUpdateUser.TabIndex = 39;
+            this.btnUpdateUser.Text = "UPDATE";
+            this.btnUpdateUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnUpdateUser.Click += new System.EventHandler(this.btnUpdateUser_Click);
             // 
             // gunaLabel8
             // 
@@ -418,6 +423,8 @@
             this.txtEmail.ShadowDecoration.Parent = this.txtEmail;
             this.txtEmail.Size = new System.Drawing.Size(418, 66);
             this.txtEmail.TabIndex = 36;
+            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // gunaLabel15
             // 
@@ -498,6 +505,7 @@
             this.txtName.ShadowDecoration.Parent = this.txtName;
             this.txtName.Size = new System.Drawing.Size(414, 66);
             this.txtName.TabIndex = 38;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateTextOnKeyPress);
             // 
             // gunaLabel6
             // 
@@ -516,16 +524,32 @@
             this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
             // 
+            // closeBtn
+            // 
+            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeBtn.AnimationHoverSpeed = 0.07F;
+            this.closeBtn.AnimationSpeed = 0.03F;
+            this.closeBtn.IconColor = System.Drawing.Color.White;
+            this.closeBtn.IconSize = 25F;
+            this.closeBtn.Location = new System.Drawing.Point(501, 28);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.OnHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
+            this.closeBtn.OnHoverIconColor = System.Drawing.Color.White;
+            this.closeBtn.OnPressedColor = System.Drawing.Color.Black;
+            this.closeBtn.Size = new System.Drawing.Size(45, 41);
+            this.closeBtn.TabIndex = 43;
+            // 
             // EditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
             this.ClientSize = new System.Drawing.Size(1060, 632);
+            this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.printPanel);
             this.Controls.Add(this.roleDropDown);
             this.Controls.Add(this.btnEmpDetailCancel);
-            this.Controls.Add(this.btnSaveEmployee);
+            this.Controls.Add(this.btnUpdateUser);
             this.Controls.Add(this.gunaLabel8);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.gunaLabel15);
@@ -563,7 +587,7 @@
         private Guna.UI.WinForms.GunaLabel txtFingerprintStatus;
         private Guna.UI2.WinForms.Guna2ComboBox roleDropDown;
         private Guna.UI.WinForms.GunaAdvenceButton btnEmpDetailCancel;
-        private Guna.UI.WinForms.GunaAdvenceButton btnSaveEmployee;
+        private Guna.UI.WinForms.GunaAdvenceButton btnUpdateUser;
         private Guna.UI.WinForms.GunaLabel gunaLabel8;
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
         private Guna.UI.WinForms.GunaLabel gunaLabel15;
@@ -572,5 +596,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtName;
         private Guna.UI.WinForms.GunaLabel gunaLabel6;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI.WinForms.GunaControlBox closeBtn;
     }
 }

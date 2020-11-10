@@ -60,31 +60,19 @@ namespace BiometricPayroll
 
                 
                 loggedUser = db.Login(txtBxUsername.Text.ToLower(), utils.HashPassword(txtBxPassword.Text));
-                /*
-                db.Register(txtBxUsername.Text , utils.HashPassword(txtBxPassword.Text));
-
-                */
+              
                 if (loggedUser[0] != null)
                 {
-                    if (loggedUser[3] == "1")
-                    {
-                        Dashboard dash = new Dashboard();
-                        dash.displayName = loggedUser[1];
-                        dash.myEmail = loggedUser[2];
-                        dash.myID = loggedUser[0];
-                        this.Hide();
-                        dash.Show();
+                    
+                        FPAfterLogin fpAuth = new FPAfterLogin();
+                       fpAuth.displayName = loggedUser[1];
+                       fpAuth.myEmail = loggedUser[2];
+                       fpAuth.myID = loggedUser[0];
+                       fpAuth.role = loggedUser[3];
+                       this.Hide();
+                       fpAuth.Show();
 
-                    }else if (loggedUser[3] == "0")
-                    {
-                        AdminDash adm = new AdminDash();
-                        adm.displayName = loggedUser[1];
-                        adm.myEmail = loggedUser[2];
-                        adm.myID = loggedUser[0];
-                        adm.role = loggedUser[3];
-                        this.Hide();
-                        adm.Show();
-                    }
+
 
                 }
                 else if (loggedUser[0] == null)

@@ -65,6 +65,7 @@
             this.txtBxSearch.ShadowDecoration.Parent = this.txtBxSearch;
             this.txtBxSearch.Size = new System.Drawing.Size(415, 43);
             this.txtBxSearch.TabIndex = 8;
+            this.txtBxSearch.TextChanged += new System.EventHandler(this.txtBxSearch_TextChanged);
             // 
             // usersContainerPanel
             // 

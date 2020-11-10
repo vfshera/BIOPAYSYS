@@ -193,7 +193,7 @@ namespace BiometricPayroll.FORMS
 
             Database db = new Database();
 
-            m_DbFP = db.GetFP(int.Parse(SelectedRowID));
+            m_DbFP = db.GetFP(int.Parse(SelectedRowID), 1);
 
            
               iError = m_FPM.MatchTemplate(m_RegMin1, m_DbFP, secu_level, ref matched);

@@ -16,6 +16,7 @@ namespace BiometricPayroll.FORMS
         public string displayName;
         public string myID;
         public string myEmail;
+        public string role;
 
         public Dashboard()
         {

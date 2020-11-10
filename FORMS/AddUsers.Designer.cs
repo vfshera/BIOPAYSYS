@@ -52,6 +52,7 @@
             this.fingerPrintBox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.gunaLabel16 = new Guna.UI.WinForms.GunaLabel();
             this.txtFingerprintStatus = new Guna.UI.WinForms.GunaLabel();
+            this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
             this.printPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fingerPrintBox)).BeginInit();
             this.SuspendLayout();
@@ -313,10 +314,10 @@
             this.printPanel.Controls.Add(this.fingerPrintBox);
             this.printPanel.Controls.Add(this.gunaLabel16);
             this.printPanel.Controls.Add(this.txtFingerprintStatus);
-            this.printPanel.Location = new System.Drawing.Point(600, 26);
+            this.printPanel.Location = new System.Drawing.Point(600, 39);
             this.printPanel.Name = "printPanel";
             this.printPanel.Radius = 15;
-            this.printPanel.Size = new System.Drawing.Size(434, 577);
+            this.printPanel.Size = new System.Drawing.Size(434, 564);
             this.printPanel.TabIndex = 31;
             // 
             // addedIDlbl
@@ -359,7 +360,7 @@
             this.lblDeviceInfo.AutoSize = true;
             this.lblDeviceInfo.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeviceInfo.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblDeviceInfo.Location = new System.Drawing.Point(64, 431);
+            this.lblDeviceInfo.Location = new System.Drawing.Point(64, 425);
             this.lblDeviceInfo.Name = "lblDeviceInfo";
             this.lblDeviceInfo.Size = new System.Drawing.Size(146, 28);
             this.lblDeviceInfo.TabIndex = 5;
@@ -371,7 +372,7 @@
             this.deviceState.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.deviceState.AutoSize = true;
             this.deviceState.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.deviceState.Location = new System.Drawing.Point(143, 374);
+            this.deviceState.Location = new System.Drawing.Point(143, 368);
             this.deviceState.Name = "deviceState";
             this.deviceState.Size = new System.Drawing.Size(138, 28);
             this.deviceState.TabIndex = 5;
@@ -399,7 +400,7 @@
             this.btnCapturePrint.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnCapturePrint.ImageSize = new System.Drawing.Size(30, 30);
             this.btnCapturePrint.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnCapturePrint.Location = new System.Drawing.Point(147, 289);
+            this.btnCapturePrint.Location = new System.Drawing.Point(147, 284);
             this.btnCapturePrint.Name = "btnCapturePrint";
             this.btnCapturePrint.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnCapturePrint.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -434,7 +435,7 @@
             this.gunaAdvenceButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.gunaAdvenceButton1.ImageSize = new System.Drawing.Size(30, 30);
             this.gunaAdvenceButton1.LineColor = System.Drawing.Color.Teal;
-            this.gunaAdvenceButton1.Location = new System.Drawing.Point(25, 504);
+            this.gunaAdvenceButton1.Location = new System.Drawing.Point(25, 491);
             this.gunaAdvenceButton1.Name = "gunaAdvenceButton1";
             this.gunaAdvenceButton1.OnHoverBaseColor = System.Drawing.Color.Teal;
             this.gunaAdvenceButton1.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -469,7 +470,7 @@
             this.btnEnroll.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnEnroll.ImageSize = new System.Drawing.Size(30, 30);
             this.btnEnroll.LineColor = System.Drawing.Color.Green;
-            this.btnEnroll.Location = new System.Drawing.Point(229, 504);
+            this.btnEnroll.Location = new System.Drawing.Point(229, 491);
             this.btnEnroll.Name = "btnEnroll";
             this.btnEnroll.OnHoverBaseColor = System.Drawing.Color.Green;
             this.btnEnroll.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -487,11 +488,11 @@
             // 
             this.fingerPrintBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.fingerPrintBox.Image = ((System.Drawing.Image)(resources.GetObject("fingerPrintBox.Image")));
-            this.fingerPrintBox.Location = new System.Drawing.Point(101, 110);
+            this.fingerPrintBox.Location = new System.Drawing.Point(105, 110);
             this.fingerPrintBox.Name = "fingerPrintBox";
             this.fingerPrintBox.Padding = new System.Windows.Forms.Padding(20);
             this.fingerPrintBox.ShadowDecoration.Parent = this.fingerPrintBox;
-            this.fingerPrintBox.Size = new System.Drawing.Size(235, 149);
+            this.fingerPrintBox.Size = new System.Drawing.Size(224, 149);
             this.fingerPrintBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.fingerPrintBox.TabIndex = 3;
             this.fingerPrintBox.TabStop = false;
@@ -520,12 +521,28 @@
             this.txtFingerprintStatus.Size = new System.Drawing.Size(0, 28);
             this.txtFingerprintStatus.TabIndex = 0;
             // 
+            // gunaControlBox1
+            // 
+            this.gunaControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaControlBox1.AnimationHoverSpeed = 0.07F;
+            this.gunaControlBox1.AnimationSpeed = 0.03F;
+            this.gunaControlBox1.IconColor = System.Drawing.Color.White;
+            this.gunaControlBox1.IconSize = 25F;
+            this.gunaControlBox1.Location = new System.Drawing.Point(509, 12);
+            this.gunaControlBox1.Name = "gunaControlBox1";
+            this.gunaControlBox1.OnHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
+            this.gunaControlBox1.OnHoverIconColor = System.Drawing.Color.White;
+            this.gunaControlBox1.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaControlBox1.Size = new System.Drawing.Size(45, 29);
+            this.gunaControlBox1.TabIndex = 32;
+            // 
             // AddUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
             this.ClientSize = new System.Drawing.Size(1060, 632);
+            this.Controls.Add(this.gunaControlBox1);
             this.Controls.Add(this.printPanel);
             this.Controls.Add(this.roleDropDown);
             this.Controls.Add(this.btnEmpDetailCancel);
@@ -574,5 +591,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox fingerPrintBox;
         private Guna.UI.WinForms.GunaLabel gunaLabel16;
         private Guna.UI.WinForms.GunaLabel txtFingerprintStatus;
+        private Guna.UI.WinForms.GunaControlBox gunaControlBox1;
     }
 }

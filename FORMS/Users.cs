@@ -17,9 +17,11 @@ namespace BiometricPayroll.FORMS
         public string SelectedUserSurname;
         public string searchQuery = "";
 
+        public static Users userFM;
         public Users()
         {
             InitializeComponent();
+            userFM = this;
         }
 
 
@@ -32,7 +34,7 @@ namespace BiometricPayroll.FORMS
         public void loadUsers()
         {
             Database db = new Database();
-            string Search = $"SELECT id AS ID,name AS NAME, ,email AS EMAIL, type AS TYPE FROM users WHERE name LIKE '{searchQuery}%' OR  email LIKE '{searchQuery}%' ORDER BY id ASC";
+            string Search = $"SELECT id AS ID,name AS NAME ,email AS EMAIL, type AS TYPE FROM users WHERE name LIKE '{searchQuery}%' OR  email LIKE '{searchQuery}%' ORDER BY id ASC";
 
 
             if (searchQuery.Length == 0)
@@ -45,6 +47,12 @@ namespace BiometricPayroll.FORMS
             }
 
 
+        }
+
+        private void txtBxSearch_TextChanged(object sender, EventArgs e)
+        {
+           searchQuery = txtBxSearch.Text.ToUpper();
+           loadUsers();
         }
 
         private void usersTableGrid_CellClick(object sender, DataGridViewCellEventArgs e)

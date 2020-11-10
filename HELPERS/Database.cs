@@ -212,11 +212,11 @@ namespace BiometricPayroll.HELPERS
             }
             return reg;
         }
-        public Byte[] GetFP(int owner)
+        public Byte[] GetFP(int owner,int type)
         {
             bool reg = false;
 
-            string sql = $"SELECT fingerprint FROM templetes WHERE owner='{owner}'";
+            string sql = $"SELECT fingerprint FROM templetes WHERE owner='{owner}' AND type='{type}'";
 
             Byte[] fprint = null;
            try{
@@ -245,6 +245,34 @@ namespace BiometricPayroll.HELPERS
             return fprint;
         }
 
+        public bool UpdateUser(string uID,string name,string pass ,string type, string email)
+        {
+            string sql = $"UPDATE users SET name = '{name}', email = '{email}',type = '{type}',password = '{pass}' WHERE id='{uID}' ";
+
+            bool updated = false;
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = sql;
+               
+                result = cmd.ExecuteNonQuery();
+
+                updated = result > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return updated;
+        }
         public bool UpdateEmployee(string currID,string currWorkID, string first_name, string sec_name, string surname, string position, string address, string email, string phonenumber,string nationalID ,string marital_status, string gender, string date_of_birth, string emmergency_tel, string date_hired, string work_status, string created_at)
         {
             string fieldVals = "first_name = @first_name,sec_name = @sec_name, surname = @surname, position = @position, address = @address, email = @email , phonenumber = @phonenumber,national_id = @nationalid, marital_status = @marital_status, gender = @gender, date_of_birth = @date_of_birth, emmergency_tel = @emmergency_tel, date_hired = @date_hired, work_status = @work_status, created_at = @created_at, updated_at = @updated_at";

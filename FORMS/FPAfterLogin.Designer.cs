@@ -33,22 +33,22 @@
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.fpPanel = new Guna.UI.WinForms.GunaPanel();
+            this.pbxVerfy = new Guna.UI.WinForms.GunaPictureBox();
             this.appStatelbl = new Guna.UI.WinForms.GunaLabel();
             this.retryBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.loaderPBx = new Guna.UI2.WinForms.Guna2PictureBox();
             this.fpPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.loaderPBx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxVerfy)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel3
             // 
             this.guna2Panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("guna2Panel3.BackgroundImage")));
             this.guna2Panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.guna2Panel3.Location = new System.Drawing.Point(215, 39);
+            this.guna2Panel3.Location = new System.Drawing.Point(196, 39);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.Parent = this.guna2Panel3;
-            this.guna2Panel3.Size = new System.Drawing.Size(212, 115);
+            this.guna2Panel3.Size = new System.Drawing.Size(251, 115);
             this.guna2Panel3.TabIndex = 6;
             // 
             // guna2ControlBox1
@@ -68,11 +68,22 @@
             // 
             this.fpPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fpPanel.BackgroundImage")));
             this.fpPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fpPanel.Controls.Add(this.loaderPBx);
+            this.fpPanel.Controls.Add(this.pbxVerfy);
             this.fpPanel.Location = new System.Drawing.Point(196, 160);
             this.fpPanel.Name = "fpPanel";
             this.fpPanel.Size = new System.Drawing.Size(251, 200);
             this.fpPanel.TabIndex = 8;
+            // 
+            // pbxVerfy
+            // 
+            this.pbxVerfy.BackColor = System.Drawing.Color.Transparent;
+            this.pbxVerfy.BaseColor = System.Drawing.Color.Transparent;
+            this.pbxVerfy.Location = new System.Drawing.Point(26, 11);
+            this.pbxVerfy.Name = "pbxVerfy";
+            this.pbxVerfy.Radius = 5;
+            this.pbxVerfy.Size = new System.Drawing.Size(199, 181);
+            this.pbxVerfy.TabIndex = 0;
+            this.pbxVerfy.TabStop = false;
             // 
             // appStatelbl
             // 
@@ -96,23 +107,12 @@
             this.retryBtn.PressedState.Parent = this.retryBtn;
             this.retryBtn.Size = new System.Drawing.Size(75, 58);
             this.retryBtn.TabIndex = 10;
+            this.retryBtn.Click += new System.EventHandler(this.retryBtn_Click);
             // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
-            // 
-            // loaderPBx
-            // 
-            this.loaderPBx.BackColor = System.Drawing.Color.Transparent;
-            this.loaderPBx.Image = ((System.Drawing.Image)(resources.GetObject("loaderPBx.Image")));
-            this.loaderPBx.Location = new System.Drawing.Point(80, 69);
-            this.loaderPBx.Name = "loaderPBx";
-            this.loaderPBx.ShadowDecoration.Parent = this.loaderPBx;
-            this.loaderPBx.Size = new System.Drawing.Size(91, 77);
-            this.loaderPBx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.loaderPBx.TabIndex = 0;
-            this.loaderPBx.TabStop = false;
             // 
             // FPAfterLogin
             // 
@@ -128,8 +128,9 @@
             this.Name = "FPAfterLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FPAfterLogin";
+            this.Load += new System.EventHandler(this.FPAfterLogin_Load);
             this.fpPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.loaderPBx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxVerfy)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,6 +144,6 @@
         private Guna.UI.WinForms.GunaLabel appStatelbl;
         private Guna.UI2.WinForms.Guna2ImageButton retryBtn;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2PictureBox loaderPBx;
+        private Guna.UI.WinForms.GunaPictureBox pbxVerfy;
     }
 }
