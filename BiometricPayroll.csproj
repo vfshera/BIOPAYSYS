@@ -182,12 +182,6 @@
     <Compile Include="FORMS\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="FORMS\MyProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FORMS\MyProfile.Designer.cs">
-      <DependentUpon>MyProfile.cs</DependentUpon>
-    </Compile>
     <Compile Include="FORMS\Payroll.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,9 +250,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FORMS\MyProfile.resx">
-      <DependentUpon>MyProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\Payroll.resx">
       <DependentUpon>Payroll.cs</DependentUpon>

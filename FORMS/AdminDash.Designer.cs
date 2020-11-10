@@ -33,7 +33,6 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlLogo = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnMyProfilr = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddUser = new Guna.UI2.WinForms.Guna2Button();
             this.btnUsers = new Guna.UI2.WinForms.Guna2Button();
             this.btnDash = new Guna.UI2.WinForms.Guna2Button();
@@ -58,7 +57,6 @@
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.guna2Panel1.Controls.Add(this.guna2Panel2);
             this.guna2Panel1.Controls.Add(this.pnlLogo);
-            this.guna2Panel1.Controls.Add(this.btnMyProfilr);
             this.guna2Panel1.Controls.Add(this.btnAddUser);
             this.guna2Panel1.Controls.Add(this.btnUsers);
             this.guna2Panel1.Controls.Add(this.btnDash);
@@ -95,29 +93,6 @@
             this.pnlLogo.ShadowDecoration.Parent = this.pnlLogo;
             this.pnlLogo.Size = new System.Drawing.Size(152, 86);
             this.pnlLogo.TabIndex = 1;
-            // 
-            // btnMyProfilr
-            // 
-            this.btnMyProfilr.BackColor = System.Drawing.Color.Transparent;
-            this.btnMyProfilr.BorderColor = System.Drawing.Color.Transparent;
-            this.btnMyProfilr.CheckedState.Parent = this.btnMyProfilr;
-            this.btnMyProfilr.CustomImages.Parent = this.btnMyProfilr;
-            this.btnMyProfilr.FillColor = System.Drawing.Color.Transparent;
-            this.btnMyProfilr.Font = new System.Drawing.Font("Nunito SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMyProfilr.ForeColor = System.Drawing.Color.White;
-            this.btnMyProfilr.HoverState.FillColor = System.Drawing.Color.White;
-            this.btnMyProfilr.HoverState.Font = new System.Drawing.Font("Nunito ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMyProfilr.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(104)))), ((int)(((byte)(84)))));
-            this.btnMyProfilr.HoverState.Parent = this.btnMyProfilr;
-            this.btnMyProfilr.Location = new System.Drawing.Point(0, 391);
-            this.btnMyProfilr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnMyProfilr.Name = "btnMyProfilr";
-            this.btnMyProfilr.ShadowDecoration.Parent = this.btnMyProfilr;
-            this.btnMyProfilr.Size = new System.Drawing.Size(191, 46);
-            this.btnMyProfilr.TabIndex = 0;
-            this.btnMyProfilr.Text = "MY PROFILE";
-            this.btnMyProfilr.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnMyProfilr.Click += new System.EventHandler(this.btnMyProfilr_Click);
             // 
             // btnAddUser
             // 
@@ -330,7 +305,7 @@
             // 
             this.logoutBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.logoutBtn.CheckedState.Parent = this.logoutBtn;
-            this.logoutBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton1.HoverState.Image")));
+            this.logoutBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("logoutBtn.HoverState.Image")));
             this.logoutBtn.HoverState.ImageSize = new System.Drawing.Size(26, 26);
             this.logoutBtn.HoverState.Parent = this.logoutBtn;
             this.logoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("logoutBtn.Image")));
@@ -376,7 +351,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel pnlLogo;
-        private Guna.UI2.WinForms.Guna2Button btnMyProfilr;
         private Guna.UI2.WinForms.Guna2Button btnAddUser;
         private Guna.UI2.WinForms.Guna2Button btnUsers;
         private Guna.UI2.WinForms.Guna2Button btnDash;

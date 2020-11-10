@@ -62,6 +62,9 @@ namespace BiometricPayroll.FORMS
                 this.Hide();
                 adm.Show();
             }
+
+            m_FPM.EnableAutoOnEvent(false,0);
+            CloseDevice();
         }
 
         private void FPAfterLogin_Load(object sender, EventArgs e)
@@ -212,11 +215,18 @@ namespace BiometricPayroll.FORMS
 
             if (fetchedFP == null)
             {
+                appStatelbl.Text = "You Haven't Enrolled FP";
+                appStatelbl.ForeColor = Color.Red;
                 Alert.Popup("You Haven't Enrolled!", Alert.AlertType.error);
+                retryBtn.Enabled = false;
+
+                autoLogoutTimer.Enabled = true;
             }
             else
             {
-               
+
+                retryBtn.Enabled = true;
+                m_FPM.EnableAutoOnEvent(true, (int)this.Handle);
             }
         }
 
@@ -232,7 +242,7 @@ namespace BiometricPayroll.FORMS
                 m_ImageWidth = pInfo.ImageWidth;
                 m_ImageHeight = pInfo.ImageHeight;
                 fetchFP();
-                m_FPM.EnableAutoOnEvent(true, (int)this.Handle);
+                
             }
             else
             {
@@ -379,6 +389,13 @@ namespace BiometricPayroll.FORMS
 
         }
 
-       
+        private void autoLogoutTimer_Tick(object sender, EventArgs e)
+        {
+            autoLogoutTimer.Stop();
+            this.Hide();
+
+            frmLogin login = new frmLogin();
+            login.Show();
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace BiometricPayroll.HELPERS
 
         public string[] Login(string username, string pass)
         {
-            string sql = "SELECT id , name , email , type FROM users WHERE email=@username AND password=@password";
+            string sql = "SELECT id , name , email , type ,status FROM users WHERE email=@username AND password=@password";
 
             string[] user = new string[4];
             try
@@ -41,11 +41,17 @@ namespace BiometricPayroll.HELPERS
                 {
                     while (dr.Read())
                     {
-                        
-                        user[0] = dr.GetValue(0).ToString();
-                        user[1] = dr.GetValue(1).ToString();
-                        user[2] = dr.GetValue(2).ToString();
-                        user[3] = dr.GetValue(3).ToString();
+                        if (dr.GetValue(4).ToString() != "0")
+                        {
+                            user[0] = dr.GetValue(0).ToString();
+                            user[1] = dr.GetValue(1).ToString();
+                            user[2] = dr.GetValue(2).ToString();
+                            user[3] = dr.GetValue(3).ToString();
+                        }
+                        else
+                        {
+                            Alert.Popup("ACCOUNT BLOCKED!",Alert.AlertType.error);
+                        }
                        
                       
                     }
@@ -66,9 +72,9 @@ namespace BiometricPayroll.HELPERS
             return user;
         }
 
-        public void Register( string username, string pass)
+        public bool Register( string username, string email, string type, string pass)
         {
-            string sql = "INSERT INTO users (name,type,password) VALUES(@username , 0, @password)";
+            string sql = "INSERT INTO users (name,email,type,password) VALUES(@username , @email,@type , @password)";
            
             try
             {
@@ -77,17 +83,17 @@ namespace BiometricPayroll.HELPERS
                 cmd.Connection = con;
                 cmd.CommandText = sql;
                 cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@type", type);
                 cmd.Parameters.AddWithValue("@password", pass);
                 result = cmd.ExecuteNonQuery();
 
                 if (result > 0)
                 {
-                    Alert.Popup("User Registered!", Alert.AlertType.success);
+                    getAddedUser(email, username);
+
                 }
-                else
-                {
-                    Alert.Popup("Failed To Register User!", Alert.AlertType.error);
-                }
+                
 
             }
             catch (Exception ex)
@@ -98,9 +104,36 @@ namespace BiometricPayroll.HELPERS
             {
                 con.Close();
             }
+
+            return result > 0;
         }
 
-       
+        public void getAddedUser(string email, string name)
+        {
+            string sql = $"SELECT id FROM users WHERE email='{email}' AND  name='{name}'";
+
+            try
+            {
+
+                cmd = new MySqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = sql;
+                Object o = cmd.ExecuteScalar();
+
+                if (o != null)
+                {
+                    AddUsers.addUsr.addedUserID =  o.ToString();
+             
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+        }
+
         public bool AddEmp(string work_id, string first_name, string sec_name, string surname, string position, string address, string email, string phonenumber, string nationalID, string marital_status, string gender, string date_of_birth, string emmergency_tel, string date_hired, string work_status)
         {
             string fields = "work_id, first_name,sec_name, surname, position, address, email, phonenumber,national_id, marital_status, gender, date_of_birth, emmergency_tel, date_hired, work_status, created_at, updated_at";
@@ -324,7 +357,6 @@ namespace BiometricPayroll.HELPERS
 
             try
             {
-                MessageBox.Show(sql);
                 con.Open();
                 cmd = new MySqlCommand();
                 cmd.Connection = con;

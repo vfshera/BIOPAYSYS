@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUsers));
             this.roleDropDown = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnEmpDetailCancel = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.btnSaveEmployee = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnUserDetailCancel = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnSaveUser = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel15 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
-            this.txtPhoneNumber = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.tbxPass = new Guna.UI2.WinForms.Guna2TextBox();
@@ -52,7 +52,6 @@
             this.fingerPrintBox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.gunaLabel16 = new Guna.UI.WinForms.GunaLabel();
             this.txtFingerprintStatus = new Guna.UI.WinForms.GunaLabel();
-            this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
             this.printPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fingerPrintBox)).BeginInit();
             this.SuspendLayout();
@@ -84,77 +83,79 @@
             this.roleDropDown.TabIndex = 30;
             this.roleDropDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnEmpDetailCancel
+            // btnUserDetailCancel
             // 
-            this.btnEmpDetailCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEmpDetailCancel.AnimationHoverSpeed = 0.07F;
-            this.btnEmpDetailCancel.AnimationSpeed = 0.03F;
-            this.btnEmpDetailCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnEmpDetailCancel.BaseColor = System.Drawing.Color.Red;
-            this.btnEmpDetailCancel.BorderColor = System.Drawing.Color.Red;
-            this.btnEmpDetailCancel.BorderSize = 2;
-            this.btnEmpDetailCancel.CheckedBaseColor = System.Drawing.Color.Transparent;
-            this.btnEmpDetailCancel.CheckedBorderColor = System.Drawing.Color.Black;
-            this.btnEmpDetailCancel.CheckedForeColor = System.Drawing.Color.White;
-            this.btnEmpDetailCancel.CheckedImage = null;
-            this.btnEmpDetailCancel.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.btnEmpDetailCancel.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnEmpDetailCancel.FocusedColor = System.Drawing.Color.Empty;
-            this.btnEmpDetailCancel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.btnEmpDetailCancel.ForeColor = System.Drawing.Color.White;
-            this.btnEmpDetailCancel.Image = null;
-            this.btnEmpDetailCancel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnEmpDetailCancel.ImageSize = new System.Drawing.Size(37, 37);
-            this.btnEmpDetailCancel.LineColor = System.Drawing.Color.Red;
-            this.btnEmpDetailCancel.Location = new System.Drawing.Point(31, 530);
-            this.btnEmpDetailCancel.Name = "btnEmpDetailCancel";
-            this.btnEmpDetailCancel.OnHoverBaseColor = System.Drawing.Color.Red;
-            this.btnEmpDetailCancel.OnHoverBorderColor = System.Drawing.Color.Red;
-            this.btnEmpDetailCancel.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnEmpDetailCancel.OnHoverImage = null;
-            this.btnEmpDetailCancel.OnHoverLineColor = System.Drawing.Color.Red;
-            this.btnEmpDetailCancel.OnPressedColor = System.Drawing.Color.Black;
-            this.btnEmpDetailCancel.Radius = 7;
-            this.btnEmpDetailCancel.Size = new System.Drawing.Size(149, 57);
-            this.btnEmpDetailCancel.TabIndex = 27;
-            this.btnEmpDetailCancel.Text = "CANCEL";
-            this.btnEmpDetailCancel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnUserDetailCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnUserDetailCancel.AnimationHoverSpeed = 0.07F;
+            this.btnUserDetailCancel.AnimationSpeed = 0.03F;
+            this.btnUserDetailCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnUserDetailCancel.BaseColor = System.Drawing.Color.Red;
+            this.btnUserDetailCancel.BorderColor = System.Drawing.Color.Red;
+            this.btnUserDetailCancel.BorderSize = 2;
+            this.btnUserDetailCancel.CheckedBaseColor = System.Drawing.Color.Transparent;
+            this.btnUserDetailCancel.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnUserDetailCancel.CheckedForeColor = System.Drawing.Color.White;
+            this.btnUserDetailCancel.CheckedImage = null;
+            this.btnUserDetailCancel.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnUserDetailCancel.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnUserDetailCancel.FocusedColor = System.Drawing.Color.Empty;
+            this.btnUserDetailCancel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.btnUserDetailCancel.ForeColor = System.Drawing.Color.White;
+            this.btnUserDetailCancel.Image = null;
+            this.btnUserDetailCancel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnUserDetailCancel.ImageSize = new System.Drawing.Size(37, 37);
+            this.btnUserDetailCancel.LineColor = System.Drawing.Color.Red;
+            this.btnUserDetailCancel.Location = new System.Drawing.Point(31, 530);
+            this.btnUserDetailCancel.Name = "btnUserDetailCancel";
+            this.btnUserDetailCancel.OnHoverBaseColor = System.Drawing.Color.Red;
+            this.btnUserDetailCancel.OnHoverBorderColor = System.Drawing.Color.Red;
+            this.btnUserDetailCancel.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnUserDetailCancel.OnHoverImage = null;
+            this.btnUserDetailCancel.OnHoverLineColor = System.Drawing.Color.Red;
+            this.btnUserDetailCancel.OnPressedColor = System.Drawing.Color.Black;
+            this.btnUserDetailCancel.Radius = 7;
+            this.btnUserDetailCancel.Size = new System.Drawing.Size(149, 57);
+            this.btnUserDetailCancel.TabIndex = 27;
+            this.btnUserDetailCancel.Text = "CANCEL";
+            this.btnUserDetailCancel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnUserDetailCancel.Click += new System.EventHandler(this.btnUserDetailCancel_Click);
             // 
-            // btnSaveEmployee
+            // btnSaveUser
             // 
-            this.btnSaveEmployee.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSaveEmployee.AnimationHoverSpeed = 0.07F;
-            this.btnSaveEmployee.AnimationSpeed = 0.03F;
-            this.btnSaveEmployee.BackColor = System.Drawing.Color.Transparent;
-            this.btnSaveEmployee.BaseColor = System.Drawing.Color.Green;
-            this.btnSaveEmployee.BorderColor = System.Drawing.Color.Green;
-            this.btnSaveEmployee.BorderSize = 2;
-            this.btnSaveEmployee.CheckedBaseColor = System.Drawing.Color.Transparent;
-            this.btnSaveEmployee.CheckedBorderColor = System.Drawing.Color.Black;
-            this.btnSaveEmployee.CheckedForeColor = System.Drawing.Color.White;
-            this.btnSaveEmployee.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnSaveEmployee.CheckedImage")));
-            this.btnSaveEmployee.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.btnSaveEmployee.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnSaveEmployee.FocusedColor = System.Drawing.Color.Empty;
-            this.btnSaveEmployee.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.btnSaveEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnSaveEmployee.Image = null;
-            this.btnSaveEmployee.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnSaveEmployee.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSaveEmployee.LineColor = System.Drawing.Color.Green;
-            this.btnSaveEmployee.Location = new System.Drawing.Point(294, 529);
-            this.btnSaveEmployee.Name = "btnSaveEmployee";
-            this.btnSaveEmployee.OnHoverBaseColor = System.Drawing.Color.White;
-            this.btnSaveEmployee.OnHoverBorderColor = System.Drawing.Color.Green;
-            this.btnSaveEmployee.OnHoverForeColor = System.Drawing.Color.Green;
-            this.btnSaveEmployee.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btnSaveEmployee.OnHoverImage")));
-            this.btnSaveEmployee.OnHoverLineColor = System.Drawing.Color.Green;
-            this.btnSaveEmployee.OnPressedColor = System.Drawing.Color.Black;
-            this.btnSaveEmployee.Radius = 7;
-            this.btnSaveEmployee.Size = new System.Drawing.Size(155, 57);
-            this.btnSaveEmployee.TabIndex = 26;
-            this.btnSaveEmployee.Text = "SAVE";
-            this.btnSaveEmployee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnSaveUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSaveUser.AnimationHoverSpeed = 0.07F;
+            this.btnSaveUser.AnimationSpeed = 0.03F;
+            this.btnSaveUser.BackColor = System.Drawing.Color.Transparent;
+            this.btnSaveUser.BaseColor = System.Drawing.Color.Green;
+            this.btnSaveUser.BorderColor = System.Drawing.Color.Green;
+            this.btnSaveUser.BorderSize = 2;
+            this.btnSaveUser.CheckedBaseColor = System.Drawing.Color.Transparent;
+            this.btnSaveUser.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnSaveUser.CheckedForeColor = System.Drawing.Color.White;
+            this.btnSaveUser.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnSaveUser.CheckedImage")));
+            this.btnSaveUser.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnSaveUser.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnSaveUser.FocusedColor = System.Drawing.Color.Empty;
+            this.btnSaveUser.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.btnSaveUser.ForeColor = System.Drawing.Color.White;
+            this.btnSaveUser.Image = null;
+            this.btnSaveUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnSaveUser.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSaveUser.LineColor = System.Drawing.Color.Green;
+            this.btnSaveUser.Location = new System.Drawing.Point(294, 529);
+            this.btnSaveUser.Name = "btnSaveUser";
+            this.btnSaveUser.OnHoverBaseColor = System.Drawing.Color.White;
+            this.btnSaveUser.OnHoverBorderColor = System.Drawing.Color.Green;
+            this.btnSaveUser.OnHoverForeColor = System.Drawing.Color.Green;
+            this.btnSaveUser.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btnSaveUser.OnHoverImage")));
+            this.btnSaveUser.OnHoverLineColor = System.Drawing.Color.Green;
+            this.btnSaveUser.OnPressedColor = System.Drawing.Color.Black;
+            this.btnSaveUser.Radius = 7;
+            this.btnSaveUser.Size = new System.Drawing.Size(155, 57);
+            this.btnSaveUser.TabIndex = 26;
+            this.btnSaveUser.Text = "ADD";
+            this.btnSaveUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnSaveUser.Click += new System.EventHandler(this.btnSaveUser_Click);
             // 
             // gunaLabel8
             // 
@@ -195,6 +196,8 @@
             this.txtEmail.ShadowDecoration.Parent = this.txtEmail;
             this.txtEmail.Size = new System.Drawing.Size(418, 66);
             this.txtEmail.TabIndex = 16;
+            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // gunaLabel15
             // 
@@ -220,33 +223,34 @@
             this.gunaLabel7.TabIndex = 13;
             this.gunaLabel7.Text = "EMAIL";
             // 
-            // txtPhoneNumber
+            // txtName
             // 
-            this.txtPhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPhoneNumber.BorderColor = System.Drawing.SystemColors.Control;
-            this.txtPhoneNumber.BorderRadius = 7;
-            this.txtPhoneNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPhoneNumber.DefaultText = "";
-            this.txtPhoneNumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtPhoneNumber.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtPhoneNumber.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPhoneNumber.DisabledState.Parent = this.txtPhoneNumber;
-            this.txtPhoneNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPhoneNumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPhoneNumber.FocusedState.Parent = this.txtPhoneNumber;
-            this.txtPhoneNumber.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhoneNumber.ForeColor = System.Drawing.Color.Black;
-            this.txtPhoneNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPhoneNumber.HoverState.Parent = this.txtPhoneNumber;
-            this.txtPhoneNumber.Location = new System.Drawing.Point(35, 73);
-            this.txtPhoneNumber.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.PasswordChar = '\0';
-            this.txtPhoneNumber.PlaceholderText = "0712345678";
-            this.txtPhoneNumber.SelectedText = "";
-            this.txtPhoneNumber.ShadowDecoration.Parent = this.txtPhoneNumber;
-            this.txtPhoneNumber.Size = new System.Drawing.Size(414, 66);
-            this.txtPhoneNumber.TabIndex = 18;
+            this.txtName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtName.BorderColor = System.Drawing.SystemColors.Control;
+            this.txtName.BorderRadius = 7;
+            this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtName.DefaultText = "";
+            this.txtName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtName.DisabledState.Parent = this.txtName;
+            this.txtName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtName.FocusedState.Parent = this.txtName;
+            this.txtName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.ForeColor = System.Drawing.Color.Black;
+            this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtName.HoverState.Parent = this.txtName;
+            this.txtName.Location = new System.Drawing.Point(35, 73);
+            this.txtName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtName.Name = "txtName";
+            this.txtName.PasswordChar = '\0';
+            this.txtName.PlaceholderText = "ALLAN SHERA";
+            this.txtName.SelectedText = "";
+            this.txtName.ShadowDecoration.Parent = this.txtName;
+            this.txtName.Size = new System.Drawing.Size(414, 66);
+            this.txtName.TabIndex = 18;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateTextOnKeyPress);
             // 
             // gunaLabel6
             // 
@@ -350,9 +354,9 @@
             this.enteredFPrint.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.enteredFPrint.Location = new System.Drawing.Point(152, 87);
             this.enteredFPrint.Name = "enteredFPrint";
-            this.enteredFPrint.Size = new System.Drawing.Size(150, 20);
+            this.enteredFPrint.Size = new System.Drawing.Size(119, 20);
             this.enteredFPrint.TabIndex = 6;
-            this.enteredFPrint.Text = "Enter First Fingerprint";
+            this.enteredFPrint.Text = "Enter Fingerprint";
             // 
             // lblDeviceInfo
             // 
@@ -360,11 +364,11 @@
             this.lblDeviceInfo.AutoSize = true;
             this.lblDeviceInfo.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeviceInfo.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblDeviceInfo.Location = new System.Drawing.Point(64, 425);
+            this.lblDeviceInfo.Location = new System.Drawing.Point(40, 425);
             this.lblDeviceInfo.Name = "lblDeviceInfo";
-            this.lblDeviceInfo.Size = new System.Drawing.Size(146, 28);
+            this.lblDeviceInfo.Size = new System.Drawing.Size(337, 28);
             this.lblDeviceInfo.TabIndex = 5;
-            this.lblDeviceInfo.Text = "DEVICE H : W:";
+            this.lblDeviceInfo.Text = "DEVICE H : 000 , W: 000 , DPI : 000";
             this.lblDeviceInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // deviceState
@@ -372,11 +376,11 @@
             this.deviceState.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.deviceState.AutoSize = true;
             this.deviceState.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.deviceState.Location = new System.Drawing.Point(143, 368);
+            this.deviceState.Location = new System.Drawing.Point(114, 368);
             this.deviceState.Name = "deviceState";
-            this.deviceState.Size = new System.Drawing.Size(138, 28);
+            this.deviceState.Size = new System.Drawing.Size(210, 28);
             this.deviceState.TabIndex = 5;
-            this.deviceState.Text = "STATUS TEXT";
+            this.deviceState.Text = "Initialization Success";
             this.deviceState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnCapturePrint
@@ -504,7 +508,7 @@
             this.gunaLabel16.BackColor = System.Drawing.Color.Transparent;
             this.gunaLabel16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.gunaLabel16.ForeColor = System.Drawing.Color.ForestGreen;
-            this.gunaLabel16.Location = new System.Drawing.Point(161, 49);
+            this.gunaLabel16.Location = new System.Drawing.Point(148, 49);
             this.gunaLabel16.Name = "gunaLabel16";
             this.gunaLabel16.Size = new System.Drawing.Size(141, 28);
             this.gunaLabel16.TabIndex = 0;
@@ -521,43 +525,28 @@
             this.txtFingerprintStatus.Size = new System.Drawing.Size(0, 28);
             this.txtFingerprintStatus.TabIndex = 0;
             // 
-            // gunaControlBox1
-            // 
-            this.gunaControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaControlBox1.AnimationHoverSpeed = 0.07F;
-            this.gunaControlBox1.AnimationSpeed = 0.03F;
-            this.gunaControlBox1.IconColor = System.Drawing.Color.White;
-            this.gunaControlBox1.IconSize = 25F;
-            this.gunaControlBox1.Location = new System.Drawing.Point(509, 12);
-            this.gunaControlBox1.Name = "gunaControlBox1";
-            this.gunaControlBox1.OnHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
-            this.gunaControlBox1.OnHoverIconColor = System.Drawing.Color.White;
-            this.gunaControlBox1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaControlBox1.Size = new System.Drawing.Size(45, 29);
-            this.gunaControlBox1.TabIndex = 32;
-            // 
             // AddUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
             this.ClientSize = new System.Drawing.Size(1060, 632);
-            this.Controls.Add(this.gunaControlBox1);
             this.Controls.Add(this.printPanel);
             this.Controls.Add(this.roleDropDown);
-            this.Controls.Add(this.btnEmpDetailCancel);
-            this.Controls.Add(this.btnSaveEmployee);
+            this.Controls.Add(this.btnUserDetailCancel);
+            this.Controls.Add(this.btnSaveUser);
             this.Controls.Add(this.gunaLabel8);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.gunaLabel15);
             this.Controls.Add(this.gunaLabel7);
             this.Controls.Add(this.tbxPass);
-            this.Controls.Add(this.txtPhoneNumber);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.gunaLabel6);
             this.Controls.Add(this.gunaLabel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddUsers";
             this.Text = "AddUsers";
+            this.Load += new System.EventHandler(this.AddUsers_Load);
             this.printPanel.ResumeLayout(false);
             this.printPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fingerPrintBox)).EndInit();
@@ -569,13 +558,13 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2ComboBox roleDropDown;
-        private Guna.UI.WinForms.GunaAdvenceButton btnEmpDetailCancel;
-        private Guna.UI.WinForms.GunaAdvenceButton btnSaveEmployee;
+        private Guna.UI.WinForms.GunaAdvenceButton btnUserDetailCancel;
+        private Guna.UI.WinForms.GunaAdvenceButton btnSaveUser;
         private Guna.UI.WinForms.GunaLabel gunaLabel8;
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
         private Guna.UI.WinForms.GunaLabel gunaLabel15;
         private Guna.UI.WinForms.GunaLabel gunaLabel7;
-        private Guna.UI2.WinForms.Guna2TextBox txtPhoneNumber;
+        private Guna.UI2.WinForms.Guna2TextBox txtName;
         private Guna.UI.WinForms.GunaLabel gunaLabel6;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI2.WinForms.Guna2TextBox tbxPass;
@@ -591,6 +580,5 @@
         private Guna.UI2.WinForms.Guna2PictureBox fingerPrintBox;
         private Guna.UI.WinForms.GunaLabel gunaLabel16;
         private Guna.UI.WinForms.GunaLabel txtFingerprintStatus;
-        private Guna.UI.WinForms.GunaControlBox gunaControlBox1;
     }
 }

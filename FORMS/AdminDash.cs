@@ -118,13 +118,7 @@ namespace BiometricPayroll.FORMS
             this.openChildForm(new AddUsers());
         }
 
-        private void btnMyProfilr_Click(object sender, EventArgs e)
-        {
-            this.pressedBtn(btnMyProfilr);
-            this.openChildForm(new MyProfile());
-        }
-
-  
+    
 
         private void gunaMaximizeBtn_Click(object sender, EventArgs e)
         {

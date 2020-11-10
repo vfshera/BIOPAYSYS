@@ -271,11 +271,11 @@ namespace BiometricPayroll.FORMS
 
             if(fetchedFP == null)
             {
-                Alert.Popup("No FP", Alert.AlertType.success);
+                //Alert.Popup("No FP", Alert.AlertType.success);
             }
             else
             {
-                Alert.Popup("FP Fetched", Alert.AlertType.success);
+                //Alert.Popup("FP Fetched", Alert.AlertType.success);
             }
         }
 
@@ -286,7 +286,7 @@ namespace BiometricPayroll.FORMS
 
             if(fetchedFP == null)
                 {
-                    if (db.RegFP(userID.ToString(), "0", m_RegMin1))
+                    if (db.RegFP(userID, "0", m_RegMin1))
                     {
                  
                         Alert.Popup("FP Registered", Alert.AlertType.success);
@@ -299,7 +299,7 @@ namespace BiometricPayroll.FORMS
 
             else
             {
-                string sql = $"UPDATE templetes SET fingerprint='{m_RegMin1}' WHERE owner='{userID.ToString()}' AND type='{0}'";
+                string sql = $"UPDATE templetes SET fingerprint='{m_RegMin1}' WHERE owner='{userID.ToString()}' AND type='0'";
                 if (db.runQuery(sql ) > 0)
                 {
 

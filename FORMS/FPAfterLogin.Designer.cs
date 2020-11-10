@@ -37,6 +37,7 @@
             this.appStatelbl = new Guna.UI.WinForms.GunaLabel();
             this.retryBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.autoLogoutTimer = new System.Windows.Forms.Timer(this.components);
             this.fpPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxVerfy)).BeginInit();
             this.SuspendLayout();
@@ -114,6 +115,11 @@
             this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
             // 
+            // autoLogoutTimer
+            // 
+            this.autoLogoutTimer.Interval = 5000;
+            this.autoLogoutTimer.Tick += new System.EventHandler(this.autoLogoutTimer_Tick);
+            // 
             // FPAfterLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -145,5 +151,6 @@
         private Guna.UI2.WinForms.Guna2ImageButton retryBtn;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI.WinForms.GunaPictureBox pbxVerfy;
+        private System.Windows.Forms.Timer autoLogoutTimer;
     }
 }
