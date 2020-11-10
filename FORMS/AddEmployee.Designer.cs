@@ -72,12 +72,14 @@
             this.enteredFPrint = new Guna.UI.WinForms.GunaLabel();
             this.lblDeviceInfo = new Guna.UI.WinForms.GunaLabel();
             this.deviceState = new Guna.UI.WinForms.GunaLabel();
+            this.btnCapturePrint = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaAdvenceButton1 = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnEnroll = new Guna.UI.WinForms.GunaAdvenceButton();
             this.printPanelElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.empFieldsElipse = new Guna.UI.WinForms.GunaElipse(this.components);
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.btnCapturePrint = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.addedIDlbl = new Guna.UI.WinForms.GunaLabel();
+            this.btnMatch = new Guna.UI2.WinForms.Guna2Button();
             addEmployeeElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.fingerPrintBox)).BeginInit();
             this.fieldsPanel.SuspendLayout();
@@ -547,10 +549,11 @@
             // 
             this.fingerPrintBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.fingerPrintBox.Image = ((System.Drawing.Image)(resources.GetObject("fingerPrintBox.Image")));
-            this.fingerPrintBox.Location = new System.Drawing.Point(47, 130);
+            this.fingerPrintBox.Location = new System.Drawing.Point(65, 156);
             this.fingerPrintBox.Name = "fingerPrintBox";
+            this.fingerPrintBox.Padding = new System.Windows.Forms.Padding(20);
             this.fingerPrintBox.ShadowDecoration.Parent = this.fingerPrintBox;
-            this.fingerPrintBox.Size = new System.Drawing.Size(392, 327);
+            this.fingerPrintBox.Size = new System.Drawing.Size(363, 268);
             this.fingerPrintBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.fingerPrintBox.TabIndex = 3;
             this.fingerPrintBox.TabStop = false;
@@ -561,11 +564,10 @@
             this.txtFingerprintStatus.AutoSize = true;
             this.txtFingerprintStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.txtFingerprintStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(165)))), ((int)(((byte)(33)))));
-            this.txtFingerprintStatus.Location = new System.Drawing.Point(177, 478);
+            this.txtFingerprintStatus.Location = new System.Drawing.Point(132, 478);
             this.txtFingerprintStatus.Name = "txtFingerprintStatus";
-            this.txtFingerprintStatus.Size = new System.Drawing.Size(132, 28);
+            this.txtFingerprintStatus.Size = new System.Drawing.Size(0, 28);
             this.txtFingerprintStatus.TabIndex = 0;
-            this.txtFingerprintStatus.Text = "Not Enrolled";
             // 
             // fieldsPanel
             // 
@@ -813,6 +815,8 @@
             // 
             this.printPanel.BackColor = System.Drawing.Color.Transparent;
             this.printPanel.BaseColor = System.Drawing.Color.White;
+            this.printPanel.Controls.Add(this.btnMatch);
+            this.printPanel.Controls.Add(this.addedIDlbl);
             this.printPanel.Controls.Add(this.printQualityProgress);
             this.printPanel.Controls.Add(this.enteredFPrint);
             this.printPanel.Controls.Add(this.lblDeviceInfo);
@@ -831,10 +835,10 @@
             // 
             // printQualityProgress
             // 
-            this.printQualityProgress.FillColor = System.Drawing.Color.DodgerBlue;
+            this.printQualityProgress.FillColor = System.Drawing.Color.White;
             this.printQualityProgress.ForeColor = System.Drawing.Color.White;
             this.printQualityProgress.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.printQualityProgress.Location = new System.Drawing.Point(47, 457);
+            this.printQualityProgress.Location = new System.Drawing.Point(47, 467);
             this.printQualityProgress.Name = "printQualityProgress";
             this.printQualityProgress.ProgressColor = System.Drawing.Color.DodgerBlue;
             this.printQualityProgress.ProgressColor2 = System.Drawing.Color.DodgerBlue;
@@ -878,6 +882,42 @@
             this.deviceState.TabIndex = 5;
             this.deviceState.Text = "STATUS TEXT";
             this.deviceState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnCapturePrint
+            // 
+            this.btnCapturePrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCapturePrint.AnimationHoverSpeed = 0.07F;
+            this.btnCapturePrint.AnimationSpeed = 0.03F;
+            this.btnCapturePrint.BackColor = System.Drawing.Color.Transparent;
+            this.btnCapturePrint.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnCapturePrint.BorderColor = System.Drawing.Color.Black;
+            this.btnCapturePrint.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btnCapturePrint.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnCapturePrint.CheckedForeColor = System.Drawing.Color.White;
+            this.btnCapturePrint.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnCapturePrint.CheckedImage")));
+            this.btnCapturePrint.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnCapturePrint.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnCapturePrint.FocusedColor = System.Drawing.Color.Empty;
+            this.btnCapturePrint.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.btnCapturePrint.ForeColor = System.Drawing.Color.White;
+            this.btnCapturePrint.Image = null;
+            this.btnCapturePrint.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnCapturePrint.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnCapturePrint.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnCapturePrint.Location = new System.Drawing.Point(174, 513);
+            this.btnCapturePrint.Name = "btnCapturePrint";
+            this.btnCapturePrint.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnCapturePrint.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btnCapturePrint.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnCapturePrint.OnHoverImage = null;
+            this.btnCapturePrint.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnCapturePrint.OnPressedColor = System.Drawing.Color.Black;
+            this.btnCapturePrint.Radius = 8;
+            this.btnCapturePrint.Size = new System.Drawing.Size(141, 50);
+            this.btnCapturePrint.TabIndex = 4;
+            this.btnCapturePrint.Text = "CAPTURE";
+            this.btnCapturePrint.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnCapturePrint.Click += new System.EventHandler(this.btnCapture_Click);
             // 
             // gunaAdvenceButton1
             // 
@@ -966,41 +1006,29 @@
             this.guna2Elipse1.BorderRadius = 15;
             this.guna2Elipse1.TargetControl = this.printQualityProgress;
             // 
-            // btnCapturePrint
+            // addedIDlbl
             // 
-            this.btnCapturePrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCapturePrint.AnimationHoverSpeed = 0.07F;
-            this.btnCapturePrint.AnimationSpeed = 0.03F;
-            this.btnCapturePrint.BackColor = System.Drawing.Color.Transparent;
-            this.btnCapturePrint.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnCapturePrint.BorderColor = System.Drawing.Color.Black;
-            this.btnCapturePrint.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.btnCapturePrint.CheckedBorderColor = System.Drawing.Color.Black;
-            this.btnCapturePrint.CheckedForeColor = System.Drawing.Color.White;
-            this.btnCapturePrint.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnCapturePrint.CheckedImage")));
-            this.btnCapturePrint.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.btnCapturePrint.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnCapturePrint.FocusedColor = System.Drawing.Color.Empty;
-            this.btnCapturePrint.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.btnCapturePrint.ForeColor = System.Drawing.Color.White;
-            this.btnCapturePrint.Image = null;
-            this.btnCapturePrint.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnCapturePrint.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnCapturePrint.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnCapturePrint.Location = new System.Drawing.Point(174, 509);
-            this.btnCapturePrint.Name = "btnCapturePrint";
-            this.btnCapturePrint.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnCapturePrint.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btnCapturePrint.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnCapturePrint.OnHoverImage = null;
-            this.btnCapturePrint.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnCapturePrint.OnPressedColor = System.Drawing.Color.Black;
-            this.btnCapturePrint.Radius = 8;
-            this.btnCapturePrint.Size = new System.Drawing.Size(141, 50);
-            this.btnCapturePrint.TabIndex = 4;
-            this.btnCapturePrint.Text = "CAPTURE";
-            this.btnCapturePrint.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnCapturePrint.Click += new System.EventHandler(this.btnCapture_Click);
+            this.addedIDlbl.AutoSize = true;
+            this.addedIDlbl.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.addedIDlbl.Location = new System.Drawing.Point(228, 49);
+            this.addedIDlbl.Name = "addedIDlbl";
+            this.addedIDlbl.Size = new System.Drawing.Size(0, 20);
+            this.addedIDlbl.TabIndex = 8;
+            // 
+            // btnMatch
+            // 
+            this.btnMatch.CheckedState.Parent = this.btnMatch;
+            this.btnMatch.CustomImages.Parent = this.btnMatch;
+            this.btnMatch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMatch.ForeColor = System.Drawing.Color.White;
+            this.btnMatch.HoverState.Parent = this.btnMatch;
+            this.btnMatch.Location = new System.Drawing.Point(147, 24);
+            this.btnMatch.Name = "btnMatch";
+            this.btnMatch.ShadowDecoration.Parent = this.btnMatch;
+            this.btnMatch.Size = new System.Drawing.Size(180, 45);
+            this.btnMatch.TabIndex = 9;
+            this.btnMatch.Text = "MATCH";
+            this.btnMatch.Click += new System.EventHandler(this.btnMatch_Click);
             // 
             // AddEmployee
             // 
@@ -1075,5 +1103,7 @@
         private Guna.UI2.WinForms.Guna2ProgressBar printQualityProgress;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI.WinForms.GunaAdvenceButton btnCapturePrint;
+        private Guna.UI.WinForms.GunaLabel addedIDlbl;
+        private Guna.UI2.WinForms.Guna2Button btnMatch;
     }
 }

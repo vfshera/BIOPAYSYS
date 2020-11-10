@@ -164,7 +164,6 @@
     <Compile Include="FORMS\Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
-    <Compile Include="HELPERS\BioScan.cs" />
     <Compile Include="HELPERS\Constants.cs" />
     <Compile Include="HELPERS\Database.cs" />
     <Compile Include="HELPERS\FingerprintScanner.cs" />

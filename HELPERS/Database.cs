@@ -100,13 +100,15 @@ namespace BiometricPayroll.HELPERS
         }
 
        
-        public bool AddEmployee(string work_id, string first_name, string sec_name, string surname, string position, string address, string email, string phonenumber, string nationalID, string marital_status, string gender, string date_of_birth, string emmergency_tel, string date_hired, string work_status)
+        public bool AddEmp(string work_id, string first_name, string sec_name, string surname, string position, string address, string email, string phonenumber, string nationalID, string marital_status, string gender, string date_of_birth, string emmergency_tel, string date_hired, string work_status)
         {
             string fields = "work_id, first_name,sec_name, surname, position, address, email, phonenumber,national_id, marital_status, gender, date_of_birth, emmergency_tel, date_hired, work_status, created_at, updated_at";
             string vals = "@work_id,@first_name,@sec_name,@surname,@position, @address, @email, @phonenumber,@nationalid, @marital_status, @gender, @date_of_birth, @emmergency_tel, @date_hired, @work_status, @created_at, @updated_at";
             string sql = $"INSERT INTO employees ({fields}) VALUES({vals})";
 
             bool added = false;
+           
+
             try
             {
                 string currTime = DateTime.Now.ToString("yyyy'-'MM'-'dd HH':'mm':'ss");
@@ -133,9 +135,13 @@ namespace BiometricPayroll.HELPERS
                 cmd.Parameters.AddWithValue("@updated_at", currTime);
                 result = cmd.ExecuteNonQuery();
 
-               added =  result > 0;
-            
-            
+
+                if(result > 0)
+                {
+                    added = result > 0;
+                    getAddedEmp(email, nationalID);
+                }
+               
 
             }
             catch (Exception ex)
@@ -150,6 +156,93 @@ namespace BiometricPayroll.HELPERS
             return added;
         }
 
+        public void getAddedEmp(string email,string natID)
+        {
+            string sql = $"SELECT id FROM employees WHERE email='{email}' AND  national_id='{natID}'";
+
+            try
+            {
+
+                cmd = new MySqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = sql;
+                Object o = cmd.ExecuteScalar();
+
+               
+
+                if (o != null)
+                {
+                    AddEmployee.addEmp.empID  = o.ToString();
+                    AddEmployee.addEmp.setID();
+                }
+
+              
+
+            }catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+        }
+
+        public bool RegFP(string owner , string type , Byte[] fp)
+        {
+            bool reg = false;
+
+            string sql = "INSERT INTO templetes (owner,type,fingerprint) VALUES(@owner_id,@type,@fingerprint)";
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@owner_id", owner);
+                cmd.Parameters.AddWithValue("@type", type);
+                cmd.Parameters.AddWithValue("@fingerprint", fp);
+
+                result = cmd.ExecuteNonQuery();
+
+                reg = result > 0;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return reg;
+        }
+        public Byte[] GetFP()
+        {
+            bool reg = false;
+
+            string sql = "SELECT fingerprint FROM templetes WHERE owner='11'";
+
+            Byte[] fprint = null;
+           try{
+                con.Open();
+                cmd = new MySqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = sql;
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                      fprint = (Byte[])dr.GetValue(0);
+                    
+                    }
+                }
+
+                dr.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return fprint;
+        }
 
         public bool UpdateEmployee(string currID,string currWorkID, string first_name, string sec_name, string surname, string position, string address, string email, string phonenumber,string nationalID ,string marital_status, string gender, string date_of_birth, string emmergency_tel, string date_hired, string work_status, string created_at)
         {

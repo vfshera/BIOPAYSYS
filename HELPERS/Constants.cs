@@ -11,7 +11,9 @@ namespace BiometricPayroll.HELPERS
         //db connection string
         public const string CONNECTION = "server=localhost;user id=root;database=biopaysys;sslMode=none";
 
-
+        //APP KEY
+        public const string BIOPAYSYS_KEY = "q4GxaarGguyHkzd8VvczFuWpspeW";
+        //ENDAPPKEY
 
 
        public const string DEDUCTIONS_QUERY = "SELECT id AS ID,title AS TITLE, amount AS AMOUNT, method AS METHOD FROM taxes ORDER BY id ASC";
