@@ -56,7 +56,7 @@ namespace BiometricPayroll
                 Database db = new Database();
                 Utilities utils = new Utilities();
 
-                string[] loggedUser = new string[3];
+                string[] loggedUser = new string[4];
 
                 
                 loggedUser = db.Login(txtBxUsername.Text.ToLower(), utils.HashPassword(txtBxPassword.Text));
@@ -66,12 +66,24 @@ namespace BiometricPayroll
                 */
                 if (loggedUser[0] != null)
                 {
-                    Dashboard dash = new Dashboard();
-                    dash.displayName = loggedUser[1];
-                    dash.myEmail = loggedUser[2];
-                    dash.myID = loggedUser[0];
-                    this.Hide();
-                    dash.Show();
+                    if (loggedUser[3] == "1")
+                    {
+                        Dashboard dash = new Dashboard();
+                        dash.displayName = loggedUser[1];
+                        dash.myEmail = loggedUser[2];
+                        dash.myID = loggedUser[0];
+                        this.Hide();
+                        dash.Show();
+
+                    }else if (loggedUser[3] == "0")
+                    {
+                        AdminDash adm = new AdminDash();
+                        adm.displayName = loggedUser[1];
+                        adm.myEmail = loggedUser[2];
+                        adm.myID = loggedUser[0];
+                        this.Hide();
+                        adm.Show();
+                    }
 
                 }
                 else if (loggedUser[0] == null)

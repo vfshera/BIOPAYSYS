@@ -110,6 +110,18 @@
     <Compile Include="FORMS\AddEmployee.Designer.cs">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORMS\AddUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\AddUsers.Designer.cs">
+      <DependentUpon>AddUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORMS\AdminDash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\AdminDash.Designer.cs">
+      <DependentUpon>AdminDash.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMS\Alert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,11 +164,23 @@
     <Compile Include="FORMS\Employees.Designer.cs">
       <DependentUpon>Employees.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORMS\FPAfterLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\FPAfterLogin.Designer.cs">
+      <DependentUpon>FPAfterLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMS\Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FORMS\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORMS\MyProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\MyProfile.Designer.cs">
+      <DependentUpon>MyProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="FORMS\Payroll.cs">
       <SubType>Form</SubType>
@@ -164,11 +188,23 @@
     <Compile Include="FORMS\Payroll.Designer.cs">
       <DependentUpon>Payroll.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORMS\ReplaceFP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\ReplaceFP.Designer.cs">
+      <DependentUpon>ReplaceFP.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMS\Reports.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FORMS\Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORMS\Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
     </Compile>
     <Compile Include="HELPERS\Constants.cs" />
     <Compile Include="HELPERS\Database.cs" />
@@ -178,6 +214,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FORMS\AddEmployee.resx">
       <DependentUpon>AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\AddUsers.resx">
+      <DependentUpon>AddUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\AdminDash.resx">
+      <DependentUpon>AdminDash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\Alert.resx">
       <DependentUpon>Alert.cs</DependentUpon>
@@ -200,14 +242,26 @@
     <EmbeddedResource Include="FORMS\Employees.resx">
       <DependentUpon>Employees.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\FPAfterLogin.resx">
+      <DependentUpon>FPAfterLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORMS\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\MyProfile.resx">
+      <DependentUpon>MyProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\Payroll.resx">
       <DependentUpon>Payroll.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\ReplaceFP.resx">
+      <DependentUpon>ReplaceFP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORMS\Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -172,9 +172,6 @@ namespace BiometricPayroll.FORMS
             InitFormData();
         }
 
-        private void enrollRegisterdEmployee_Click(object sender, EventArgs e)
-        {
-            Alert.Popup("Enroll Fingerprint", Alert.AlertType.info);
-        }
+       
     }
 }

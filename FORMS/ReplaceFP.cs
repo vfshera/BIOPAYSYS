@@ -12,83 +12,45 @@ using System.Windows.Forms;
 
 namespace BiometricPayroll.FORMS
 {
-    public partial class EmployeeFPConfirm : Form
+    public partial class ReplaceFP : Form
     {
+        public static ReplaceFP repFP;
         private SGFingerPrintManager m_FPM;
 
-    
         private Int32 m_ImageWidth;
         private Int32 m_ImageHeight;
-
         private Byte[] m_RegMin1;
-
+        private Byte[] m_RegMin2;
         private Byte[] m_DbFP;
 
         private bool captured = false;
 
-        public string SelectedRowID;
-        public string SelectedRowWorkID;
-        public string SelectedUserName;
+        public string empID;
 
-        private int fpWait = 15;
-
-        public static EmployeeFPConfirm empConfirm;
-        public EmployeeFPConfirm()
+        public ReplaceFP()
         {
             InitializeComponent();
-
-            empConfirm = this;
-
             m_FPM = new SGFingerPrintManager();
+            repFP = this;
         }
 
-        private void EmployeeFPConfirm_Load(object sender, EventArgs e)
+        private void btnEnroll_Click(object sender, EventArgs e)
         {
-            m_RegMin1 = new Byte[400];
-            m_DbFP = new Byte[400];
 
-            setDefaults();
-            startScanner();
         }
 
-        public void setDefaults()
-        {
-            string name = SelectedUserName.Split(' ')[0];
-
-            lblWaitingFor.Text = "WAITING FOR " + name;
-
-            consentLbl.Text = name.ToLower()+"'s consent is mandatory";
-        }
-        private void btnRetryFP_Click(object sender, EventArgs e)
-        {
-            captured = false;
-            fpWait = 15;
-            timerFP.Start();
-            getImgQuality();
-        }
-
-        private void btnConfirm_Click(object sender, EventArgs e)
+        private void btnCapturePrint_Click(object sender, EventArgs e)
         {
             if (captured)
             {
-                MatchFP();
-            }
-            else
-            {
-                Alert.Popup("Enter Fingerprint", Alert.AlertType.error);
-            }
-        }
+                getImgQuality();
 
-        private void timerFP_Tick(object sender, EventArgs e)
-        {
-            if(fpWait > 0)
-            {
-                fpWait--;
-                countDown.Text = fpWait.ToString() + "s";
             }
             else
             {
-                timerFP.Stop();
+                captured = false;
+                Alert.Popup("Enter FP First", Alert.AlertType.error);
+
             }
         }
 
@@ -99,7 +61,24 @@ namespace BiometricPayroll.FORMS
 
 
 
-        /* BIOMETRIC*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* B I O M E T R I C S     */
 
         public void startScanner()
         {
@@ -116,20 +95,17 @@ namespace BiometricPayroll.FORMS
 
             if (iError == (Int32)SGFPMError.ERROR_NONE)
             {
-
-                timerFP.Enabled = true; 
+                
+                deviceState.Text = " Initialization Success";
                 scanerInfo();
 
-            }
+ }
             else
             {
-                Alert.Popup("Failed To Start Scanner", Alert.AlertType.error);
+                deviceState.Text = "OpenDevice() Error : " + iError;
 
             }
         }
-
-      
-
 
         public void getImgQuality()
         {
@@ -138,32 +114,25 @@ namespace BiometricPayroll.FORMS
             Byte[] fp_image = new Byte[m_ImageWidth * m_ImageHeight];
             Int32 img_qlty = 0;
 
-           
+
 
             iError = m_FPM.GetImage(fp_image);
 
             m_FPM.GetImageQuality(m_ImageWidth, m_ImageHeight, fp_image, ref img_qlty);
-          
+            printQualityProgress.Value = img_qlty;
 
             if (iError == (Int32)SGFPMError.ERROR_NONE)
             {
-               if(img_qlty > 50)
+                if (img_qlty > 50)
                 {
                     DrawImage(fp_image);
 
-                    try
-                    {
-                        iError = m_FPM.CreateTemplate(fp_image, m_RegMin1);
-
-                    }catch(Exception e)
-                    {
-                        MessageBox.Show(e.Message);
-                    }
+                    iError = m_FPM.CreateTemplate(fp_image, m_RegMin1);
 
                     if (iError == (Int32)SGFPMError.ERROR_NONE)
                     {
                         captured = true;
-                        Alert.Popup("Fingerprint Image Captured", Alert.AlertType.success);
+                        Alert.Popup("FP Image Captured", Alert.AlertType.success);
                     }
                     else
 
@@ -174,7 +143,7 @@ namespace BiometricPayroll.FORMS
                 }
                 else
                 {
-                    Alert.Popup("Enter Fingerprint Again", Alert.AlertType.error);
+                    Alert.Popup("Below Required Quality", Alert.AlertType.error);
                 }
             }
             else
@@ -183,6 +152,48 @@ namespace BiometricPayroll.FORMS
             }
         }
 
+       
+        public void RegisterFP()
+        {
+            int iError;
+            Int32 match_score = 0;
+            bool matched = false;
+            SGFPMSecurityLevel secu_level = SGFPMSecurityLevel.ABOVE_NORMAL;
+
+            iError = m_FPM.MatchTemplate(m_RegMin1, m_RegMin2, secu_level, ref matched);
+            iError = m_FPM.GetMatchingScore(m_RegMin1, m_RegMin2, ref match_score);
+
+            if (iError == (Int32)SGFPMError.ERROR_NONE)
+            {
+                if (matched)
+                {
+                    txtFingerprintStatus.ForeColor = Color.Green;
+                    txtFingerprintStatus.Text = "Matching Score: " + match_score;
+
+                    Database db = new Database();
+
+                    if (db.RegFP(empID.ToString(), "1", m_RegMin1))
+                    {
+                        captured = false;
+                        this.Close();
+                        Alert.Popup("Registration Success", Alert.AlertType.success);
+                    }
+                    else
+                    {
+                        Alert.Popup("Registration Failed", Alert.AlertType.error);
+                    }
+
+                }
+                else
+                {
+                    Alert.Popup("Fingerprints Not Matching", Alert.AlertType.error);
+                }
+            }
+            else
+            {
+                DisplayError(iError);
+            }
+        }
 
         public void MatchFP()
         {
@@ -193,12 +204,10 @@ namespace BiometricPayroll.FORMS
 
             Database db = new Database();
 
-            m_DbFP = db.GetFP(int.Parse(SelectedRowID));
+            m_DbFP = db.GetFP(11);
 
-           
-              iError = m_FPM.MatchTemplate(m_RegMin1, m_DbFP, secu_level, ref matched);
-             iError = m_FPM.GetMatchingScore(m_RegMin1, m_DbFP, ref match_score);
-           
+            iError = m_FPM.MatchTemplate(m_RegMin1, m_DbFP, secu_level, ref matched);
+            iError = m_FPM.GetMatchingScore(m_RegMin1, m_DbFP, ref match_score);
 
             if (iError == (Int32)SGFPMError.ERROR_NONE)
             {
@@ -206,13 +215,6 @@ namespace BiometricPayroll.FORMS
                 {
 
                     Alert.Popup("Matching " + match_score, Alert.AlertType.success);
-
-                    EditEmployee edit = new EditEmployee();
-                    edit.empID = SelectedRowID;
-                    edit.empWorkID = SelectedRowWorkID;
-                    edit.Show();
-
-                    this.Close();
 
                 }
                 else
@@ -254,7 +256,6 @@ namespace BiometricPayroll.FORMS
                 m_ImageWidth = pInfo.ImageWidth;
                 m_ImageHeight = pInfo.ImageHeight;
 
-                getImgQuality();
             }
             else
             {
@@ -382,7 +383,7 @@ namespace BiometricPayroll.FORMS
 
         }
 
-        
+     
     }
 
     /*BIOMETRIC*/

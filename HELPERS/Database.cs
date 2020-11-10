@@ -22,9 +22,9 @@ namespace BiometricPayroll.HELPERS
 
         public string[] Login(string username, string pass)
         {
-            string sql = "SELECT id , name , email FROM users WHERE email=@username AND password=@password";
+            string sql = "SELECT id , name , email , type FROM users WHERE email=@username AND password=@password";
 
-            string[] user = new string[3];
+            string[] user = new string[4];
             try
             {
                 con.Open();
@@ -45,6 +45,7 @@ namespace BiometricPayroll.HELPERS
                         user[0] = dr.GetValue(0).ToString();
                         user[1] = dr.GetValue(1).ToString();
                         user[2] = dr.GetValue(2).ToString();
+                        user[3] = dr.GetValue(3).ToString();
                        
                       
                     }
