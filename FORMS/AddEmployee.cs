@@ -415,7 +415,7 @@ namespace BiometricPayroll.FORMS
 
             Database db = new Database();
 
-            m_DbFP = db.GetFP();
+            m_DbFP = db.GetFP(11);
 
             iError = m_FPM.MatchTemplate(m_RegMin1, m_DbFP, secu_level, ref matched);
             iError = m_FPM.GetMatchingScore(m_RegMin1, m_DbFP, ref match_score);
@@ -424,10 +424,8 @@ namespace BiometricPayroll.FORMS
             {
                 if (matched)
                 {
-                   MessageBox.Show("Matching Score: " + match_score);
-
                                   
-                    Alert.Popup("Matching", Alert.AlertType.success);
+                    Alert.Popup("Matching "+ match_score, Alert.AlertType.success);
                
                 }
                 else

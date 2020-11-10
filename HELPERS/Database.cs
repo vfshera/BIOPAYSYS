@@ -211,11 +211,11 @@ namespace BiometricPayroll.HELPERS
             }
             return reg;
         }
-        public Byte[] GetFP()
+        public Byte[] GetFP(int owner)
         {
             bool reg = false;
 
-            string sql = "SELECT fingerprint FROM templetes WHERE owner='11'";
+            string sql = $"SELECT fingerprint FROM templetes WHERE owner='{owner}'";
 
             Byte[] fprint = null;
            try{
