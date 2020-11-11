@@ -27,7 +27,6 @@ namespace BiometricPayroll.FORMS
         private bool captured = false;
 
         public string SelectedRowID;
-        public string SelectedRowWorkID;
         public string SelectedUserName;
 
         private int fpWait = 15;
@@ -209,7 +208,6 @@ namespace BiometricPayroll.FORMS
 
                     EditEmployee edit = new EditEmployee();
                     edit.empID = SelectedRowID;
-                    edit.empWorkID = SelectedRowWorkID;
                     edit.Show();
 
                     this.Close();

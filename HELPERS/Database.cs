@@ -41,8 +41,11 @@ namespace BiometricPayroll.HELPERS
                 {
                     while (dr.Read())
                     {
+                        
+
                         if (dr.GetValue(4).ToString() != "0")
                         {
+                           
                             user[0] = dr.GetValue(0).ToString();
                             user[1] = dr.GetValue(1).ToString();
                             user[2] = dr.GetValue(2).ToString();
@@ -134,10 +137,10 @@ namespace BiometricPayroll.HELPERS
 
         }
 
-        public bool AddEmp(string work_id, string first_name, string sec_name, string surname, string position, string address, string email, string phonenumber, string nationalID, string marital_status, string gender, string date_of_birth, string emmergency_tel, string date_hired, string work_status)
+        public bool AddEmp(string salary, string first_name, string sec_name, string surname, string position, string address, string email, string phonenumber, string nationalID, string marital_status, string gender, string date_of_birth, string emmergency_tel, string date_hired, string work_status)
         {
-            string fields = "work_id, first_name,sec_name, surname, position, address, email, phonenumber,national_id, marital_status, gender, date_of_birth, emmergency_tel, date_hired, work_status, created_at, updated_at";
-            string vals = "@work_id,@first_name,@sec_name,@surname,@position, @address, @email, @phonenumber,@nationalid, @marital_status, @gender, @date_of_birth, @emmergency_tel, @date_hired, @work_status, @created_at, @updated_at";
+            string fields = "salary, first_name,sec_name, surname, position, address, email, phonenumber,national_id, marital_status, gender, date_of_birth, emmergency_tel, date_hired, work_status, created_at, updated_at";
+            string vals = "@salary,@first_name,@sec_name,@surname,@position, @address, @email, @phonenumber,@nationalid, @marital_status, @gender, @date_of_birth, @emmergency_tel, @date_hired, @work_status, @created_at, @updated_at";
             string sql = $"INSERT INTO employees ({fields}) VALUES({vals})";
 
             bool added = false;
@@ -150,7 +153,7 @@ namespace BiometricPayroll.HELPERS
                 cmd = new MySqlCommand();
                 cmd.Connection = con;
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("@work_id", work_id);
+                cmd.Parameters.AddWithValue("@salary", salary);
                 cmd.Parameters.AddWithValue("@first_name", first_name);  
                 cmd.Parameters.AddWithValue("@sec_name", sec_name);
                 cmd.Parameters.AddWithValue("@surname", surname);  
@@ -217,6 +220,34 @@ namespace BiometricPayroll.HELPERS
                 MessageBox.Show(e.Message);
             }
 
+        }
+
+
+        public bool updateFP(string owner, string type, Byte[] fp)
+        {
+            bool reg = false;
+
+            string sql = $"UPDATE templetes SET fingerprint=@finger WHERE owner=@owner AND type=@type";
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@finger", fp);
+                cmd.Parameters.AddWithValue("@owner", owner);
+                cmd.Parameters.AddWithValue("@type", type);
+
+                result = cmd.ExecuteNonQuery();
+
+                reg = result > 0;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return reg;
         }
 
         public bool RegFP(string owner , string type , Byte[] fp)

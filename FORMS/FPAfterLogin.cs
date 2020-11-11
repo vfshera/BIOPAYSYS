@@ -14,14 +14,16 @@ namespace BiometricPayroll.FORMS
 {
     public partial class FPAfterLogin : Form
     {
+       
+
+        private SGFingerPrintManager m_FPM;
+
         public string displayName;
         public string myID;
         public string myEmail;
         public string role;
 
         int timeout = 10000;
-
-        private SGFingerPrintManager m_FPM;
 
         private Int32 m_ImageWidth;
         private Int32 m_ImageHeight;
@@ -211,6 +213,7 @@ namespace BiometricPayroll.FORMS
         {
 
             Database dbfp = new Database();
+
             fetchedFP = dbfp.GetFP(int.Parse(myID), int.Parse(role));
 
             if (fetchedFP == null)

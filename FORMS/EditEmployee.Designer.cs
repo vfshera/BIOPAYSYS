@@ -40,7 +40,7 @@
             this.pickerDateHired = new Guna.UI.WinForms.GunaDateTimePicker();
             this.btnEmpDetailCancel = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnUpdatemployee = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.txtWorkID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSalary = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel12 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
@@ -66,6 +66,8 @@
             this.txtFirstName = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel16 = new Guna.UI.WinForms.GunaLabel();
             this.closeEditModal = new Guna.UI.WinForms.GunaControlBox();
+            this.btnDeductions = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.btnAllowance = new Guna.UI.WinForms.GunaAdvenceButton();
             this.SuspendLayout();
             // 
             // editFormEliose
@@ -295,34 +297,35 @@
             this.btnUpdatemployee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnUpdatemployee.Click += new System.EventHandler(this.btnUpdatemployee_Click);
             // 
-            // txtWorkID
+            // txtSalary
             // 
-            this.txtWorkID.BorderColor = System.Drawing.SystemColors.Control;
-            this.txtWorkID.BorderRadius = 7;
-            this.txtWorkID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtWorkID.DefaultText = "";
-            this.txtWorkID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtWorkID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtWorkID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtWorkID.DisabledState.Parent = this.txtWorkID;
-            this.txtWorkID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtWorkID.FillColor = System.Drawing.SystemColors.Control;
-            this.txtWorkID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtWorkID.FocusedState.Parent = this.txtWorkID;
-            this.txtWorkID.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWorkID.ForeColor = System.Drawing.Color.Black;
-            this.txtWorkID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtWorkID.HoverState.Parent = this.txtWorkID;
-            this.txtWorkID.Location = new System.Drawing.Point(788, 709);
-            this.txtWorkID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtWorkID.Name = "txtWorkID";
-            this.txtWorkID.PasswordChar = '\0';
-            this.txtWorkID.PlaceholderText = "VFS28";
-            this.txtWorkID.ReadOnly = true;
-            this.txtWorkID.SelectedText = "";
-            this.txtWorkID.ShadowDecoration.Parent = this.txtWorkID;
-            this.txtWorkID.Size = new System.Drawing.Size(310, 48);
-            this.txtWorkID.TabIndex = 22;
+            this.txtSalary.BorderColor = System.Drawing.SystemColors.Control;
+            this.txtSalary.BorderRadius = 7;
+            this.txtSalary.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSalary.DefaultText = "";
+            this.txtSalary.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSalary.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSalary.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSalary.DisabledState.Parent = this.txtSalary;
+            this.txtSalary.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSalary.FillColor = System.Drawing.SystemColors.Control;
+            this.txtSalary.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSalary.FocusedState.Parent = this.txtSalary;
+            this.txtSalary.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSalary.ForeColor = System.Drawing.Color.Black;
+            this.txtSalary.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSalary.HoverState.Parent = this.txtSalary;
+            this.txtSalary.Location = new System.Drawing.Point(788, 709);
+            this.txtSalary.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.PasswordChar = '\0';
+            this.txtSalary.PlaceholderText = "50000";
+            this.txtSalary.ReadOnly = true;
+            this.txtSalary.SelectedText = "";
+            this.txtSalary.ShadowDecoration.Parent = this.txtSalary;
+            this.txtSalary.Size = new System.Drawing.Size(310, 48);
+            this.txtSalary.TabIndex = 22;
+            this.txtSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateNumberOnKeyPress);
             // 
             // gunaLabel12
             // 
@@ -330,9 +333,9 @@
             this.gunaLabel12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.gunaLabel12.Location = new System.Drawing.Point(787, 657);
             this.gunaLabel12.Name = "gunaLabel12";
-            this.gunaLabel12.Size = new System.Drawing.Size(89, 28);
+            this.gunaLabel12.Size = new System.Drawing.Size(117, 28);
             this.gunaLabel12.TabIndex = 19;
-            this.gunaLabel12.Text = "Work ID";
+            this.gunaLabel12.Text = "Salary P/M";
             // 
             // gunaLabel8
             // 
@@ -755,12 +758,87 @@
             this.closeEditModal.Size = new System.Drawing.Size(45, 29);
             this.closeEditModal.TabIndex = 37;
             // 
+            // btnDeductions
+            // 
+            this.btnDeductions.AnimationHoverSpeed = 0.07F;
+            this.btnDeductions.AnimationSpeed = 0.03F;
+            this.btnDeductions.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeductions.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.btnDeductions.BorderColor = System.Drawing.Color.Black;
+            this.btnDeductions.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btnDeductions.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnDeductions.CheckedForeColor = System.Drawing.Color.White;
+            this.btnDeductions.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnDeductions.CheckedImage")));
+            this.btnDeductions.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnDeductions.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnDeductions.FocusedColor = System.Drawing.Color.Empty;
+            this.btnDeductions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnDeductions.ForeColor = System.Drawing.Color.White;
+            this.btnDeductions.Image = ((System.Drawing.Image)(resources.GetObject("btnDeductions.Image")));
+            this.btnDeductions.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnDeductions.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnDeductions.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.btnDeductions.Location = new System.Drawing.Point(26, 780);
+            this.btnDeductions.Name = "btnDeductions";
+            this.btnDeductions.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnDeductions.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnDeductions.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnDeductions.OnHoverImage = null;
+            this.btnDeductions.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(140)))), ((int)(((byte)(255)))));
+            this.btnDeductions.OnPressedColor = System.Drawing.Color.Black;
+            this.btnDeductions.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnDeductions.Radius = 25;
+            this.btnDeductions.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnDeductions.Size = new System.Drawing.Size(312, 59);
+            this.btnDeductions.TabIndex = 39;
+            this.btnDeductions.Text = "DEDUCTIONS";
+            this.btnDeductions.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnDeductions.Click += new System.EventHandler(this.btnDeductions_Click);
+            // 
+            // btnAllowance
+            // 
+            this.btnAllowance.AnimationHoverSpeed = 0.07F;
+            this.btnAllowance.AnimationSpeed = 0.03F;
+            this.btnAllowance.BackColor = System.Drawing.Color.Transparent;
+            this.btnAllowance.BaseColor = System.Drawing.Color.DodgerBlue;
+            this.btnAllowance.BorderColor = System.Drawing.Color.Black;
+            this.btnAllowance.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.btnAllowance.CheckedBorderColor = System.Drawing.Color.Black;
+            this.btnAllowance.CheckedForeColor = System.Drawing.Color.White;
+            this.btnAllowance.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnAllowance.CheckedImage")));
+            this.btnAllowance.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.btnAllowance.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnAllowance.FocusedColor = System.Drawing.Color.Empty;
+            this.btnAllowance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAllowance.ForeColor = System.Drawing.Color.White;
+            this.btnAllowance.Image = ((System.Drawing.Image)(resources.GetObject("btnAllowance.Image")));
+            this.btnAllowance.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnAllowance.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnAllowance.LineColor = System.Drawing.Color.DodgerBlue;
+            this.btnAllowance.Location = new System.Drawing.Point(405, 780);
+            this.btnAllowance.Name = "btnAllowance";
+            this.btnAllowance.OnHoverBaseColor = System.Drawing.Color.DodgerBlue;
+            this.btnAllowance.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnAllowance.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnAllowance.OnHoverImage = null;
+            this.btnAllowance.OnHoverLineColor = System.Drawing.Color.DodgerBlue;
+            this.btnAllowance.OnPressedColor = System.Drawing.Color.Black;
+            this.btnAllowance.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnAllowance.Radius = 25;
+            this.btnAllowance.Size = new System.Drawing.Size(312, 59);
+            this.btnAllowance.TabIndex = 39;
+            this.btnAllowance.Text = "ALLOWANCE";
+            this.btnAllowance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnAllowance.Click += new System.EventHandler(this.btnAllowance_Click);
+            // 
             // EditEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1126, 858);
+            this.Controls.Add(this.btnAllowance);
+            this.Controls.Add(this.btnDeductions);
             this.Controls.Add(this.closeEditModal);
             this.Controls.Add(this.workStatusDropDown);
             this.Controls.Add(this.maritalStatusDropDown);
@@ -769,7 +847,7 @@
             this.Controls.Add(this.pickerDateHired);
             this.Controls.Add(this.btnEmpDetailCancel);
             this.Controls.Add(this.btnUpdatemployee);
-            this.Controls.Add(this.txtWorkID);
+            this.Controls.Add(this.txtSalary);
             this.Controls.Add(this.gunaLabel12);
             this.Controls.Add(this.gunaLabel8);
             this.Controls.Add(this.gunaLabel4);
@@ -818,7 +896,7 @@
         private Guna.UI.WinForms.GunaDateTimePicker pickerDateHired;
         private Guna.UI.WinForms.GunaAdvenceButton btnEmpDetailCancel;
         private Guna.UI.WinForms.GunaAdvenceButton btnUpdatemployee;
-        private Guna.UI2.WinForms.Guna2TextBox txtWorkID;
+        private Guna.UI2.WinForms.Guna2TextBox txtSalary;
         private Guna.UI.WinForms.GunaLabel gunaLabel12;
         private Guna.UI.WinForms.GunaLabel gunaLabel8;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
@@ -844,5 +922,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtFirstName;
         private Guna.UI.WinForms.GunaLabel gunaLabel16;
         private Guna.UI.WinForms.GunaControlBox closeEditModal;
+        private Guna.UI.WinForms.GunaAdvenceButton btnAllowance;
+        private Guna.UI.WinForms.GunaAdvenceButton btnDeductions;
     }
 }

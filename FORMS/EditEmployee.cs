@@ -19,13 +19,12 @@ namespace BiometricPayroll.FORMS
         }
 
         public string empID;
-        public string empWorkID;
         private bool emailOk = true;
         public string[] employeeData = new string[17];
 
         private void EditEmployee_Load(object sender, EventArgs e)
         {
-            string sql = $"SELECT * FROM employees WHERE id='{empID}' AND work_id='{empWorkID}' ";
+            string sql = $"SELECT * FROM employees WHERE id='{empID}'";
             Database db = new Database();
             employeeData = db.singleRow(sql);
 
@@ -46,7 +45,7 @@ namespace BiometricPayroll.FORMS
 
         private void InitFormData()
         {
-            txtWorkID.Text = employeeData[1];
+            txtSalary.Text = employeeData[1];
             txtFirstName.Text = employeeData[2];
             txtSecondName.Text = employeeData[3];
             txtSurname.Text = employeeData[4];
@@ -70,7 +69,7 @@ namespace BiometricPayroll.FORMS
             if (
                 txtAddress.Text.Length > 4 && emailOk && txtEmmergencyNo.Text.Length > 9 && txtFirstName.Text.Length >= 2 && txtJobPosition.Text.Length >= 2 && txtNationalID.Text.Length > 6 &&
                 txtPhoneNumber.Text.Length >= 2 && txtSecondName.Text.Length >= 2 && txtSurname.Text.Length >= 2 &&
-                txtWorkID.Text.Length > 3 && genderDropDown.SelectedItem != null &&
+                txtSalary.Text.Length > 3 && genderDropDown.SelectedItem != null &&
                 maritalStatusDropDown.SelectedItem != null && workStatusDropDown.SelectedItem != null
                 )
             {
@@ -130,7 +129,7 @@ namespace BiometricPayroll.FORMS
                 Database emp = new Database();
                 bool added = emp.UpdateEmployee(
                              employeeData[0],
-                             txtWorkID.Text.ToUpper(),
+                             txtSalary.Text.ToUpper(),
                              txtFirstName.Text.ToUpper(),
                              txtSecondName.Text.ToUpper(),
                              txtSurname.Text.ToUpper(),
@@ -172,6 +171,22 @@ namespace BiometricPayroll.FORMS
             InitFormData();
         }
 
-       
+        private void btnAllowance_Click(object sender, EventArgs e)
+        {
+            EmpAllowances eal = new EmpAllowances();
+            eal.emplID = empID;
+            eal.dataType = 1;
+            this.Hide();
+            eal.Show();
+        }
+
+        private void btnDeductions_Click(object sender, EventArgs e)
+        {
+            EmpAllowances eal = new EmpAllowances();
+            eal.emplID = empID;
+            eal.dataType = 0;
+            this.Hide();
+            eal.Show();
+        }
     }
 }

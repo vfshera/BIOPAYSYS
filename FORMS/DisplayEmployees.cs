@@ -33,7 +33,7 @@ namespace BiometricPayroll.FORMS
         public void loadEmployees()
         {
             Database db = new Database();
-            string Search = $"SELECT id AS ID,work_id AS 'WORK ID', CONCAT_WS(' ' , first_name , surname) AS NAME,position AS JOB,phonenumber AS CONTACT,email AS EMAIL,gender AS GENDER,work_status AS 'WORK STATUS' FROM employees WHERE first_name LIKE '{searchQuery}%' OR  surname LIKE '{searchQuery}%' ORDER BY id ASC";
+            string Search = $"SELECT id AS ID,salary AS SALARY, CONCAT_WS(' ' , first_name , surname) AS NAME,position AS JOB,phonenumber AS CONTACT,email AS EMAIL,gender AS GENDER,work_status AS 'WORK STATUS' FROM employees WHERE first_name LIKE '{searchQuery}%' OR  surname LIKE '{searchQuery}%' ORDER BY id ASC";
            
 
             if (searchQuery.Length == 0)
@@ -59,10 +59,9 @@ namespace BiometricPayroll.FORMS
 
                     SelectedRowID = empTableGrid.Rows[e.RowIndex].Cells["ID"].FormattedValue.ToString();
                     SelectedUserSurname = empTableGrid.Rows[e.RowIndex].Cells["NAME"].FormattedValue.ToString();
-                    SelectedRowWorkID = empTableGrid.Rows[e.RowIndex].Cells["WORK ID"].FormattedValue.ToString();
 
                     //USING PARENT INSTANCE emp TO ACCESS FUNCTION
-                    Employees.emp.setSelectedUser(SelectedRowID, SelectedRowWorkID,SelectedUserSurname);
+                    Employees.emp.setSelectedUser(SelectedRowID,SelectedUserSurname);
                 }
             }
             catch(System.ArgumentOutOfRangeException OutOfRange)

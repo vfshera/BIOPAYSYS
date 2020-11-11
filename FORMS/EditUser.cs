@@ -299,8 +299,8 @@ namespace BiometricPayroll.FORMS
 
             else
             {
-                string sql = $"UPDATE templetes SET fingerprint='{m_RegMin1}' WHERE owner='{userID.ToString()}' AND type='0'";
-                if (db.runQuery(sql ) > 0)
+                
+                if (db.updateFP(userID, "0", m_RegMin1))
                 {
 
                     Alert.Popup("FP Updated", Alert.AlertType.success);

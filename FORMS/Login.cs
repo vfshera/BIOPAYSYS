@@ -63,14 +63,26 @@ namespace BiometricPayroll
               
                 if (loggedUser[0] != null)
                 {
-                    
+                    if (loggedUser[3] == "0")
+                    {
                         FPAfterLogin fpAuth = new FPAfterLogin();
-                       fpAuth.displayName = loggedUser[1];
-                       fpAuth.myEmail = loggedUser[2];
-                       fpAuth.myID = loggedUser[0];
-                       fpAuth.role = loggedUser[3];
-                       this.Hide();
-                       fpAuth.Show();
+                        fpAuth.displayName = loggedUser[1];
+                        fpAuth.myEmail = loggedUser[2];
+                        fpAuth.myID = loggedUser[0];
+                        fpAuth.role = loggedUser[3];
+                        this.Hide();
+                        fpAuth.Show();
+                    }
+                    else
+                    {
+                        Dashboard dash = new Dashboard();
+                        dash.displayName = loggedUser[1];
+                        dash.myEmail = loggedUser[2];
+                        dash.myID = loggedUser[0];
+                        this.Hide();
+                        dash.Show();
+                    }
+                      
 
 
 

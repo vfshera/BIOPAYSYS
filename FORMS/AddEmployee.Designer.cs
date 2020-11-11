@@ -51,7 +51,7 @@
             this.gunaLabel11 = new Guna.UI.WinForms.GunaLabel();
             this.txtJobPosition = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel12 = new Guna.UI.WinForms.GunaLabel();
-            this.txtWorkID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSalary = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel13 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel14 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel15 = new Guna.UI.WinForms.GunaLabel();
@@ -68,6 +68,8 @@
             this.btnEmpDetailCancel = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnSaveEmployee = new Guna.UI.WinForms.GunaAdvenceButton();
             this.printPanel = new Guna.UI.WinForms.GunaElipsePanel();
+            this.btnMatch = new Guna.UI2.WinForms.Guna2Button();
+            this.addedIDlbl = new Guna.UI.WinForms.GunaLabel();
             this.printQualityProgress = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.enteredFPrint = new Guna.UI.WinForms.GunaLabel();
             this.lblDeviceInfo = new Guna.UI.WinForms.GunaLabel();
@@ -78,8 +80,6 @@
             this.printPanelElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.empFieldsElipse = new Guna.UI.WinForms.GunaElipse(this.components);
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.addedIDlbl = new Guna.UI.WinForms.GunaLabel();
-            this.btnMatch = new Guna.UI2.WinForms.Guna2Button();
             addEmployeeElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.fingerPrintBox)).BeginInit();
             this.fieldsPanel.SuspendLayout();
@@ -441,37 +441,38 @@
             this.gunaLabel12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.gunaLabel12.Location = new System.Drawing.Point(804, 598);
             this.gunaLabel12.Name = "gunaLabel12";
-            this.gunaLabel12.Size = new System.Drawing.Size(89, 28);
+            this.gunaLabel12.Size = new System.Drawing.Size(117, 28);
             this.gunaLabel12.TabIndex = 0;
-            this.gunaLabel12.Text = "Work ID";
+            this.gunaLabel12.Text = "Salary P/M";
             // 
-            // txtWorkID
+            // txtSalary
             // 
-            this.txtWorkID.BorderColor = System.Drawing.SystemColors.Control;
-            this.txtWorkID.BorderRadius = 7;
-            this.txtWorkID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtWorkID.DefaultText = "";
-            this.txtWorkID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtWorkID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtWorkID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtWorkID.DisabledState.Parent = this.txtWorkID;
-            this.txtWorkID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtWorkID.FillColor = System.Drawing.SystemColors.Control;
-            this.txtWorkID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtWorkID.FocusedState.Parent = this.txtWorkID;
-            this.txtWorkID.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWorkID.ForeColor = System.Drawing.Color.Black;
-            this.txtWorkID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtWorkID.HoverState.Parent = this.txtWorkID;
-            this.txtWorkID.Location = new System.Drawing.Point(805, 626);
-            this.txtWorkID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtWorkID.Name = "txtWorkID";
-            this.txtWorkID.PasswordChar = '\0';
-            this.txtWorkID.PlaceholderText = "VFS28";
-            this.txtWorkID.SelectedText = "";
-            this.txtWorkID.ShadowDecoration.Parent = this.txtWorkID;
-            this.txtWorkID.Size = new System.Drawing.Size(310, 66);
-            this.txtWorkID.TabIndex = 1;
+            this.txtSalary.BorderColor = System.Drawing.SystemColors.Control;
+            this.txtSalary.BorderRadius = 7;
+            this.txtSalary.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSalary.DefaultText = "";
+            this.txtSalary.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSalary.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSalary.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSalary.DisabledState.Parent = this.txtSalary;
+            this.txtSalary.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSalary.FillColor = System.Drawing.SystemColors.Control;
+            this.txtSalary.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSalary.FocusedState.Parent = this.txtSalary;
+            this.txtSalary.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSalary.ForeColor = System.Drawing.Color.Black;
+            this.txtSalary.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSalary.HoverState.Parent = this.txtSalary;
+            this.txtSalary.Location = new System.Drawing.Point(805, 626);
+            this.txtSalary.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.PasswordChar = '\0';
+            this.txtSalary.PlaceholderText = "50000";
+            this.txtSalary.SelectedText = "";
+            this.txtSalary.ShadowDecoration.Parent = this.txtSalary;
+            this.txtSalary.Size = new System.Drawing.Size(310, 66);
+            this.txtSalary.TabIndex = 1;
+            this.txtSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateNumberOnKeyPress);
             // 
             // gunaLabel13
             // 
@@ -580,7 +581,7 @@
             this.fieldsPanel.Controls.Add(this.pickerDateHired);
             this.fieldsPanel.Controls.Add(this.btnEmpDetailCancel);
             this.fieldsPanel.Controls.Add(this.btnSaveEmployee);
-            this.fieldsPanel.Controls.Add(this.txtWorkID);
+            this.fieldsPanel.Controls.Add(this.txtSalary);
             this.fieldsPanel.Controls.Add(this.gunaLabel12);
             this.fieldsPanel.Controls.Add(this.gunaLabel8);
             this.fieldsPanel.Controls.Add(this.gunaLabel4);
@@ -833,6 +834,30 @@
             this.printPanel.Size = new System.Drawing.Size(477, 821);
             this.printPanel.TabIndex = 5;
             // 
+            // btnMatch
+            // 
+            this.btnMatch.CheckedState.Parent = this.btnMatch;
+            this.btnMatch.CustomImages.Parent = this.btnMatch;
+            this.btnMatch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMatch.ForeColor = System.Drawing.Color.White;
+            this.btnMatch.HoverState.Parent = this.btnMatch;
+            this.btnMatch.Location = new System.Drawing.Point(147, 24);
+            this.btnMatch.Name = "btnMatch";
+            this.btnMatch.ShadowDecoration.Parent = this.btnMatch;
+            this.btnMatch.Size = new System.Drawing.Size(180, 45);
+            this.btnMatch.TabIndex = 9;
+            this.btnMatch.Text = "MATCH";
+            this.btnMatch.Click += new System.EventHandler(this.btnMatch_Click);
+            // 
+            // addedIDlbl
+            // 
+            this.addedIDlbl.AutoSize = true;
+            this.addedIDlbl.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.addedIDlbl.Location = new System.Drawing.Point(228, 49);
+            this.addedIDlbl.Name = "addedIDlbl";
+            this.addedIDlbl.Size = new System.Drawing.Size(0, 20);
+            this.addedIDlbl.TabIndex = 8;
+            // 
             // printQualityProgress
             // 
             this.printQualityProgress.FillColor = System.Drawing.Color.White;
@@ -1006,30 +1031,6 @@
             this.guna2Elipse1.BorderRadius = 15;
             this.guna2Elipse1.TargetControl = this.printQualityProgress;
             // 
-            // addedIDlbl
-            // 
-            this.addedIDlbl.AutoSize = true;
-            this.addedIDlbl.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.addedIDlbl.Location = new System.Drawing.Point(228, 49);
-            this.addedIDlbl.Name = "addedIDlbl";
-            this.addedIDlbl.Size = new System.Drawing.Size(0, 20);
-            this.addedIDlbl.TabIndex = 8;
-            // 
-            // btnMatch
-            // 
-            this.btnMatch.CheckedState.Parent = this.btnMatch;
-            this.btnMatch.CustomImages.Parent = this.btnMatch;
-            this.btnMatch.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMatch.ForeColor = System.Drawing.Color.White;
-            this.btnMatch.HoverState.Parent = this.btnMatch;
-            this.btnMatch.Location = new System.Drawing.Point(147, 24);
-            this.btnMatch.Name = "btnMatch";
-            this.btnMatch.ShadowDecoration.Parent = this.btnMatch;
-            this.btnMatch.Size = new System.Drawing.Size(180, 45);
-            this.btnMatch.TabIndex = 9;
-            this.btnMatch.Text = "MATCH";
-            this.btnMatch.Click += new System.EventHandler(this.btnMatch_Click);
-            // 
             // AddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1076,7 +1077,7 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel11;
         private Guna.UI2.WinForms.Guna2TextBox txtJobPosition;
         private Guna.UI.WinForms.GunaLabel gunaLabel12;
-        private Guna.UI2.WinForms.Guna2TextBox txtWorkID;
+        private Guna.UI2.WinForms.Guna2TextBox txtSalary;
         private Guna.UI.WinForms.GunaLabel gunaLabel13;
         private Guna.UI.WinForms.GunaLabel gunaLabel14;
         private Guna.UI.WinForms.GunaLabel gunaLabel15;

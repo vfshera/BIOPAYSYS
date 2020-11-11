@@ -48,6 +48,7 @@
             this.makeDashRound = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.dragCntrDash = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.lblUserNameDisplay = new Guna.UI.WinForms.GunaLabel();
+            this.btnAttendance = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.pnlContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -58,6 +59,7 @@
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.guna2Panel1.Controls.Add(this.guna2Panel2);
             this.guna2Panel1.Controls.Add(this.pnlLogo);
+            this.guna2Panel1.Controls.Add(this.btnAttendance);
             this.guna2Panel1.Controls.Add(this.btnPayroll);
             this.guna2Panel1.Controls.Add(this.btnReports);
             this.guna2Panel1.Controls.Add(this.btnDeductions);
@@ -342,12 +344,35 @@
             this.lblUserNameDisplay.AutoSize = true;
             this.lblUserNameDisplay.Font = new System.Drawing.Font("Nunito SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserNameDisplay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.lblUserNameDisplay.Location = new System.Drawing.Point(884, 12);
+            this.lblUserNameDisplay.Location = new System.Drawing.Point(775, 12);
             this.lblUserNameDisplay.Name = "lblUserNameDisplay";
-            this.lblUserNameDisplay.Size = new System.Drawing.Size(88, 24);
+            this.lblUserNameDisplay.Size = new System.Drawing.Size(252, 24);
             this.lblUserNameDisplay.TabIndex = 3;
-            this.lblUserNameDisplay.Text = "Username";
+            this.lblUserNameDisplay.Text = "Username Username Username";
             this.lblUserNameDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnAttendance
+            // 
+            this.btnAttendance.BackColor = System.Drawing.Color.Transparent;
+            this.btnAttendance.BorderColor = System.Drawing.Color.Transparent;
+            this.btnAttendance.CheckedState.Parent = this.btnAttendance;
+            this.btnAttendance.CustomImages.Parent = this.btnAttendance;
+            this.btnAttendance.FillColor = System.Drawing.Color.Transparent;
+            this.btnAttendance.Font = new System.Drawing.Font("Nunito SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAttendance.ForeColor = System.Drawing.Color.White;
+            this.btnAttendance.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnAttendance.HoverState.Font = new System.Drawing.Font("Nunito ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAttendance.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(104)))), ((int)(((byte)(84)))));
+            this.btnAttendance.HoverState.Parent = this.btnAttendance;
+            this.btnAttendance.Location = new System.Drawing.Point(-3, 535);
+            this.btnAttendance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAttendance.Name = "btnAttendance";
+            this.btnAttendance.ShadowDecoration.Parent = this.btnAttendance;
+            this.btnAttendance.Size = new System.Drawing.Size(191, 46);
+            this.btnAttendance.TabIndex = 0;
+            this.btnAttendance.Text = "ATTENDANCE";
+            this.btnAttendance.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAttendance.Click += new System.EventHandler(this.btnPayroll_Click);
             // 
             // Dashboard
             // 
@@ -397,5 +422,6 @@
         private Guna.UI2.WinForms.Guna2Elipse makeDashRound;
         private Guna.UI2.WinForms.Guna2DragControl dragCntrDash;
         private Guna.UI.WinForms.GunaLabel lblUserNameDisplay;
+        private Guna.UI2.WinForms.Guna2Button btnAttendance;
     }
 }

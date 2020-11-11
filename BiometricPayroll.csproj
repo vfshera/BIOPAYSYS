@@ -128,6 +128,12 @@
     <Compile Include="FORMS\Alert.Designer.cs">
       <DependentUpon>Alert.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORMS\Attendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\Attendance.Designer.cs">
+      <DependentUpon>Attendance.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMS\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,12 @@
     </Compile>
     <Compile Include="FORMS\EditUser.Designer.cs">
       <DependentUpon>EditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORMS\EmpAllowances.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\EmpAllowances.Designer.cs">
+      <DependentUpon>EmpAllowances.cs</DependentUpon>
     </Compile>
     <Compile Include="FORMS\EmployeeFPConfirm.cs">
       <SubType>Form</SubType>
@@ -224,6 +236,9 @@
     <EmbeddedResource Include="FORMS\Alert.resx">
       <DependentUpon>Alert.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\Attendance.resx">
+      <DependentUpon>Attendance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORMS\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\EditUser.resx">
       <DependentUpon>EditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\EmpAllowances.resx">
+      <DependentUpon>EmpAllowances.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\EmployeeFPConfirm.resx">
       <DependentUpon>EmployeeFPConfirm.cs</DependentUpon>

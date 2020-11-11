@@ -92,6 +92,12 @@ namespace BiometricPayroll.FORMS
             this.openChildForm(new Payroll());
         }
 
+        private void btnAttendance_Click(object sender, EventArgs e)
+        {
+            this.pressedBtn(btnAttendance);
+            this.openChildForm(new Attendance());
+        }
+
         private void btnReports_Click(object sender, EventArgs e)
         {
             this.pressedBtn(btnReports);

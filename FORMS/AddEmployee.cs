@@ -70,7 +70,7 @@ namespace BiometricPayroll.FORMS
             txtPhoneNumber.Text = "";
             txtSecondName.Text = "";
             txtSurname.Text = "";
-            txtWorkID.Text = "";
+            txtSalary.Text = "";
             genderDropDown.StartIndex = -1;
             maritalStatusDropDown.StartIndex = -1;
             workStatusDropDown.StartIndex = -1;
@@ -87,7 +87,7 @@ namespace BiometricPayroll.FORMS
                 txtAddress.Text.Length > 4 && emailOk && txtEmmergencyNo.Text.Length > 9 &&
                 txtFirstName.Text != "" && txtJobPosition.Text != "" && txtNationalID.Text.Length > 6 &&
                 txtPhoneNumber.Text.Length >= 2 && txtSecondName.Text.Length >= 2 && txtSurname.Text.Length >= 2 &&
-                txtWorkID.Text.Length > 3 && genderDropDown.SelectedItem != null &&
+                txtSalary.Text.Length > 3 && genderDropDown.SelectedItem != null &&
                 maritalStatusDropDown.SelectedItem != null && workStatusDropDown.SelectedItem != null
                 )
             {
@@ -107,7 +107,7 @@ namespace BiometricPayroll.FORMS
             {
                 Database emp = new Database();
                 bool  addedID = emp.AddEmp(
-                             txtWorkID.Text.ToUpper(),
+                             txtSalary.Text.ToUpper(),
                              txtFirstName.Text.ToUpper(),
                              txtSecondName.Text.ToUpper(),
                              txtSurname.Text.ToUpper(),

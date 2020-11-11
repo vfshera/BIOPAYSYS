@@ -89,15 +89,14 @@ namespace BiometricPayroll.FORMS
 
         }  
 
-        public void setSelectedUser(string id, string workid,string name)
+        public void setSelectedUser(string id,string name)
         {
-            selectedUserID = id;           
-            selectedUserWorkID = workid;           
+            selectedUserID = id;                   
             selectedUserName = name;           
         }
         private void btnEditRow_Click(object sender, EventArgs e)
         {
-            if (selectedUserID != null && selectedUserWorkID != null)
+            if (selectedUserID != null && selectedUserName != null)
             {/*
                 EditEmployee edit = new EditEmployee();
                 edit.empID = selectedUserID;
@@ -107,7 +106,6 @@ namespace BiometricPayroll.FORMS
                 EmployeeFPConfirm ec = new EmployeeFPConfirm();
 
                 ec.SelectedRowID = selectedUserID;
-                ec.SelectedRowWorkID = selectedUserWorkID;
                 ec.SelectedUserName = selectedUserName;
 
                 ec.Show();

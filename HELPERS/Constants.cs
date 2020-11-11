@@ -17,8 +17,9 @@ namespace BiometricPayroll.HELPERS
 
 
        public const string DEDUCTIONS_QUERY = "SELECT id AS ID,title AS TITLE, amount AS AMOUNT, method AS METHOD FROM taxes ORDER BY id ASC";
-       public const string EMPLOYEES_QUERY = "SELECT id AS ID,work_id AS 'WORK ID', CONCAT_WS(' ' , first_name , surname) AS NAME,position AS JOB,phonenumber AS CONTACT,email AS EMAIL,gender AS GENDER,work_status AS 'WORK STATUS' FROM employees ORDER BY id ASC";
+       public const string EMPLOYEES_QUERY = "SELECT id AS ID,salary AS SALARY, CONCAT_WS(' ' , first_name , surname) AS NAME,position AS JOB,phonenumber AS CONTACT,email AS EMAIL,gender AS GENDER,work_status AS 'WORK STATUS' FROM employees ORDER BY id ASC";
        public const string USERS_QUERY = "SELECT id AS ID,name AS NAME ,email AS EMAIL, type AS TYPE FROM users  ORDER BY id ASC";
 
+        public const string ATTENDANCE_QUERY = "SELECT emp_name AS Name,emp_work_id AS 'WORK ID',in_time AS IN,out_time AS OUT,date AS DATE FROM attendance";
     }
 }
