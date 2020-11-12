@@ -43,8 +43,22 @@ namespace BiometricPayroll.FORMS
         private void setCurrentView(int state)
         {
             currViewState = state;
+            restrictBtnClick();
         }
 
+        private void restrictBtnClick()
+        {
+            if (currViewState == 1)
+            {
+                btnAllowance.Enabled = false;
+                btnDeductions.Enabled = true;
+            }
+            else if (currViewState == 0)
+            {
+                btnDeductions.Enabled = false;
+                btnAllowance.Enabled = true;
+            }
+        }
         private void empListGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -80,14 +94,14 @@ namespace BiometricPayroll.FORMS
 
             if(currViewState == 1)
             {
-                query = $"SELECT id AS ID,title AS TITLE, amount AS AMOUNT, method AS METHOD FROM deductions WHERE receiver='{SelectedRowID}' ORDER BY id ASC";
+                query = $"SELECT id AS ID,title AS TITLE, amount AS AMOUNT, method AS METHOD , status AS STATUS FROM allowances WHERE receiver='{SelectedRowID}' ORDER BY id ASC";
 
                 db.LoadDTG(DedAllGV, query);
                 stateLeadlbl.Text = "ALLOWANCES";
             }
             else if (currViewState == 0)
             {
-                query = $"SELECT id AS ID,title AS TITLE, amount AS AMOUNT, method AS METHOD FROM deductions WHERE payer='{SelectedRowID}' ORDER BY id ASC";
+                query = $"SELECT id AS ID,title AS TITLE, amount AS AMOUNT, method AS METHOD ,status AS STATUS FROM deductions WHERE payer='{SelectedRowID}' ORDER BY id ASC";
 
                 db.LoadDTG(DedAllGV, query);
 
