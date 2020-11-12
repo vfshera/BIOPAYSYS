@@ -14,9 +14,12 @@ namespace BiometricPayroll.FORMS
     public partial class GeneratePay : Form
     {
         Database db;
+
+        public static GeneratePay payroll;
         public GeneratePay()
         {
             InitializeComponent();
+            payroll = this;
             db = new Database();
         }
 
@@ -51,12 +54,16 @@ namespace BiometricPayroll.FORMS
             if (currViewState == 1)
             {
                 btnAllowance.Enabled = false;
+                btnAllowance.ForeColor = Color.FromArgb(178,178,178);
+                btnDeductions.ForeColor = Color.FromArgb(0, 0, 0);
                 btnDeductions.Enabled = true;
             }
             else if (currViewState == 0)
             {
                 btnDeductions.Enabled = false;
                 btnAllowance.Enabled = true;
+                btnDeductions.ForeColor = Color.FromArgb(178, 178, 178);
+                btnAllowance.ForeColor = Color.FromArgb(0, 0, 0);
             }
         }
         private void empListGV_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -89,7 +96,7 @@ namespace BiometricPayroll.FORMS
         }
 
 
-        private void fetchObligations()
+        public void fetchObligations()
         {
 
             if(currViewState == 1)
@@ -139,6 +146,39 @@ namespace BiometricPayroll.FORMS
                 Alert.Popup("Select Employee First!", Alert.AlertType.error);
             }
 
+        }
+
+    
+        private void DedAllGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+
+                if (DedAllGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    DedAllGV.CurrentRow.Selected = true;
+
+                   
+
+                    PayrollModal pmodal = new PayrollModal();
+                    pmodal.title = (DedAllGV.Rows[e.RowIndex].Cells["STATUS"].FormattedValue.ToString() == "1") ? DedAllGV.Rows[e.RowIndex].Cells["TITLE"].FormattedValue.ToString().ToUpper()+" IS ACTIVE" : DedAllGV.Rows[e.RowIndex].Cells["TITLE"].FormattedValue.ToString().ToUpper() + " IS INACTIVE";
+                    pmodal.id = DedAllGV.Rows[e.RowIndex].Cells["ID"].FormattedValue.ToString();
+                    pmodal.btnStr = (DedAllGV.Rows[e.RowIndex].Cells["STATUS"].FormattedValue.ToString() == "1") ? "DEACTIVATE?" : "ACTIVATE?";
+                    pmodal.sqlState = DedAllGV.Rows[e.RowIndex].Cells["STATUS"].FormattedValue.ToString();
+                    pmodal.tableName = (currViewState == 0) ? "deductions" : "allowances";
+                    pmodal.Show();
+
+
+                }
+            }
+            catch (System.ArgumentOutOfRangeException OutOfRange)
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "#CELL CLICK ERROR");
+            }
         }
     }
 }

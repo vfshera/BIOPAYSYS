@@ -208,6 +208,7 @@
             this.empListGV.Location = new System.Drawing.Point(8, 224);
             this.empListGV.Name = "empListGV";
             this.empListGV.ReadOnly = true;
+            this.empListGV.RowHeadersVisible = false;
             this.empListGV.RowHeadersWidth = 51;
             this.empListGV.RowTemplate.Height = 40;
             this.empListGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -257,33 +258,33 @@
             this.stateLeadlbl.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.stateLeadlbl.Location = new System.Drawing.Point(11, 18);
             this.stateLeadlbl.Name = "stateLeadlbl";
-            this.stateLeadlbl.Size = new System.Drawing.Size(182, 35);
+            this.stateLeadlbl.Size = new System.Drawing.Size(174, 35);
             this.stateLeadlbl.TabIndex = 42;
-            this.stateLeadlbl.Text = "ALLOWANCES";
+            this.stateLeadlbl.Text = "DEDUCTIONS";
             // 
             // btnAllowance
             // 
             this.btnAllowance.AnimationHoverSpeed = 0.07F;
             this.btnAllowance.AnimationSpeed = 0.03F;
             this.btnAllowance.BackColor = System.Drawing.Color.Transparent;
-            this.btnAllowance.BaseColor = System.Drawing.Color.DodgerBlue;
+            this.btnAllowance.BaseColor = System.Drawing.Color.White;
             this.btnAllowance.BorderColor = System.Drawing.Color.Black;
             this.btnAllowance.CheckedBaseColor = System.Drawing.Color.Gray;
             this.btnAllowance.CheckedBorderColor = System.Drawing.Color.Black;
             this.btnAllowance.CheckedForeColor = System.Drawing.Color.White;
-            this.btnAllowance.CheckedImage = ((System.Drawing.Image)(resources.GetObject("btnAllowance.CheckedImage")));
+            this.btnAllowance.CheckedImage = null;
             this.btnAllowance.CheckedLineColor = System.Drawing.Color.DimGray;
             this.btnAllowance.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnAllowance.FocusedColor = System.Drawing.Color.Empty;
             this.btnAllowance.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnAllowance.ForeColor = System.Drawing.Color.White;
+            this.btnAllowance.ForeColor = System.Drawing.Color.Black;
             this.btnAllowance.Image = ((System.Drawing.Image)(resources.GetObject("btnAllowance.Image")));
             this.btnAllowance.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnAllowance.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnAllowance.ImageSize = new System.Drawing.Size(30, 30);
             this.btnAllowance.LineColor = System.Drawing.Color.DodgerBlue;
             this.btnAllowance.Location = new System.Drawing.Point(567, 5);
             this.btnAllowance.Name = "btnAllowance";
-            this.btnAllowance.OnHoverBaseColor = System.Drawing.Color.DodgerBlue;
+            this.btnAllowance.OnHoverBaseColor = System.Drawing.Color.White;
             this.btnAllowance.OnHoverBorderColor = System.Drawing.Color.Black;
             this.btnAllowance.OnHoverForeColor = System.Drawing.Color.White;
             this.btnAllowance.OnHoverImage = null;
@@ -302,7 +303,7 @@
             this.btnDeductions.AnimationHoverSpeed = 0.07F;
             this.btnDeductions.AnimationSpeed = 0.03F;
             this.btnDeductions.BackColor = System.Drawing.Color.Transparent;
-            this.btnDeductions.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.btnDeductions.BaseColor = System.Drawing.Color.White;
             this.btnDeductions.BorderColor = System.Drawing.Color.Black;
             this.btnDeductions.CheckedBaseColor = System.Drawing.Color.Gray;
             this.btnDeductions.CheckedBorderColor = System.Drawing.Color.Black;
@@ -312,14 +313,14 @@
             this.btnDeductions.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnDeductions.FocusedColor = System.Drawing.Color.Empty;
             this.btnDeductions.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDeductions.ForeColor = System.Drawing.Color.White;
+            this.btnDeductions.ForeColor = System.Drawing.Color.Black;
             this.btnDeductions.Image = ((System.Drawing.Image)(resources.GetObject("btnDeductions.Image")));
             this.btnDeductions.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnDeductions.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnDeductions.ImageSize = new System.Drawing.Size(30, 30);
             this.btnDeductions.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.btnDeductions.Location = new System.Drawing.Point(365, 7);
             this.btnDeductions.Name = "btnDeductions";
-            this.btnDeductions.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnDeductions.OnHoverBaseColor = System.Drawing.Color.White;
             this.btnDeductions.OnHoverBorderColor = System.Drawing.Color.Black;
             this.btnDeductions.OnHoverForeColor = System.Drawing.Color.White;
             this.btnDeductions.OnHoverImage = null;
@@ -395,6 +396,7 @@
             this.DedAllGV.ThemeStyle.RowsStyle.Height = 40;
             this.DedAllGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.DedAllGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DedAllGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DedAllGV_CellClick);
             // 
             // guna2Elipse1
             // 
