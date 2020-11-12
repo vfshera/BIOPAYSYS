@@ -29,30 +29,31 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneratePay));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.empSidePanel = new Guna.UI.WinForms.GunaPanel();
             this.currEmpPanel = new Guna.UI.WinForms.GunaPanel();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.getSIzelbl = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
+            this.curEmpFN = new Guna.UI.WinForms.GunaLabel();
+            this.lblPosition = new Guna.UI.WinForms.GunaLabel();
+            this.curEmpGender = new Guna.UI.WinForms.GunaLabel();
+            this.curEmpSalary = new Guna.UI.WinForms.GunaLabel();
+            this.curEmpJoined = new Guna.UI.WinForms.GunaLabel();
+            this.curEmpSurname = new Guna.UI.WinForms.GunaLabel();
+            this.curEmpSN = new Guna.UI.WinForms.GunaLabel();
+            this.curEmpNatID = new Guna.UI.WinForms.GunaLabel();
             this.empListGV = new Guna.UI2.WinForms.Guna2DataGridView();
             this.incomePanel = new Guna.UI.WinForms.GunaPanel();
-            this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
+            this.stateLeadlbl = new Guna.UI.WinForms.GunaLabel();
             this.btnAllowance = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnDeductions = new Guna.UI.WinForms.GunaAdvenceButton();
             this.DedAllGV = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.getWHtimer = new System.Windows.Forms.Timer(this.components);
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.empSidePanel.SuspendLayout();
             this.currEmpPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.empListGV)).BeginInit();
@@ -69,7 +70,7 @@
             this.empSidePanel.Controls.Add(this.empListGV);
             this.empSidePanel.Location = new System.Drawing.Point(6, 27);
             this.empSidePanel.Name = "empSidePanel";
-            this.empSidePanel.Size = new System.Drawing.Size(468, 787);
+            this.empSidePanel.Size = new System.Drawing.Size(483, 787);
             this.empSidePanel.TabIndex = 0;
             // 
             // currEmpPanel
@@ -77,105 +78,105 @@
             this.currEmpPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.currEmpPanel.BackColor = System.Drawing.Color.White;
-            this.currEmpPanel.Controls.Add(this.gunaLabel1);
-            this.currEmpPanel.Controls.Add(this.getSIzelbl);
-            this.currEmpPanel.Controls.Add(this.gunaLabel4);
-            this.currEmpPanel.Controls.Add(this.gunaLabel6);
-            this.currEmpPanel.Controls.Add(this.gunaLabel7);
-            this.currEmpPanel.Controls.Add(this.gunaLabel3);
-            this.currEmpPanel.Controls.Add(this.gunaLabel2);
-            this.currEmpPanel.Controls.Add(this.gunaLabel5);
+            this.currEmpPanel.Controls.Add(this.curEmpFN);
+            this.currEmpPanel.Controls.Add(this.lblPosition);
+            this.currEmpPanel.Controls.Add(this.curEmpGender);
+            this.currEmpPanel.Controls.Add(this.curEmpSalary);
+            this.currEmpPanel.Controls.Add(this.curEmpJoined);
+            this.currEmpPanel.Controls.Add(this.curEmpSurname);
+            this.currEmpPanel.Controls.Add(this.curEmpSN);
+            this.currEmpPanel.Controls.Add(this.curEmpNatID);
             this.currEmpPanel.Location = new System.Drawing.Point(7, 0);
             this.currEmpPanel.Name = "currEmpPanel";
-            this.currEmpPanel.Size = new System.Drawing.Size(450, 215);
+            this.currEmpPanel.Size = new System.Drawing.Size(465, 194);
             this.currEmpPanel.TabIndex = 2;
             // 
-            // gunaLabel1
+            // curEmpFN
             // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.gunaLabel1.Location = new System.Drawing.Point(13, 14);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(101, 28);
-            this.gunaLabel1.TabIndex = 1;
-            this.gunaLabel1.Text = "FirstName";
+            this.curEmpFN.AutoSize = true;
+            this.curEmpFN.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.curEmpFN.Location = new System.Drawing.Point(13, 20);
+            this.curEmpFN.Name = "curEmpFN";
+            this.curEmpFN.Size = new System.Drawing.Size(101, 28);
+            this.curEmpFN.TabIndex = 1;
+            this.curEmpFN.Text = "FirstName";
             // 
-            // getSIzelbl
+            // lblPosition
             // 
-            this.getSIzelbl.AutoSize = true;
-            this.getSIzelbl.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.getSIzelbl.Location = new System.Drawing.Point(370, 163);
-            this.getSIzelbl.Name = "getSIzelbl";
-            this.getSIzelbl.Size = new System.Drawing.Size(49, 28);
-            this.getSIzelbl.TabIndex = 1;
-            this.getSIzelbl.Text = "H:W";
+            this.lblPosition.AutoSize = true;
+            this.lblPosition.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblPosition.Location = new System.Drawing.Point(370, 139);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(82, 28);
+            this.lblPosition.TabIndex = 1;
+            this.lblPosition.Text = "Position";
             // 
-            // gunaLabel4
+            // curEmpGender
             // 
-            this.gunaLabel4.AutoSize = true;
-            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.gunaLabel4.Location = new System.Drawing.Point(13, 69);
-            this.gunaLabel4.Name = "gunaLabel4";
-            this.gunaLabel4.Size = new System.Drawing.Size(76, 28);
-            this.gunaLabel4.TabIndex = 1;
-            this.gunaLabel4.Text = "Gender";
+            this.curEmpGender.AutoSize = true;
+            this.curEmpGender.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.curEmpGender.Location = new System.Drawing.Point(13, 77);
+            this.curEmpGender.Name = "curEmpGender";
+            this.curEmpGender.Size = new System.Drawing.Size(76, 28);
+            this.curEmpGender.TabIndex = 1;
+            this.curEmpGender.Text = "Gender";
             // 
-            // gunaLabel6
+            // curEmpSalary
             // 
-            this.gunaLabel6.AutoSize = true;
-            this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.gunaLabel6.Location = new System.Drawing.Point(370, 74);
-            this.gunaLabel6.Name = "gunaLabel6";
-            this.gunaLabel6.Size = new System.Drawing.Size(65, 28);
-            this.gunaLabel6.TabIndex = 1;
-            this.gunaLabel6.Text = "Salary";
+            this.curEmpSalary.AutoSize = true;
+            this.curEmpSalary.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.curEmpSalary.Location = new System.Drawing.Point(370, 80);
+            this.curEmpSalary.Name = "curEmpSalary";
+            this.curEmpSalary.Size = new System.Drawing.Size(65, 28);
+            this.curEmpSalary.TabIndex = 1;
+            this.curEmpSalary.Text = "Salary";
             // 
-            // gunaLabel7
+            // curEmpJoined
             // 
-            this.gunaLabel7.AutoSize = true;
-            this.gunaLabel7.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.gunaLabel7.Location = new System.Drawing.Point(13, 163);
-            this.gunaLabel7.Name = "gunaLabel7";
-            this.gunaLabel7.Size = new System.Drawing.Size(218, 28);
-            this.gunaLabel7.TabIndex = 1;
-            this.gunaLabel7.Text = "Joined On : 19-04-2020";
+            this.curEmpJoined.AutoSize = true;
+            this.curEmpJoined.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.curEmpJoined.Location = new System.Drawing.Point(13, 139);
+            this.curEmpJoined.Name = "curEmpJoined";
+            this.curEmpJoined.Size = new System.Drawing.Size(218, 28);
+            this.curEmpJoined.TabIndex = 1;
+            this.curEmpJoined.Text = "Joined On : 19-04-2020";
             // 
-            // gunaLabel3
+            // curEmpSurname
             // 
-            this.gunaLabel3.AutoSize = true;
-            this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.gunaLabel3.Location = new System.Drawing.Point(370, 14);
-            this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(89, 28);
-            this.gunaLabel3.TabIndex = 1;
-            this.gunaLabel3.Text = "Surname";
+            this.curEmpSurname.AutoSize = true;
+            this.curEmpSurname.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.curEmpSurname.Location = new System.Drawing.Point(370, 20);
+            this.curEmpSurname.Name = "curEmpSurname";
+            this.curEmpSurname.Size = new System.Drawing.Size(89, 28);
+            this.curEmpSurname.TabIndex = 1;
+            this.curEmpSurname.Text = "Surname";
             // 
-            // gunaLabel2
+            // curEmpSN
             // 
-            this.gunaLabel2.AutoSize = true;
-            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.gunaLabel2.Location = new System.Drawing.Point(188, 14);
-            this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(129, 28);
-            this.gunaLabel2.TabIndex = 1;
-            this.gunaLabel2.Text = "SecondName";
+            this.curEmpSN.AutoSize = true;
+            this.curEmpSN.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.curEmpSN.Location = new System.Drawing.Point(188, 20);
+            this.curEmpSN.Name = "curEmpSN";
+            this.curEmpSN.Size = new System.Drawing.Size(129, 28);
+            this.curEmpSN.TabIndex = 1;
+            this.curEmpSN.Text = "SecondName";
             // 
-            // gunaLabel5
+            // curEmpNatID
             // 
-            this.gunaLabel5.AutoSize = true;
-            this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.gunaLabel5.Location = new System.Drawing.Point(188, 74);
-            this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(106, 28);
-            this.gunaLabel5.TabIndex = 1;
-            this.gunaLabel5.Text = "NationalID";
+            this.curEmpNatID.AutoSize = true;
+            this.curEmpNatID.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.curEmpNatID.Location = new System.Drawing.Point(188, 80);
+            this.curEmpNatID.Name = "curEmpNatID";
+            this.curEmpNatID.Size = new System.Drawing.Size(106, 28);
+            this.curEmpNatID.TabIndex = 1;
+            this.curEmpNatID.Text = "NationalID";
             // 
             // empListGV
             // 
             this.empListGV.AllowUserToAddRows = false;
             this.empListGV.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.empListGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.empListGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.empListGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -185,33 +186,32 @@
             this.empListGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.empListGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.empListGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.empListGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.empListGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.empListGV.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.empListGV.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.empListGV.DefaultCellStyle = dataGridViewCellStyle9;
             this.empListGV.EnableHeadersVisualStyles = false;
             this.empListGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.empListGV.Location = new System.Drawing.Point(8, 224);
             this.empListGV.Name = "empListGV";
             this.empListGV.ReadOnly = true;
-            this.empListGV.RowHeadersVisible = false;
             this.empListGV.RowHeadersWidth = 51;
             this.empListGV.RowTemplate.Height = 24;
             this.empListGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.empListGV.Size = new System.Drawing.Size(450, 560);
+            this.empListGV.Size = new System.Drawing.Size(465, 560);
             this.empListGV.TabIndex = 0;
             this.empListGV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.empListGV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -235,13 +235,14 @@
             this.empListGV.ThemeStyle.RowsStyle.Height = 24;
             this.empListGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.empListGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.empListGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.empListGV_CellClick);
             // 
             // incomePanel
             // 
             this.incomePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.incomePanel.BackColor = System.Drawing.Color.White;
-            this.incomePanel.Controls.Add(this.gunaLabel8);
+            this.incomePanel.Controls.Add(this.stateLeadlbl);
             this.incomePanel.Controls.Add(this.btnAllowance);
             this.incomePanel.Controls.Add(this.btnDeductions);
             this.incomePanel.Controls.Add(this.DedAllGV);
@@ -250,15 +251,15 @@
             this.incomePanel.Size = new System.Drawing.Size(774, 787);
             this.incomePanel.TabIndex = 1;
             // 
-            // gunaLabel8
+            // stateLeadlbl
             // 
-            this.gunaLabel8.AutoSize = true;
-            this.gunaLabel8.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.gunaLabel8.Location = new System.Drawing.Point(11, 18);
-            this.gunaLabel8.Name = "gunaLabel8";
-            this.gunaLabel8.Size = new System.Drawing.Size(182, 35);
-            this.gunaLabel8.TabIndex = 42;
-            this.gunaLabel8.Text = "ALLOWANCES";
+            this.stateLeadlbl.AutoSize = true;
+            this.stateLeadlbl.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.stateLeadlbl.Location = new System.Drawing.Point(11, 18);
+            this.stateLeadlbl.Name = "stateLeadlbl";
+            this.stateLeadlbl.Size = new System.Drawing.Size(182, 35);
+            this.stateLeadlbl.TabIndex = 42;
+            this.stateLeadlbl.Text = "ALLOWANCES";
             // 
             // btnAllowance
             // 
@@ -274,7 +275,7 @@
             this.btnAllowance.CheckedLineColor = System.Drawing.Color.DimGray;
             this.btnAllowance.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnAllowance.FocusedColor = System.Drawing.Color.Empty;
-            this.btnAllowance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAllowance.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnAllowance.ForeColor = System.Drawing.Color.White;
             this.btnAllowance.Image = ((System.Drawing.Image)(resources.GetObject("btnAllowance.Image")));
             this.btnAllowance.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -289,11 +290,12 @@
             this.btnAllowance.OnHoverLineColor = System.Drawing.Color.DodgerBlue;
             this.btnAllowance.OnPressedColor = System.Drawing.Color.Black;
             this.btnAllowance.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnAllowance.Radius = 25;
-            this.btnAllowance.Size = new System.Drawing.Size(161, 48);
+            this.btnAllowance.Radius = 20;
+            this.btnAllowance.Size = new System.Drawing.Size(160, 48);
             this.btnAllowance.TabIndex = 40;
             this.btnAllowance.Text = "ALLOWANCE";
             this.btnAllowance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnAllowance.Click += new System.EventHandler(this.btnAllowance_Click);
             // 
             // btnDeductions
             // 
@@ -309,7 +311,7 @@
             this.btnDeductions.CheckedLineColor = System.Drawing.Color.DimGray;
             this.btnDeductions.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnDeductions.FocusedColor = System.Drawing.Color.Empty;
-            this.btnDeductions.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnDeductions.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnDeductions.ForeColor = System.Drawing.Color.White;
             this.btnDeductions.Image = ((System.Drawing.Image)(resources.GetObject("btnDeductions.Image")));
             this.btnDeductions.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -324,41 +326,42 @@
             this.btnDeductions.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(140)))), ((int)(((byte)(255)))));
             this.btnDeductions.OnPressedColor = System.Drawing.Color.Black;
             this.btnDeductions.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnDeductions.Radius = 25;
+            this.btnDeductions.Radius = 20;
             this.btnDeductions.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnDeductions.Size = new System.Drawing.Size(161, 48);
+            this.btnDeductions.Size = new System.Drawing.Size(160, 48);
             this.btnDeductions.TabIndex = 41;
             this.btnDeductions.Text = "DEDUCTIONS";
             this.btnDeductions.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnDeductions.Click += new System.EventHandler(this.btnDeductions_Click);
             // 
             // DedAllGV
             // 
             this.DedAllGV.AllowUserToAddRows = false;
             this.DedAllGV.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            this.DedAllGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.DedAllGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.DedAllGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DedAllGV.BackgroundColor = System.Drawing.Color.White;
             this.DedAllGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DedAllGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DedAllGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DedAllGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DedAllGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.DedAllGV.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DedAllGV.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DedAllGV.DefaultCellStyle = dataGridViewCellStyle12;
             this.DedAllGV.EnableHeadersVisualStyles = false;
             this.DedAllGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DedAllGV.Location = new System.Drawing.Point(9, 69);
@@ -393,10 +396,15 @@
             this.DedAllGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.DedAllGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // getWHtimer
+            // guna2Elipse1
             // 
-            this.getWHtimer.Interval = 1000;
-            this.getWHtimer.Tick += new System.EventHandler(this.getWHtimer_Tick);
+            this.guna2Elipse1.BorderRadius = 15;
+            this.guna2Elipse1.TargetControl = this.currEmpPanel;
+            // 
+            // guna2Elipse2
+            // 
+            this.guna2Elipse2.BorderRadius = 15;
+            this.guna2Elipse2.TargetControl = this.incomePanel;
             // 
             // GeneratePay
             // 
@@ -425,20 +433,21 @@
 
         private Guna.UI.WinForms.GunaPanel empSidePanel;
         private Guna.UI2.WinForms.Guna2DataGridView empListGV;
-        private Guna.UI.WinForms.GunaLabel gunaLabel3;
-        private Guna.UI.WinForms.GunaLabel gunaLabel2;
-        private Guna.UI.WinForms.GunaLabel gunaLabel1;
-        private Guna.UI.WinForms.GunaLabel gunaLabel6;
-        private Guna.UI.WinForms.GunaLabel gunaLabel5;
-        private Guna.UI.WinForms.GunaLabel gunaLabel4;
-        private Guna.UI.WinForms.GunaLabel gunaLabel7;
+        private Guna.UI.WinForms.GunaLabel curEmpSurname;
+        private Guna.UI.WinForms.GunaLabel curEmpSN;
+        private Guna.UI.WinForms.GunaLabel curEmpFN;
+        private Guna.UI.WinForms.GunaLabel curEmpSalary;
+        private Guna.UI.WinForms.GunaLabel curEmpNatID;
+        private Guna.UI.WinForms.GunaLabel curEmpGender;
+        private Guna.UI.WinForms.GunaLabel curEmpJoined;
         private Guna.UI.WinForms.GunaPanel incomePanel;
         private Guna.UI2.WinForms.Guna2DataGridView DedAllGV;
         private Guna.UI.WinForms.GunaAdvenceButton btnAllowance;
         private Guna.UI.WinForms.GunaAdvenceButton btnDeductions;
-        private Guna.UI.WinForms.GunaLabel gunaLabel8;
-        private Guna.UI.WinForms.GunaLabel getSIzelbl;
+        private Guna.UI.WinForms.GunaLabel stateLeadlbl;
+        private Guna.UI.WinForms.GunaLabel lblPosition;
         private Guna.UI.WinForms.GunaPanel currEmpPanel;
-        private System.Windows.Forms.Timer getWHtimer;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
     }
 }

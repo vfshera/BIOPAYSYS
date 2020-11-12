@@ -17,6 +17,7 @@ namespace BiometricPayroll.FORMS
             InitializeComponent();
 
             alertMessage.Text = message;
+            alertMessage.TextAlign = ContentAlignment.MiddleCenter;
 
             switch (type)
             {
@@ -41,8 +42,8 @@ namespace BiometricPayroll.FORMS
 
         public enum AlertType
         {
-            success,//40,167,69
-            info,//23,162,184
+            success,
+            info,
             warning,
             error,
             primary  

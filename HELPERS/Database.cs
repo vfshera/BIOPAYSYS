@@ -439,7 +439,7 @@ namespace BiometricPayroll.HELPERS
 
         }
 
-        public void getRow(string sql)
+        public void getPayrollFields(string sql,Guna.UI.WinForms.GunaLabel firstname, Guna.UI.WinForms.GunaLabel secname, Guna.UI.WinForms.GunaLabel surname, Guna.UI.WinForms.GunaLabel position, Guna.UI.WinForms.GunaLabel salary, Guna.UI.WinForms.GunaLabel natID, Guna.UI.WinForms.GunaLabel gender, Guna.UI.WinForms.GunaLabel joined)
         {
    
             try
@@ -455,33 +455,20 @@ namespace BiometricPayroll.HELPERS
                 {
                     while (dr.Read())
                     {
-                        
-                        //emp[0] = dr.GetValue(0).ToString();
-                        //emp[1] = dr.GetValue(1).ToString();
-                        //emp[2] = dr.GetValue(2).ToString();
-                        //emp[3] = dr.GetValue(3).ToString();
-                        //emp[4] = dr.GetValue(4).ToString();
-                        //emp[5] = dr.GetValue(5).ToString();
-                        //emp[6] = dr.GetValue(6).ToString();
-                        //emp[7] = dr.GetValue(7).ToString();
-                        //emp[8] = dr.GetValue(8).ToString();
-                        //emp[9] = dr.GetValue(9).ToString();
-                        //emp[10] = dr.GetValue(10).ToString();
-                        //emp[11] = dr.GetValue(11).ToString();
-                        //emp[12] = dr.GetValue(12).ToString();
-                        //emp[13] = dr.GetValue(13).ToString();
-                        //emp[14] = dr.GetValue(14).ToString();
-                        //emp[15] = dr.GetValue(15).ToString();
-                        //emp[16] = dr.GetValue(16).ToString();
-                        //emp[17] = dr.GetValue(17).ToString();
+                         
+                        firstname.Text = dr.GetValue(0).ToString();
+                        secname.Text =  dr.GetValue(1).ToString();
+                        surname.Text=  dr.GetValue(2).ToString();
+                        position.Text = "Job : " + dr.GetValue(3).ToString();
+                        salary.Text = "B.Salary : " + dr.GetValue(4).ToString();
+                        natID.Text = "Nat.ID : " + dr.GetValue(5).ToString();
+                        gender.Text = "Sex : " + dr.GetValue(6).ToString();
+                        joined.Text = "Joined On : " + DateTime.Parse(dr.GetValue(7).ToString()).ToString("ddd, dd MMM yyyy");
+                       
                     }
                 }
 
                 dr.Close();
-
-            }
-            catch (System.IndexOutOfRangeException indexOutOfRange)
-            {
 
             }
             catch (Exception ex)

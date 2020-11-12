@@ -20,26 +20,30 @@ namespace BiometricPayroll.FORMS
             db = new Database();
         }
 
+        string SelectedRowID;
+
+        int currViewState = 0;
+
+        string query = "";
         private void GeneratePay_Load(object sender, EventArgs e)
         {
             ResponsiveUI.fitFormToScreen(this, 842, 1373);
             this.CenterToScreen();
 
-            getWHtimer.Enabled = true;
-
+          
             loadEmp();
+            setCurrentView(0);
         }
 
        private void loadEmp()
         {
             db.LoadDTG(empListGV, Constants.EMP_QUERY);
         }
-
-        private void getWHtimer_Tick(object sender, EventArgs e)
+     
+        private void setCurrentView(int state)
         {
-            getSIzelbl.Text = "H : " + this.Height.ToString() + ", W : " + this.Width.ToString();
+            currViewState = state;
         }
-
 
         private void empListGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -50,9 +54,14 @@ namespace BiometricPayroll.FORMS
                 {
                     empListGV.CurrentRow.Selected = true;
 
-                    SelectedRowID = empListGV.Rows[e.RowIndex].Cells["ID"].FormattedValue.ToString();
+                   SelectedRowID = empListGV.Rows[e.RowIndex].Cells["ID"].FormattedValue.ToString();
 
-                    
+                    string sql = $"SELECT first_name, sec_name, surname,position,salary,national_id,gender,date_hired FROM employees WHERE id='{SelectedRowID}' ";
+
+
+                    db.getPayrollFields(sql,curEmpFN,curEmpSN,curEmpSurname,lblPosition, curEmpSalary, curEmpNatID,curEmpGender,curEmpJoined);
+
+                    fetchObligations();
                 }
             }
             catch (System.ArgumentOutOfRangeException OutOfRange)
@@ -61,8 +70,61 @@ namespace BiometricPayroll.FORMS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message+"#CELL CLICK ERROR");
             }
+        }
+
+
+        private void fetchObligations()
+        {
+
+            if(currViewState == 1)
+            {
+                query = $"SELECT id AS ID,title AS TITLE, amount AS AMOUNT, method AS METHOD FROM deductions WHERE receiver='{SelectedRowID}' ORDER BY id ASC";
+
+                db.LoadDTG(DedAllGV, query);
+                stateLeadlbl.Text = "ALLOWANCES";
+            }
+            else if (currViewState == 0)
+            {
+                query = $"SELECT id AS ID,title AS TITLE, amount AS AMOUNT, method AS METHOD FROM deductions WHERE payer='{SelectedRowID}' ORDER BY id ASC";
+
+                db.LoadDTG(DedAllGV, query);
+
+                stateLeadlbl.Text = "DEDUCTIONS";
+            }
+            else
+            {
+                Alert.Popup("Can't Load Query Type!", Alert.AlertType.error);
+            }
+        }
+
+        private void btnAllowance_Click(object sender, EventArgs e)
+        {
+            setCurrentView(1);
+            if(SelectedRowID != null)
+            {
+                fetchObligations();
+            }
+            else
+            {
+                Alert.Popup("Select Employee First!", Alert.AlertType.error);
+            }
+            
+        }
+
+        private void btnDeductions_Click(object sender, EventArgs e)
+        {
+            setCurrentView(0);
+            if (SelectedRowID != null)
+            {
+                fetchObligations();
+            }
+            else
+            {
+                Alert.Popup("Select Employee First!", Alert.AlertType.error);
+            }
+
         }
     }
 }
