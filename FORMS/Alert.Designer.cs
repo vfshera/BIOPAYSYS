@@ -46,12 +46,12 @@
             this.alertMessage.BackColor = System.Drawing.Color.Transparent;
             this.alertMessage.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.alertMessage.ForeColor = System.Drawing.Color.White;
-            this.alertMessage.Location = new System.Drawing.Point(84, 14);
+            this.alertMessage.Location = new System.Drawing.Point(84, 8);
             this.alertMessage.Name = "alertMessage";
             this.alertMessage.Size = new System.Drawing.Size(282, 41);
             this.alertMessage.TabIndex = 0;
             this.alertMessage.Text = "Employee Updated!";
-            this.alertMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.alertMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timeoutTimer
             // 
@@ -69,7 +69,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
-            this.ClientSize = new System.Drawing.Size(480, 64);
+            this.ClientSize = new System.Drawing.Size(500, 60);
             this.Controls.Add(this.alertMessage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Alert";

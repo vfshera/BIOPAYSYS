@@ -188,6 +188,12 @@
     <Compile Include="FORMS\FPAfterLogin.Designer.cs">
       <DependentUpon>FPAfterLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORMS\GeneratePay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\GeneratePay.Designer.cs">
+      <DependentUpon>GeneratePay.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMS\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,7 @@
     <Compile Include="HELPERS\Constants.cs" />
     <Compile Include="HELPERS\Database.cs" />
     <Compile Include="HELPERS\FingerprintScanner.cs" />
+    <Compile Include="HELPERS\ResponsiveUI.cs" />
     <Compile Include="HELPERS\Utilities.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -265,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\FPAfterLogin.resx">
       <DependentUpon>FPAfterLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\GeneratePay.resx">
+      <DependentUpon>GeneratePay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

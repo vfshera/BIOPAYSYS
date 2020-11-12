@@ -107,7 +107,7 @@ namespace BiometricPayroll.FORMS
 
                 if(res > 0)
                 {
-                    Alert.Popup("Successfully Added!", Alert.AlertType.error);
+                    Alert.Popup("Successfully Added!", Alert.AlertType.success);
                     clearForm();
                     choose();
 
@@ -182,7 +182,7 @@ namespace BiometricPayroll.FORMS
 
                 if (res > 0)
                 {
-                    Alert.Popup("Successfully Updated!", Alert.AlertType.error);
+                    Alert.Popup("Successfully Updated!", Alert.AlertType.success);
                     clearForm();
                     choose();
 
@@ -218,7 +218,7 @@ namespace BiometricPayroll.FORMS
 
                 if (res > 0)
                 {
-                    Alert.Popup("Successfully Deleted!", Alert.AlertType.error);
+                    Alert.Popup("Successfully Deleted!", Alert.AlertType.success);
                     clearForm();
                     choose();
 

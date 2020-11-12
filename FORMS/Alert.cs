@@ -21,32 +21,36 @@ namespace BiometricPayroll.FORMS
             switch (type)
             {
                 case AlertType.success:
-                    this.BackColor = Color.SeaGreen;
+                    this.BackColor = Color.FromArgb(40, 167, 69); 
                     break;
                 case AlertType.info:
-                    this.BackColor = Color.Gray;
+                    this.BackColor = Color.FromArgb(23, 162, 184);
                     break; 
                 case AlertType.warning:
-                    this.BackColor = Color.Crimson;
+                    this.BackColor = Color.FromArgb(255, 193, 7);
                     break; 
                 case AlertType.error:
-                    this.BackColor = Color.FromArgb(255,128,0);
+                    this.BackColor = Color.FromArgb(220, 53, 69);
                     break;
-              
+                case AlertType.primary:
+                    this.BackColor = Color.FromArgb(0, 123, 255);
+                    break;
+
             }
         }
 
         public enum AlertType
         {
-            success,
-            info,
+            success,//40,167,69
+            info,//23,162,184
             warning,
-            error
+            error,
+            primary  
         }
 
         private void Alert_Load(object sender, EventArgs e)
         {
-            this.Top = 7;
+            this.Top = 8;
             this.Left = (Screen.PrimaryScreen.Bounds.Width / 2) - (this.Width / 2) ;
         }
 
@@ -68,7 +72,7 @@ namespace BiometricPayroll.FORMS
         int interval = 0;
         private void revealTimer_Tick(object sender, EventArgs e)
         {
-            if(this.Top < 7)
+            if(this.Top < 8)
             {
                 this.Top += interval;
                 interval += 2;
