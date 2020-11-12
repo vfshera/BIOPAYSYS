@@ -139,7 +139,7 @@
             this.btnRun.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnRun.ImageSize = new System.Drawing.Size(30, 30);
             this.btnRun.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btnRun.Location = new System.Drawing.Point(803, 12);
+            this.btnRun.Location = new System.Drawing.Point(794, 12);
             this.btnRun.Name = "btnRun";
             this.btnRun.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(57)))), ((int)(((byte)(170)))));
             this.btnRun.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -148,7 +148,7 @@
             this.btnRun.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.btnRun.OnPressedColor = System.Drawing.Color.Black;
             this.btnRun.Radius = 15;
-            this.btnRun.Size = new System.Drawing.Size(119, 42);
+            this.btnRun.Size = new System.Drawing.Size(128, 42);
             this.btnRun.TabIndex = 1;
             this.btnRun.Text = "RUN";
             this.btnRun.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

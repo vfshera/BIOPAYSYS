@@ -482,7 +482,333 @@ namespace BiometricPayroll.HELPERS
 
 
         }
-        public string[] singleRow(string sql)
+
+
+
+        public void setPayroll()
+        {
+            string sql = "SELECT * FROM employees WHERE work_status='ACTIVE'";
+
+            bool processed = false;
+
+            string processedID = "";
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand();
+                da = new MySqlDataAdapter();
+                dt = new DataTable();
+
+
+                cmd.Connection = con;
+                cmd.CommandText = sql;
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+               
+                if (dr.HasRows)
+                {
+                    
+
+                    while (dr.Read())
+                    {
+
+                        string name = dr.GetValue(2).ToString() + " " + dr.GetValue(3).ToString() + " " + dr.GetValue(4).ToString();
+                        string query = $"INSERT INTO salaries (name,emp_id, national_id, position, allowances, total_allowance, decuctions, total_deduction , gender, basic_salary, net_salary, date, joined) VALUES({name},{dr.GetValue(0).ToString()}, {dr.GetValue(9).ToString()},{dr.GetValue(5).ToString()},'0','0','0','0','{dr.GetValue(11).ToString()}', '{dr.GetValue(1).ToString()}','0','0','{dr.GetValue(14).ToString()}')";
+
+                        MySqlCommand empD = new MySqlCommand();
+                        empD.CommandText = query;
+                        int res = empD.ExecuteNonQuery();
+
+                        if (res != 0)
+                        {
+                            Alert.Popup(dr.GetValue(4).ToString() + "'s Salary Processed!", Alert.AlertType.success);
+                            processed = true;
+
+
+                            if (processedID != "")
+                            {
+                                processedID += "," + dr.GetValue(0).ToString();
+                            }
+                            else
+                            {
+                                processedID += dr.GetValue(0).ToString();
+                            }
+                        }
+                        else
+                        {
+                            Alert.Popup("Can't Process!", Alert.AlertType.error);
+                        }
+
+                    }
+
+                    dr.Close();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+
+                if (processed)
+                {
+                    getAllowance(processedID);
+                }
+            }
+
+        }
+
+        public void getAllowance(string ids)
+        {
+            string[] emps = ids.Split(',');
+
+
+            bool processed = false;
+
+            foreach (string id in emps)
+            {
+                string getAll = $"SELECT * FROM allowances WHERE receiver='{id}' AND amount='AMOUNT'";
+
+                string allowances = "";
+
+                int totalAllowance = 0;
+
+                try
+                {
+                    con.Open();
+                    MySqlCommand allcmd = new MySqlCommand();
+                    
+                    allcmd.Connection = con;
+                    allcmd.CommandText = getAll;
+                    MySqlDataReader alldr = allcmd.ExecuteReader();
+
+               
+                    if (alldr.HasRows)
+                    {
+
+                        while (alldr.Read())
+                        {
+                            //get allowance amount
+                            if(allowances != "")
+                            {
+                                allowances += "," + alldr.GetValue(1).ToString() + " " + alldr.GetValue(3).ToString();
+                                totalAllowance += int.Parse(alldr.GetValue(3).ToString());
+                            }
+                        }
+
+                        alldr.Close();
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.Close();
+                                     
+                }
+
+
+
+                string salaryQuery = $"UPDATE salaries SET allowances='{allowances}' , total_allowances='{totalAllowance}'";
+
+                con.Open();
+                MySqlCommand upallcmd = new MySqlCommand();
+                upallcmd.CommandText = salaryQuery;
+                int res = upallcmd.ExecuteNonQuery();
+
+                if (res > 0)
+                {
+                    Alert.Popup("Allowance Set", Alert.AlertType.success);
+
+                    processed = true;
+                }
+                else
+                {
+                    Alert.Popup("Allowance Not Set", Alert.AlertType.error);
+                }
+
+                con.Close();
+            }
+
+            if (processed)
+            {
+                getDeduction(emps);
+            }
+
+        }
+
+
+        public void getDeduction(string[] empIDs)
+        {
+
+            bool processed = false;
+
+            foreach (string id in empIDs)
+            {
+                string dsql = $"SELECT * FROM deductions WHERE payer='{id}' AND amount='AMOUNT'";
+
+                string deductions = "";
+
+                int totalDeductions = 0;
+
+                try
+                {
+                    con.Open();
+                    MySqlCommand dedcmd = new MySqlCommand();
+
+                    dedcmd.Connection = con;
+                    dedcmd.CommandText = dsql;
+                    MySqlDataReader dedr = dedcmd.ExecuteReader();
+
+
+                    if (dedr.HasRows)
+                    {
+
+                        while (dedr.Read())
+                        {
+                            //get deductions amount
+                            if (deductions != "")
+                            {
+                                deductions += "," + dedr.GetValue(1).ToString() + " " + dedr.GetValue(3).ToString();
+                                deductions += int.Parse(dedr.GetValue(3).ToString());
+                            }
+                        }
+
+                        dedr.Close();
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.Close();
+                }
+
+
+
+                string salaryQuery = $"UPDATE salaries SET deductions='{deductions}' , total_deductions='{totalDeductions}'";
+
+                con.Open();
+                MySqlCommand updedcmd = new MySqlCommand();
+                updedcmd.CommandText = salaryQuery;
+                int res = updedcmd.ExecuteNonQuery();
+
+                if (res > 0)
+                {
+                  
+                    processed = true;
+                }
+                else
+                {
+                    
+                }
+
+                con.Close();
+            }
+
+            if (processed)
+            {
+                Alert.Popup("Deductions Set", Alert.AlertType.success);
+
+
+            }
+            else
+            {
+                Alert.Popup("Deduction Not Set", Alert.AlertType.error);
+            }
+
+            getNetPay(empIDs);
+        }
+
+
+
+
+
+        public void getNetPay(string[] empIDs)
+        {
+
+            string sal = "SELECT * FROM salaries";
+            int res = 0;
+                try
+                {
+                    con.Open();
+                    cmd = new MySqlCommand();
+
+                    cmd.Connection = con;
+                    cmd.CommandText = sal;
+                    MySqlDataReader dr = cmd.ExecuteReader();
+
+
+                    if (dr.HasRows)
+                    {
+
+                        while (dr.Read())
+                        {
+                            int net = (int.Parse(dr.GetValue(10).ToString()) + int.Parse(dr.GetValue(5).ToString())) - int.Parse(dr.GetValue(7).ToString());
+
+                            string netQuery = $"UPDATE salaries SET net_salary='{net.ToString()}' WHERE id='{dr.GetValue(0).ToString()}'";
+                                 ;
+                            cmd.CommandText = netQuery;
+
+                            res = cmd.ExecuteNonQuery();
+
+
+                          
+
+                        }
+
+                        dr.Close();
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.Close();
+                }
+
+
+            if (res > 0)
+            {
+                Alert.Popup("Payroll Finished Process!", Alert.AlertType.success);
+
+            }
+            else
+            {
+                Alert.Popup("Failed To Process!", Alert.AlertType.error);
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+            public string[] singleRow(string sql)
         {
             string[] emp = new string[17];
             try

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BiometricPayroll.HELPERS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace BiometricPayroll.FORMS
 {
     public partial class Payroll : Form
     {
+        Database db;
         public Payroll()
         {
             InitializeComponent();
+            db = new Database();
         }
 
         private Guna.UI.WinForms.GunaAdvenceButton currBtn = null;
@@ -37,12 +40,13 @@ namespace BiometricPayroll.FORMS
 
         private void btnRun_Click(object sender, EventArgs e)
         {
-            Alert.Popup("Printing...", Alert.AlertType.success);
+            Alert.Popup("Preparing Payroll...", Alert.AlertType.success);
+            db.setPayroll();
         }
 
         private void generatePay_Click(object sender, EventArgs e)
         {
-            Alert.Popup("Printing...", Alert.AlertType.success);
+            
         }
 
        
