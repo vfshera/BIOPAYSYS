@@ -109,7 +109,12 @@ namespace BiometricPayroll.FORMS
             this.pressedBtn(btnDeductions);
             this.openChildForm( new Deductions());
         }
-
+        
+        private void btnAllowances_Click(object sender, EventArgs e)
+        {
+            this.pressedBtn(btnAllowances);
+            this.openChildForm(new Allowances());
+        }
         private void btnEmployees_Click(object sender, EventArgs e)
         {
             this.pressedBtn(btnEmployees);
@@ -156,5 +161,6 @@ namespace BiometricPayroll.FORMS
         {
             this.lblCurrentTask.Text = name;
         }
+
     }
 }

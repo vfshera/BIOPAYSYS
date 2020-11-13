@@ -40,6 +40,7 @@
             this.consentLbl = new Guna.UI.WinForms.GunaLabel();
             this.countDown = new Guna.UI.WinForms.GunaLabel();
             this.timerFP = new System.Windows.Forms.Timer(this.components);
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.fingerPrintBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -211,6 +212,11 @@
             this.timerFP.Interval = 1000;
             this.timerFP.Tick += new System.EventHandler(this.timerFP_Tick);
             // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 30;
+            this.guna2Elipse1.TargetControl = this;
+            // 
             // EmployeeFPConfirm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -248,5 +254,6 @@
         private Guna.UI.WinForms.GunaLabel consentLbl;
         private Guna.UI.WinForms.GunaLabel countDown;
         private System.Windows.Forms.Timer timerFP;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }

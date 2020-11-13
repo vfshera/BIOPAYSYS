@@ -33,6 +33,7 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlLogo = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnAttendance = new Guna.UI2.WinForms.Guna2Button();
             this.btnPayroll = new Guna.UI2.WinForms.Guna2Button();
             this.btnReports = new Guna.UI2.WinForms.Guna2Button();
             this.btnDeductions = new Guna.UI2.WinForms.Guna2Button();
@@ -48,7 +49,7 @@
             this.makeDashRound = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.dragCntrDash = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.lblUserNameDisplay = new Guna.UI.WinForms.GunaLabel();
-            this.btnAttendance = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAllowances = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.pnlContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -62,6 +63,7 @@
             this.guna2Panel1.Controls.Add(this.btnAttendance);
             this.guna2Panel1.Controls.Add(this.btnPayroll);
             this.guna2Panel1.Controls.Add(this.btnReports);
+            this.guna2Panel1.Controls.Add(this.btnAllowances);
             this.guna2Panel1.Controls.Add(this.btnDeductions);
             this.guna2Panel1.Controls.Add(this.btnEmployees);
             this.guna2Panel1.Controls.Add(this.btnDash);
@@ -99,6 +101,29 @@
             this.pnlLogo.Size = new System.Drawing.Size(152, 86);
             this.pnlLogo.TabIndex = 1;
             // 
+            // btnAttendance
+            // 
+            this.btnAttendance.BackColor = System.Drawing.Color.Transparent;
+            this.btnAttendance.BorderColor = System.Drawing.Color.Transparent;
+            this.btnAttendance.CheckedState.Parent = this.btnAttendance;
+            this.btnAttendance.CustomImages.Parent = this.btnAttendance;
+            this.btnAttendance.FillColor = System.Drawing.Color.Transparent;
+            this.btnAttendance.Font = new System.Drawing.Font("Nunito SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAttendance.ForeColor = System.Drawing.Color.White;
+            this.btnAttendance.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnAttendance.HoverState.Font = new System.Drawing.Font("Nunito ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAttendance.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(104)))), ((int)(((byte)(84)))));
+            this.btnAttendance.HoverState.Parent = this.btnAttendance;
+            this.btnAttendance.Location = new System.Drawing.Point(-3, 601);
+            this.btnAttendance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAttendance.Name = "btnAttendance";
+            this.btnAttendance.ShadowDecoration.Parent = this.btnAttendance;
+            this.btnAttendance.Size = new System.Drawing.Size(191, 46);
+            this.btnAttendance.TabIndex = 0;
+            this.btnAttendance.Text = "ATTENDANCE";
+            this.btnAttendance.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAttendance.Click += new System.EventHandler(this.btnPayroll_Click);
+            // 
             // btnPayroll
             // 
             this.btnPayroll.BackColor = System.Drawing.Color.Transparent;
@@ -112,7 +137,7 @@
             this.btnPayroll.HoverState.Font = new System.Drawing.Font("Nunito ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayroll.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(104)))), ((int)(((byte)(84)))));
             this.btnPayroll.HoverState.Parent = this.btnPayroll;
-            this.btnPayroll.Location = new System.Drawing.Point(0, 460);
+            this.btnPayroll.Location = new System.Drawing.Point(0, 526);
             this.btnPayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPayroll.Name = "btnPayroll";
             this.btnPayroll.ShadowDecoration.Parent = this.btnPayroll;
@@ -135,7 +160,7 @@
             this.btnReports.HoverState.Font = new System.Drawing.Font("Nunito ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReports.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(104)))), ((int)(((byte)(84)))));
             this.btnReports.HoverState.Parent = this.btnReports;
-            this.btnReports.Location = new System.Drawing.Point(0, 391);
+            this.btnReports.Location = new System.Drawing.Point(0, 457);
             this.btnReports.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReports.Name = "btnReports";
             this.btnReports.ShadowDecoration.Parent = this.btnReports;
@@ -351,28 +376,28 @@
             this.lblUserNameDisplay.Text = "Username Username Username";
             this.lblUserNameDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnAttendance
+            // btnAllowances
             // 
-            this.btnAttendance.BackColor = System.Drawing.Color.Transparent;
-            this.btnAttendance.BorderColor = System.Drawing.Color.Transparent;
-            this.btnAttendance.CheckedState.Parent = this.btnAttendance;
-            this.btnAttendance.CustomImages.Parent = this.btnAttendance;
-            this.btnAttendance.FillColor = System.Drawing.Color.Transparent;
-            this.btnAttendance.Font = new System.Drawing.Font("Nunito SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttendance.ForeColor = System.Drawing.Color.White;
-            this.btnAttendance.HoverState.FillColor = System.Drawing.Color.White;
-            this.btnAttendance.HoverState.Font = new System.Drawing.Font("Nunito ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttendance.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(104)))), ((int)(((byte)(84)))));
-            this.btnAttendance.HoverState.Parent = this.btnAttendance;
-            this.btnAttendance.Location = new System.Drawing.Point(-3, 535);
-            this.btnAttendance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAttendance.Name = "btnAttendance";
-            this.btnAttendance.ShadowDecoration.Parent = this.btnAttendance;
-            this.btnAttendance.Size = new System.Drawing.Size(191, 46);
-            this.btnAttendance.TabIndex = 0;
-            this.btnAttendance.Text = "ATTENDANCE";
-            this.btnAttendance.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAttendance.Click += new System.EventHandler(this.btnPayroll_Click);
+            this.btnAllowances.BackColor = System.Drawing.Color.Transparent;
+            this.btnAllowances.BorderColor = System.Drawing.Color.Transparent;
+            this.btnAllowances.CheckedState.Parent = this.btnAllowances;
+            this.btnAllowances.CustomImages.Parent = this.btnAllowances;
+            this.btnAllowances.FillColor = System.Drawing.Color.Transparent;
+            this.btnAllowances.Font = new System.Drawing.Font("Nunito SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAllowances.ForeColor = System.Drawing.Color.White;
+            this.btnAllowances.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnAllowances.HoverState.Font = new System.Drawing.Font("Nunito ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAllowances.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(104)))), ((int)(((byte)(84)))));
+            this.btnAllowances.HoverState.Parent = this.btnAllowances;
+            this.btnAllowances.Location = new System.Drawing.Point(0, 391);
+            this.btnAllowances.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAllowances.Name = "btnAllowances";
+            this.btnAllowances.ShadowDecoration.Parent = this.btnAllowances;
+            this.btnAllowances.Size = new System.Drawing.Size(191, 46);
+            this.btnAllowances.TabIndex = 0;
+            this.btnAllowances.Text = "ALLOWANCES";
+            this.btnAllowances.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAllowances.Click += new System.EventHandler(this.btnAllowances_Click);
             // 
             // Dashboard
             // 
@@ -423,5 +448,6 @@
         private Guna.UI2.WinForms.Guna2DragControl dragCntrDash;
         private Guna.UI.WinForms.GunaLabel lblUserNameDisplay;
         private Guna.UI2.WinForms.Guna2Button btnAttendance;
+        private Guna.UI2.WinForms.Guna2Button btnAllowances;
     }
 }

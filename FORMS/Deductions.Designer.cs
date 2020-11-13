@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Deductions));
             this.parentDeductionPanel = new Guna.UI.WinForms.GunaGradient2Panel();
             this.DeductionsGVPanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
@@ -39,9 +39,11 @@
             this.deductionsGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.AddDeductionsPanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.resetImgBtn = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.statusDropDwn = new Guna.UI2.WinForms.Guna2ComboBox();
             this.deductionMethodDropDown = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnAddDeduction = new Guna.UI.WinForms.GunaAdvenceButton();
             this.txtBxTitle = new Guna.UI2.WinForms.Guna2TextBox();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.txtBxAmount = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
@@ -49,12 +51,10 @@
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.formHeaderlbl = new Guna.UI.WinForms.GunaLabel();
+            this.editBtn = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.delBtn = new Guna.UI.WinForms.GunaAdvenceButton();
             this.comboElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.gridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.delBtn = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.editBtn = new Guna.UI.WinForms.GunaAdvenceButton();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.statusDropDwn = new Guna.UI2.WinForms.Guna2ComboBox();
             this.parentDeductionPanel.SuspendLayout();
             this.DeductionsGVPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deductionsGridView)).BeginInit();
@@ -71,9 +71,9 @@
             this.parentDeductionPanel.Controls.Add(this.delBtn);
             this.parentDeductionPanel.GradientColor1 = System.Drawing.Color.White;
             this.parentDeductionPanel.GradientColor2 = System.Drawing.Color.White;
-            this.parentDeductionPanel.Location = new System.Drawing.Point(5, 6);
+            this.parentDeductionPanel.Location = new System.Drawing.Point(5, 4);
             this.parentDeductionPanel.Name = "parentDeductionPanel";
-            this.parentDeductionPanel.Size = new System.Drawing.Size(1087, 716);
+            this.parentDeductionPanel.Size = new System.Drawing.Size(1087, 718);
             this.parentDeductionPanel.TabIndex = 0;
             // 
             // DeductionsGVPanel
@@ -82,11 +82,11 @@
             this.DeductionsGVPanel.Controls.Add(this.gunaLabel6);
             this.DeductionsGVPanel.Controls.Add(this.deductionsGridView);
             this.DeductionsGVPanel.FillColor = System.Drawing.Color.White;
-            this.DeductionsGVPanel.Location = new System.Drawing.Point(7, 6);
+            this.DeductionsGVPanel.Location = new System.Drawing.Point(7, 7);
             this.DeductionsGVPanel.Name = "DeductionsGVPanel";
             this.DeductionsGVPanel.Radius = 10;
             this.DeductionsGVPanel.ShadowColor = System.Drawing.Color.Black;
-            this.DeductionsGVPanel.Size = new System.Drawing.Size(754, 702);
+            this.DeductionsGVPanel.Size = new System.Drawing.Size(754, 701);
             this.DeductionsGVPanel.TabIndex = 1;
             // 
             // gunaLabel6
@@ -94,7 +94,7 @@
             this.gunaLabel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gunaLabel6.AutoSize = true;
             this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.gunaLabel6.Location = new System.Drawing.Point(300, 16);
+            this.gunaLabel6.Location = new System.Drawing.Point(300, 15);
             this.gunaLabel6.Name = "gunaLabel6";
             this.gunaLabel6.Size = new System.Drawing.Size(168, 32);
             this.gunaLabel6.TabIndex = 1;
@@ -102,30 +102,30 @@
             // 
             // deductionsGridView
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(249)))));
-            this.deductionsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(249)))));
+            this.deductionsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.deductionsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.deductionsGridView.BackgroundColor = System.Drawing.Color.White;
             this.deductionsGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.deductionsGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.deductionsGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.deductionsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.deductionsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.deductionsGridView.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.deductionsGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.deductionsGridView.DefaultCellStyle = dataGridViewCellStyle12;
             this.deductionsGridView.EnableHeadersVisualStyles = false;
             this.deductionsGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.deductionsGridView.Location = new System.Drawing.Point(9, 62);
@@ -134,7 +134,7 @@
             this.deductionsGridView.RowHeadersWidth = 51;
             this.deductionsGridView.RowTemplate.Height = 40;
             this.deductionsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.deductionsGridView.Size = new System.Drawing.Size(738, 646);
+            this.deductionsGridView.Size = new System.Drawing.Size(732, 646);
             this.deductionsGridView.TabIndex = 0;
             this.deductionsGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Light;
             this.deductionsGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(249)))));
@@ -179,7 +179,7 @@
             this.AddDeductionsPanel.Controls.Add(this.formHeaderlbl);
             this.AddDeductionsPanel.FillColor = System.Drawing.Color.White;
             this.AddDeductionsPanel.ForeColor = System.Drawing.Color.Black;
-            this.AddDeductionsPanel.Location = new System.Drawing.Point(767, 7);
+            this.AddDeductionsPanel.Location = new System.Drawing.Point(767, 8);
             this.AddDeductionsPanel.Name = "AddDeductionsPanel";
             this.AddDeductionsPanel.Radius = 10;
             this.AddDeductionsPanel.ShadowColor = System.Drawing.Color.Black;
@@ -198,6 +198,32 @@
             this.resetImgBtn.Size = new System.Drawing.Size(63, 48);
             this.resetImgBtn.TabIndex = 7;
             this.resetImgBtn.Click += new System.EventHandler(this.resetImgBtn_Click);
+            // 
+            // statusDropDwn
+            // 
+            this.statusDropDwn.BackColor = System.Drawing.Color.Transparent;
+            this.statusDropDwn.BorderRadius = 5;
+            this.statusDropDwn.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.statusDropDwn.DropDownHeight = 64;
+            this.statusDropDwn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.statusDropDwn.FocusedColor = System.Drawing.Color.Empty;
+            this.statusDropDwn.FocusedState.Parent = this.statusDropDwn;
+            this.statusDropDwn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.statusDropDwn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.statusDropDwn.FormattingEnabled = true;
+            this.statusDropDwn.HoverState.Parent = this.statusDropDwn;
+            this.statusDropDwn.IntegralHeight = false;
+            this.statusDropDwn.ItemHeight = 30;
+            this.statusDropDwn.Items.AddRange(new object[] {
+            "ACTIVE",
+            "INACTIVE"});
+            this.statusDropDwn.ItemsAppearance.Parent = this.statusDropDwn;
+            this.statusDropDwn.Location = new System.Drawing.Point(44, 448);
+            this.statusDropDwn.Name = "statusDropDwn";
+            this.statusDropDwn.ShadowDecoration.Parent = this.statusDropDwn;
+            this.statusDropDwn.Size = new System.Drawing.Size(231, 36);
+            this.statusDropDwn.TabIndex = 6;
+            this.statusDropDwn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // deductionMethodDropDown
             // 
@@ -289,6 +315,16 @@
             this.txtBxTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBxTitle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateTextOnKeyPress);
             // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel1.Location = new System.Drawing.Point(140, 423);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(49, 20);
+            this.gunaLabel1.TabIndex = 2;
+            this.gunaLabel1.Text = "Status";
+            // 
             // txtBxAmount
             // 
             this.txtBxAmount.BorderColor = System.Drawing.Color.Transparent;
@@ -376,10 +412,39 @@
             this.formHeaderlbl.Text = "ADD DEDUCTION";
             this.formHeaderlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // gridViewElipse
+            // editBtn
             // 
-            this.gridViewElipse.BorderRadius = 10;
-            this.gridViewElipse.TargetControl = this.DeductionsGVPanel;
+            this.editBtn.AnimationHoverSpeed = 0.07F;
+            this.editBtn.AnimationSpeed = 0.03F;
+            this.editBtn.BackColor = System.Drawing.Color.Transparent;
+            this.editBtn.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.editBtn.BorderColor = System.Drawing.Color.Black;
+            this.editBtn.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.editBtn.CheckedBorderColor = System.Drawing.Color.Black;
+            this.editBtn.CheckedForeColor = System.Drawing.Color.White;
+            this.editBtn.CheckedImage = ((System.Drawing.Image)(resources.GetObject("editBtn.CheckedImage")));
+            this.editBtn.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.editBtn.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.editBtn.FocusedColor = System.Drawing.Color.Empty;
+            this.editBtn.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.editBtn.ForeColor = System.Drawing.Color.White;
+            this.editBtn.Image = null;
+            this.editBtn.ImageSize = new System.Drawing.Size(20, 20);
+            this.editBtn.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.editBtn.Location = new System.Drawing.Point(972, 649);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.OnHoverBaseColor = System.Drawing.Color.Teal;
+            this.editBtn.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.editBtn.OnHoverForeColor = System.Drawing.Color.White;
+            this.editBtn.OnHoverImage = null;
+            this.editBtn.OnHoverLineColor = System.Drawing.Color.Cyan;
+            this.editBtn.OnPressedColor = System.Drawing.Color.Black;
+            this.editBtn.Radius = 6;
+            this.editBtn.Size = new System.Drawing.Size(107, 42);
+            this.editBtn.TabIndex = 5;
+            this.editBtn.Text = "EDIT";
+            this.editBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // delBtn
             // 
@@ -415,75 +480,10 @@
             this.delBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
             // 
-            // editBtn
+            // gridViewElipse
             // 
-            this.editBtn.AnimationHoverSpeed = 0.07F;
-            this.editBtn.AnimationSpeed = 0.03F;
-            this.editBtn.BackColor = System.Drawing.Color.Transparent;
-            this.editBtn.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.editBtn.BorderColor = System.Drawing.Color.Black;
-            this.editBtn.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.editBtn.CheckedBorderColor = System.Drawing.Color.Black;
-            this.editBtn.CheckedForeColor = System.Drawing.Color.White;
-            this.editBtn.CheckedImage = ((System.Drawing.Image)(resources.GetObject("editBtn.CheckedImage")));
-            this.editBtn.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.editBtn.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.editBtn.FocusedColor = System.Drawing.Color.Empty;
-            this.editBtn.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.editBtn.ForeColor = System.Drawing.Color.White;
-            this.editBtn.Image = null;
-            this.editBtn.ImageSize = new System.Drawing.Size(20, 20);
-            this.editBtn.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.editBtn.Location = new System.Drawing.Point(972, 649);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.OnHoverBaseColor = System.Drawing.Color.Teal;
-            this.editBtn.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.editBtn.OnHoverForeColor = System.Drawing.Color.White;
-            this.editBtn.OnHoverImage = null;
-            this.editBtn.OnHoverLineColor = System.Drawing.Color.Cyan;
-            this.editBtn.OnPressedColor = System.Drawing.Color.Black;
-            this.editBtn.Radius = 6;
-            this.editBtn.Size = new System.Drawing.Size(107, 42);
-            this.editBtn.TabIndex = 5;
-            this.editBtn.Text = "EDIT";
-            this.editBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
-            // 
-            // gunaLabel1
-            // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel1.Location = new System.Drawing.Point(140, 423);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(49, 20);
-            this.gunaLabel1.TabIndex = 2;
-            this.gunaLabel1.Text = "Status";
-            // 
-            // statusDropDwn
-            // 
-            this.statusDropDwn.BackColor = System.Drawing.Color.Transparent;
-            this.statusDropDwn.BorderRadius = 5;
-            this.statusDropDwn.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.statusDropDwn.DropDownHeight = 64;
-            this.statusDropDwn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.statusDropDwn.FocusedColor = System.Drawing.Color.Empty;
-            this.statusDropDwn.FocusedState.Parent = this.statusDropDwn;
-            this.statusDropDwn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.statusDropDwn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.statusDropDwn.FormattingEnabled = true;
-            this.statusDropDwn.HoverState.Parent = this.statusDropDwn;
-            this.statusDropDwn.IntegralHeight = false;
-            this.statusDropDwn.ItemHeight = 30;
-            this.statusDropDwn.Items.AddRange(new object[] {
-            "ACTIVE",
-            "INACTIVE"});
-            this.statusDropDwn.ItemsAppearance.Parent = this.statusDropDwn;
-            this.statusDropDwn.Location = new System.Drawing.Point(44, 448);
-            this.statusDropDwn.Name = "statusDropDwn";
-            this.statusDropDwn.ShadowDecoration.Parent = this.statusDropDwn;
-            this.statusDropDwn.Size = new System.Drawing.Size(231, 36);
-            this.statusDropDwn.TabIndex = 6;
-            this.statusDropDwn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gridViewElipse.BorderRadius = 10;
+            this.gridViewElipse.TargetControl = this.DeductionsGVPanel;
             // 
             // Deductions
             // 

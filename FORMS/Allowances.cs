@@ -19,8 +19,6 @@ namespace BiometricPayroll.FORMS
         }
 
 
-
-
         private string searchQuery = "";
         private string clickedRowID;
 
@@ -37,23 +35,23 @@ namespace BiometricPayroll.FORMS
             {
                 editBtn.Text = "UPDATE";
                 delBtn.Text = "DELETE";
-                btnAddAllowance.Text = "";
+                btnAddAllowances.Text = "";
                 editBtn.Enabled = true;
                 editBtn.Visible = true;
                 delBtn.Visible = true;
                 delBtn.Enabled = true;
-                btnAddAllowance.Enabled = false;
+                btnAddAllowances.Enabled = false;
             }
             else
             {
                 editBtn.Text = "";
                 delBtn.Text = "";
-                btnAddAllowance.Text = "ADD";
+                btnAddAllowances.Text = "ADD";
                 editBtn.Enabled = false;
                 editBtn.Visible = false;
                 delBtn.Visible = false;
                 delBtn.Enabled = false;
-                btnAddAllowance.Enabled = true;
+                btnAddAllowances.Enabled = true;
             }
         }
         public void loadAllowances()
@@ -64,16 +62,16 @@ namespace BiometricPayroll.FORMS
 
             if (searchQuery.Length == 0)
             {
-                db.LoadDTG(allowanceGridView, Constants.ALLOWANCES_QUERY);
+                db.LoadDTG(allowancesGridView, Constants.ALLOWANCES_QUERY);
             }
             else if (searchQuery.Length > 0)
             {
-                db.LoadDTG(allowanceGridView, Search);
+                db.LoadDTG(allowancesGridView, Search);
             }
 
         }
 
-        private bool validateAllowances()
+        private bool validateDeductions()
         {
             bool valid = false;
             if (txtBxTitle.Text.Length > 2
@@ -93,16 +91,16 @@ namespace BiometricPayroll.FORMS
         }
         private void btnAddAllowance_Click(object sender, EventArgs e)
         {
-            if (this.validateAllowances())
+            if (this.validateDeductions())
             {
                 string status = (statusDropDwn.SelectedItem.ToString().ToUpper() == "ACTIVE") ? "1" : "0";
                 string dedVals = $" '{txtBxTitle.Text.ToUpper()}' , '{allowanceMethodDropDown.SelectedItem.ToString().ToUpper()}' , '{txtBxAmount.Text}' ,'{status}'";
-                string AllowanceQuery = $"INSERT INTO advances (title,method,amount,status) VALUES({dedVals})";
+                string deductionQuery = $"INSERT INTO advances (title,method,amount,status) VALUES({dedVals})";
 
 
                 Database db = new Database();
 
-                int res = db.runQuery(AllowanceQuery);
+                int res = db.runQuery(deductionQuery);
 
                 if (res > 0)
                 {
@@ -153,23 +151,23 @@ namespace BiometricPayroll.FORMS
             statusDropDwn.StartIndex = -1;
         }
 
-        private void allowanceGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void allowancesGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
 
-                if (allowanceGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                if (allowancesGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
                 {
                     editMode = true;
                     checkMode();
-                    formHeaderlbl.Text = "EDIT Allowance";
-                    allowanceGridView.CurrentRow.Selected = true;
+                    formHeaderlbl.Text = "EDIT ALLOWANCE";
+                    allowancesGridView.CurrentRow.Selected = true;
 
-                    clickedRowID = allowanceGridView.Rows[e.RowIndex].Cells["ID"].FormattedValue.ToString();
-                    txtBxTitle.Text = allowanceGridView.Rows[e.RowIndex].Cells["TITLE"].FormattedValue.ToString();
-                    allowanceMethodDropDown.Text = allowanceGridView.Rows[e.RowIndex].Cells["METHOD"].FormattedValue.ToString();
-                    txtBxAmount.Text = allowanceGridView.Rows[e.RowIndex].Cells["AMOUNT"].FormattedValue.ToString();
-                    statusDropDwn.Text = allowanceGridView.Rows[e.RowIndex].Cells["STATUS"].FormattedValue.ToString();
+                    clickedRowID = allowancesGridView.Rows[e.RowIndex].Cells["ID"].FormattedValue.ToString();
+                    txtBxTitle.Text = allowancesGridView.Rows[e.RowIndex].Cells["TITLE"].FormattedValue.ToString();
+                    allowanceMethodDropDown.Text = allowancesGridView.Rows[e.RowIndex].Cells["METHOD"].FormattedValue.ToString();
+                    txtBxAmount.Text = allowancesGridView.Rows[e.RowIndex].Cells["AMOUNT"].FormattedValue.ToString();
+                    statusDropDwn.Text = allowancesGridView.Rows[e.RowIndex].Cells["STATUS"].FormattedValue.ToString();
 
                 }
             }
@@ -186,12 +184,12 @@ namespace BiometricPayroll.FORMS
         private void editBtn_Click(object sender, EventArgs e)
         {
             string status = (statusDropDwn.SelectedItem.ToString().ToUpper() == "ACTIVE") ? "1" : "0";
-            string AllowanceQuery = $"UPDATE advances SET title='{txtBxTitle.Text.ToUpper()}' , method='{allowanceMethodDropDown.SelectedItem.ToString().ToUpper()}' , amount='{ txtBxAmount.Text}', status='{status}'  WHERE id='{clickedRowID}'";
+            string deductionQuery = $"UPDATE advances SET title='{txtBxTitle.Text.ToUpper()}' , method='{allowanceMethodDropDown.SelectedItem.ToString().ToUpper()}' , amount='{ txtBxAmount.Text}', status='{status}'  WHERE id='{clickedRowID}'";
 
 
             Database db = new Database();
 
-            int res = db.runQuery(AllowanceQuery);
+            int res = db.runQuery(deductionQuery);
 
             if (res > 0)
             {
@@ -208,12 +206,12 @@ namespace BiometricPayroll.FORMS
 
         private void delBtn_Click(object sender, EventArgs e)
         {
-            string AllowanceQuery = $"DELETE FROM advances WHERE id='{clickedRowID}'";
+            string deductionQuery = $"DELETE FROM allowances WHERE id='{clickedRowID}'";
 
 
             Database db = new Database();
 
-            int res = db.runQuery(AllowanceQuery);
+            int res = db.runQuery(deductionQuery);
 
             if (res > 0)
             {
