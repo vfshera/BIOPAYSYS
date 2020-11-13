@@ -15,6 +15,8 @@ namespace BiometricPayroll.HELPERS
     {
 
         private MySqlConnection con = new MySqlConnection(Constants.CONNECTION);
+        private MySqlConnection paycon = new MySqlConnection(Constants.CONNECTION);
+
         private MySqlCommand cmd;
         private MySqlDataAdapter da;
         public DataTable dt;
@@ -497,10 +499,7 @@ namespace BiometricPayroll.HELPERS
             {
                 con.Open();
                 cmd = new MySqlCommand();
-                da = new MySqlDataAdapter();
-                dt = new DataTable();
-
-
+              
                 cmd.Connection = con;
                 cmd.CommandText = sql;
                 MySqlDataReader dr = cmd.ExecuteReader();
@@ -508,11 +507,9 @@ namespace BiometricPayroll.HELPERS
                
                 if (dr.HasRows)
                 {
-                    
-
+                    //paycon.Open();
                     while (dr.Read())
-                    {
-
+                    {                       
                         string name = dr.GetValue(2).ToString() + " " + dr.GetValue(3).ToString() + " " + dr.GetValue(4).ToString();
                         string query = $"INSERT INTO salaries (name,emp_id, national_id, position, allowances, total_allowance, decuctions, total_deduction , gender, basic_salary, net_salary, date, joined) VALUES({name},{dr.GetValue(0).ToString()}, {dr.GetValue(9).ToString()},{dr.GetValue(5).ToString()},'0','0','0','0','{dr.GetValue(11).ToString()}', '{dr.GetValue(1).ToString()}','0','0','{dr.GetValue(14).ToString()}')";
 
@@ -542,6 +539,7 @@ namespace BiometricPayroll.HELPERS
 
                     }
 
+                    //paycon.Close();
                     dr.Close();
 
                 }
@@ -549,7 +547,7 @@ namespace BiometricPayroll.HELPERS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
@@ -608,7 +606,7 @@ namespace BiometricPayroll.HELPERS
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.ToString());
                 }
                 finally
                 {
@@ -622,6 +620,7 @@ namespace BiometricPayroll.HELPERS
 
                 con.Open();
                 MySqlCommand upallcmd = new MySqlCommand();
+                upallcmd.Connection = con;
                 upallcmd.CommandText = salaryQuery;
                 int res = upallcmd.ExecuteNonQuery();
 
@@ -690,7 +689,7 @@ namespace BiometricPayroll.HELPERS
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.ToString());
                 }
                 finally
                 {
@@ -703,6 +702,7 @@ namespace BiometricPayroll.HELPERS
 
                 con.Open();
                 MySqlCommand updedcmd = new MySqlCommand();
+                updedcmd.Connection = con;
                 updedcmd.CommandText = salaryQuery;
                 int res = updedcmd.ExecuteNonQuery();
 
@@ -745,39 +745,37 @@ namespace BiometricPayroll.HELPERS
                 try
                 {
                     con.Open();
-                    cmd = new MySqlCommand();
+                    MySqlCommand npcmd = new MySqlCommand();
 
-                    cmd.Connection = con;
-                    cmd.CommandText = sal;
-                    MySqlDataReader dr = cmd.ExecuteReader();
+                    npcmd.Connection = con;
+                    npcmd.CommandText = sal;
+                    MySqlDataReader npdr = npcmd.ExecuteReader();
 
 
-                    if (dr.HasRows)
+                    if (npdr.HasRows)
                     {
 
-                        while (dr.Read())
+                        while (npdr.Read())
                         {
-                            int net = (int.Parse(dr.GetValue(10).ToString()) + int.Parse(dr.GetValue(5).ToString())) - int.Parse(dr.GetValue(7).ToString());
+                            int net = (int.Parse(npdr.GetValue(10).ToString()) + int.Parse(npdr.GetValue(5).ToString())) - int.Parse(npdr.GetValue(7).ToString());
 
-                            string netQuery = $"UPDATE salaries SET net_salary='{net.ToString()}' WHERE id='{dr.GetValue(0).ToString()}'";
-                                 ;
-                            cmd.CommandText = netQuery;
+                            string netQuery = $"UPDATE salaries SET net_salary='{net.ToString()}' WHERE id='{npdr.GetValue(0).ToString()}'";
+                                
+                            npcmd.CommandText = netQuery;
 
-                            res = cmd.ExecuteNonQuery();
-
-
-                          
+                            res = npcmd.ExecuteNonQuery();
+                                                                        
 
                         }
 
-                        dr.Close();
+                    npdr.Close();
 
                     }
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.ToString());
                 }
                 finally
                 {
