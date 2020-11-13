@@ -1,4 +1,5 @@
 ﻿using BiometricPayroll.HELPERS;
+using BiometricPayroll.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,9 +41,24 @@ namespace BiometricPayroll.FORMS
 
         private void btnRun_Click(object sender, EventArgs e)
         {
-            Alert.Popup("Preparing Payroll...", Alert.AlertType.success);
-            db.setPayroll();
+            //Alert.Popup("Preparing Payroll...", Alert.AlertType.success);
+            //db.setPayroll();
+            payrolStart();
         }
+
+        private async void payrolStart()
+        {
+
+            Salary payslip = await Requests.processPay();
+            Alert.Popup(payslip.Message, Alert.AlertType.success);
+        }
+
+
+        //private async void getJP()
+        //{
+        //    JPlaceHolder post = await Requests.getPost();
+        //    Alert.Popup(post.Title, Alert.AlertType.success);
+        //}
 
         private void generatePay_Click(object sender, EventArgs e)
         {

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BiometricPayroll.HELPERS;
 
 namespace BiometricPayroll.FORMS
 {
@@ -21,6 +22,8 @@ namespace BiometricPayroll.FORMS
             InitializeComponent();
             payroll = this;
             db = new Database();
+
+            PayrollAPI.InitializeClient();
         }
 
         string SelectedRowID;

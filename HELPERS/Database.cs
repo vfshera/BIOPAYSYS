@@ -514,6 +514,7 @@ namespace BiometricPayroll.HELPERS
                         string query = $"INSERT INTO salaries (name,emp_id, national_id, position, allowances, total_allowance, decuctions, total_deduction , gender, basic_salary, net_salary, date, joined) VALUES({name},{dr.GetValue(0).ToString()}, {dr.GetValue(9).ToString()},{dr.GetValue(5).ToString()},'0','0','0','0','{dr.GetValue(11).ToString()}', '{dr.GetValue(1).ToString()}','0','0','{dr.GetValue(14).ToString()}')";
 
                         MySqlCommand empD = new MySqlCommand();
+                        empD.Connection = con;
                         empD.CommandText = query;
                         int res = empD.ExecuteNonQuery();
 

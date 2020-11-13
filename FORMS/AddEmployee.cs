@@ -25,14 +25,14 @@ namespace BiometricPayroll.FORMS
         private Byte[] m_RegMin2;
         private Byte[] m_DbFP;
         private Byte[] m_VrfMin;
-       /* private int delayFp = 10;*/
+        /* private int delayFp = 10;*/
 
         private bool pastFirst = false;
 
         private string DevicID;
         private bool isLedOn = false;
 
-       
+        private bool deviceConnected = false;
 
         public static AddEmployee addEmp;
         public AddEmployee()
@@ -106,7 +106,7 @@ namespace BiometricPayroll.FORMS
             if (this.ValidateForm())
             {
                 Database emp = new Database();
-                bool  addedID = emp.AddEmp(
+                bool addedID = emp.AddEmp(
                              txtSalary.Text.ToUpper(),
                              txtFirstName.Text.ToUpper(),
                              txtSecondName.Text.ToUpper(),
@@ -137,7 +137,7 @@ namespace BiometricPayroll.FORMS
             }
             else
             {
-                Alert.Popup("Check The Form!", Alert.AlertType.warning);
+                Alert.Popup("Check The Form!", Alert.AlertType.error);
             }
 
 
@@ -178,23 +178,37 @@ namespace BiometricPayroll.FORMS
 
         private void btnEnroll_Click(object sender, EventArgs e)
         {
-            RegisterFP();
-           
+            if (deviceConnected)
+            {
+                RegisterFP();
+            }
+            else
+            {
+                Alert.Popup("Device Unavailable!", Alert.AlertType.error);
+            }
         }
 
         private void btnCapture_Click(object sender, EventArgs e)
         {
-
-            if (pastFirst)
+            if (deviceConnected)
             {
-                getImgQualityTwo();
-                
+                if (pastFirst)
+                {
+                    getImgQualityTwo();
+
+                }
+                else
+                {
+                    getImgQuality();
+
+                }
             }
             else
             {
-                getImgQuality();
-                
+                Alert.Popup("Device Unavailable!",Alert.AlertType.error);
             }
+
+          
 
             
         }
@@ -202,7 +216,7 @@ namespace BiometricPayroll.FORMS
         public void setFPState(bool state)
         {
             pastFirst = state;
-            enteredFPrint.Text = (pastFirst) ? "Second FingerPrint" : "First FingerPrint";
+            enteredFPrint.Text = (!deviceConnected) ? "":(pastFirst) ? "Second FingerPrint" : "First FingerPrint";
         }
 
         private void btnRetry_Click(object sender, EventArgs e)
@@ -212,10 +226,10 @@ namespace BiometricPayroll.FORMS
 
 
 
-        private void btnMatch_Click(object sender, EventArgs e)
-        {
-            MatchFP();
-        }
+        //private void btnMatch_Click(object sender, EventArgs e)
+        //{
+        //    MatchFP();
+        //}
 
 
 
@@ -244,15 +258,22 @@ namespace BiometricPayroll.FORMS
             if (iError == (Int32)SGFPMError.ERROR_NONE)
             {
                 isLedOn = true;
-                stateLabel.Text = " Initialization Success";
+                stateLabel.Text = "Initialization Success";
                 scanerInfo();
-                
 
+                deviceConnected = true;
+                setFPState(true);
                 lblDeviceInfo.Text = "Device W : " + m_ImageWidth + ", H : " + m_ImageHeight + ", DPI :" + deviceDPI;
             }
             else
             {
-                stateLabel.Text = "OpenDevice() Error : " + iError;
+                
+                stateLabel.Text = "DEVICE NOT FOUND!";
+                stateLabel.ForeColor = Color.Red;
+                lblDeviceInfo.Text = "";
+                setFPState(false);
+                deviceConnected = false;
+                DisplayError(iError);
 
             }
         }
@@ -282,7 +303,7 @@ namespace BiometricPayroll.FORMS
             }
             else
             {
-                MessageBox.Show("GetLiveImageEx() " + iError);
+                DisplayError(iError);
             }
 
            
@@ -319,7 +340,7 @@ namespace BiometricPayroll.FORMS
 
                 {
                     setFPState(false);
-                    Alert.Popup("CreateTemplate() " + iError, Alert.AlertType.error);
+                    DisplayError(iError);
                 }
             }
             else
@@ -355,7 +376,7 @@ namespace BiometricPayroll.FORMS
                 else
 
                 {
-                    Alert.Popup("CreateTemplate() " + iError, Alert.AlertType.error);
+                    DisplayError(iError);
                 }
             }
             else

@@ -68,7 +68,6 @@
             this.btnEmpDetailCancel = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnSaveEmployee = new Guna.UI.WinForms.GunaAdvenceButton();
             this.printPanel = new Guna.UI.WinForms.GunaElipsePanel();
-            this.btnMatch = new Guna.UI2.WinForms.Guna2Button();
             this.addedIDlbl = new Guna.UI.WinForms.GunaLabel();
             this.printQualityProgress = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.enteredFPrint = new Guna.UI.WinForms.GunaLabel();
@@ -816,7 +815,6 @@
             // 
             this.printPanel.BackColor = System.Drawing.Color.Transparent;
             this.printPanel.BaseColor = System.Drawing.Color.White;
-            this.printPanel.Controls.Add(this.btnMatch);
             this.printPanel.Controls.Add(this.addedIDlbl);
             this.printPanel.Controls.Add(this.printQualityProgress);
             this.printPanel.Controls.Add(this.enteredFPrint);
@@ -833,21 +831,6 @@
             this.printPanel.Radius = 15;
             this.printPanel.Size = new System.Drawing.Size(477, 821);
             this.printPanel.TabIndex = 5;
-            // 
-            // btnMatch
-            // 
-            this.btnMatch.CheckedState.Parent = this.btnMatch;
-            this.btnMatch.CustomImages.Parent = this.btnMatch;
-            this.btnMatch.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMatch.ForeColor = System.Drawing.Color.White;
-            this.btnMatch.HoverState.Parent = this.btnMatch;
-            this.btnMatch.Location = new System.Drawing.Point(147, 24);
-            this.btnMatch.Name = "btnMatch";
-            this.btnMatch.ShadowDecoration.Parent = this.btnMatch;
-            this.btnMatch.Size = new System.Drawing.Size(180, 45);
-            this.btnMatch.TabIndex = 9;
-            this.btnMatch.Text = "MATCH";
-            this.btnMatch.Click += new System.EventHandler(this.btnMatch_Click);
             // 
             // addedIDlbl
             // 
@@ -1105,6 +1088,5 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI.WinForms.GunaAdvenceButton btnCapturePrint;
         private Guna.UI.WinForms.GunaLabel addedIDlbl;
-        private Guna.UI2.WinForms.Guna2Button btnMatch;
     }
 }

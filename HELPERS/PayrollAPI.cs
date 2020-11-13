@@ -16,7 +16,8 @@ namespace BiometricPayroll.HELPERS
         public static void InitializeClient()
         {
             PayrollApiService = new HttpClient();
-            PayrollApiService.BaseAddress = new Uri("https://jsonplaceholder.typicode.com");
+            
+            PayrollApiService.BaseAddress = new Uri("https://127.0.0.1:8000/api");
             PayrollApiService.DefaultRequestHeaders.Accept.Clear();
             PayrollApiService.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }

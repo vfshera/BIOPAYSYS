@@ -134,6 +134,12 @@
     <Compile Include="FORMS\Alert.Designer.cs">
       <DependentUpon>Alert.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORMS\Allowances.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\Allowances.Designer.cs">
+      <DependentUpon>Allowances.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMS\Attendance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,8 +246,11 @@
     <Compile Include="HELPERS\Database.cs" />
     <Compile Include="HELPERS\FingerprintScanner.cs" />
     <Compile Include="HELPERS\PayrollAPI.cs" />
+    <Compile Include="HELPERS\Requests.cs" />
     <Compile Include="HELPERS\ResponsiveUI.cs" />
     <Compile Include="HELPERS\Utilities.cs" />
+    <Compile Include="Models\JPlaceHolder.cs" />
+    <Compile Include="Models\Salary.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FORMS\AddEmployee.resx">
@@ -255,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\Alert.resx">
       <DependentUpon>Alert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\Allowances.resx">
+      <DependentUpon>Allowances.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\Attendance.resx">
       <DependentUpon>Attendance.cs</DependentUpon>
