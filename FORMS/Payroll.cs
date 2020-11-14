@@ -36,7 +36,14 @@ namespace BiometricPayroll.FORMS
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Alert.Popup("Printing...", Alert.AlertType.success);
+            printPayslipPreviewDialog.Document = printDocument1;
+
+            printPayslipPreviewDialog.ShowDialog();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString("BIOMETRIC PAYROLL",new System.Drawing.Font("Century Gothic", 26,FontStyle.Bold),Brushes.Black,new System.Drawing.Point(260,50));
         }
 
         private void btnRun_Click(object sender, EventArgs e)
@@ -103,5 +110,7 @@ namespace BiometricPayroll.FORMS
             child.BringToFront();
             child.Show();
         }
+
+       
     }
 }

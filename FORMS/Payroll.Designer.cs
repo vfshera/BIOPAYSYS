@@ -35,6 +35,8 @@
             this.btnPrint = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnRun = new Guna.UI.WinForms.GunaAdvenceButton();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.printPayslipPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.SuspendLayout();
             // 
             // parentPanel
@@ -159,6 +161,20 @@
             this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
             // 
+            // printPayslipPreviewDialog
+            // 
+            this.printPayslipPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPayslipPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPayslipPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPayslipPreviewDialog.Enabled = true;
+            this.printPayslipPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPayslipPreviewDialog.Icon")));
+            this.printPayslipPreviewDialog.Name = "printPayslipPreviewDialog";
+            this.printPayslipPreviewDialog.Visible = false;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
             // Payroll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -186,5 +202,7 @@
         private Guna.UI.WinForms.GunaAdvenceButton btnPrint;
         private Guna.UI.WinForms.GunaAdvenceButton btnRun;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private System.Windows.Forms.PrintPreviewDialog printPayslipPreviewDialog;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
