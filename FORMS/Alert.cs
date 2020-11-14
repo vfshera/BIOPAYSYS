@@ -16,9 +16,10 @@ namespace BiometricPayroll.FORMS
         {
             InitializeComponent();
 
-            alertMessage.Text = message;
-            alertMessage.TextAlign = ContentAlignment.MiddleCenter;
 
+            alertMessage.TextAlign = ContentAlignment.MiddleCenter;
+            alertMessage.Text = message;
+           
             switch (type)
             {
                 case AlertType.success:
