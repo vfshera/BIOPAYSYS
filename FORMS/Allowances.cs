@@ -206,7 +206,7 @@ namespace BiometricPayroll.FORMS
 
         private void delBtn_Click(object sender, EventArgs e)
         {
-            string deductionQuery = $"DELETE FROM allowances WHERE id='{clickedRowID}'";
+            string deductionQuery = $"DELETE FROM advances WHERE id='{clickedRowID}'";
 
 
             Database db = new Database();

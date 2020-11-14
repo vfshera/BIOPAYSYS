@@ -278,6 +278,44 @@ namespace BiometricPayroll.HELPERS
             }
             return reg;
         }
+
+        public Byte[] GetAttendanceFP(Byte[] fp)
+        {
+            bool reg = false;
+
+            string sql = $"SELECT employees.*  FROM templetes,employees WHERE templetes.fingerprint='{fp}' AND templetes.owner=employees.id";
+
+            Byte[] fprint = null;
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = sql;
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        //fprint = (Byte[])dr.GetValue(0);
+
+                        Alert.Popup("You are "+dr.GetValue(0).ToString(), Alert.AlertType.success);
+
+                    }
+                }
+
+                dr.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return fprint;
+        }
+
+
         public Byte[] GetFP(int owner,int type)
         {
             bool reg = false;
