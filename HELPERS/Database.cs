@@ -579,7 +579,7 @@ namespace BiometricPayroll.HELPERS
 
                             if (payableAllowance != null)
                             {
-                                payableAllowance += "," + allo.title + " " + amount.ToString();
+                                payableAllowance = payableAllowance + allo.title + " " + amount.ToString() + ",";
                                 
                             }
                             else
@@ -611,7 +611,7 @@ namespace BiometricPayroll.HELPERS
 
                             if (payableAdvances != null)
                             {
-                                payableAdvances += "," + advance.title + " " + advanceAmount.ToString();
+                                payableAdvances = payableAdvances+ advance.title + " " + advanceAmount.ToString() + ",";
                             }
                             else
                             {
@@ -641,7 +641,7 @@ namespace BiometricPayroll.HELPERS
 
                             if (payableDeductions != null)
                             {
-                                payableDeductions += "," + deduction.title + " " + deductionAmount.ToString();
+                                payableDeductions = payableDeductions + deduction.title + " " + deductionAmount.ToString() + ",";
                             }
                             else
                             {
@@ -669,7 +669,7 @@ namespace BiometricPayroll.HELPERS
 
                             if (payableTaxes != null)
                             {
-                                payableTaxes += "," + tax.title + " " + taxAmount.ToString();
+                                payableTaxes = payableTaxes + tax.title + " " + taxAmount.ToString() + ",";
                             }
                             else
                             {
@@ -683,19 +683,20 @@ namespace BiometricPayroll.HELPERS
                         //end taxes
 
 
-                        //MessageBox.Show(emp.salary);
 
                         int basicSalary = (int.Parse(emp.salary) > 0) ? int.Parse(emp.salary) : 0;
 
-                        int finalDeductions = totalEmpTaxes + totalEmpTaxes;
+                        int finalDeductions = totalEmpTaxes + totalEmpDeduction;
+
                         string finalDeductionList = payableDeductions + "," + payableTaxes;
 
                         int finalAllowance = totalEmpAdvances + totalEmpAllowance;
+
                         string finalAllowanceList = payableAdvances +" "+ payableAllowance;
 
                         int net_payable = (basicSalary + finalAllowance) - finalDeductions;
 
-                         result = con.Execute(sqlSalaryInsert, new { name=emp.name, emp_id=emp.id, national_id=emp.national_id, position=emp.national_id, allowances=finalAllowanceList, total_allowance=finalAllowance.ToString(), deductions=finalDeductionList, total_deduction=finalDeductions.ToString(), gender=emp.gender, basic_salary=emp.salary, net_salary=net_payable.ToString(), date=emp.date, joined=emp.date_hired, created_at=emp.created_at });
+                         result = con.Execute(sqlSalaryInsert, new { name=emp.name, emp_id=emp.id, national_id=emp.national_id, position=emp.position, allowances=finalAllowanceList, total_allowance=finalAllowance.ToString(), deductions=finalDeductionList, total_deduction=finalDeductions.ToString(), gender=emp.gender, basic_salary=emp.salary, net_salary=net_payable.ToString(), date=emp.date, joined=emp.date_hired, created_at=emp.created_at });
 
 
                        
