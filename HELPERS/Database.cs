@@ -315,17 +315,17 @@ namespace BiometricPayroll.HELPERS
             {
                 using (con)
                 {
-                    string markAttendance = $"INSERT INTO attendance (emp_name,emp_id) VALUES(@EmpName,@EmpID)";
+                    string markAttendance = $"INSERT INTO attendance (emp_name,emp_id,in_time,out_time,date) VALUES(@EmpName,@EmpID,@CheckInTime,@CheckOutTime,@AttendingDate)";
                     var rows = con.Execute(markAttendance, employees);
 
                     if (rows > 0)
                     {
-                        Alert.Popup("Welcome On Board ", Alert.AlertType.success);
+                        Alert.Popup("Welcome On Board", Alert.AlertType.success);
                         marked = true;
                     }
                     else
                     {
-                        Alert.Popup("Unable To Mark Your Attendance!", Alert.AlertType.success);
+                        Alert.Popup("Unable To Mark Your Attendance!", Alert.AlertType.error);
                         marked = false;
                     }
                 }
@@ -403,7 +403,7 @@ namespace BiometricPayroll.HELPERS
         public bool UpdateEmployee(string currID,string currWorkID, string first_name, string sec_name, string surname, string position, string address, string email, string phonenumber,string nationalID ,string marital_status, string gender, string date_of_birth, string emmergency_tel, string date_hired, string work_status, string created_at)
         {
             string fieldVals = "first_name = @first_name,sec_name = @sec_name, surname = @surname, position = @position, address = @address, email = @email , phonenumber = @phonenumber,national_id = @nationalid, marital_status = @marital_status, gender = @gender, date_of_birth = @date_of_birth, emmergency_tel = @emmergency_tel, date_hired = @date_hired, work_status = @work_status, created_at = @created_at, updated_at = @updated_at";
-            string sql = $"UPDATE employees SET {fieldVals} WHERE id='{currID}' AND work_id='{currWorkID}' ";
+            string sql = $"UPDATE employees SET {fieldVals} WHERE id='{currID}'";
 
             bool updated = false;
             try
@@ -550,325 +550,172 @@ namespace BiometricPayroll.HELPERS
 
         public void setPayroll()
         {
-            string sql = "SELECT * FROM employees WHERE work_status='ACTIVE'";
+            string sqlGetEmps = "SELECT * FROM employees WHERE work_status='ACTIVE'";
 
-            bool processed = false;
+            int result = 0;
+            string sqlSalaryInsert = $"INSERT INTO salaries (name,emp_id, national_id, position, allowances, total_allowance, deductions, total_deduction , gender, basic_salary, net_salary, date, joined,created_at) VALUES(@name,@emp_id, @national_id, @position, @allowances, @total_allowance, @deductions, @total_deduction , @gender, @basic_salary, @net_salary, @date, @joined,@created_at)";
 
-            string processedID = "";
+            List<EmpPayslip> employees;
 
-            try
+            using (con)
             {
-                con.Open();
-                cmd = new MySqlCommand();
-              
-                cmd.Connection = con;
-                cmd.CommandText = sql;
-                MySqlDataReader dr = cmd.ExecuteReader();
+                employees = con.Query<EmpPayslip>(sqlGetEmps).ToList();
 
-               
-                if (dr.HasRows)
+                if(employees != null)
                 {
-                    //paycon.Open();
-                    while (dr.Read())
-                    {                       
-                        string name = dr.GetValue(2).ToString() + " " + dr.GetValue(3).ToString() + " " + dr.GetValue(4).ToString();
-                        string query = $"INSERT INTO salaries (name,emp_id, national_id, position, allowances, total_allowance, decuctions, total_deduction , gender, basic_salary, net_salary, date, joined) VALUES({name},{dr.GetValue(0).ToString()}, {dr.GetValue(9).ToString()},{dr.GetValue(5).ToString()},'0','0','0','0','{dr.GetValue(11).ToString()}', '{dr.GetValue(1).ToString()}','0','0','{dr.GetValue(14).ToString()}')";
+                    foreach (EmpPayslip emp in employees)
+                    {
+                        //allowances
+                        string payableAllowance = "";
+                        int totalEmpAllowance = 0;
 
-                        MySqlCommand empD = new MySqlCommand();
-                        empD.Connection = con;
-                        empD.CommandText = query;
-                        int res = empD.ExecuteNonQuery();
-
-                        if (res != 0)
+                        string sqlGetEmpAllowance = $"SELECT * FROM allowances WHERE receiver='{emp.id}' AND status='1'";
+                       
+                        List<EmpAllowance> allowanceList = con.Query<EmpAllowance>(sqlGetEmpAllowance).ToList();
+                       
+                        foreach(EmpAllowance allo in allowanceList)
                         {
-                            Alert.Popup(dr.GetValue(4).ToString() + "'s Salary Processed!", Alert.AlertType.success);
-                            processed = true;
+                            int amount = (allo.method == "AMOUNT") ? int.Parse(allo.amount) : (int)(Double.Parse(allo.amount) * Double.Parse(emp.salary));
 
-
-                            if (processedID != "")
+                            if (payableAllowance != null)
                             {
-                                processedID += "," + dr.GetValue(0).ToString();
+                                payableAllowance += "," + allo.title + " " + amount.ToString();
+                                
                             }
                             else
                             {
-                                processedID += dr.GetValue(0).ToString();
+                                {
+                                    payableAllowance +=  allo.title + " " + amount.ToString();
+                                }
                             }
-                        }
-                        else
-                        {
-                            Alert.Popup("Can't Process!", Alert.AlertType.error);
+
+                            totalEmpAllowance += amount;
                         }
 
-                    }
-
-                    //paycon.Close();
-                    dr.Close();
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                con.Close();
-
-                if (processed)
-                {
-                    getAllowance(processedID);
-                }
-            }
-
-        }
-
-        public void getAllowance(string ids)
-        {
-            string[] emps = ids.Split(',');
+                        //end allowances
 
 
-            bool processed = false;
 
-            foreach (string id in emps)
-            {
-                string getAll = $"SELECT * FROM allowances WHERE receiver='{id}' AND amount='AMOUNT'";
 
-                string allowances = "";
+                        //advances
 
-                int totalAllowance = 0;
+                        string payableAdvances = "";
+                        int totalEmpAdvances = 0;
+                        string sqlGetEmpAdvance = $"SELECT * FROM advances WHERE  status='1'";
 
-                try
-                {
-                    con.Open();
-                    MySqlCommand allcmd = new MySqlCommand();
-                    
-                    allcmd.Connection = con;
-                    allcmd.CommandText = getAll;
-                    MySqlDataReader alldr = allcmd.ExecuteReader();
+                        List<EmpAllowance> advancesList = con.Query<EmpAllowance>(sqlGetEmpAllowance).ToList();
 
-               
-                    if (alldr.HasRows)
-                    {
-
-                        while (alldr.Read())
+                        foreach (EmpAllowance advance in advancesList)
                         {
-                            //get allowance amount
-                            if(allowances != "")
+                            int advanceAmount = (advance.method == "AMOUNT") ? int.Parse(advance.amount) : (int)(Double.Parse(advance.amount) * Double.Parse(emp.salary));
+
+                            if (payableAdvances != null)
                             {
-                                allowances += "," + alldr.GetValue(1).ToString() + " " + alldr.GetValue(3).ToString();
-                                totalAllowance += int.Parse(alldr.GetValue(3).ToString());
+                                payableAdvances += "," + advance.title + " " + advanceAmount.ToString();
                             }
-                        }
-
-                        alldr.Close();
-
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                finally
-                {
-                    con.Close();
-                                     
-                }
-
-
-
-                string salaryQuery = $"UPDATE salaries SET allowances='{allowances}' , total_allowances='{totalAllowance}'";
-
-                con.Open();
-                MySqlCommand upallcmd = new MySqlCommand();
-                upallcmd.Connection = con;
-                upallcmd.CommandText = salaryQuery;
-                int res = upallcmd.ExecuteNonQuery();
-
-                if (res > 0)
-                {
-                    Alert.Popup("Allowance Set", Alert.AlertType.success);
-
-                    processed = true;
-                }
-                else
-                {
-                    Alert.Popup("Allowance Not Set", Alert.AlertType.error);
-                }
-
-                con.Close();
-            }
-
-            if (processed)
-            {
-                getDeduction(emps);
-            }
-
-        }
-
-
-        public void getDeduction(string[] empIDs)
-        {
-
-            bool processed = false;
-
-            foreach (string id in empIDs)
-            {
-                string dsql = $"SELECT * FROM deductions WHERE payer='{id}' AND amount='AMOUNT'";
-
-                string deductions = "";
-
-                int totalDeductions = 0;
-
-                try
-                {
-                    con.Open();
-                    MySqlCommand dedcmd = new MySqlCommand();
-
-                    dedcmd.Connection = con;
-                    dedcmd.CommandText = dsql;
-                    MySqlDataReader dedr = dedcmd.ExecuteReader();
-
-
-                    if (dedr.HasRows)
-                    {
-
-                        while (dedr.Read())
-                        {
-                            //get deductions amount
-                            if (deductions != "")
+                            else
                             {
-                                deductions += "," + dedr.GetValue(1).ToString() + " " + dedr.GetValue(3).ToString();
-                                deductions += int.Parse(dedr.GetValue(3).ToString());
+                                {
+                                    payableAdvances += advance.title + " " + advanceAmount.ToString();
+                                }
                             }
+
+                            totalEmpAdvances += advanceAmount;
                         }
 
-                        dedr.Close();
-
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                finally
-                {
-                    con.Close();
-                }
-
-
-
-                string salaryQuery = $"UPDATE salaries SET deductions='{deductions}' , total_deductions='{totalDeductions}'";
-
-                con.Open();
-                MySqlCommand updedcmd = new MySqlCommand();
-                updedcmd.Connection = con;
-                updedcmd.CommandText = salaryQuery;
-                int res = updedcmd.ExecuteNonQuery();
-
-                if (res > 0)
-                {
-                  
-                    processed = true;
-                }
-                else
-                {
-                    
-                }
-
-                con.Close();
-            }
-
-            if (processed)
-            {
-                Alert.Popup("Deductions Set", Alert.AlertType.success);
-
-
-            }
-            else
-            {
-                Alert.Popup("Deduction Not Set", Alert.AlertType.error);
-            }
-
-            getNetPay(empIDs);
-        }
+                        //end advances
 
 
 
 
+                        //deductions
+                        string payableDeductions = "";
+                        int totalEmpDeduction = 0;
+                        string sqlGetEmpDeductions = $"SELECT * FROM deductions WHERE payer='{emp.id}' AND status='1'";
 
-        public void getNetPay(string[] empIDs)
-        {
+                        List<EmpAllowance> deductionsList = con.Query<EmpAllowance>(sqlGetEmpDeductions).ToList();
 
-            string sal = "SELECT * FROM salaries";
-            int res = 0;
-                try
-                {
-                    con.Open();
-                    MySqlCommand npcmd = new MySqlCommand();
-
-                    npcmd.Connection = con;
-                    npcmd.CommandText = sal;
-                    MySqlDataReader npdr = npcmd.ExecuteReader();
-
-
-                    if (npdr.HasRows)
-                    {
-
-                        while (npdr.Read())
+                        foreach (EmpAllowance deduction in deductionsList)
                         {
-                            int net = (int.Parse(npdr.GetValue(10).ToString()) + int.Parse(npdr.GetValue(5).ToString())) - int.Parse(npdr.GetValue(7).ToString());
+                            int deductionAmount = (deduction.method == "AMOUNT") ? int.Parse(deduction.amount) : (int)(Double.Parse(deduction.amount) * Double.Parse(emp.salary));
 
-                            string netQuery = $"UPDATE salaries SET net_salary='{net.ToString()}' WHERE id='{npdr.GetValue(0).ToString()}'";
-                                
-                            npcmd.CommandText = netQuery;
+                            if (payableDeductions != null)
+                            {
+                                payableDeductions += "," + deduction.title + " " + deductionAmount.ToString();
+                            }
+                            else
+                            {
+                               payableDeductions += deduction.title + " " + deductionAmount.ToString();
+                               
+                            }
 
-                            res = npcmd.ExecuteNonQuery();
-                                                                        
-
+                            totalEmpDeduction += deductionAmount;
                         }
 
-                    npdr.Close();
+                        //end deductions
 
+
+                        //taxes
+
+                        string payableTaxes = "";
+                        int totalEmpTaxes = 0;
+                        string sqlGetEmpTaxes = $"SELECT * FROM taxes WHERE status='1'";
+
+                        List<EmpAllowance> taxesList = con.Query<EmpAllowance>(sqlGetEmpTaxes).ToList();
+
+                        foreach (EmpAllowance tax in taxesList)
+                        {
+                            int taxAmount = (tax.method == "AMOUNT") ? int.Parse(tax.amount) : (int)(Double.Parse(tax.amount) * Double.Parse(emp.salary));
+
+                            if (payableTaxes != null)
+                            {
+                                payableTaxes += "," + tax.title + " " + taxAmount.ToString();
+                            }
+                            else
+                            {
+                                payableTaxes += tax.title + " " + taxAmount.ToString();
+
+                            }
+
+                            totalEmpTaxes += taxAmount;
+                        }
+
+                        //end taxes
+
+
+                        //MessageBox.Show(emp.salary);
+
+                        int basicSalary = (int.Parse(emp.salary) > 0) ? int.Parse(emp.salary) : 0;
+
+                        int finalDeductions = totalEmpTaxes + totalEmpTaxes;
+                        string finalDeductionList = payableDeductions + "," + payableTaxes;
+
+                        int finalAllowance = totalEmpAdvances + totalEmpAllowance;
+                        string finalAllowanceList = payableAdvances +" "+ payableAllowance;
+
+                        int net_payable = (basicSalary + finalAllowance) - finalDeductions;
+
+                         result = con.Execute(sqlSalaryInsert, new { name=emp.name, emp_id=emp.id, national_id=emp.national_id, position=emp.national_id, allowances=finalAllowanceList, total_allowance=finalAllowance.ToString(), deductions=finalDeductionList, total_deduction=finalDeductions.ToString(), gender=emp.gender, basic_salary=emp.salary, net_salary=net_payable.ToString(), date=emp.date, joined=emp.date_hired, created_at=emp.created_at });
+
+
+                       
                     }
-
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                finally
-                {
-                    con.Close();
-                }
-
-
-            if (res > 0)
-            {
-                Alert.Popup("Payroll Finished Process!", Alert.AlertType.success);
-
-            }
-            else
-            {
-                Alert.Popup("Failed To Process!", Alert.AlertType.error);
             }
 
+            if (result > 0)
+            {
+                Alert.Popup("PAYROLL PROCESSED!",Alert.AlertType.success);
+              }else
+            {
+                Alert.Popup("PAYROLL NOT PROCESSED!", Alert.AlertType.error);
+            }
         }
 
 
 
 
-
-
-
-
-
-
-
-
-            public string[] singleRow(string sql)
+         public string[] singleRow(string sql)
         {
             string[] emp = new string[17];
             try

@@ -194,33 +194,41 @@ namespace BiometricPayroll.FORMS
 
             m_DbFP = db.GetFP(int.Parse(SelectedRowID), 1);
 
-           
-              iError = m_FPM.MatchTemplate(m_RegMin1, m_DbFP, secu_level, ref matched);
-             iError = m_FPM.GetMatchingScore(m_RegMin1, m_DbFP, ref match_score);
-           
-
-            if (iError == (Int32)SGFPMError.ERROR_NONE)
+            if(m_DbFP != null)
             {
-                if (matched)
+
+
+                iError = m_FPM.MatchTemplate(m_RegMin1, m_DbFP, secu_level, ref matched);
+                iError = m_FPM.GetMatchingScore(m_RegMin1, m_DbFP, ref match_score);
+
+
+                if (iError == (Int32)SGFPMError.ERROR_NONE)
                 {
+                    if (matched)
+                    {
 
-                    Alert.Popup("Matching " + match_score, Alert.AlertType.success);
+                        Alert.Popup("Matching " + match_score, Alert.AlertType.success);
 
-                    EditEmployee edit = new EditEmployee();
-                    edit.empID = SelectedRowID;
-                    edit.Show();
+                        EditEmployee edit = new EditEmployee();
+                        edit.empID = SelectedRowID;
+                        edit.Show();
 
-                    this.Close();
+                        this.Close();
 
+                    }
+                    else
+                    {
+                        Alert.Popup("Fingerprints Not Matching", Alert.AlertType.error);
+                    }
                 }
                 else
                 {
-                    Alert.Popup("Fingerprints Not Matching", Alert.AlertType.error);
+                    DisplayError(iError);
                 }
             }
             else
             {
-                DisplayError(iError);
+                Alert.Popup("Employess FP Not Enrolled!", Alert.AlertType.error);
             }
         }
 

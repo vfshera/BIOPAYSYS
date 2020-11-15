@@ -40,7 +40,6 @@ namespace BiometricPayroll.FORMS
         }
 
         public string searchQuery = "";
-            public string searchTxt = "";
         public string searchDate = "";
 
         private void Attendance_Load(object sender, EventArgs e)
@@ -56,7 +55,7 @@ namespace BiometricPayroll.FORMS
         public void loadLoadAttendance()
         {
             Database db = new Database();
-            string Search = $"SELECT emp_name AS NAME,emp_id AS 'EMP ID',in_time AS 'IN TIME',out_time AS 'OUT TIME',date AS DATE FROM attendance WHERE first_name LIKE '{searchQuery}%' OR  surname LIKE '{searchQuery}%' ORDER BY id ASC";
+            string Search = $"SELECT emp_name AS NAME,emp_id AS 'EMP ID',in_time AS 'IN TIME',out_time AS 'OUT TIME',date AS DATE FROM attendance WHERE emp_name LIKE '{searchQuery}%'  ORDER BY id DESC";
 
 
             if (searchQuery.Length == 0)
@@ -260,7 +259,8 @@ namespace BiometricPayroll.FORMS
 
         private void txtBxSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Alert.Popup("Your Pressed " + e.KeyChar, Alert.AlertType.success);
+            searchQuery = txtBxSearch.Text;
+            loadLoadAttendance();
         }
 
         private void datePickSearch_ValueChanged(object sender, EventArgs e)
@@ -277,7 +277,6 @@ namespace BiometricPayroll.FORMS
                     pictureBox1.Visible = true;
                     m_FPM.SetLedOn(true);
                     getImgQuality();
-                    Alert.Popup("GETTING IMAGE!", Alert.AlertType.primary);
 
                 }
                 else if (message.WParam.ToInt32() == (Int32)SGFPMAutoOnEvent.FINGER_OFF)

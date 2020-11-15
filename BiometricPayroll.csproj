@@ -258,7 +258,10 @@
     <Compile Include="HELPERS\Requests.cs" />
     <Compile Include="HELPERS\ResponsiveUI.cs" />
     <Compile Include="HELPERS\Utilities.cs" />
+    <Compile Include="Models\EmpAllowance.cs" />
     <Compile Include="Models\EmpAttendance.cs" />
+    <Compile Include="Models\EmpDeduction.cs" />
+    <Compile Include="Models\EmpPayslip.cs" />
     <Compile Include="Models\FPTemplate.cs" />
     <Compile Include="Models\JPlaceHolder.cs" />
     <Compile Include="Models\Salary.cs" />

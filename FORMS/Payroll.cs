@@ -86,8 +86,8 @@ namespace BiometricPayroll.FORMS
         private void btnRun_Click(object sender, EventArgs e)
         {
             //Alert.Popup("Preparing Payroll...", Alert.AlertType.success);
-            //db.setPayroll();
-            payrolStart();
+            db.setPayroll();
+            //payrolStart();
         }
 
         private async void payrolStart()

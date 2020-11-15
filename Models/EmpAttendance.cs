@@ -29,5 +29,34 @@ namespace BiometricPayroll.Models
                 return $"{id}";
             }
         }
+
+
+        public string CheckInTime
+        {
+            get
+            {
+
+                return (int.Parse(DateTime.Now.ToString("HH")) < 12) ? DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") : "";
+            }
+        }
+
+
+        public string CheckOutTime
+        {
+            get
+            {
+
+                return (int.Parse(DateTime.Now.ToString("HH")) > 14) ? DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") : "";
+            }
+        }
+
+        public string AttendingDate
+        {
+            get
+            {
+
+                return  DateTime.Now.ToString("yyyy-MM-dd");
+            }
+        }
     }
 }
