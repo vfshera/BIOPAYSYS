@@ -1,4 +1,5 @@
 ﻿using BiometricPayroll.HELPERS;
+using BiometricPayroll.Models;
 using SecuGen.FDxSDKPro.Windows;
 using System;
 using System.Collections.Generic;
@@ -121,14 +122,11 @@ namespace BiometricPayroll.FORMS
             Int32 iError;
             Byte[] fp_image = new Byte[m_ImageWidth * m_ImageHeight];
             Int32 img_qlty = 0;
-
-
             int quality = 60;
 
             iError = m_FPM.GetImageEx(fp_image, timeout, this.pictureBox1.Handle.ToInt32(), quality);
 
-
-
+        
             if (iError == (Int32)SGFPMError.ERROR_NONE)
             {
 
@@ -138,9 +136,9 @@ namespace BiometricPayroll.FORMS
                 {
                     captured = true;
                     Database db = new Database();
-                    Byte[] fk = db.GetAttendanceFP(m_RegMin1);
-                    //fetchFP();
-                    //MatchFP();
+                    List<FPTemplate> templates = db.GetFPTemplates();
+                    Alert.Popup("IMAGE CAPTURED!",Alert.AlertType.primary);
+                    MatchFP(templates);
                 }
                 else
 
@@ -155,11 +153,11 @@ namespace BiometricPayroll.FORMS
                 DisplayError(iError);
             }
 
-            loadLoadAttendance();
+           
         }
 
 
-        public void MatchFP()
+        public void MatchFP(List<FPTemplate> templates)
         {
             int iError;
             Int32 match_score = 0;
@@ -168,36 +166,43 @@ namespace BiometricPayroll.FORMS
 
             Database db = new Database();
 
-            
-
-            iError = m_FPM.MatchTemplate(m_RegMin1, fetchedFP, secu_level, ref matched);
-            iError = m_FPM.GetMatchingScore(m_RegMin1, fetchedFP, ref match_score);
-
-            if (iError == (Int32)SGFPMError.ERROR_NONE)
+            foreach (FPTemplate template in templates)
             {
-                if (matched)
-                {
+                
+                iError = m_FPM.MatchTemplate(m_RegMin1, template.fingerprint, secu_level, ref matched);
+                iError = m_FPM.GetMatchingScore(m_RegMin1, template.fingerprint, ref match_score);
 
-                    if (match_score > 120)
+                if (iError == (Int32)SGFPMError.ERROR_NONE)
+                {
+                    if (matched)
                     {
-                        next();
+
+                        if (match_score > 120)
+                        {
+                           bool marked = db.FetchMatchedEmp(template.owner);
+
+                            if (marked)
+                            {
+                                loadLoadAttendance();
+                            }
+                        }
+                        else
+                        {
+                            Alert.Popup("Retry", Alert.AlertType.error);
+                            m_FPM.EnableAutoOnEvent(false, 0);
+                            m_FPM.EnableAutoOnEvent(true, (int)this.Handle);
+                        }
+
                     }
                     else
                     {
-                        Alert.Popup("Retry", Alert.AlertType.error);
-                        m_FPM.EnableAutoOnEvent(false, 0);
-                        m_FPM.EnableAutoOnEvent(true, (int)this.Handle);
+                        Alert.Popup("Theres No Record Matching Your FP!", Alert.AlertType.error);
                     }
-
                 }
                 else
                 {
-                    Alert.Popup("Fingerprints Not Matching", Alert.AlertType.error);
+                    DisplayError(iError);
                 }
-            }
-            else
-            {
-                DisplayError(iError);
             }
         }
 
@@ -270,15 +275,14 @@ namespace BiometricPayroll.FORMS
                 if (message.WParam.ToInt32() == (Int32)SGFPMAutoOnEvent.FINGER_ON)
                 {
                     pictureBox1.Visible = true;
-                    Alert.Popup("FP DETECTED", Alert.AlertType.success);
                     m_FPM.SetLedOn(true);
                     getImgQuality();
+                    Alert.Popup("GETTING IMAGE!", Alert.AlertType.primary);
 
                 }
                 else if (message.WParam.ToInt32() == (Int32)SGFPMAutoOnEvent.FINGER_OFF)
                 {
                     pictureBox1.Visible = false;
-                    Alert.Popup("FP REMOVED", Alert.AlertType.error);
                     m_FPM.SetLedOn(false);
 
                 }

@@ -15,6 +15,7 @@ namespace BiometricPayroll.HELPERS
         public const string BIOPAYSYS_KEY = "q4GxaarGguyHkzd8VvczFuWpspeW";
         //ENDAPPKEY
 
+        public const string TEMPLATES_QUERY = "SELECT * FROM templetes";
         public const string ALLOWANCES_QUERY = "SELECT id AS ID,title AS TITLE, amount AS AMOUNT, method AS METHOD ,status AS STATUS FROM advances ORDER BY id ASC";
         public const string DEDUCTIONS_QUERY = "SELECT id AS ID,title AS TITLE, amount AS AMOUNT, method AS METHOD ,status AS STATUS FROM taxes ORDER BY id ASC";
        public const string EMP_QUERY = "SELECT id AS ID,salary AS SALARY, CONCAT_WS(' ' , first_name , surname) AS NAME,position AS JOB FROM employees ORDER BY id ASC";

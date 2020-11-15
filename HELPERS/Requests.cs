@@ -1,4 +1,5 @@
-﻿using BiometricPayroll.Models;
+﻿using BiometricPayroll.FORMS;
+using BiometricPayroll.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace BiometricPayroll.HELPERS
         {
             string url = "/process-payroll";
 
-            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
             
             using (HttpResponseMessage res = await PayrollAPI.PayrollApiService.GetAsync(url))

@@ -93,8 +93,15 @@ namespace BiometricPayroll.FORMS
         private async void payrolStart()
         {
 
-            Salary payslip = await Requests.processPay();
-            Alert.Popup(payslip.Message, Alert.AlertType.success);
+            try
+            {
+                Salary payslip = await Requests.processPay();
+                Alert.Popup(payslip.Message, Alert.AlertType.success);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
 
 

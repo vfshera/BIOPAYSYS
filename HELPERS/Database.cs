@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using System.Data;
 using Guna.UI2.WinForms;
 using BiometricPayroll.FORMS;
+using Dapper;
+using BiometricPayroll.Models;
 
 namespace BiometricPayroll.HELPERS
 {
@@ -279,42 +281,63 @@ namespace BiometricPayroll.HELPERS
             return reg;
         }
 
-        public Byte[] GetAttendanceFP(Byte[] fp)
+        public List<FPTemplate> GetFPTemplates()
         {
-            bool reg = false;
+            List<FPTemplate> templates;
 
-            string sql = $"SELECT employees.*  FROM templetes,employees WHERE templetes.fingerprint='{fp}' AND templetes.owner=employees.id";
-
-            Byte[] fprint = null;
-            try
+            bool found = false;
+            
+            using (con)
             {
-                con.Open();
-                cmd = new MySqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = sql;
-
-                MySqlDataReader dr = cmd.ExecuteReader();
-
-                if (dr.HasRows)
-                {
-                    while (dr.Read())
-                    {
-                        //fprint = (Byte[])dr.GetValue(0);
-
-                        Alert.Popup("You are "+dr.GetValue(0).ToString(), Alert.AlertType.success);
-
-                    }
-                }
-
-                dr.Close();
+                templates = con.Query<FPTemplate>(Constants.TEMPLATES_QUERY).ToList();
             }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            return fprint;
+
+          
+
+            return templates;
         }
 
+        public bool FetchMatchedEmp(string empID)
+        {
+            bool marked = false;
+           List<EmpAttendance> employees;
+            string checkedIn = $"SELECT * FROM employees WHERE id={empID}";
+
+            using (con)
+            {
+                employees = con.Query<EmpAttendance>(checkedIn).ToList();
+
+               
+            }
+
+
+            if (employees != null)
+            {
+                using (con)
+                {
+                    string markAttendance = $"INSERT INTO attendance (emp_name,emp_id) VALUES(@EmpName,@EmpID)";
+                    var rows = con.Execute(markAttendance, employees);
+
+                    if (rows > 0)
+                    {
+                        Alert.Popup("Welcome On Board ", Alert.AlertType.success);
+                        marked = true;
+                    }
+                    else
+                    {
+                        Alert.Popup("Unable To Mark Your Attendance!", Alert.AlertType.success);
+                        marked = false;
+                    }
+                }
+            }
+            else
+            {
+                Alert.Popup("Employee Not Found!", Alert.AlertType.error);
+            }
+
+
+            return marked;
+        }
 
         public Byte[] GetFP(int owner,int type)
         {
