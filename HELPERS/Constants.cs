@@ -16,6 +16,11 @@ namespace BiometricPayroll.HELPERS
         //ENDAPPKEY
 
         public const string TEMPLATES_QUERY = "SELECT * FROM templetes";
+       
+        public const string EMP_REPORT_QUERY = "SELECT CONCAT_WS(' ' ,first_name, sec_name, surname) AS NAME, position AS POSITION, address AS ADDRESS, email AS EMAIL, phonenumber AS PHONE FROM employees";
+        public const string ATTENDANCE_REPORT_QUERY = "SELECT emp_name AS NAME,in_time AS 'IN_TIME',out_time AS 'OUT_TIME',date AS DATE FROM attendance";
+        public const string SALARIES_REPORT_QUERY = "SELECT name AS NAME, position AS POSITION, total_allowance AS ALLOWANCE, total_deduction AS DEDUCTIONS,basic_salary AS 'BASIC SALARY', net_salary AS 'NET SALARY' FROM salaries";
+      
         public const string ALLOWANCES_QUERY = "SELECT id AS ID,title AS TITLE, amount AS AMOUNT, method AS METHOD ,status AS STATUS FROM advances ORDER BY id ASC";
         public const string DEDUCTIONS_QUERY = "SELECT id AS ID,title AS TITLE, amount AS AMOUNT, method AS METHOD ,status AS STATUS FROM taxes ORDER BY id ASC";
        public const string EMP_QUERY = "SELECT id AS ID,salary AS SALARY, CONCAT_WS(' ' , first_name , surname) AS NAME,position AS JOB FROM employees ORDER BY id ASC";

@@ -225,7 +225,43 @@ namespace BiometricPayroll.HELPERS
             }
 
         }
+        public List<Models.EmployeesReport> getEmployeeReport()
+        {
+            List<Models.EmployeesReport> emps = null;
 
+            using (con)
+            {
+                emps = con.Query<Models.EmployeesReport>(Constants.EMP_REPORT_QUERY).ToList();
+            }
+
+
+            return emps;
+        }
+
+        public List<Models.AttendanceReport> getAttendanceReport()
+        {
+            List<Models.AttendanceReport> attendance = null;
+
+            using (con)
+            {
+                attendance = con.Query<Models.AttendanceReport>(Constants.ATTENDANCE_REPORT_QUERY).ToList();
+            }
+
+            return attendance;
+        }
+
+        public List<EmpSalaryReport> getSalaryReport()
+        {
+            List<EmpSalaryReport> empReport = null;
+
+            using (con)
+            {
+                empReport = con.Query<EmpSalaryReport>(Constants.SALARIES_REPORT_QUERY).ToList();
+            }
+
+            return empReport;
+
+        }
 
         public bool updateFP(string owner, string type, Byte[] fp)
         {

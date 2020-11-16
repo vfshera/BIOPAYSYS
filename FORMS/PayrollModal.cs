@@ -31,7 +31,7 @@ namespace BiometricPayroll.FORMS
             txtInfo.TextAlign = ContentAlignment.MiddleCenter;
             btnAction.Text = btnStr;
             autoClosetmr.Enabled = true;
-            setDefaults();
+            //setDefaults();
         }
 
         private void autoClosetmr_Tick(object sender, EventArgs e)
@@ -41,11 +41,11 @@ namespace BiometricPayroll.FORMS
 
         private void setDefaults()
         {
-            if(int.Parse(sqlState) == 1)
+            if(sqlState == "0")
             {
                 newValue = "0";
             }
-            else if (int.Parse(sqlState) == 0)
+            else if (sqlState == "1")
             {
                 newValue = "1";
             }
