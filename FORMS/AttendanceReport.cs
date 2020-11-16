@@ -13,16 +13,22 @@ namespace BiometricPayroll.FORMS
 {
     public partial class AttendanceReport : Form
     {
+       
+
         public AttendanceReport()
         {
             InitializeComponent();
+
+          
         }
 
+        
+          public  string dateLike = "";
         private void AttendanceReport_Load(object sender, EventArgs e)
         {
             Database db = new Database();
 
-            db.LoadDTG(attendanceReprtGV, Constants.ATTENDANCE_REPORT_QUERY);
+            db.LoadDTG(attendanceReprtGV, Constants.ATTENDANCE_REPORT_QUERY+$" WHERE date LIKE '{dateLike}%' ");
         }
     }
 }

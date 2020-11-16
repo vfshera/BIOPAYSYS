@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reports));
             this.btnEmps = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btnEmpExcel = new Guna.UI.WinForms.GunaAdvenceButton();
@@ -38,6 +39,9 @@
             this.btnAttendanceReport = new Guna.UI.WinForms.GunaAdvenceButton();
             this.attendanceExcelBtn = new Guna.UI.WinForms.GunaAdvenceButton();
             this.printAttendanceBtn = new Guna.UI.WinForms.GunaAdvenceButton();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.dateFilter = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.SuspendLayout();
             // 
             // btnEmps
@@ -61,7 +65,7 @@
             this.btnEmps.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnEmps.ImageSize = new System.Drawing.Size(80, 80);
             this.btnEmps.LineColor = System.Drawing.Color.RoyalBlue;
-            this.btnEmps.Location = new System.Drawing.Point(50, 94);
+            this.btnEmps.Location = new System.Drawing.Point(50, 157);
             this.btnEmps.Name = "btnEmps";
             this.btnEmps.OnHoverBaseColor = System.Drawing.Color.RoyalBlue;
             this.btnEmps.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -97,7 +101,7 @@
             this.btnEmpExcel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnEmpExcel.ImageSize = new System.Drawing.Size(80, 80);
             this.btnEmpExcel.LineColor = System.Drawing.Color.Green;
-            this.btnEmpExcel.Location = new System.Drawing.Point(50, 338);
+            this.btnEmpExcel.Location = new System.Drawing.Point(50, 413);
             this.btnEmpExcel.Name = "btnEmpExcel";
             this.btnEmpExcel.OnHoverBaseColor = System.Drawing.Color.Green;
             this.btnEmpExcel.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -133,7 +137,7 @@
             this.btnSalary.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnSalary.ImageSize = new System.Drawing.Size(80, 80);
             this.btnSalary.LineColor = System.Drawing.Color.RoyalBlue;
-            this.btnSalary.Location = new System.Drawing.Point(1039, 94);
+            this.btnSalary.Location = new System.Drawing.Point(1039, 157);
             this.btnSalary.Name = "btnSalary";
             this.btnSalary.OnHoverBaseColor = System.Drawing.Color.RoyalBlue;
             this.btnSalary.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -169,7 +173,7 @@
             this.btnSalaryExcel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnSalaryExcel.ImageSize = new System.Drawing.Size(80, 80);
             this.btnSalaryExcel.LineColor = System.Drawing.Color.Green;
-            this.btnSalaryExcel.Location = new System.Drawing.Point(1039, 338);
+            this.btnSalaryExcel.Location = new System.Drawing.Point(1039, 413);
             this.btnSalaryExcel.Name = "btnSalaryExcel";
             this.btnSalaryExcel.OnHoverBaseColor = System.Drawing.Color.Green;
             this.btnSalaryExcel.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -205,7 +209,7 @@
             this.btnPrintSalary.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnPrintSalary.ImageSize = new System.Drawing.Size(80, 80);
             this.btnPrintSalary.LineColor = System.Drawing.Color.DarkTurquoise;
-            this.btnPrintSalary.Location = new System.Drawing.Point(1039, 595);
+            this.btnPrintSalary.Location = new System.Drawing.Point(1039, 658);
             this.btnPrintSalary.Name = "btnPrintSalary";
             this.btnPrintSalary.OnHoverBaseColor = System.Drawing.Color.DarkTurquoise;
             this.btnPrintSalary.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -240,7 +244,7 @@
             this.btnPrintEmp.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnPrintEmp.ImageSize = new System.Drawing.Size(80, 80);
             this.btnPrintEmp.LineColor = System.Drawing.Color.DarkTurquoise;
-            this.btnPrintEmp.Location = new System.Drawing.Point(50, 595);
+            this.btnPrintEmp.Location = new System.Drawing.Point(50, 658);
             this.btnPrintEmp.Name = "btnPrintEmp";
             this.btnPrintEmp.OnHoverBaseColor = System.Drawing.Color.DarkTurquoise;
             this.btnPrintEmp.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -275,7 +279,7 @@
             this.btnAttendanceReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnAttendanceReport.ImageSize = new System.Drawing.Size(60, 60);
             this.btnAttendanceReport.LineColor = System.Drawing.Color.RoyalBlue;
-            this.btnAttendanceReport.Location = new System.Drawing.Point(550, 94);
+            this.btnAttendanceReport.Location = new System.Drawing.Point(550, 157);
             this.btnAttendanceReport.Name = "btnAttendanceReport";
             this.btnAttendanceReport.OnHoverBaseColor = System.Drawing.Color.RoyalBlue;
             this.btnAttendanceReport.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -311,7 +315,7 @@
             this.attendanceExcelBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.attendanceExcelBtn.ImageSize = new System.Drawing.Size(80, 80);
             this.attendanceExcelBtn.LineColor = System.Drawing.Color.Green;
-            this.attendanceExcelBtn.Location = new System.Drawing.Point(550, 338);
+            this.attendanceExcelBtn.Location = new System.Drawing.Point(550, 413);
             this.attendanceExcelBtn.Name = "attendanceExcelBtn";
             this.attendanceExcelBtn.OnHoverBaseColor = System.Drawing.Color.Green;
             this.attendanceExcelBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -347,7 +351,7 @@
             this.printAttendanceBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.printAttendanceBtn.ImageSize = new System.Drawing.Size(80, 80);
             this.printAttendanceBtn.LineColor = System.Drawing.Color.DarkTurquoise;
-            this.printAttendanceBtn.Location = new System.Drawing.Point(550, 595);
+            this.printAttendanceBtn.Location = new System.Drawing.Point(550, 658);
             this.printAttendanceBtn.Name = "printAttendanceBtn";
             this.printAttendanceBtn.OnHoverBaseColor = System.Drawing.Color.DarkTurquoise;
             this.printAttendanceBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -362,12 +366,48 @@
             this.printAttendanceBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.printAttendanceBtn.Click += new System.EventHandler(this.printAttendanceBtn_Click);
             // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Panel1.Location = new System.Drawing.Point(12, 125);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
+            this.guna2Panel1.Size = new System.Drawing.Size(1474, 5);
+            this.guna2Panel1.TabIndex = 1;
+            // 
+            // dateFilter
+            // 
+            this.dateFilter.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dateFilter.CheckedState.Parent = this.dateFilter;
+            this.dateFilter.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dateFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFilter.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.dateFilter.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateFilter.HoverState.Parent = this.dateFilter;
+            this.dateFilter.Location = new System.Drawing.Point(510, 31);
+            this.dateFilter.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateFilter.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateFilter.Name = "dateFilter";
+            this.dateFilter.ShadowDecoration.Parent = this.dateFilter;
+            this.dateFilter.Size = new System.Drawing.Size(478, 66);
+            this.dateFilter.TabIndex = 2;
+            this.dateFilter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dateFilter.Value = new System.DateTime(2020, 11, 16, 5, 43, 3, 644);
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 10;
+            this.guna2Elipse1.TargetControl = this.dateFilter;
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1498, 847);
+            this.Controls.Add(this.dateFilter);
+            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.printAttendanceBtn);
             this.Controls.Add(this.btnPrintSalary);
             this.Controls.Add(this.attendanceExcelBtn);
@@ -398,5 +438,8 @@
         private Guna.UI.WinForms.GunaAdvenceButton btnAttendanceReport;
         private Guna.UI.WinForms.GunaAdvenceButton attendanceExcelBtn;
         private Guna.UI.WinForms.GunaAdvenceButton printAttendanceBtn;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dateFilter;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }

@@ -21,13 +21,18 @@ namespace BiometricPayroll.FORMS
         }
         private void btnAttendanceReport_Click(object sender, EventArgs e)
         {
-            AttendanceReport ar = new AttendanceReport();
+            Alert.Popup($"Showing  Attendance For {dateFilter.Value.ToString("MMMM yyyy")}!", Alert.AlertType.success);
 
+            AttendanceReport ar = new AttendanceReport();
+            ar.dateLike = dateFilter.Value.ToString("yyyy-MM");
             ar.Show();
         }
         private void btnSalary_Click(object sender, EventArgs e)
         {
+            Alert.Popup($"Showing  Attendance For {dateFilter.Value.ToString("MMMM yyyy")}!", Alert.AlertType.success);
+
             SalaryReport sr = new SalaryReport();
+            sr.dateLike = dateFilter.Value.ToString("yyyy-MM");
             sr.Show();
         }
 
@@ -73,7 +78,7 @@ namespace BiometricPayroll.FORMS
 
         private void printAttendanceBtn_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void attendanceExcelBtn_Click(object sender, EventArgs e)

@@ -18,11 +18,12 @@ namespace BiometricPayroll.FORMS
             InitializeComponent();
         }
 
+        public string dateLike = "";
         private void SalaryReport_Load(object sender, EventArgs e)
         {
             Database db = new Database();
 
-            db.LoadDTG(salaryReprtGV, Constants.SALARIES_REPORT_QUERY);
+            db.LoadDTG(salaryReprtGV, Constants.SALARIES_REPORT_QUERY + $" WHERE date LIKE '{dateLike}%' ");
         }
     }
 }
