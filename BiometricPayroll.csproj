@@ -321,6 +321,7 @@
     <Compile Include="Models\EmpPayslip.cs" />
     <Compile Include="Models\FPTemplate.cs" />
     <Compile Include="Models\JPlaceHolder.cs" />
+    <Compile Include="Models\Payslip.cs" />
     <Compile Include="Models\Salary.cs" />
     <Compile Include="Models\EmpSalaryReport.cs" />
     <Compile Include="Program.cs" />

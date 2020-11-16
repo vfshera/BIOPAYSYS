@@ -263,6 +263,20 @@ namespace BiometricPayroll.HELPERS
 
         }
 
+
+        public List<Payslip> GetPayslips()
+        {
+            List<Payslip> pay = null;
+
+            using (con)
+            {
+                pay = con.Query<Payslip>(Constants.PAYSLIP_QUERY).ToList();
+            }
+
+            return pay;
+
+        }
+
         public bool updateFP(string owner, string type, Byte[] fp)
         {
             bool reg = false;
@@ -351,19 +365,33 @@ namespace BiometricPayroll.HELPERS
             {
                 using (con)
                 {
-                    string markAttendance = $"INSERT INTO attendance (emp_name,emp_id,in_time,out_time,date) VALUES(@EmpName,@EmpID,@CheckInTime,@CheckOutTime,@AttendingDate)";
-                    var rows = con.Execute(markAttendance, employees);
+                   // List<EmpAttendance> attendedEMPS;
 
-                    if (rows > 0)
-                    {
-                        Alert.Popup("Welcome On Board", Alert.AlertType.success);
-                        marked = true;
-                    }
-                    else
-                    {
-                        Alert.Popup("Unable To Mark Your Attendance!", Alert.AlertType.error);
-                        marked = false;
-                    }
+                   // attendedEMPS = con.Query<EmpAttendance>($"SELECT * FROM attendance WHERE emp_id={empID} AND in_time LIKE '{DateTime.Now.ToString("yyyy-MM")}%' ").ToList();
+
+                   //if(attendedEMPS == null)
+                   // {
+                        string markAttendance = $"INSERT INTO attendance (emp_name,emp_id,in_time,out_time,date) VALUES(@EmpName,@EmpID,@CheckInTime,@CheckOutTime,@AttendingDate)";
+                        var rows = con.Execute(markAttendance, employees);
+
+                        if (rows > 0)
+                        {
+                            Alert.Popup("Welcome On Board", Alert.AlertType.success);
+                            marked = true;
+                        }
+                        else
+                        {
+                            Alert.Popup("Unable To Mark Your Attendance!", Alert.AlertType.error);
+                            marked = false;
+                        }
+                    //}
+                    //else
+                    //{
+                    //    foreach(EmpAttendance att in attendedEMPS)
+                    //    {
+                    //        con.Execute($"UPDATE attendance SET out_time='{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}' WHERE emp_id={empID}");
+                    //    }
+                    //}
                 }
             }
             else
@@ -620,9 +648,9 @@ namespace BiometricPayroll.HELPERS
                             }
                             else
                             {
-                                {
+                                
                                     payableAllowance +=  allo.title + " " + amount.ToString();
-                                }
+                              
                             }
 
                             totalEmpAllowance += amount;
@@ -651,9 +679,9 @@ namespace BiometricPayroll.HELPERS
                             }
                             else
                             {
-                                {
+                               
                                     payableAdvances += advance.title + " " + advanceAmount.ToString();
-                                }
+                              
                             }
 
                             totalEmpAdvances += advanceAmount;

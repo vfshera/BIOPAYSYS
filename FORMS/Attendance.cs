@@ -126,7 +126,7 @@ namespace BiometricPayroll.FORMS
             Int32 iError;
             Byte[] fp_image = new Byte[m_ImageWidth * m_ImageHeight];
             Int32 img_qlty = 0;
-            int quality = 60;
+            int quality = 50;
 
             iError = m_FPM.GetImageEx(fp_image, timeout, this.pictureBox1.Handle.ToInt32(), quality);
 
@@ -141,7 +141,6 @@ namespace BiometricPayroll.FORMS
                     captured = true;
                     Database db = new Database();
                     List<FPTemplate> templates = db.GetFPTemplates();
-                    Alert.Popup("IMAGE CAPTURED!",Alert.AlertType.primary);
                     MatchFP(templates);
                 }
                 else
@@ -181,12 +180,13 @@ namespace BiometricPayroll.FORMS
                     if (matched)
                     {
 
-                        if (match_score > 120)
+                        if (match_score > 100)
                         {
                            bool marked = db.FetchMatchedEmp(template.owner);
 
                             if (marked)
                             {
+                                pictureBox1.Visible = true;
                                 loadLoadAttendance();
                             }
                         }
@@ -279,7 +279,7 @@ namespace BiometricPayroll.FORMS
             {
                 if (message.WParam.ToInt32() == (Int32)SGFPMAutoOnEvent.FINGER_ON)
                 {
-                    pictureBox1.Visible = true;
+                  
                     m_FPM.SetLedOn(true);
                     getImgQuality();
 

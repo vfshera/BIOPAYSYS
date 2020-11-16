@@ -43,44 +43,74 @@ namespace BiometricPayroll.FORMS
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            
-            //dashes
-            string longDash = "-------------------------------------------------------------------------------------------------------------------------------------";
-             //enddashes
-            e.Graphics.DrawString("BIOMETRIC PAYROLL",new System.Drawing.Font("Century Gothic", 26,FontStyle.Bold),Brushes.Black,new System.Drawing.Point(260,50));
-            e.Graphics.DrawString(longDash, new System.Drawing.Font("Century Gothic", 10, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(30, 1050));
-
-            //e.Graphics.DrawRectangle(new System.Drawing.Pen(System.Drawing.Color.DarkGray),new System.Drawing.Rectangle(new System.Drawing.Point(0,1000), new System.Drawing.Size(850,100)));
-            e.Graphics.DrawLine(new System.Drawing.Pen(System.Drawing.Color.DarkGray),30,100,820,100);
-            
-            
-            
-            //NAME
-            e.Graphics.DrawString("NAME : ",new System.Drawing.Font("Century Gothic", 16,FontStyle.Regular),Brushes.Black,new System.Drawing.Point(50,150));
-            e.Graphics.DrawString("FRANKLIN SHERA VIDONYI",new System.Drawing.Font("Century Gothic", 16,FontStyle.Regular),Brushes.Black,new System.Drawing.Point(380,150));
 
 
-            //ID
-            e.Graphics.DrawString("EMPLOYEE ID : ", new System.Drawing.Font("Century Gothic", 16, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(50, 200));
-            e.Graphics.DrawString("VFS28-33XV05", new System.Drawing.Font("Century Gothic", 16, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(380, 200));
+            Database db = new Database();
+
+            List<Payslip> payslips =  db.GetPayslips();
+           
+            foreach(Payslip payslip in payslips)
+            {
+                //dashes
+                string longDash = "-------------------------------------------------------------------------------------------------------------------------------------";
+                //enddashes
+                e.Graphics.DrawString("BIOMETRIC PAYROLL", new System.Drawing.Font("Century Gothic", 26, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(260, 50));
+                e.Graphics.DrawString(longDash, new System.Drawing.Font("Century Gothic", 10, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(30, 1050));
+
+                //e.Graphics.DrawRectangle(new System.Drawing.Pen(System.Drawing.Color.DarkGray),new System.Drawing.Rectangle(new System.Drawing.Point(0,1000), new System.Drawing.Size(850,100)));
+                e.Graphics.DrawLine(new System.Drawing.Pen(System.Drawing.Color.DarkGray), 30, 100, 820, 100);
 
 
-            //NATID
-            e.Graphics.DrawString("NATIONAL ID : ", new System.Drawing.Font("Century Gothic", 16, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(50, 250));
-            e.Graphics.DrawString("33282005", new System.Drawing.Font("Century Gothic", 16, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(380, 250));
+
+                //NAME
+                e.Graphics.DrawString("NAME : ", new System.Drawing.Font("Century Gothic", 16, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(50, 150));
+                e.Graphics.DrawString(payslip.NAME, new System.Drawing.Font("Century Gothic", 16, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(380, 150));
 
 
-            //POSITION
-            e.Graphics.DrawString("DESIGNATION : ", new System.Drawing.Font("Century Gothic", 16, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(50, 300));
-            e.Graphics.DrawString("SOFTWARE DEVELOPER", new System.Drawing.Font("Century Gothic", 16, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(380, 300));
+              
 
 
-            //section
+                //POSITION
+                e.Graphics.DrawString("DESIGNATION : ", new System.Drawing.Font("Century Gothic", 16, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(50, 250));
+                e.Graphics.DrawString(payslip.POSITION, new System.Drawing.Font("Century Gothic", 16, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(380, 250));
 
-            //ALLOWANCES    
-            e.Graphics.DrawString("ALLOWANCES : ", new System.Drawing.Font("Century Gothic", 16, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(50, 370));
+
+                //section
+
+                //ALLOWANCES    
+                e.Graphics.DrawString("ALLOWANCES : ", new System.Drawing.Font("Century Gothic", 16, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(50, 370));
+
+                //ALLOWANCE
+                e.Graphics.DrawString(payslip.ALLOWANCE, new System.Drawing.Font("Century Gothic", 16, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(50, 420));
+               
+                e.Graphics.DrawString(payslip.TOTAL_ALLOWANCE, new System.Drawing.Font("Century Gothic", 16, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(650, 420));
+
+                e.Graphics.DrawLine(new System.Drawing.Pen(System.Drawing.Color.DarkGray), 30, 100, 820, 100);
+
+                //DEDUCTIONS   
+                e.Graphics.DrawString("DEDUCTIONS : ", new System.Drawing.Font("Century Gothic", 16, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(50, 500));
+                
+                e.Graphics.DrawString(payslip.DEDUCTIONS, new System.Drawing.Font("Century Gothic", 16, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(50, 550));
+               
+                e.Graphics.DrawString(payslip.TOTAL_DEDUCTIONS, new System.Drawing.Font("Century Gothic", 16, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(650, 550));
 
 
+                e.Graphics.DrawLine(new System.Drawing.Pen(System.Drawing.Color.DarkGray), 30, 100, 820, 100);
+
+                //NATID
+                e.Graphics.DrawString("BASIC SALARY : ", new System.Drawing.Font("Century Gothic", 16, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(50, 670));
+                e.Graphics.DrawString(payslip.BASIC_SALARY, new System.Drawing.Font("Century Gothic", 16, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(380, 670));
+
+
+                //POSITION
+                e.Graphics.DrawString("NET SALARY : ", new System.Drawing.Font("Century Gothic", 16, FontStyle.Bold), Brushes.Black, new System.Drawing.Point(50, 720));
+                e.Graphics.DrawString(payslip.NET_SALARY, new System.Drawing.Font("Century Gothic", 16, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(380, 720));
+               
+                e.Graphics.DrawString(payslip.created_at, new System.Drawing.Font("Century Gothic", 16, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(50, 800));
+
+
+
+            }
         }
 
         private void btnRun_Click(object sender, EventArgs e)
