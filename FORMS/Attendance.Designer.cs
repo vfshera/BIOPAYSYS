@@ -153,6 +153,7 @@
             this.txtBxSearch.ShadowDecoration.Parent = this.txtBxSearch;
             this.txtBxSearch.Size = new System.Drawing.Size(552, 52);
             this.txtBxSearch.TabIndex = 5;
+            this.txtBxSearch.TextChanged += new System.EventHandler(this.txtBxSearch_TextChanged);
             this.txtBxSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBxSearch_KeyPress);
             // 
             // guna2Elipse1

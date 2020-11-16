@@ -31,7 +31,7 @@ namespace BiometricPayroll.FORMS
             txtInfo.TextAlign = ContentAlignment.MiddleCenter;
             btnAction.Text = btnStr;
             autoClosetmr.Enabled = true;
-            //setDefaults();
+            setDefaults();
         }
 
         private void autoClosetmr_Tick(object sender, EventArgs e)
@@ -43,17 +43,23 @@ namespace BiometricPayroll.FORMS
         {
             if(sqlState == "0")
             {
-                newValue = "0";
+                newValue = "1";
             }
             else if (sqlState == "1")
             {
-                newValue = "1";
+                newValue = "0";
+            }
+            else
+            {
+                newValue = "0";
             }
         }
 
         private void btnAction_Click(object sender, EventArgs e)
         {
             string sql = $"UPDATE {tableName} SET status='{newValue}' WHERE id='{id}' ";
+
+            MessageBox.Show("--"+sqlState+" -- "+sql);
 
             Database db = new Database();
 

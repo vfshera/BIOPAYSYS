@@ -94,12 +94,12 @@ namespace BiometricPayroll.FORMS
                 string query = "";
                 if (dataType == 0)
                 {
-                     query = $"INSERT INTO deductions (title,method,amount,payer) VALUES('{txtTitle.Text.ToUpper()}','{dropMethod.SelectedItem.ToString().ToUpper()}','{txtAmount.Text.ToUpper()}','{emplID}')";
+                     query = $"INSERT INTO deductions (title,method,amount,payer,status) VALUES('{txtTitle.Text.ToUpper()}','{dropMethod.SelectedItem.ToString().ToUpper()}','{txtAmount.Text.ToUpper()}','{emplID}','1')";
 
                 }
                 else if(dataType == 1)
                 {
-                     query = $"INSERT INTO allowances (title,method,amount,receiver) VALUES('{txtTitle.Text.ToUpper()}','{dropMethod.SelectedItem.ToString().ToUpper()}','{txtAmount.Text.ToUpper()}','{emplID}')";
+                     query = $"INSERT INTO allowances (title,method,amount,receiver,status) VALUES('{txtTitle.Text.ToUpper()}','{dropMethod.SelectedItem.ToString().ToUpper()}','{txtAmount.Text.ToUpper()}','{emplID}','1')";
                 }
 
 

@@ -70,6 +70,11 @@ namespace BiometricPayroll.FORMS
 
         }
 
+        private void txtBxSearch_TextChanged(object sender, EventArgs e)
+        {
+            searchQuery = txtBxSearch.Text;
+            loadLoadAttendance();
+        }
 
 
 
@@ -403,6 +408,6 @@ namespace BiometricPayroll.FORMS
 
         }
 
-       
+        
     }
 }
