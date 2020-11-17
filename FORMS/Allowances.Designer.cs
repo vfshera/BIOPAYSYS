@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Allowances));
             this.parentDeductionPanel = new Guna.UI.WinForms.GunaGradient2Panel();
             this.DeductionsGVPanel = new Guna.UI2.WinForms.Guna2ShadowPanel();
@@ -68,9 +68,9 @@
             this.parentDeductionPanel.Controls.Add(this.delBtn);
             this.parentDeductionPanel.GradientColor1 = System.Drawing.Color.White;
             this.parentDeductionPanel.GradientColor2 = System.Drawing.Color.White;
-            this.parentDeductionPanel.Location = new System.Drawing.Point(-1, -2);
+            this.parentDeductionPanel.Location = new System.Drawing.Point(8, 6);
             this.parentDeductionPanel.Name = "parentDeductionPanel";
-            this.parentDeductionPanel.Size = new System.Drawing.Size(1078, 680);
+            this.parentDeductionPanel.Size = new System.Drawing.Size(1078, 713);
             this.parentDeductionPanel.TabIndex = 1;
             // 
             // DeductionsGVPanel
@@ -99,30 +99,30 @@
             // 
             // allowancesGridView
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(249)))));
-            this.allowancesGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(249)))));
+            this.allowancesGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.allowancesGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.allowancesGridView.BackgroundColor = System.Drawing.Color.White;
             this.allowancesGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.allowancesGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.allowancesGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.allowancesGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.allowancesGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.allowancesGridView.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.allowancesGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.allowancesGridView.DefaultCellStyle = dataGridViewCellStyle9;
             this.allowancesGridView.EnableHeadersVisualStyles = false;
             this.allowancesGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.allowancesGridView.Location = new System.Drawing.Point(14, 62);
@@ -176,11 +176,11 @@
             this.AddDeductionsPanel.Controls.Add(this.formHeaderlbl);
             this.AddDeductionsPanel.FillColor = System.Drawing.Color.White;
             this.AddDeductionsPanel.ForeColor = System.Drawing.Color.Black;
-            this.AddDeductionsPanel.Location = new System.Drawing.Point(752, 12);
+            this.AddDeductionsPanel.Location = new System.Drawing.Point(752, 13);
             this.AddDeductionsPanel.Name = "AddDeductionsPanel";
             this.AddDeductionsPanel.Radius = 10;
             this.AddDeductionsPanel.ShadowColor = System.Drawing.Color.Black;
-            this.AddDeductionsPanel.Size = new System.Drawing.Size(317, 589);
+            this.AddDeductionsPanel.Size = new System.Drawing.Size(317, 604);
             this.AddDeductionsPanel.TabIndex = 0;
             // 
             // resetImgBtn
@@ -400,7 +400,7 @@
             this.formHeaderlbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.formHeaderlbl.AutoSize = true;
             this.formHeaderlbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.formHeaderlbl.Location = new System.Drawing.Point(78, 44);
+            this.formHeaderlbl.Location = new System.Drawing.Point(78, 52);
             this.formHeaderlbl.Name = "formHeaderlbl";
             this.formHeaderlbl.Size = new System.Drawing.Size(194, 28);
             this.formHeaderlbl.TabIndex = 0;
@@ -426,7 +426,7 @@
             this.editBtn.Image = null;
             this.editBtn.ImageSize = new System.Drawing.Size(20, 20);
             this.editBtn.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.editBtn.Location = new System.Drawing.Point(962, 618);
+            this.editBtn.Location = new System.Drawing.Point(962, 630);
             this.editBtn.Name = "editBtn";
             this.editBtn.OnHoverBaseColor = System.Drawing.Color.Teal;
             this.editBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -460,7 +460,7 @@
             this.delBtn.Image = null;
             this.delBtn.ImageSize = new System.Drawing.Size(20, 20);
             this.delBtn.LineColor = System.Drawing.Color.Red;
-            this.delBtn.Location = new System.Drawing.Point(757, 618);
+            this.delBtn.Location = new System.Drawing.Point(757, 630);
             this.delBtn.Name = "delBtn";
             this.delBtn.OnHoverBaseColor = System.Drawing.Color.Maroon;
             this.delBtn.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -479,7 +479,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1078, 679);
+            this.ClientSize = new System.Drawing.Size(1096, 726);
             this.Controls.Add(this.parentDeductionPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Allowances";

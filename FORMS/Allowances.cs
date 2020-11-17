@@ -25,6 +25,7 @@ namespace BiometricPayroll.FORMS
         private bool editMode = false;
         private void Allowances_Load(object sender, EventArgs e)
         {
+           
             loadAllowances();
             checkMode();
         }

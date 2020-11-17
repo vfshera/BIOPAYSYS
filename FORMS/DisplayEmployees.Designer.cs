@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.empTableGrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.empTableGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +74,7 @@
             this.empTableGrid.ReadOnly = true;
             this.empTableGrid.RowHeadersVisible = false;
             this.empTableGrid.RowHeadersWidth = 51;
-            this.empTableGrid.RowTemplate.Height = 24;
+            this.empTableGrid.RowTemplate.Height = 40;
             this.empTableGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.empTableGrid.Size = new System.Drawing.Size(1083, 664);
             this.empTableGrid.TabIndex = 0;
@@ -95,10 +97,15 @@
             this.empTableGrid.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.empTableGrid.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.empTableGrid.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.empTableGrid.ThemeStyle.RowsStyle.Height = 24;
+            this.empTableGrid.ThemeStyle.RowsStyle.Height = 40;
             this.empTableGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.empTableGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.empTableGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.empTableGrid_CellClick);
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 15;
+            this.guna2Elipse1.TargetControl = this.empTableGrid;
             // 
             // DisplayEmployees
             // 
@@ -120,5 +127,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView empTableGrid;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }
